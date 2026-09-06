@@ -153,7 +153,7 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="flex flex-col gap-0.5 rounded-md bg-ctp-surface1/60 px-3 py-2.5">
+		<div className="flex flex-col gap-0.5 rounded-lg bg-ctp-surface1/60 px-3 py-2.5">
 			<span className="text-xl font-bold tabular-nums text-ctp-text">{value}</span>
 			<span className="text-[11px] text-ctp-overlay1">{label}</span>
 		</div>
@@ -265,7 +265,7 @@ export default function LastFmWidget({
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="w-full rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4">
+		<div className="w-full rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4">
 			<div className="flex items-center justify-between">
 				<h3 className="text-xs font-semibold uppercase tracking-wider text-ctp-overlay1">Last.fm</h3>
 				{username && <span className="text-[11px] text-ctp-overlay0">@{username}</span>}
