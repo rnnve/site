@@ -92,9 +92,15 @@ export default function SpotifyNowPlayingCard({
 					<SpotifyIcon />
 				</div>
 				<div className="min-w-0 flex-1">
-					<span className="text-xs font-medium uppercase tracking-wider text-zinc-500">Spotify</span>
-					<p className="mt-1 text-sm font-semibold text-zinc-300">No song playing</p>
-					<p className="mt-0.5 truncate text-xs text-zinc-500">Nothing scrobbling right now</p>
+					<div className="flex items-center gap-2">
+						<span className="relative flex h-2 w-2">
+							<span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-500/60" />
+						</span>
+						<span className="text-xs font-medium uppercase tracking-wider text-zinc-500">Spotify</span>
+					</div>
+					<p className="mt-1 truncate text-sm font-semibold text-zinc-300">No song playing</p>
+					<p className="truncate text-xs text-zinc-500">Nothing scrobbling right now</p>
+					<div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800" />
 				</div>
 			</div>
 		);
