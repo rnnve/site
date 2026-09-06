@@ -286,13 +286,17 @@ export default function LastFmWidget({
 				))}
 			</div>
 			{viewError && !viewData && (
-				<p className="mt-3 text-xs text-zinc-400">
+				<p key={view} className="mt-3 animate-fade-in text-xs text-zinc-400">
 					<span className="font-semibold text-zinc-500">Unable to load:</span> {viewError}
 				</p>
 			)}
-			{!viewData && !viewError && <p className="mt-3 text-xs text-zinc-400">Loading…</p>}
+			{!viewData && !viewError && (
+				<p key={view} className="mt-3 animate-fade-in text-xs text-zinc-400">
+					Loading…
+				</p>
+			)}
 			{viewData && (
-				<div className="mt-2 divide-y divide-zinc-800/70">
+				<div key={view} className="mt-2 animate-fade-in divide-y divide-zinc-800/70">
 					{recentData &&
 						recentData.recenttracks.track.map((track, index) => (
 							<TrackRow key={track.url + track.date?.uts + index} track={track} />

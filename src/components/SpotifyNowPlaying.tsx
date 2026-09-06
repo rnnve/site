@@ -117,9 +117,17 @@ export default function SpotifyNowPlayingCard({
 
 	if (!data) {
 		return (
-			<div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
-				<span className="font-semibold text-zinc-500">Spotify</span>
-				<p className="mt-1">Loading currently playing…</p>
+			<div className="flex w-full items-center gap-4 rounded-xl border border-zinc-800 bg-zinc-900/60 p-4">
+				<div className="h-14 w-14 shrink-0 animate-pulse rounded-md bg-zinc-800" />
+				<div className="min-w-0 flex-1">
+					<div className="flex items-center gap-2">
+						<span className="h-2 w-2 animate-pulse rounded-full bg-zinc-700" />
+						<span className="h-3 w-28 animate-pulse rounded bg-zinc-700" />
+					</div>
+					<p className="mt-2 h-3.5 w-3/4 animate-pulse rounded bg-zinc-800" />
+					<p className="mt-2 h-3 w-1/2 animate-pulse rounded bg-zinc-800" />
+					<div className="mt-3 h-1 w-full animate-pulse rounded-full bg-zinc-800" />
+				</div>
 			</div>
 		);
 	}
