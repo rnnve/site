@@ -87,20 +87,20 @@ export default function SpotifyNowPlayingCard({
 
 	if (stopped) {
 		return (
-			<div className="flex w-full items-center gap-4 rounded-md border border-zinc-800 bg-zinc-900/60 p-4">
-				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-zinc-800/70 text-zinc-500">
+			<div className="flex w-full items-center gap-4 rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4">
+				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-ctp-surface1/70 text-ctp-overlay1">
 					<SpotifyIcon />
 				</div>
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
 						<span className="relative flex h-2 w-2">
-							<span className="relative inline-flex h-2 w-2 rounded-full bg-zinc-500/60" />
+							<span className="relative inline-flex h-2 w-2 rounded-full bg-ctp-overlay2/60" />
 						</span>
-						<span className="text-xs font-medium uppercase tracking-wider text-zinc-500">Spotify</span>
+						<span className="text-xs font-medium uppercase tracking-wider text-ctp-overlay1">Spotify</span>
 					</div>
-					<p className="mt-1 truncate text-sm font-semibold text-zinc-300">No song playing</p>
-					<p className="truncate text-xs text-zinc-500">Nothing scrobbling right now</p>
-					<div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800" />
+					<p className="mt-1 truncate text-sm font-semibold text-ctp-subtext1">No song playing</p>
+					<p className="truncate text-xs text-ctp-overlay1">Nothing scrobbling right now</p>
+					<div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-ctp-surface1" />
 				</div>
 			</div>
 		);
@@ -108,8 +108,8 @@ export default function SpotifyNowPlayingCard({
 
 	if (error) {
 		return (
-			<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
-				<span className="font-semibold text-zinc-500">Spotify</span>
+			<div className="w-full rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+				<span className="font-semibold text-ctp-overlay1">Spotify</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
 		);
@@ -117,16 +117,16 @@ export default function SpotifyNowPlayingCard({
 
 	if (!data) {
 		return (
-			<div className="flex w-full items-center gap-4 rounded-md border border-zinc-800 bg-zinc-900/60 p-4">
-				<div className="h-14 w-14 shrink-0 animate-pulse rounded-md bg-zinc-800" />
+			<div className="flex w-full items-center gap-4 rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4">
+				<div className="h-14 w-14 shrink-0 animate-pulse rounded-md bg-ctp-surface1" />
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
-						<span className="h-2 w-2 animate-pulse rounded-full bg-zinc-700" />
-						<span className="h-3 w-28 animate-pulse rounded bg-zinc-700" />
+						<span className="h-2 w-2 animate-pulse rounded-full bg-ctp-surface2" />
+						<span className="h-3 w-28 animate-pulse rounded bg-ctp-surface2" />
 					</div>
-					<p className="mt-2 h-3.5 w-3/4 animate-pulse rounded bg-zinc-800" />
-					<p className="mt-2 h-3 w-1/2 animate-pulse rounded bg-zinc-800" />
-					<div className="mt-3 h-1 w-full animate-pulse rounded-full bg-zinc-800" />
+					<p className="mt-2 h-3.5 w-3/4 animate-pulse rounded bg-ctp-surface1" />
+					<p className="mt-2 h-3 w-1/2 animate-pulse rounded bg-ctp-surface1" />
+					<div className="mt-3 h-1 w-full animate-pulse rounded-full bg-ctp-surface1" />
 				</div>
 			</div>
 		);
@@ -139,7 +139,7 @@ export default function SpotifyNowPlayingCard({
 			href={data.trackUrl}
 			target="_blank"
 			rel="noreferrer"
-			className="flex w-full items-center gap-4 rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-zinc-200 no-underline transition hover:bg-zinc-900"
+			className="flex w-full items-center gap-4 rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4 text-ctp-text no-underline transition hover:bg-ctp-surface1"
 		>
 			{data.albumImageUrl ? (
 				<img
@@ -152,7 +152,7 @@ export default function SpotifyNowPlayingCard({
 					className="h-14 w-14 shrink-0 rounded-md object-cover"
 				/>
 			) : (
-				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-accent to-accent-dark text-white">
+				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-accent to-accent-dark text-ctp-text">
 					<SpotifyIcon />
 				</div>
 			)}
@@ -166,18 +166,18 @@ export default function SpotifyNowPlayingCard({
 						Currently Playing
 					</span>
 				</div>
-				<p className="mt-1 truncate text-sm font-semibold text-white">{data.title}</p>
-				<p className="truncate text-xs text-zinc-400">
-					{data.artist} — <span className="text-zinc-500">{data.album}</span>
+				<p className="mt-1 truncate text-sm font-semibold text-ctp-text">{data.title}</p>
+				<p className="truncate text-xs text-ctp-subtext0">
+					{data.artist} — <span className="text-ctp-overlay1">{data.album}</span>
 				</p>
 				<div className="mt-2 flex items-center gap-2">
-					<div className="h-1 w-full overflow-hidden rounded-full bg-zinc-800">
+					<div className="h-1 w-full overflow-hidden rounded-full bg-ctp-surface1">
 						<div
 							className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-linear"
 							style={{ width: `${progressPercent}%` }}
 						/>
 					</div>
-					<span className="shrink-0 text-[10px] tabular-nums text-zinc-500">
+					<span className="shrink-0 text-[10px] tabular-nums text-ctp-overlay1">
 						{formatTime(elapsedMs)} / {formatTime(data.durationMs)}
 					</span>
 				</div>

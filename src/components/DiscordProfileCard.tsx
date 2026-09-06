@@ -34,7 +34,7 @@ function ActivityIcon({ activity }: { activity: DiscordActivity }) {
 	}
 	return (
 		<span
-			className="flex h-5 w-5 items-center justify-center rounded bg-zinc-700 text-[10px] font-bold text-zinc-300"
+			className="flex h-5 w-5 items-center justify-center rounded bg-ctp-surface1 text-[10px] font-bold text-ctp-subtext1"
 			aria-hidden="true"
 		>
 			{activity.name.charAt(0)}
@@ -75,11 +75,11 @@ function ActivityLine({ activity }: { activity: DiscordActivity }) {
 		<li className="flex items-start gap-3 py-2">
 			<ActivityIcon activity={activity} />
 			<div className="min-w-0 flex-1">
-				<p className="truncate text-xs font-semibold text-zinc-200">{activity.name}</p>
-				{activity.details && <p className="truncate text-xs text-zinc-400">{activity.details}</p>}
-				{activity.state && <p className="truncate text-xs text-zinc-500">{activity.state}</p>}
+				<p className="truncate text-xs font-semibold text-ctp-text">{activity.name}</p>
+				{activity.details && <p className="truncate text-xs text-ctp-subtext0">{activity.details}</p>}
+				{activity.state && <p className="truncate text-xs text-ctp-overlay1">{activity.state}</p>}
 			</div>
-			{elapsed && <span className="shrink-0 text-[11px] tabular-nums text-zinc-500">{elapsed}</span>}
+			{elapsed && <span className="shrink-0 text-[11px] tabular-nums text-ctp-overlay1">{elapsed}</span>}
 		</li>
 	);
 }
@@ -137,8 +137,8 @@ export default function DiscordProfileCard({
 
 	if (error) {
 		return (
-			<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
-				<span className="font-semibold text-zinc-500">Discord</span>
+			<div className="w-full rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+				<span className="font-semibold text-ctp-overlay1">Discord</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
 		);
@@ -146,15 +146,15 @@ export default function DiscordProfileCard({
 
 	if (!user) {
 		return (
-			<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
-				<span className="font-semibold text-zinc-500">Discord</span>
+			<div className="w-full rounded-md border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+				<span className="font-semibold text-ctp-overlay1">Discord</span>
 				<p className="mt-1">Loading profile…</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className="w-full overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/60">
+		<div className="w-full overflow-hidden rounded-md border border-ctp-surface1 bg-ctp-surface0">
 			<div className="px-4 py-4">
 				<div className="flex items-center gap-3">
 					<img
@@ -167,18 +167,18 @@ export default function DiscordProfileCard({
 						className="h-13 w-13 shrink-0 rounded-full object-cover"
 					/>
 					<div className="min-w-0">
-						<h3 className="truncate text-base font-bold text-white">{user.displayName}</h3>
-						<span className="block text-sm text-zinc-500">@{user.username}</span>
+						<h3 className="truncate text-base font-bold text-ctp-text">{user.displayName}</h3>
+						<span className="block text-sm text-ctp-overlay1">@{user.username}</span>
 						{user.customStatus && (
-							<p className="mt-0.5 truncate text-sm text-zinc-300">“{user.customStatus}”</p>
+							<p className="mt-0.5 truncate text-sm text-ctp-subtext1">“{user.customStatus}”</p>
 						)}
 						{user.boostBadge && (
-							<p className="mt-0.5 text-xs text-zinc-400">Boosting {user.guildName}</p>
+							<p className="mt-0.5 text-xs text-ctp-subtext0">Boosting {user.guildName}</p>
 						)}
 					</div>
 				</div>
 				{user.activities.length > 0 && (
-					<ul className="mt-3 divide-y divide-zinc-800/70 border-t border-zinc-800">
+					<ul className="mt-3 divide-y divide-ctp-surface1/70 border-t border-ctp-surface1">
 						{user.activities.map((activity) => (
 							<ActivityLine key={activity.applicationId ?? activity.name} activity={activity} />
 						))}
