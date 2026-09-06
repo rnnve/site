@@ -9,15 +9,15 @@ export const prerender = false;
 
 <Layout>
 	<main class="min-h-dvh bg-ctp-base text-ctp-text">
-		<div class="mx-auto flex min-h-dvh w-full max-w-3xl flex-col gap-6 px-6 py-12">
+		<div class="mx-auto flex min-h-dvh w-full max-w-3xl flex-col gap-4 px-4 pt-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:gap-6 sm:px-6 sm:pt-12">
 			<header class="animate-fade-up">
 				<p class="text-sm text-ctp-subtext0">Spotify, Discord &amp; Last.fm status</p>
 			</header>
-			<section class="flex flex-col gap-6">
+			<section class="flex flex-col gap-4 sm:gap-6">
 				<div class="animate-fade-up">
 					<SpotifyNowPlaying client:visible />
 				</div>
-				<div class="grid gap-6 lg:grid-cols-2">
+				<div class="grid gap-4 sm:gap-6 lg:grid-cols-2">
 					<div class="animate-fade-up" style="animation-delay: 120ms">
 						<DiscordProfileCard client:visible />
 					</div>
@@ -26,6 +26,21 @@ export const prerender = false;
 					</div>
 				</div>
 			</section>
+			<footer class="mt-auto flex flex-col items-center gap-1 text-xs text-ctp-overlay0">
+				<p>© {new Date().getFullYear()} Rinne</p>
+				<p class="flex items-center gap-1.5">
+					<a
+						href="https://github.com/rnnve"
+						target="_blank"
+						rel="noreferrer"
+						class="text-ctp-subtext0 transition hover:text-ctp-text"
+					>
+						GitHub
+					</a>
+					<span aria-hidden="true">·</span>
+					<span>Last.fm • Spotify • Discord</span>
+				</p>
+			</footer>
 		</div>
 	</main>
 </Layout>

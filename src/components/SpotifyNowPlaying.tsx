@@ -87,8 +87,8 @@ export default function SpotifyNowPlayingCard({
 
 	if (stopped) {
 		return (
-			<div className="flex w-full items-center gap-4 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4">
-				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-ctp-surface1/70 text-ctp-overlay1">
+			<div className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:gap-4 sm:p-4">
+				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ctp-surface1/70 text-ctp-overlay1 sm:h-14 sm:w-14">
 					<SpotifyIcon className="h-5 w-5" />
 				</div>
 				<div className="min-w-0 flex-1">
@@ -117,8 +117,8 @@ export default function SpotifyNowPlayingCard({
 
 	if (!data) {
 		return (
-			<div className="flex w-full items-center gap-4 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4">
-				<div className="h-14 w-14 shrink-0 animate-pulse rounded-lg bg-ctp-surface1" />
+			<div className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:gap-4 sm:p-4">
+				<div className="h-12 w-12 shrink-0 animate-pulse rounded-lg bg-ctp-surface1 sm:h-14 sm:w-14" />
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
 						<span className="h-2 w-2 animate-pulse rounded-full bg-ctp-surface2" />
@@ -139,7 +139,7 @@ export default function SpotifyNowPlayingCard({
 			href={data.trackUrl}
 			target="_blank"
 			rel="noreferrer"
-			className="flex w-full items-center gap-4 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4 text-ctp-text no-underline transition hover:bg-ctp-surface1"
+			className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 text-ctp-text no-underline transition hover:bg-ctp-surface1 sm:gap-4 sm:p-4"
 		>
 			{data.albumImageUrl ? (
 				<img
@@ -149,10 +149,10 @@ export default function SpotifyNowPlayingCard({
 					height={56}
 					fetchPriority="high"
 					decoding="async"
-					className="h-14 w-14 shrink-0 rounded-lg object-cover"
+					className="h-12 w-12 shrink-0 rounded-lg object-cover sm:h-14 sm:w-14"
 				/>
 			) : (
-				<div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-dark text-ctp-text">
+				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-dark text-ctp-text sm:h-14 sm:w-14">
 					<SpotifyIcon className="h-6 w-6" />
 				</div>
 			)}
