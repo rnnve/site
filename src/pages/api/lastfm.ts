@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers';
 import type { APIRoute } from 'astro';
 import { augmentSpotifyImages } from '../../lib/spotify-search';
+import { resolveLastFmImages } from '../../lib/lastfm-images';
 import type {
 	LastFmRecentTracksResponse,
 	LastFmTopArtistsResponse,
@@ -94,14 +95,20 @@ export const GET: APIRoute = async ({ url }) => {
 
 		const clientId = env.SPOTIFY_CLIENT_ID || '';
 		const clientSecret = env.SPOTIFY_CLIENT_SECRET || '';
-		if (clientId && clientSecret) {
-			if ('recenttracks' in data && Array.isArray(data.recenttracks.track)) {
+		if ('recenttracks' in data && Array.isArray(data.recenttracks.track)) {
+			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.recenttracks.track, 'track', clientId, clientSecret);
-			} else if ('toptracks' in data && Array.isArray(data.toptracks.track)) {
+			}
+		} else if ('toptracks' in data && Array.isArray(data.toptracks.track)) {
+			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.toptracks.track, 'track', clientId, clientSecret);
-			} else if ('topartists' in data && Array.isArray(data.topartists.artist)) {
+			}
+			await resolveLastFmImages(data.toptracks.track, 'track', apiKey);
+		} else if ('topartists' in data && Array.isArray(data.topartists.artist)) {
+			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.topartists.artist, 'artist', clientId, clientSecret);
 			}
+			await resolveLastFmImages(data.topartists.artist, 'artist', apiKey);
 		}
 
 		const maxAge = view === 'recent' ? 10 : 60;

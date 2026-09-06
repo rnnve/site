@@ -137,7 +137,7 @@ export default function DiscordProfileCard({
 
 	if (error) {
 		return (
-			<div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
+			<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
 				<span className="font-semibold text-zinc-500">Discord</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
@@ -146,7 +146,7 @@ export default function DiscordProfileCard({
 
 	if (!user) {
 		return (
-			<div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
+			<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4 text-sm text-zinc-400">
 				<span className="font-semibold text-zinc-500">Discord</span>
 				<p className="mt-1">Loading profile…</p>
 			</div>
@@ -154,7 +154,7 @@ export default function DiscordProfileCard({
 	}
 
 	return (
-		<div className="w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/60">
+		<div className="w-full overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/60">
 			<div className="px-4 py-4">
 				<div className="flex items-center gap-3">
 					<img

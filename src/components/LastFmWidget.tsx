@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {
 	lastfmImage,
 	lastfmNowPlaying,
+	isLastFmPlaceholder,
 	type LastFmImage,
 	type LastFmTopArtist,
 	type LastFmTopArtistsResponse,
@@ -57,13 +58,13 @@ function Rank({ rank }: { rank?: string }) {
 
 function TrackImage({ image, art, alt }: { image: LastFmImage; art?: string; alt: string }) {
 	const [failed, setFailed] = useState(false);
-	const src = art || lastfmImage(image, 'small');
+	const src = art || lastfmImage(image, 'medium');
 
 	useEffect(() => {
 		setFailed(false);
 	}, [src]);
 
-	if (!src || failed) {
+	if (!src || isLastFmPlaceholder(src) || failed) {
 		return (
 			<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-zinc-800 text-[10px] font-bold text-zinc-500">
 				{alt.charAt(0)}
@@ -152,7 +153,7 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="flex flex-col gap-0.5 rounded-lg bg-zinc-800/60 px-3 py-2.5">
+		<div className="flex flex-col gap-0.5 rounded-md bg-zinc-800/60 px-3 py-2.5">
 			<span className="text-xl font-bold tabular-nums text-zinc-100">{value}</span>
 			<span className="text-[11px] text-zinc-500">{label}</span>
 		</div>
@@ -264,7 +265,7 @@ export default function LastFmWidget({
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="w-full rounded-xl border border-zinc-800 bg-zinc-900/60 p-4">
+		<div className="w-full rounded-md border border-zinc-800 bg-zinc-900/60 p-4">
 			<div className="flex items-center justify-between">
 				<h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Last.fm</h3>
 				{username && <span className="text-[11px] text-zinc-600">@{username}</span>}

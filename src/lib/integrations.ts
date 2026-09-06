@@ -121,6 +121,16 @@ export const LASTFM_IMAGE = {
 
 export type LastFmImage = Array<{ size: string; '#text': string }>;
 
+/** Hashes Last.fm uses for its generic "no cover" placeholder images. */
+export const LASTFM_PLACEHOLDER_HASHES = [
+	'2a96cbd8b46e442fc41c2b86b821562f',
+	'8181483806820e0ca3bcf25a86b6e4f8',
+] as const;
+
+export function isLastFmPlaceholder(url: string): boolean {
+	return !url || LASTFM_PLACEHOLDER_HASHES.some((hash) => url.includes(hash));
+}
+
 export interface LastFmTopTrack {
 	name: string;
 	url: string;
