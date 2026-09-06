@@ -183,8 +183,8 @@ function StatsView({ user }: { user: LastFmUserInfo }) {
 export default function LastFmWidget({
 	endpoint = '/api/lastfm',
 	trackCount = 10,
-	recentRefreshMs = 10_000,
-	refreshIntervalMs = 60_000,
+	recentRefreshMs = 5_000,
+	refreshIntervalMs = 5_000,
 }: LastFmWidgetProps) {
 	const [view, setView] = useState<LastFmView>('recent');
 	const [data, setData] = useState<Partial<ViewData>>({});

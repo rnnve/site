@@ -111,7 +111,7 @@ export const GET: APIRoute = async ({ url }) => {
 			await resolveLastFmImages(data.topartists.artist, 'artist', apiKey);
 		}
 
-		const maxAge = view === 'recent' ? 10 : 60;
+		const maxAge = view === 'recent' ? 5 : 60;
 
 		return new Response(JSON.stringify(data), {
 			headers: {

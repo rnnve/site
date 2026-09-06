@@ -23,7 +23,7 @@ function SpotifyIcon() {
 
 export default function SpotifyNowPlayingCard({
 	endpoint = '/api/spotify',
-	refreshIntervalMs = 2_000,
+	refreshIntervalMs = 1_000,
 }: SpotifyNowPlayingCardProps) {
 	const [data, setData] = useState<SpotifyNowPlaying | null>(null);
 	const [stopped, setStopped] = useState(false);
