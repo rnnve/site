@@ -1,11 +1,11 @@
-import { env } from 'cloudflare:workers';
 import type { APIRoute } from 'astro';
+import { getEnv } from '../../lib/env';
 import type { DiscordResponse } from '../../lib/integrations';
 
 export const prerender = false;
 
 export const GET: APIRoute = async () => {
-	const endpoint = env.DISCORD_API_URL || 'https://api.mapleji.xyz/v2/discord/user/1';
+	const endpoint = getEnv('DISCORD_API_URL') || 'https://api.mapleji.xyz/v2/discord/user/1';
 
 	try {
 		const controller = new AbortController();

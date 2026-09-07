@@ -1,5 +1,5 @@
-import { env } from 'cloudflare:workers';
 import type { APIRoute } from 'astro';
+import { getEnv } from '../../lib/env';
 import { augmentSpotifyImages } from '../../lib/spotify-search';
 import { resolveLastFmImages } from '../../lib/lastfm-images';
 import type {
@@ -31,8 +31,8 @@ const DEFAULT_LIMIT_BY_VIEW: Record<LastFmView, string> = {
 };
 
 export const GET: APIRoute = async ({ url }) => {
-	const apiKey = env.LASTFM_API_KEY || '';
-	const username = env.LASTFM_USERNAME || '';
+	const apiKey = getEnv('LASTFM_API_KEY') || '';
+	const username = getEnv('LASTFM_USERNAME') || '';
 
 	if (!apiKey || !username) {
 		return new Response(
@@ -93,8 +93,8 @@ export const GET: APIRoute = async ({ url }) => {
 			);
 		}
 
-		const clientId = env.SPOTIFY_CLIENT_ID || '';
-		const clientSecret = env.SPOTIFY_CLIENT_SECRET || '';
+		const clientId = getEnv('SPOTIFY_CLIENT_ID') || '';
+		const clientSecret = getEnv('SPOTIFY_CLIENT_SECRET') || '';
 		if ('recenttracks' in data && Array.isArray(data.recenttracks.track)) {
 			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.recenttracks.track, 'track', clientId, clientSecret);
