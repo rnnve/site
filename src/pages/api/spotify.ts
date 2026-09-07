@@ -1,11 +1,11 @@
-import { env } from 'cloudflare:workers';
 import type { APIRoute } from 'astro';
+import { getEnv } from '../../lib/env';
 import type { SpotifyNowPlaying } from '../../lib/integrations';
 
 export const prerender = false;
 
 export const GET: APIRoute = async () => {
-	const endpoint = env.SPOTIFY_API_URL || 'https://spotify.mapleji.xyz/api/spotify';
+	const endpoint = getEnv('SPOTIFY_API_URL') || 'https://spotify.mapleji.xyz/api/spotify';
 
 	try {
 		const controller = new AbortController();

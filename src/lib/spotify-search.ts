@@ -8,19 +8,16 @@ interface SpotifySearchResponse {
 	artists?: { items?: Array<{ images?: Array<{ url?: string }> }> };
 }
 
-const TOKEN_CACHE_KEY = 'https://api.spotify.com/v1/token';
+const TOKEN_CACHE_KEY = 'spotify:client-credentials';
 
-interface CacheLike {
-	match(info: RequestInfo): Promise<Response | undefined>;
-	put(request: RequestInfo, response: Response): Promise<void>;
-}
+/** In-memory token cache (replaces Cloudflare caches.default). */
+const tokenCache = new Map<string, { token: string; expiresAt: number }>();
 
 async function getAccessToken(clientId: string, clientSecret: string): Promise<string | null> {
 	try {
-		const cache = 'caches' in globalThis ? (caches as unknown as { default?: CacheLike }).default : null;
-		if (cache) {
-			const cached = await cache.match(TOKEN_CACHE_KEY);
-			if (cached) return await cached.text();
+		const cached = tokenCache.get(TOKEN_CACHE_KEY);
+		if (cached && cached.expiresAt > Date.now()) {
+			return cached.token;
 		}
 
 		const basic = btoa(`${encodeURIComponent(clientId)}:${encodeURIComponent(clientSecret)}`);
@@ -41,13 +38,11 @@ async function getAccessToken(clientId: string, clientSecret: string): Promise<s
 		const data = (await response.json()) as SpotifyTokenResponse;
 		if (!data.access_token) return null;
 
-		if (cache) {
-			const ttl = (data.expires_in ?? 3600) - 300;
-			const cachedResponse = new Response(data.access_token, {
-				headers: { 'Cache-Control': `public, max-age=${Math.max(ttl, 1)}` },
-			});
-			await cache.put(TOKEN_CACHE_KEY, cachedResponse);
-		}
+		const ttlMs = ((data.expires_in ?? 3600) - 300) * 1000;
+		tokenCache.set(TOKEN_CACHE_KEY, {
+			token: data.access_token,
+			expiresAt: Date.now() + Math.max(ttlMs, 1000),
+		});
 		return data.access_token;
 	} catch {
 		return null;
