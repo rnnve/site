@@ -31,14 +31,24 @@ const preconnects = [
 		<nav class="sticky top-0 z-50 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] py-2.5 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] sm:py-3">
 			<div class="mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-4 py-2.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-5 sm:py-3">
 				<a href="/" class="text-sm font-bold text-ctp-text">Rinne</a>
-				<a
-					href="https://github.com/rnnve"
-					target="_blank"
-					rel="noreferrer"
-					class="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-				>
-					GitHub
-				</a>
+				<div class="flex items-center gap-3">
+					<a
+						href="https://github.com/rnnve"
+						target="_blank"
+						rel="noreferrer"
+						class="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
+					>
+						GitHub
+					</a>
+					<a
+						href="https://haunt.gg/rnn"
+						target="_blank"
+						rel="noreferrer"
+						class="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
+					>
+						Links
+					</a>
+				</div>
 			</div>
 		</nav>
 		<slot />
