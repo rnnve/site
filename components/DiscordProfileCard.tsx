@@ -165,38 +165,42 @@ export default function DiscordProfileCard({
 
 	return (
 		<div className="w-full min-w-0">
-				<div className="flex items-center gap-2">
-					<DiscordIcon className="h-4 w-4 text-ctp-overlay1" />
-					<span className="text-xs font-medium uppercase tracking-wider text-ctp-overlay1">Discord</span>
-				</div>
-				<div className="mt-3 flex items-center gap-3">
-					<img
-						src={user.avatar}
-						alt={user.displayName}
-						width={52}
-						height={52}
-						loading="lazy"
-						decoding="async"
-						className="h-13 w-13 shrink-0 rounded-full object-cover"
-					/>
-					<div className="min-w-0">
-						<h3 className="truncate text-base font-bold text-ctp-text">{user.displayName}</h3>
-						<span className="block text-sm text-ctp-overlay1">@{user.username}</span>
-						{user.customStatus && (
-							<p className="mt-0.5 truncate text-sm text-ctp-subtext1">“{user.customStatus}”</p>
-						)}
-						{user.boostBadge && (
-							<p className="mt-0.5 text-xs text-ctp-subtext0">Boosting {user.guildName}</p>
-						)}
+			<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+				<div className="min-w-0 flex-1">
+					<div className="flex items-center gap-2">
+						<DiscordIcon className="h-4 w-4 text-ctp-overlay1" />
+						<span className="text-xs font-medium uppercase tracking-wider text-ctp-overlay1">Discord</span>
+					</div>
+					<div className="mt-3 flex items-center gap-3">
+						<img
+							src={user.avatar}
+							alt={user.displayName}
+							width={52}
+							height={52}
+							loading="lazy"
+							decoding="async"
+							className="h-13 w-13 shrink-0 rounded-full object-cover"
+						/>
+						<div className="min-w-0">
+							<h3 className="truncate text-base font-bold text-ctp-text">{user.displayName}</h3>
+							<span className="block text-sm text-ctp-overlay1">@{user.username}</span>
+							{user.customStatus && (
+								<p className="mt-0.5 truncate text-sm text-ctp-subtext1">“{user.customStatus}”</p>
+							)}
+							{user.boostBadge && (
+								<p className="mt-0.5 text-xs text-ctp-subtext0">Boosting {user.guildName}</p>
+							)}
+						</div>
 					</div>
 				</div>
 				{user.activities.length > 0 && (
-					<ul className="mt-3 divide-y divide-ctp-surface1/70 border-t border-ctp-surface1/70">
+					<ul className="min-w-0 flex-1 divide-y divide-ctp-surface1/70 sm:border-l sm:border-ctp-surface1/70 sm:pl-5">
 						{user.activities.map((activity) => (
 							<ActivityLine key={activity.applicationId ?? activity.name} activity={activity} />
 						))}
 					</ul>
 				)}
+			</div>
 		</div>
 	);
 }
