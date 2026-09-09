@@ -281,13 +281,13 @@ export default function LastFmWidget({
 					<span className="min-w-0 max-w-full truncate text-[11px] text-ctp-overlay0">@{username}</span>
 				)}
 			</div>
-			<div className="mt-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-1.5">
+			<div className="mt-3 flex flex-wrap gap-1.5">
 				{VIEWS.map(({ id, label }) => (
 					<button
 						key={id}
 						type="button"
 						onClick={() => setView(id)}
-						className={`min-h-11 w-full rounded-full px-3 py-2 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-auto ${
+						className={`rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 							view === id
 								? 'bg-accent text-ctp-base'
 								: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
