@@ -1,17 +1,3 @@
-@font-face {
-	font-family: "Geist Sans";
-	src: url("../../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
-	font-weight: 100 900;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Geist Mono";
-	src: url("../../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2") format("woff2");
-	font-weight: 100 900;
-	font-display: swap;
-}
-
 @import "@fontsource/chakra-petch/400.css";
 @import "@fontsource/chakra-petch/600.css";
 @import "@fontsource/chakra-petch/700.css";
@@ -22,7 +8,7 @@
 	--animate-fade-up: fade-up 0.6s ease-out both;
 	--animate-fade-in: fade-in 0.25s ease-out both;
 	--font-sans:
-		'Geist Sans', 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+		var(--font-geist-sans), 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
 
 	@keyframes fade-up {
 		from {
@@ -54,4 +40,12 @@
 
 :root {
 	color-scheme: dark;
+}
+
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--catppuccin-color-base);
 }

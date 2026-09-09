@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import {
 	lastfmImage,
@@ -12,7 +14,7 @@ import {
 	type LastFmTrack,
 	type LastFmUserInfo,
 	type LastFmUserInfoResponse,
-} from '../lib/integrations';
+} from '@/lib/integrations';
 
 interface LastFmWidgetProps {
 	endpoint?: string;

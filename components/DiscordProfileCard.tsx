@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import type { DiscordActivity, DiscordResponse, DiscordUserData } from '../lib/integrations';
+import type { DiscordActivity, DiscordResponse, DiscordUserData } from '@/lib/integrations';
 
 interface DiscordProfileCardProps {
 	endpoint?: string;

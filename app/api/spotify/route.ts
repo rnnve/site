@@ -1,10 +1,9 @@
-import type { APIRoute } from 'astro';
-import { getEnv } from '../../lib/env';
-import type { SpotifyNowPlaying } from '../../lib/integrations';
+import { getEnv } from '@/lib/env';
+import type { SpotifyNowPlaying } from '@/lib/integrations';
 
-export const prerender = false;
+export const dynamic = 'force-dynamic';
 
-export const GET: APIRoute = async () => {
+export async function GET() {
 	const endpoint = getEnv('SPOTIFY_API_URL') || 'https://spotify.mapleji.xyz/api/spotify';
 
 	try {
@@ -14,16 +13,15 @@ export const GET: APIRoute = async () => {
 		clearTimeout(timeout);
 
 		if (!response.ok) {
-			return new Response(
-				JSON.stringify({ error: `Spotify API responded with ${response.status}` }),
-				{ status: response.status, headers: { 'Content-Type': 'application/json' } },
+			return Response.json(
+				{ error: `Spotify API responded with ${response.status}` },
+				{ status: response.status },
 			);
 		}
 
 		const data = (await response.json()) as SpotifyNowPlaying;
-		return new Response(JSON.stringify(data), {
+		return Response.json(data, {
 			headers: {
-				'Content-Type': 'application/json',
 				'Cache-Control': 'public, s-maxage=1, stale-while-revalidate=1',
 			},
 		});
@@ -32,9 +30,6 @@ export const GET: APIRoute = async () => {
 			error instanceof Error && error.name === 'AbortError'
 				? 'Spotify API request timed out'
 				: 'Failed to fetch current Spotify track';
-		return new Response(JSON.stringify({ error: message }), {
-			status: 502,
-			headers: { 'Content-Type': 'application/json' },
-		});
+		return Response.json({ error: message }, { status: 502 });
 	}
-};
+}

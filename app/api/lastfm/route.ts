@@ -1,15 +1,14 @@
-import type { APIRoute } from 'astro';
-import { getEnv } from '../../lib/env';
-import { augmentSpotifyImages } from '../../lib/spotify-search';
-import { resolveLastFmImages } from '../../lib/lastfm-images';
+import { getEnv } from '@/lib/env';
+import { augmentSpotifyImages } from '@/lib/spotify-search';
+import { resolveLastFmImages } from '@/lib/lastfm-images';
 import type {
 	LastFmRecentTracksResponse,
 	LastFmTopArtistsResponse,
 	LastFmTopTracksResponse,
 	LastFmUserInfoResponse,
-} from '../../lib/integrations';
+} from '@/lib/integrations';
 
-export const prerender = false;
+export const dynamic = 'force-dynamic';
 
 const LASTFM_URL = 'https://ws.audioscrobbler.com/2.0/';
 
@@ -30,19 +29,18 @@ const DEFAULT_LIMIT_BY_VIEW: Record<LastFmView, string> = {
 	info: '1',
 };
 
-export const GET: APIRoute = async ({ url }) => {
+export async function GET(request: Request) {
 	const apiKey = getEnv('LASTFM_API_KEY') || '';
 	const username = getEnv('LASTFM_USERNAME') || '';
 
 	if (!apiKey || !username) {
-		return new Response(
-			JSON.stringify({
-				error: 'LASTFM_API_KEY and LASTFM_USERNAME must be configured',
-			}),
-			{ status: 500, headers: { 'Content-Type': 'application/json' } },
+		return Response.json(
+			{ error: 'LASTFM_API_KEY and LASTFM_USERNAME must be configured' },
+			{ status: 500 },
 		);
 	}
 
+	const url = new URL(request.url);
 	const rawView = url.searchParams.get('view');
 	const view: LastFmView = (VIEWS as readonly string[]).includes(rawView ?? '')
 		? (rawView as LastFmView)
@@ -70,9 +68,9 @@ export const GET: APIRoute = async ({ url }) => {
 		clearTimeout(timeout);
 
 		if (!response.ok) {
-			return new Response(
-				JSON.stringify({ error: `Last.fm API responded with ${response.status}` }),
-				{ status: response.status, headers: { 'Content-Type': 'application/json' } },
+			return Response.json(
+				{ error: `Last.fm API responded with ${response.status}` },
+				{ status: response.status },
 			);
 		}
 
@@ -87,9 +85,9 @@ export const GET: APIRoute = async ({ url }) => {
 		);
 
 		if (data.error) {
-			return new Response(
-				JSON.stringify({ error: data.message ?? `Last.fm error ${data.error}` }),
-				{ status: 502, headers: { 'Content-Type': 'application/json' } },
+			return Response.json(
+				{ error: data.message ?? `Last.fm error ${data.error}` },
+				{ status: 502 },
 			);
 		}
 
@@ -113,9 +111,8 @@ export const GET: APIRoute = async ({ url }) => {
 
 		const maxAge = view === 'recent' ? 5 : 60;
 
-		return new Response(JSON.stringify(data), {
+		return Response.json(data, {
 			headers: {
-				'Content-Type': 'application/json',
 				'Cache-Control': `public, s-maxage=${maxAge}, stale-while-revalidate=${maxAge}`,
 			},
 		});
@@ -124,9 +121,6 @@ export const GET: APIRoute = async ({ url }) => {
 			error instanceof Error && error.name === 'AbortError'
 				? 'Last.fm API request timed out'
 				: 'Failed to fetch Last.fm data';
-		return new Response(JSON.stringify({ error: message }), {
-			status: 502,
-			headers: { 'Content-Type': 'application/json' },
-		});
+		return Response.json({ error: message }, { status: 502 });
 	}
-};
+}

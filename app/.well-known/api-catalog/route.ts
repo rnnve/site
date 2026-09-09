@@ -1,7 +1,3 @@
-import type { APIRoute } from 'astro';
-
-export const prerender = true;
-
 const catalog = {
 	name: 'Rinne Status API Catalog',
 	description: 'Public JSON endpoints exposed by maplenan.org for Spotify, Discord and Last.fm status.',
@@ -35,11 +31,11 @@ const catalog = {
 	],
 };
 
-export const GET: APIRoute = () => {
-	return new Response(JSON.stringify(catalog, null, 2), {
+export async function GET() {
+	return Response.json(catalog, {
 		headers: {
 			'Content-Type': 'application/json; charset=utf-8',
 			'Cache-Control': 'public, max-age=3600, stale-while-revalidate=3600',
 		},
 	});
-};
+}

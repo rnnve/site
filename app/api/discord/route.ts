@@ -1,10 +1,9 @@
-import type { APIRoute } from 'astro';
-import { getEnv } from '../../lib/env';
-import type { DiscordResponse } from '../../lib/integrations';
+import { getEnv } from '@/lib/env';
+import type { DiscordResponse } from '@/lib/integrations';
 
-export const prerender = false;
+export const dynamic = 'force-dynamic';
 
-export const GET: APIRoute = async () => {
+export async function GET() {
 	const endpoint = getEnv('DISCORD_API_URL') || 'https://api.mapleji.xyz/v2/discord/user/1';
 
 	try {
@@ -14,16 +13,15 @@ export const GET: APIRoute = async () => {
 		clearTimeout(timeout);
 
 		if (!response.ok) {
-			return new Response(
-				JSON.stringify({ error: `Discord API responded with ${response.status}` }),
-				{ status: response.status, headers: { 'Content-Type': 'application/json' } },
+			return Response.json(
+				{ error: `Discord API responded with ${response.status}` },
+				{ status: response.status },
 			);
 		}
 
 		const data = (await response.json()) as DiscordResponse;
-		return new Response(JSON.stringify(data), {
+		return Response.json(data, {
 			headers: {
-				'Content-Type': 'application/json',
 				'Cache-Control': 'public, s-maxage=1, stale-while-revalidate=1',
 			},
 		});
@@ -32,9 +30,6 @@ export const GET: APIRoute = async () => {
 			error instanceof Error && error.name === 'AbortError'
 				? 'Discord API request timed out'
 				: 'Failed to fetch Discord profile';
-		return new Response(JSON.stringify({ error: message }), {
-			status: 502,
-			headers: { 'Content-Type': 'application/json' },
-		});
+		return Response.json({ error: message }, { status: 502 });
 	}
-};
+}

@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import type { SpotifyNowPlaying } from '../lib/integrations';
+import type { SpotifyNowPlaying } from '@/lib/integrations';
 
 interface SpotifyNowPlayingCardProps {
 	endpoint?: string;
