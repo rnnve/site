@@ -34,8 +34,8 @@
 }
 
 @theme inline {
-	--color-accent: var(--catppuccin-color-pink);
-	--color-accent-dark: var(--catppuccin-color-mauve);
+	--color-accent: var(--catppuccin-color-mauve);
+	--color-accent-dark: var(--catppuccin-color-pink);
 }
 
 :root {
