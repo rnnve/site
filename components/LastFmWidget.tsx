@@ -43,13 +43,6 @@ type ViewData = {
 	info: LastFmUserInfoResponse;
 };
 
-type UsernameShape = {
-	recenttracks?: { '@attr'?: { user?: string } };
-	toptracks?: { '@attr'?: { user?: string } };
-	topartists?: { '@attr'?: { user?: string } };
-	user?: { name?: string };
-};
-
 function Rank({ rank }: { rank?: string }) {
 	return (
 		<span className="w-5 shrink-0 text-center text-[11px] font-semibold tabular-nums text-ctp-overlay0">
@@ -258,14 +251,6 @@ export default function LastFmWidget({
 
 	const viewData = data[view];
 	const viewError = errors[view];
-	const raw = viewData as UsernameShape | undefined;
-	const username = viewData
-		? (raw?.recenttracks?.['@attr']?.user ??
-			raw?.toptracks?.['@attr']?.user ??
-			raw?.topartists?.['@attr']?.user ??
-			raw?.user?.name ??
-			null)
-		: null;
 
 	const recentData = view === 'recent' ? (viewData as ViewData['recent'] | undefined) : undefined;
 	const topTracksData = view === 'toptracks' ? (viewData as ViewData['toptracks'] | undefined) : undefined;
@@ -274,14 +259,8 @@ export default function LastFmWidget({
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="w-full min-w-0 overflow-hidden rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:p-4">
-			<div className="flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-1">
-				<h3 className="shrink-0 text-xs font-semibold uppercase tracking-wider text-ctp-overlay1">Last.fm</h3>
-				{username && (
-					<span className="min-w-0 max-w-full truncate text-[11px] text-ctp-overlay0">@{username}</span>
-				)}
-			</div>
-			<div className="mt-3 flex flex-wrap gap-1.5">
+		<div className="w-full min-w-0">
+			<div className="flex flex-wrap gap-1.5">
 				{VIEWS.map(({ id, label }) => (
 					<button
 						key={id}
