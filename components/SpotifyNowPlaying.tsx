@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { SpotifyNowPlaying } from '@/lib/integrations';
+import Skeleton from '@/components/Skeleton';
 
 interface SpotifyNowPlayingCardProps {
 	endpoint?: string;
@@ -120,15 +121,15 @@ export default function SpotifyNowPlayingCard({
 	if (!data) {
 		return (
 			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
-				<div className="h-12 w-12 shrink-0 animate-pulse rounded-lg bg-ctp-surface1 sm:h-14 sm:w-14" />
+				<Skeleton className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14" />
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
-						<span className="h-2 w-2 animate-pulse rounded-full bg-ctp-surface2" />
-						<span className="h-3 w-28 animate-pulse rounded bg-ctp-surface2" />
+						<Skeleton className="h-2 w-2 rounded-full" />
+						<Skeleton className="h-3 w-28 rounded" />
 					</div>
-					<p className="mt-2 h-3.5 w-3/4 animate-pulse rounded bg-ctp-surface1" />
-					<p className="mt-2 h-3 w-1/2 animate-pulse rounded bg-ctp-surface1" />
-					<div className="mt-3 h-1 w-full animate-pulse rounded-full bg-ctp-surface1" />
+					<Skeleton className="mt-2 h-3.5 w-3/4 rounded" />
+					<Skeleton className="mt-2 h-3 w-1/2 rounded" />
+					<div className="mt-3 h-1 w-full rounded-full skeleton" />
 				</div>
 			</div>
 		);

@@ -1,5 +1,6 @@
 'use client';
 
+import Skeleton from '@/components/Skeleton';
 import { useEffect, useState } from 'react';
 import {
 	lastfmImage,
@@ -284,11 +285,18 @@ export default function LastFmWidget({
 						<span className="font-semibold text-ctp-overlay1">Unable to load:</span> {viewError}
 					</p>
 				)}
-				{!viewData && !viewError && (
-					<p key={view} className="animate-fade-in text-xs text-ctp-subtext0">
-						Loading…
-					</p>
-				)}
+{!viewData && !viewError && (
+				<div
+					key={view}
+					className="animate-fade-in space-y-3 p-2"
+					aria-busy="true"
+					aria-label="Loading"
+				>
+					{[...Array(5)].map((_, index) => (
+						<Skeleton key={index} className="h-12 w-full rounded-lg" />
+					))}
+				</div>
+			)}
 				{viewData && (
 					<div key={view} className="min-w-0 animate-fade-in divide-y divide-ctp-surface1/70">
 						{recentData &&

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { DiscordActivity, DiscordResponse, DiscordUserData } from '@/lib/integrations';
+import Skeleton from '@/components/Skeleton';
 
 interface DiscordProfileCardProps {
 	endpoint?: string;
@@ -156,9 +157,23 @@ export default function DiscordProfileCard({
 
 	if (!user) {
 		return (
-			<div className="w-full min-w-0 text-sm text-ctp-subtext0">
-				<span className="font-semibold text-ctp-overlay1">Discord</span>
-				<p className="mt-1">Loading profile…</p>
+			<div className="w-full min-w-0 animate-fade-in">
+				<div className="flex items-center gap-2">
+					<Skeleton className="h-4 w-4 rounded" />
+					<Skeleton className="h-3 w-16 rounded" />
+				</div>
+				<div className="mt-4 flex items-center gap-3">
+					<Skeleton className="h-13 w-13 shrink-0 rounded-full" />
+					<div className="min-w-0 flex-1">
+						<Skeleton className="h-4 w-28 rounded" />
+						<Skeleton className="mt-2 h-3 w-20 rounded" />
+						<Skeleton className="mt-2 h-3 w-32 rounded" />
+					</div>
+				</div>
+				<div className="mt-4 space-y-3">
+					<Skeleton className="h-10 w-full rounded-lg" />
+					<Skeleton className="h-10 w-full rounded-lg" />
+				</div>
 			</div>
 		);
 	}
