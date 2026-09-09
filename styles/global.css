@@ -113,10 +113,10 @@ svg {
 		transition: none;
 	}
 
-	.nav-border-chase {
+	.nav-border-chase-path {
 		animation: none;
-		background: var(--catppuccin-color-mauve);
-		opacity: 0.9;
+		stroke-dasharray: 1;
+		stroke-dashoffset: 0;
 	}
 
 	.nav-icon-link {
@@ -138,47 +138,27 @@ svg {
 	}
 }
 
-@property --nav-chase-progress {
-	syntax: '<angle>';
-	inherits: false;
-	initial-value: 0deg;
-}
-
-@keyframes nav-border-chase {
-	from {
-		--nav-chase-progress: 0deg;
+/* SVG pathLength=1: draw full navbar outline from bottom-center around all four sides. */
+@keyframes nav-border-draw {
+	0% {
+		stroke-dashoffset: 1;
 	}
-	to {
-		--nav-chase-progress: 360deg;
+	85% {
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dashoffset: 0;
 	}
 }
 
-/* Starts at bottom-center (180deg), sweeps full perimeter, ends back at bottom-center. */
-.nav-border-chase {
-	--nav-chase-progress: 0deg;
-	padding: 1.5px;
-	background: conic-gradient(
-		from 180deg,
-		var(--catppuccin-color-mauve) 0deg,
-		var(--catppuccin-color-pink) calc(var(--nav-chase-progress) * 0.45),
-		var(--catppuccin-color-sky) calc(var(--nav-chase-progress) * 0.75),
-		var(--catppuccin-color-lavender) var(--nav-chase-progress),
-		transparent var(--nav-chase-progress),
-		transparent 360deg
-	);
-	-webkit-mask:
-		linear-gradient(#000 0 0) content-box,
-		linear-gradient(#000 0 0);
-	mask:
-		linear-gradient(#000 0 0) content-box,
-		linear-gradient(#000 0 0);
-	-webkit-mask-composite: xor;
-	mask-composite: exclude;
-	animation: nav-border-chase 1.15s linear infinite;
+.nav-border-chase-path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	animation: nav-border-draw 1.15s linear infinite;
 }
 
 .nav-shell-pending {
-	border-color: color-mix(in oklab, var(--catppuccin-color-mauve) 35%, var(--catppuccin-color-surface1));
+	border-color: color-mix(in oklab, var(--catppuccin-color-mauve) 45%, var(--catppuccin-color-surface1));
 }
 
 .nav-icon-link-active {
