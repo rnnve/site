@@ -97,7 +97,7 @@ function ActivityLine({ activity }: { activity: DiscordActivity }) {
 
 export default function DiscordProfileCard({
 	endpoint = '/api/discord',
-	refreshIntervalMs = 1_000,
+	refreshIntervalMs = 5_000,
 }: DiscordProfileCardProps) {
 	const [user, setUser] = useState<DiscordUserData | null>(null);
 	const [error, setError] = useState<string | null>(null);

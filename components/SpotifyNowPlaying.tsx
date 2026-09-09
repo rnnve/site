@@ -9,13 +9,6 @@ interface SpotifyNowPlayingCardProps {
 	refreshIntervalMs?: number;
 }
 
-function formatTime(ms: number): string {
-	const totalSeconds = Math.floor(ms / 1000);
-	const minutes = Math.floor(totalSeconds / 60);
-	const seconds = totalSeconds % 60;
-	return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-}
-
 function SpotifyIcon({ className }: { className?: string }) {
 	return (
 		<svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -26,12 +19,11 @@ function SpotifyIcon({ className }: { className?: string }) {
 
 export default function SpotifyNowPlayingCard({
 	endpoint = '/api/spotify',
-	refreshIntervalMs = 1_000,
+	refreshIntervalMs = 5_000,
 }: SpotifyNowPlayingCardProps) {
 	const [data, setData] = useState<SpotifyNowPlaying | null>(null);
 	const [stopped, setStopped] = useState(false);
 	const [error, setError] = useState<string | null>(null);
-	const [elapsedMs, setElapsedMs] = useState(0);
 
 	useEffect(() => {
 		let cancelled = false;
@@ -61,7 +53,6 @@ export default function SpotifyNowPlayingCard({
 
 				setStopped(false);
 				setData(json);
-				setElapsedMs(Math.min(json.progressMs, json.durationMs));
 				setError(null);
 			} catch (err) {
 				if (cancelled) return;
@@ -72,9 +63,6 @@ export default function SpotifyNowPlayingCard({
 		void load();
 
 		const loadingTimer = setInterval(() => void load(), refreshIntervalMs);
-		const elapsedTimer = setInterval(() => {
-			setElapsedMs((ms) => Math.min(ms + 1000, data?.durationMs ?? ms + 1000));
-		}, 1000);
 		const onVisible = () => {
 			if (!document.hidden) void load();
 		};
@@ -83,10 +71,9 @@ export default function SpotifyNowPlayingCard({
 		return () => {
 			cancelled = true;
 			clearInterval(loadingTimer);
-			clearInterval(elapsedTimer);
 			document.removeEventListener('visibilitychange', onVisible);
 		};
-	}, [endpoint, refreshIntervalMs, data?.durationMs]);
+	}, [endpoint, refreshIntervalMs]);
 
 	if (stopped) {
 		return (
@@ -103,7 +90,6 @@ export default function SpotifyNowPlayingCard({
 					</div>
 					<p className="mt-1 truncate text-sm font-semibold text-ctp-subtext1">No song playing</p>
 					<p className="truncate text-xs text-ctp-overlay1">Nothing scrobbling right now</p>
-					<div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-ctp-surface1" />
 				</div>
 			</div>
 		);
@@ -134,8 +120,6 @@ export default function SpotifyNowPlayingCard({
 			</div>
 		);
 	}
-
-	const progressPercent = data.durationMs > 0 ? (elapsedMs / data.durationMs) * 100 : 0;
 
 	return (
 		<a
@@ -174,17 +158,6 @@ export default function SpotifyNowPlayingCard({
 				<p className="truncate text-xs text-ctp-subtext0">
 					{data.artist} — <span className="text-ctp-overlay1">{data.album}</span>
 				</p>
-				<div className="mt-2 flex items-center gap-2">
-					<div className="h-1 w-full overflow-hidden rounded-full bg-ctp-surface1">
-						<div
-							className="h-full rounded-full bg-accent transition-[width] duration-1000 ease-linear"
-							style={{ width: `${progressPercent}%` }}
-						/>
-					</div>
-					<span className="shrink-0 text-[10px] tabular-nums text-ctp-overlay1">
-						{formatTime(elapsedMs)} / {formatTime(data.durationMs)}
-					</span>
-				</div>
 			</div>
 		</a>
 	);
