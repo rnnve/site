@@ -3,7 +3,7 @@ import { htmlToMarkdown } from '@/lib/markdown';
 
 const API_CATALOG_LINK = '</.well-known/api-catalog>; rel="api-catalog"';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
 	// Avoid recursion when we re-fetch HTML for markdown negotiation.
 	if (request.headers.get('x-markdown-passthrough') === '1') {
 		return NextResponse.next();
