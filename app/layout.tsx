@@ -45,9 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="min-h-dvh min-w-0 overflow-x-clip bg-ctp-crust font-sans">
+			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-ctp-crust font-sans">
 				<SiteNav />
-				{children}
+				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
 				<SpeedInsights />
 				<Script

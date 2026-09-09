@@ -10,13 +10,13 @@ export const metadata = {
 
 export default function MusicPage() {
 	return (
-		<main className="min-h-dvh min-w-0 bg-ctp-crust text-ctp-text">
-			<div className="mx-auto flex min-h-[calc(100dvh-5rem)] w-full max-w-4xl min-w-0 flex-col gap-5 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:gap-6 sm:px-6 sm:pt-7 sm:pb-[max(2rem,env(safe-area-inset-bottom))] lg:px-8 lg:pt-10">
-				<header className="min-w-0 animate-fade-up">
+		<main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-ctp-crust text-ctp-text">
+			<div className="mx-auto flex min-h-0 w-full max-w-4xl min-w-0 flex-1 flex-col gap-4 overflow-hidden pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:gap-5 sm:px-6 sm:pt-5 sm:pb-[max(1.25rem,env(safe-area-inset-bottom))] lg:px-8 lg:pt-6">
+				<header className="min-w-0 shrink-0 animate-fade-up">
 					<h1 className="text-lg font-semibold text-ctp-text sm:text-xl">Music</h1>
 					<p className="mt-1 text-sm text-ctp-subtext0">Last.fm listening history</p>
 				</header>
-				<section className="min-w-0 animate-fade-up" style={{ animationDelay: '80ms' }}>
+				<section className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain animate-fade-up" style={{ animationDelay: '80ms' }}>
 					<LastFmWidget />
 				</section>
 				<SiteFooter />
