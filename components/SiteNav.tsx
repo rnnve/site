@@ -23,8 +23,10 @@ function MusicIcon({ className }: { className?: string }) {
 	);
 }
 
-/** Rounded-rect path starting at bottom-center, going clockwise around all four sides back to bottom-center. */
-function roundedRectPathFromBottomCenter(width: number, height: number, radius: number, inset = 1) {
+type OutlineHalves = { right: string; left: string };
+
+/** Two half-perimeters from bottom-center so the accent meets at top-center (full pill). */
+function roundedPillHalvesFromBottomCenter(width: number, height: number, radius: number, inset = 1.5): OutlineHalves {
 	const x0 = inset;
 	const y0 = inset;
 	const x1 = Math.max(inset + 1, width - inset);
@@ -32,18 +34,25 @@ function roundedRectPathFromBottomCenter(width: number, height: number, radius: 
 	const rr = Math.min(radius, (x1 - x0) / 2, (y1 - y0) / 2);
 	const cx = width / 2;
 
-	return [
+	const right = [
 		`M ${cx} ${y1}`,
 		`L ${x1 - rr} ${y1}`,
 		`A ${rr} ${rr} 0 0 1 ${x1} ${y1 - rr}`,
 		`L ${x1} ${y0 + rr}`,
 		`A ${rr} ${rr} 0 0 1 ${x1 - rr} ${y0}`,
-		`L ${x0 + rr} ${y0}`,
-		`A ${rr} ${rr} 0 0 1 ${x0} ${y0 + rr}`,
-		`L ${x0} ${y1 - rr}`,
-		`A ${rr} ${rr} 0 0 1 ${x0 + rr} ${y1}`,
-		`L ${cx} ${y1}`,
+		`L ${cx} ${y0}`,
 	].join(' ');
+
+	const left = [
+		`M ${cx} ${y1}`,
+		`L ${x0 + rr} ${y1}`,
+		`A ${rr} ${rr} 0 0 0 ${x0} ${y1 - rr}`,
+		`L ${x0} ${y0 + rr}`,
+		`A ${rr} ${rr} 0 0 0 ${x0 + rr} ${y0}`,
+		`L ${cx} ${y0}`,
+	].join(' ');
+
+	return { right, left };
 }
 
 const iconLink =
@@ -52,7 +61,7 @@ const iconLink =
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 	const [pending, setPending] = useState(false);
-	const [outlinePath, setOutlinePath] = useState('');
+	const [outline, setOutline] = useState<OutlineHalves | null>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
 	const [, startTransition] = useTransition();
 
@@ -67,7 +76,7 @@ export default function SiteNav() {
 		const update = () => {
 			const styles = getComputedStyle(el);
 			const radius = Number.parseFloat(styles.borderTopLeftRadius || '16') || 16;
-			setOutlinePath(roundedRectPathFromBottomCenter(el.clientWidth, el.clientHeight, radius, 1));
+			setOutline(roundedPillHalvesFromBottomCenter(el.clientWidth, el.clientHeight, radius, 1.5));
 		};
 
 		update();
@@ -91,14 +100,17 @@ export default function SiteNav() {
 		<nav className="sticky top-0 z-50 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))]">
 			<div
 				ref={shellRef}
-				className={`relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2 ${
+				className={`relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between overflow-visible rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2 ${
 					pending ? 'nav-shell-pending' : ''
 				}`}
 			>
-				{pending && outlinePath && (
-					<svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
+				{pending && outline && (
+					<svg
+						className="pointer-events-none absolute inset-0 z-20 h-full w-full overflow-visible"
+						aria-hidden="true"
+					>
 						<defs>
-							<linearGradient id="nav-border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+							<linearGradient id="nav-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
 								<stop offset="0%" stopColor="var(--catppuccin-color-mauve)" />
 								<stop offset="50%" stopColor="var(--catppuccin-color-pink)" />
 								<stop offset="100%" stopColor="var(--catppuccin-color-lavender)" />
@@ -106,10 +118,20 @@ export default function SiteNav() {
 						</defs>
 						<path
 							className="nav-border-chase-path"
-							d={outlinePath}
+							d={outline.right}
 							fill="none"
 							stroke="url(#nav-border-grad)"
-							strokeWidth="2"
+							strokeWidth="2.25"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							pathLength={1}
+						/>
+						<path
+							className="nav-border-chase-path"
+							d={outline.left}
+							fill="none"
+							stroke="url(#nav-border-grad)"
+							strokeWidth="2.25"
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							pathLength={1}

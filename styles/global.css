@@ -138,12 +138,12 @@ svg {
 	}
 }
 
-/* SVG pathLength=1: draw full navbar outline from bottom-center around all four sides. */
+/* SVG pathLength=1: both halves race from bottom-center and light the full pill. */
 @keyframes nav-border-draw {
 	0% {
 		stroke-dashoffset: 1;
 	}
-	85% {
+	65% {
 		stroke-dashoffset: 0;
 	}
 	100% {
@@ -154,7 +154,7 @@ svg {
 .nav-border-chase-path {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
-	animation: nav-border-draw 1.15s linear infinite;
+	animation: nav-border-draw 0.38s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .nav-shell-pending {
