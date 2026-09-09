@@ -16,7 +16,11 @@ export default function MusicPage() {
 					<h1 className="text-lg font-semibold text-ctp-text sm:text-xl">Music</h1>
 					<p className="mt-1 text-sm text-ctp-subtext0">Last.fm listening history</p>
 				</header>
-				<section className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain animate-fade-up" style={{ animationDelay: '80ms' }}>
+				<section
+					className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden animate-fade-up"
+					style={{ animationDelay: '80ms' }}
+					aria-label="Last.fm"
+				>
 					<LastFmWidget />
 				</section>
 				<SiteFooter />

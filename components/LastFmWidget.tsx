@@ -259,50 +259,54 @@ export default function LastFmWidget({
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="w-full min-w-0">
-			<div className="-mx-1 flex w-full min-w-0 flex-nowrap gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-				{VIEWS.map(({ id, label }) => (
-					<button
-						key={id}
-						type="button"
-						onClick={() => setView(id)}
-						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-							view === id
-								? 'bg-accent text-ctp-base'
-								: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
-						}`}
-					>
-						{label}
-					</button>
-				))}
-			</div>
-			{viewError && !viewData && (
-				<p key={view} className="mt-3 animate-fade-in text-xs text-ctp-subtext0">
-					<span className="font-semibold text-ctp-overlay1">Unable to load:</span> {viewError}
-				</p>
-			)}
-			{!viewData && !viewError && (
-				<p key={view} className="mt-3 animate-fade-in text-xs text-ctp-subtext0">
-					Loading…
-				</p>
-			)}
-			{viewData && (
-				<div key={view} className="mt-2 min-w-0 animate-fade-in divide-y divide-ctp-surface1/70">
-					{recentData &&
-						recentData.recenttracks.track.map((track, index) => (
-							<TrackRow key={track.url + track.date?.uts + index} track={track} />
-						))}
-					{topTracksData &&
-						topTracksData.toptracks.track.map((track) => (
-							<TopTrackRow key={track.url} track={track} />
-						))}
-					{topArtistsData &&
-						topArtistsData.topartists.artist.map((artist) => (
-							<TopArtistRow key={artist.url} artist={artist} />
-						))}
-					{infoData?.user && <StatsView user={infoData.user} />}
+		<div className="flex h-full min-h-0 w-full min-w-0 flex-col">
+			<div className="-mx-1 shrink-0 bg-ctp-crust pb-2 pt-0.5">
+				<div className="flex w-full min-w-0 flex-nowrap gap-1.5 overflow-x-auto overscroll-x-contain px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+					{VIEWS.map(({ id, label }) => (
+						<button
+							key={id}
+							type="button"
+							onClick={() => setView(id)}
+							className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+								view === id
+									? 'bg-accent text-ctp-base'
+									: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
+							}`}
+						>
+							{label}
+						</button>
+					))}
 				</div>
-			)}
+			</div>
+			<div className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain">
+				{viewError && !viewData && (
+					<p key={view} className="animate-fade-in text-xs text-ctp-subtext0">
+						<span className="font-semibold text-ctp-overlay1">Unable to load:</span> {viewError}
+					</p>
+				)}
+				{!viewData && !viewError && (
+					<p key={view} className="animate-fade-in text-xs text-ctp-subtext0">
+						Loading…
+					</p>
+				)}
+				{viewData && (
+					<div key={view} className="min-w-0 animate-fade-in divide-y divide-ctp-surface1/70">
+						{recentData &&
+							recentData.recenttracks.track.map((track, index) => (
+								<TrackRow key={track.url + track.date?.uts + index} track={track} />
+							))}
+						{topTracksData &&
+							topTracksData.toptracks.track.map((track) => (
+								<TopTrackRow key={track.url} track={track} />
+							))}
+						{topArtistsData &&
+							topArtistsData.topartists.artist.map((artist) => (
+								<TopArtistRow key={artist.url} artist={artist} />
+							))}
+						{infoData?.user && <StatsView user={infoData.user} />}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }
