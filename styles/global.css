@@ -113,10 +113,9 @@ svg {
 		transition: none;
 	}
 
-	.nav-border-chase-path {
+	.nav-border-chase {
 		animation: none;
-		stroke-dasharray: 1;
-		stroke-dashoffset: 0;
+		--nav-trace: 360deg;
 	}
 
 	.nav-icon-link {
@@ -138,25 +137,50 @@ svg {
 	}
 }
 
-/* Single SVG path: draw once around the full pill, then hold until nav settles. */
-@keyframes nav-border-draw {
-	from {
-		stroke-dashoffset: 1;
-	}
-	to {
-		stroke-dashoffset: 0;
-	}
+/* Exact pill match: same border-radius as the shell (inherit), 1px ring = border. */
+@property --nav-trace {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
 }
 
-.nav-border-chase-path {
-	stroke-dasharray: 1;
-	stroke-dashoffset: 1;
-	animation: nav-border-draw 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+@keyframes nav-border-draw {
+	from {
+		--nav-trace: 0deg;
+	}
+	to {
+		--nav-trace: 360deg;
+	}
 }
 
 .nav-shell-pending {
-	/* Hide the static border so the stroke isn’t cut by a second outline. */
 	border-color: transparent;
+}
+
+.nav-border-chase {
+	position: absolute;
+	/* Cover the 1px CSS border box so corners match the real pill. */
+	inset: -1px;
+	z-index: 20;
+	pointer-events: none;
+	border-radius: inherit;
+	padding: 1px;
+	background: conic-gradient(
+		from 180deg at 50% 50%,
+		var(--catppuccin-color-mauve) 0deg,
+		var(--catppuccin-color-pink) calc(var(--nav-trace) * 0.5),
+		var(--catppuccin-color-lavender) var(--nav-trace),
+		transparent var(--nav-trace)
+	);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	animation: nav-border-draw 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .nav-icon-link-active {
