@@ -54,7 +54,7 @@ export default function SiteNav() {
 				}`}
 			>
 				{pending && (
-					<span className="nav-border-progress pointer-events-none absolute inset-x-0 bottom-0 h-[2px]" aria-hidden="true" />
+					<span className="nav-border-chase pointer-events-none absolute inset-0 rounded-[inherit]" aria-hidden="true" />
 				)}
 				<Link
 					href="/"
