@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "start": "next start"
   },
   "dependencies": {
     "@fontsource/chakra-petch": "^5.3.0",
