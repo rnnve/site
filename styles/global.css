@@ -42,6 +42,12 @@
 	color-scheme: dark;
 }
 
+.mocha {
+	--catppuccin-color-surface0: #191b26;
+	--catppuccin-color-surface1: #232635;
+	--catppuccin-color-surface2: #2c3043;
+}
+
 *,
 *::before,
 *::after {
