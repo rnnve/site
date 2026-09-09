@@ -48,15 +48,14 @@ export default function SiteNav() {
 
 	return (
 		<nav className="sticky top-0 z-50 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))]">
-			{pending && (
-				<div
-					className="pointer-events-none absolute inset-x-0 top-0 z-[60] h-0.5 overflow-hidden"
-					aria-hidden="true"
-				>
-					<div className="nav-route-progress h-full w-1/3 rounded-full bg-accent" />
-				</div>
-			)}
-			<div className="relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2">
+			<div
+				className={`relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between overflow-hidden rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2 ${
+					pending ? 'nav-shell-pending' : ''
+				}`}
+			>
+				{pending && (
+					<span className="nav-border-progress pointer-events-none absolute inset-x-0 bottom-0 h-[2px]" aria-hidden="true" />
+				)}
 				<Link
 					href="/"
 					onClick={() => go('/')}

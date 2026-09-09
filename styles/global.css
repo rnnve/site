@@ -113,10 +113,10 @@ svg {
 		transition: none;
 	}
 
-	.nav-route-progress {
+	.nav-border-progress {
 		animation: none;
-		width: 100%;
-		opacity: 0.7;
+		background: var(--catppuccin-color-mauve);
+		opacity: 0.85;
 	}
 
 	.nav-icon-link {
@@ -138,17 +138,31 @@ svg {
 	}
 }
 
-@keyframes nav-progress {
+@keyframes nav-border-progress {
 	0% {
-		transform: translateX(-120%);
+		transform: translateX(-40%);
 	}
 	100% {
-		transform: translateX(320%);
+		transform: translateX(140%);
 	}
 }
 
-.nav-route-progress {
-	animation: nav-progress 0.9s ease-in-out infinite;
+.nav-border-progress {
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--catppuccin-color-mauve) 35%,
+		var(--catppuccin-color-pink) 50%,
+		var(--catppuccin-color-mauve) 65%,
+		transparent 100%
+	);
+	background-size: 40% 100%;
+	background-repeat: no-repeat;
+	animation: nav-border-progress 0.9s ease-in-out infinite;
+}
+
+.nav-shell-pending {
+	border-bottom-color: color-mix(in oklab, var(--catppuccin-color-mauve) 55%, var(--catppuccin-color-surface1));
 }
 
 .nav-icon-link-active {
