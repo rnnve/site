@@ -15,7 +15,7 @@ export const dictionaries = {
   en: {
 		aboutHeading: 'About',
 		aboutParts: [
-			'I’m Rinne, a developer who loves building silly things. Most of my time goes into silly projects, listening to Spotify, hanging out in Discord. Also most of my projects are on my ',
+			'I’m Rinne (or Maple), a developer who loves building silly things. Most of my time goes into silly projects, listening to Spotify, hanging out in Discord. Also most of my projects are on my ',
 			{ link: 'github' },
 			'.',
 		] as AboutPart[],
@@ -23,7 +23,7 @@ export const dictionaries = {
 	th: {
 		aboutHeading: 'เกี่ยวกับ',
 		aboutParts: [
-			'เรารินเนะ (Rinne) เป็นนักพัฒนาที่ชอบสร้างสรรค์สิ่งต่างๆ และฟังเพลงไปด้วย เราช้เวลาส่วนใหญ่ไปกับการเขียนโค้ด (ที่ให้ AI ช่วยเขียน เพราะไม่มีเวลาในการเขียนเอง) ฟังเพลงบน Spotify และคุยใน Discord กับเพื่อนๆ และผลงานของเราอยู่บน ',
+			'เรารินเนะหรือเมเปิ้ล (Rinne, Maple) เป็นนักพัฒนาที่ชอบสร้างสรรค์สิ่งต่างๆ และฟังเพลงไปด้วย เราช้เวลาส่วนใหญ่ไปกับการเขียนโค้ด (ที่ให้ AI ช่วยเขียน เพราะไม่มีเวลาในการเขียนเอง) ฟังเพลงบน Spotify และคุยใน Discord กับเพื่อนๆ และผลงานของเราอยู่บน ',
 			{ link: 'github' },
 			'',
 		] as AboutPart[],
