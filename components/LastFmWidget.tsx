@@ -260,13 +260,13 @@ export default function LastFmWidget({
 
 	return (
 		<div className="w-full min-w-0">
-			<div className="flex flex-wrap gap-1.5">
+			<div className="-mx-1 flex w-full min-w-0 flex-nowrap gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 				{VIEWS.map(({ id, label }) => (
 					<button
 						key={id}
 						type="button"
 						onClick={() => setView(id)}
-						className={`rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 							view === id
 								? 'bg-accent text-ctp-base'
 								: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
