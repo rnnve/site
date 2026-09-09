@@ -1,5 +1,4 @@
 import DiscordProfileCard from '@/components/DiscordProfileCard';
-import LastFmWidget from '@/components/LastFmWidget';
 import SpotifyNowPlaying from '@/components/SpotifyNowPlaying';
 
 export const dynamic = 'force-dynamic';
@@ -14,13 +13,8 @@ export default function HomePage() {
 					<div className="animate-fade-up">
 						<SpotifyNowPlaying />
 					</div>
-					<div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
-						<div className="animate-fade-up" style={{ animationDelay: '120ms' }}>
-							<DiscordProfileCard />
-						</div>
-						<div className="animate-fade-up" style={{ animationDelay: '240ms' }}>
-							<LastFmWidget />
-						</div>
+					<div className="animate-fade-up" style={{ animationDelay: '120ms' }}>
+						<DiscordProfileCard />
 					</div>
 				</section>
 				<footer className="mt-auto flex flex-col items-center gap-1 text-xs text-ctp-overlay0">

@@ -52,6 +52,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						</a>
 						<div className="flex items-center gap-3">
 							<a
+								href="/music"
+								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
+							>
+								Music
+							</a>
+							<a
 								href="https://github.com/rnnve"
 								target="_blank"
 								rel="noreferrer"
