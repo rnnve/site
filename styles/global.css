@@ -42,10 +42,70 @@
 	color-scheme: dark;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 html,
 body {
 	margin: 0;
 	width: 100%;
-	height: 100%;
+	min-width: 0;
+	min-height: 100%;
 	background-color: var(--catppuccin-color-crust);
+}
+
+img,
+svg {
+	max-width: 100%;
+}
+
+.footer-rainbow-link {
+	background-image: linear-gradient(
+		90deg,
+		var(--catppuccin-color-rosewater),
+		var(--catppuccin-color-peach),
+		var(--catppuccin-color-yellow),
+		var(--catppuccin-color-green),
+		var(--catppuccin-color-sky),
+		var(--catppuccin-color-lavender),
+		var(--catppuccin-color-mauve)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	font-weight: 600;
+	text-decoration: none;
+	transition: filter 160ms ease;
+}
+
+.footer-rainbow-link:hover {
+	filter: brightness(1.2) saturate(1.1);
+}
+
+.footer-rainbow-link:focus-visible {
+	outline: 2px solid var(--catppuccin-color-mauve);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-up,
+	.animate-fade-in {
+		animation: none;
+	}
+
+	.footer-rainbow-link {
+		transition: none;
+	}
+}
+
+@media (forced-colors: active) {
+	.footer-rainbow-link {
+		background: none;
+		color: LinkText;
+		-webkit-text-fill-color: currentColor;
+	}
 }

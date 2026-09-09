@@ -44,36 +44,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="bg-ctp-crust font-sans">
-				<nav className="sticky top-0 z-50 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] py-2.5 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] sm:py-3">
-					<div className="mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-4 py-2.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-5 sm:py-3">
-						<a href="/" className="text-sm font-bold text-ctp-text">
+			<body className="min-h-dvh min-w-0 overflow-x-clip bg-ctp-crust font-sans">
+				<nav className="sticky top-0 z-50 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))]">
+					<div className="mx-auto flex w-full max-w-4xl min-w-0 flex-wrap items-center justify-between gap-2 rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2">
+						<a
+							href="/"
+							className="inline-flex min-h-11 min-w-11 items-center rounded-lg px-2 text-sm font-bold text-ctp-text transition hover:bg-ctp-surface1/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+						>
 							Rinne
 						</a>
-						<div className="flex items-center gap-3">
-							<a
-								href="/music"
-								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-							>
-								Music
-							</a>
-							<a
-								href="https://github.com/rnnve"
-								target="_blank"
-								rel="noreferrer"
-								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-							>
-								GitHub
-							</a>
-							<a
-								href="https://haunt.gg/rnn"
-								target="_blank"
-								rel="noreferrer"
-								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-							>
-								Links
-							</a>
-						</div>
+						<a
+							href="/music"
+							className="inline-flex min-h-11 items-center rounded-lg px-3 text-xs font-medium text-ctp-subtext0 transition hover:bg-ctp-surface1/60 hover:text-ctp-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+						>
+							Music
+						</a>
 					</div>
 				</nav>
 				{children}

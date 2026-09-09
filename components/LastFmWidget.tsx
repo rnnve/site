@@ -88,7 +88,14 @@ function TrackImage({ image, art, alt }: { image: LastFmImage; art?: string; alt
 }
 
 function PlayCount({ count }: { count: string }) {
-	return <span className="shrink-0 text-[11px] tabular-nums text-ctp-overlay1">{count} plays</span>;
+	return (
+		<span
+			title={`${count} plays`}
+			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-ctp-overlay1 sm:max-w-24 sm:text-[11px]"
+		>
+			{count}<span className="hidden min-[23rem]:inline"> plays</span>
+		</span>
+	);
 }
 
 function TrackRow({ track }: { track: LastFmTrack }) {
@@ -99,7 +106,7 @@ function TrackRow({ track }: { track: LastFmTrack }) {
 			href={track.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex items-center gap-3 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50"
+			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
 			<div className="min-w-0 flex-1">
@@ -122,7 +129,7 @@ function TopTrackRow({ track }: { track: LastFmTopTrack }) {
 			href={track.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex items-center gap-3 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50"
+			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={track['@attr']?.rank} />
 			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
@@ -141,7 +148,7 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 			href={artist.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex items-center gap-3 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50"
+			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={artist['@attr']?.rank} />
 			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} />
@@ -155,8 +162,8 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="flex flex-col gap-0.5 rounded-lg bg-ctp-surface1/60 px-3 py-2.5">
-			<span className="text-xl font-bold tabular-nums text-ctp-text">{value}</span>
+		<div className="min-w-0 rounded-lg bg-ctp-surface1/60 px-3 py-2.5">
+			<span className="block break-words text-base font-bold tabular-nums text-ctp-text sm:text-xl">{value}</span>
 			<span className="text-[11px] text-ctp-overlay1">{label}</span>
 		</div>
 	);
@@ -168,8 +175,8 @@ function StatsView({ user }: { user: LastFmUserInfo }) {
 		: null;
 
 	return (
-		<div className="py-3">
-			<div className="grid grid-cols-2 gap-2">
+		<div className="min-w-0 py-3">
+			<div className="grid min-w-0 grid-cols-2 gap-2">
 				<Stat label="Scrobbles" value={user.playcount} />
 				<Stat label="Tracks" value={user.track_count} />
 				<Stat label="Artists" value={user.artist_count} />
@@ -267,18 +274,20 @@ export default function LastFmWidget({
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="w-full rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4">
-			<div className="flex items-center justify-between">
-				<h3 className="text-xs font-semibold uppercase tracking-wider text-ctp-overlay1">Last.fm</h3>
-				{username && <span className="text-[11px] text-ctp-overlay0">@{username}</span>}
+		<div className="w-full min-w-0 overflow-hidden rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:p-4">
+			<div className="flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-1">
+				<h3 className="shrink-0 text-xs font-semibold uppercase tracking-wider text-ctp-overlay1">Last.fm</h3>
+				{username && (
+					<span className="min-w-0 max-w-full truncate text-[11px] text-ctp-overlay0">@{username}</span>
+				)}
 			</div>
-			<div className="mt-3 flex flex-wrap gap-1">
+			<div className="mt-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-1.5">
 				{VIEWS.map(({ id, label }) => (
 					<button
 						key={id}
 						type="button"
 						onClick={() => setView(id)}
-						className={`rounded-full px-3 py-1 text-xs font-medium transition ${
+						className={`min-h-11 w-full rounded-full px-3 py-2 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-auto ${
 							view === id
 								? 'bg-accent text-ctp-base'
 								: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
@@ -299,7 +308,7 @@ export default function LastFmWidget({
 				</p>
 			)}
 			{viewData && (
-				<div key={view} className="mt-2 animate-fade-in divide-y divide-ctp-surface1/70">
+				<div key={view} className="mt-2 min-w-0 animate-fade-in divide-y divide-ctp-surface1/70">
 					{recentData &&
 						recentData.recenttracks.track.map((track, index) => (
 							<TrackRow key={track.url + track.date?.uts + index} track={track} />
