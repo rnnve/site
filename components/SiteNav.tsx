@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState, useTransition } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 function HomeIcon({ className }: { className?: string }) {
@@ -23,37 +23,37 @@ function MusicIcon({ className }: { className?: string }) {
 	);
 }
 
-type OutlineHalves = { right: string; left: string };
-
-/** Two half-perimeters from bottom-center so the accent meets at top-center (full pill). */
-function roundedPillHalvesFromBottomCenter(width: number, height: number, radius: number, inset = 1.5): OutlineHalves {
+/** One closed rounded-rect path: bottom-center → clockwise full perimeter → bottom-center. */
+function roundedPillPathFromBottomCenter(width: number, height: number, radius: number, inset: number) {
 	const x0 = inset;
 	const y0 = inset;
 	const x1 = Math.max(inset + 1, width - inset);
 	const y1 = Math.max(inset + 1, height - inset);
-	const rr = Math.min(radius, (x1 - x0) / 2, (y1 - y0) / 2);
+	const rr = Math.min(radius - inset, (x1 - x0) / 2, (y1 - y0) / 2);
+	const safeR = Math.max(0.5, rr);
 	const cx = width / 2;
 
-	const right = [
+	return [
 		`M ${cx} ${y1}`,
-		`L ${x1 - rr} ${y1}`,
-		`A ${rr} ${rr} 0 0 1 ${x1} ${y1 - rr}`,
-		`L ${x1} ${y0 + rr}`,
-		`A ${rr} ${rr} 0 0 1 ${x1 - rr} ${y0}`,
-		`L ${cx} ${y0}`,
+		`L ${x1 - safeR} ${y1}`,
+		`A ${safeR} ${safeR} 0 0 1 ${x1} ${y1 - safeR}`,
+		`L ${x1} ${y0 + safeR}`,
+		`A ${safeR} ${safeR} 0 0 1 ${x1 - safeR} ${y0}`,
+		`L ${x0 + safeR} ${y0}`,
+		`A ${safeR} ${safeR} 0 0 1 ${x0} ${y0 + safeR}`,
+		`L ${x0} ${y1 - safeR}`,
+		`A ${safeR} ${safeR} 0 0 1 ${x0 + safeR} ${y1}`,
+		`L ${cx} ${y1}`,
 	].join(' ');
-
-	const left = [
-		`M ${cx} ${y1}`,
-		`L ${x0 + rr} ${y1}`,
-		`A ${rr} ${rr} 0 0 0 ${x0} ${y1 - rr}`,
-		`L ${x0} ${y0 + rr}`,
-		`A ${rr} ${rr} 0 0 0 ${x0 + rr} ${y0}`,
-		`L ${cx} ${y0}`,
-	].join(' ');
-
-	return { right, left };
 }
+
+type OutlineBox = {
+	d: string;
+	w: number;
+	h: number;
+	left: number;
+	top: number;
+};
 
 const iconLink =
 	'nav-icon-link inline-flex h-8 w-8 items-center justify-center rounded-lg text-ctp-subtext0 transition duration-200 ease-out hover:bg-ctp-surface1/70 hover:text-ctp-text hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
@@ -61,11 +61,12 @@ const iconLink =
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 	const [pending, setPending] = useState(false);
-	const [outline, setOutline] = useState<OutlineHalves | null>(null);
+	const [outline, setOutline] = useState<OutlineBox | null>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
-	const [, startTransition] = useTransition();
+	const pendingRef = useRef(false);
 
 	useEffect(() => {
+		pendingRef.current = false;
 		setPending(false);
 	}, [pathname]);
 
@@ -75,8 +76,21 @@ export default function SiteNav() {
 
 		const update = () => {
 			const styles = getComputedStyle(el);
+			const borderLeft = Number.parseFloat(styles.borderLeftWidth) || 1;
+			const borderTop = Number.parseFloat(styles.borderTopWidth) || 1;
+			const borderAvg = (borderLeft + (Number.parseFloat(styles.borderRightWidth) || borderLeft)) / 2;
 			const radius = Number.parseFloat(styles.borderTopLeftRadius || '16') || 16;
-			setOutline(roundedPillHalvesFromBottomCenter(el.clientWidth, el.clientHeight, radius, 1.5));
+			const w = el.offsetWidth;
+			const h = el.offsetHeight;
+			// Stroke centered on the CSS border so sides don’t show a gap/cutout.
+			const inset = Math.max(borderAvg / 2, 0.5);
+			setOutline({
+				d: roundedPillPathFromBottomCenter(w, h, radius, inset),
+				w,
+				h,
+				left: -borderLeft,
+				top: -borderTop,
+			});
 		};
 
 		update();
@@ -89,11 +103,9 @@ export default function SiteNav() {
 	const musicActive = pathname === '/music' || pathname.startsWith('/music/');
 
 	function go(href: string) {
-		if (href === pathname) return;
+		if (href === pathname || pendingRef.current) return;
+		pendingRef.current = true;
 		setPending(true);
-		startTransition(() => {
-			/* Link handles navigation; pending clears on pathname change */
-		});
 	}
 
 	return (
@@ -106,11 +118,15 @@ export default function SiteNav() {
 			>
 				{pending && outline && (
 					<svg
-						className="pointer-events-none absolute inset-0 z-20 h-full w-full overflow-visible"
+						className="pointer-events-none absolute z-20 overflow-visible"
+						width={outline.w}
+						height={outline.h}
+						viewBox={`0 0 ${outline.w} ${outline.h}`}
+						style={{ left: outline.left, top: outline.top }}
 						aria-hidden="true"
 					>
 						<defs>
-							<linearGradient id="nav-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+							<linearGradient id="nav-border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
 								<stop offset="0%" stopColor="var(--catppuccin-color-mauve)" />
 								<stop offset="50%" stopColor="var(--catppuccin-color-pink)" />
 								<stop offset="100%" stopColor="var(--catppuccin-color-lavender)" />
@@ -118,22 +134,13 @@ export default function SiteNav() {
 						</defs>
 						<path
 							className="nav-border-chase-path"
-							d={outline.right}
+							d={outline.d}
 							fill="none"
 							stroke="url(#nav-border-grad)"
-							strokeWidth="2.25"
+							strokeWidth={2}
 							strokeLinecap="round"
 							strokeLinejoin="round"
-							pathLength={1}
-						/>
-						<path
-							className="nav-border-chase-path"
-							d={outline.left}
-							fill="none"
-							stroke="url(#nav-border-grad)"
-							strokeWidth="2.25"
-							strokeLinecap="round"
-							strokeLinejoin="round"
+							vectorEffect="non-scaling-stroke"
 							pathLength={1}
 						/>
 					</svg>

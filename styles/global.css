@@ -138,15 +138,12 @@ svg {
 	}
 }
 
-/* SVG pathLength=1: both halves race from bottom-center and light the full pill. */
+/* Single SVG path: draw once around the full pill, then hold until nav settles. */
 @keyframes nav-border-draw {
-	0% {
+	from {
 		stroke-dashoffset: 1;
 	}
-	65% {
-		stroke-dashoffset: 0;
-	}
-	100% {
+	to {
 		stroke-dashoffset: 0;
 	}
 }
@@ -154,11 +151,12 @@ svg {
 .nav-border-chase-path {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
-	animation: nav-border-draw 0.38s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+	animation: nav-border-draw 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .nav-shell-pending {
-	border-color: color-mix(in oklab, var(--catppuccin-color-mauve) 45%, var(--catppuccin-color-surface1));
+	/* Hide the static border so the stroke isn’t cut by a second outline. */
+	border-color: transparent;
 }
 
 .nav-icon-link-active {
