@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="bg-ctp-base font-sans">
+			<body className="bg-ctp-crust font-sans">
 				<nav className="sticky top-0 z-50 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] py-2.5 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] sm:py-3">
 					<div className="mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-4 py-2.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-5 sm:py-3">
 						<a href="/" className="text-sm font-bold text-ctp-text">
