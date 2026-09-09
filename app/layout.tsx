@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import SiteNav from '@/components/SiteNav';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
@@ -44,32 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="bg-ctp-crust font-sans">
-				<nav className="sticky top-0 z-50 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] py-2.5 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] sm:py-3">
-					<div className="mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-4 py-2.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-5 sm:py-3">
-						<a href="/" className="text-sm font-bold text-ctp-text">
-							Rinne
-						</a>
-						<div className="flex items-center gap-3">
-							<a
-								href="https://github.com/rnnve"
-								target="_blank"
-								rel="noreferrer"
-								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-							>
-								GitHub
-							</a>
-							<a
-								href="https://haunt.gg/rnn"
-								target="_blank"
-								rel="noreferrer"
-								className="text-xs text-ctp-subtext0 transition hover:text-ctp-text"
-							>
-								Links
-							</a>
-						</div>
-					</div>
-				</nav>
+			<body className="min-h-dvh min-w-0 overflow-x-clip bg-ctp-crust font-sans">
+				<SiteNav />
 				{children}
 				<Analytics />
 				<SpeedInsights />
