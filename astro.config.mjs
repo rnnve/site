@@ -13,7 +13,7 @@ export default defineConfig({
   integrations: [react(), sitemap({ customPages: ['https://maplenan.org/'] })],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
   adapter: vercel()
