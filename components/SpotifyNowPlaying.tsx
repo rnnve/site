@@ -89,7 +89,7 @@ export default function SpotifyNowPlayingCard({
 
 	if (stopped) {
 		return (
-			<div className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:gap-4 sm:p-4">
+			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
 				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ctp-surface1/70 text-ctp-overlay1 sm:h-14 sm:w-14">
 					<SpotifyIcon className="h-5 w-5" />
 				</div>
@@ -110,7 +110,7 @@ export default function SpotifyNowPlayingCard({
 
 	if (error) {
 		return (
-			<div className="w-full rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+			<div className="w-full min-w-0 text-sm text-ctp-subtext0">
 				<span className="font-semibold text-ctp-overlay1">Spotify</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
@@ -119,7 +119,7 @@ export default function SpotifyNowPlayingCard({
 
 	if (!data) {
 		return (
-			<div className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 sm:gap-4 sm:p-4">
+			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
 				<div className="h-12 w-12 shrink-0 animate-pulse rounded-lg bg-ctp-surface1 sm:h-14 sm:w-14" />
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export default function SpotifyNowPlayingCard({
 			href={data.trackUrl}
 			target="_blank"
 			rel="noreferrer"
-			className="flex w-full items-center gap-3 rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-3 text-ctp-text no-underline transition hover:bg-ctp-surface1 sm:gap-4 sm:p-4"
+			className="flex w-full min-w-0 items-center gap-3 text-ctp-text no-underline transition hover:opacity-90 sm:gap-4"
 		>
 			{data.albumImageUrl ? (
 				<img

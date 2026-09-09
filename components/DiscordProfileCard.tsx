@@ -147,7 +147,7 @@ export default function DiscordProfileCard({
 
 	if (error) {
 		return (
-			<div className="w-full rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+			<div className="w-full min-w-0 text-sm text-ctp-subtext0">
 				<span className="font-semibold text-ctp-overlay1">Discord</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
@@ -156,7 +156,7 @@ export default function DiscordProfileCard({
 
 	if (!user) {
 		return (
-			<div className="w-full rounded-lg border border-ctp-surface1 bg-ctp-surface0 p-4 text-sm text-ctp-subtext0">
+			<div className="w-full min-w-0 text-sm text-ctp-subtext0">
 				<span className="font-semibold text-ctp-overlay1">Discord</span>
 				<p className="mt-1">Loading profile…</p>
 			</div>
@@ -164,8 +164,7 @@ export default function DiscordProfileCard({
 	}
 
 	return (
-		<div className="w-full overflow-hidden rounded-lg border border-ctp-surface1 bg-ctp-surface0">
-			<div className="px-4 py-4">
+		<div className="w-full min-w-0">
 				<div className="flex items-center gap-2">
 					<DiscordIcon className="h-4 w-4 text-ctp-overlay1" />
 					<span className="text-xs font-medium uppercase tracking-wider text-ctp-overlay1">Discord</span>
@@ -192,13 +191,12 @@ export default function DiscordProfileCard({
 					</div>
 				</div>
 				{user.activities.length > 0 && (
-					<ul className="mt-3 divide-y divide-ctp-surface1/70 border-t border-ctp-surface1">
+					<ul className="mt-3 divide-y divide-ctp-surface1/70 border-t border-ctp-surface1/70">
 						{user.activities.map((activity) => (
 							<ActivityLine key={activity.applicationId ?? activity.name} activity={activity} />
 						))}
 					</ul>
 				)}
-			</div>
 		</div>
 	);
 }
