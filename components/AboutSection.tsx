@@ -1,9 +1,17 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 import rehypeRainbow from '@/lib/rehype-rainbow';
 import { langs, useI18n } from '@/lib/i18n';
+
+function discordify(markdown: string): string {
+	return markdown
+		.replace(/__([^_]+)__/g, '<u>$1</u>')
+		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
+}
 
 export default function AboutSection() {
 	const { lang, setLang, t } = useI18n();
@@ -62,9 +70,10 @@ export default function AboutSection() {
 							</code>
 						),
 					}}
-					rehypePlugins={[rehypeRainbow]}
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeRaw, rehypeRainbow]}
 				>
-					{t.about}
+					{discordify(t.about)}
 				</ReactMarkdown>
 			</div>
 		</section>
