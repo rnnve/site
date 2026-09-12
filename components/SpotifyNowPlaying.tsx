@@ -78,18 +78,18 @@ export default function SpotifyNowPlayingCard({
 	if (stopped) {
 		return (
 			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
-				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ctp-surface1/70 text-ctp-overlay1 sm:h-14 sm:w-14">
+				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high/70 text-on-surface-variant sm:h-14 sm:w-14">
 					<SpotifyIcon className="h-5 w-5" />
 				</div>
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
 						<span className="relative flex h-2 w-2">
-							<span className="relative inline-flex h-2 w-2 rounded-full bg-ctp-overlay2/60" />
+							<span className="relative inline-flex h-2 w-2 rounded-full bg-outline/60" />
 						</span>
-						<span className="text-xs font-medium uppercase tracking-wider text-ctp-overlay1">Spotify</span>
+						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">Spotify</span>
 					</div>
-					<p className="mt-1 truncate text-sm font-semibold text-ctp-subtext1">No song playing</p>
-					<p className="truncate text-xs text-ctp-overlay1">Nothing scrobbling right now</p>
+					<p className="mt-1 truncate text-sm font-semibold text-on-surface-variant">No song playing</p>
+					<p className="truncate text-xs text-on-surface-variant">Nothing scrobbling right now</p>
 				</div>
 			</div>
 		);
@@ -97,8 +97,8 @@ export default function SpotifyNowPlayingCard({
 
 	if (error) {
 		return (
-			<div className="w-full min-w-0 text-sm text-ctp-subtext0">
-				<span className="font-semibold text-ctp-overlay1">Spotify</span>
+			<div className="w-full min-w-0 text-sm text-on-surface-variant">
+				<span className="font-semibold text-on-surface-variant">Spotify</span>
 				<p className="mt-1">Unable to load: {error}</p>
 			</div>
 		);
@@ -126,7 +126,7 @@ export default function SpotifyNowPlayingCard({
 			href={data.trackUrl}
 			target="_blank"
 			rel="noreferrer"
-			className="flex w-full min-w-0 items-center gap-3 text-ctp-text no-underline transition hover:opacity-90 sm:gap-4"
+			className="flex w-full min-w-0 items-center gap-3 text-on-surface no-underline transition hover:opacity-90 sm:gap-4"
 		>
 			{data.albumImageUrl ? (
 				<img
@@ -139,7 +139,7 @@ export default function SpotifyNowPlayingCard({
 					className="h-12 w-12 shrink-0 rounded-lg object-cover sm:h-14 sm:w-14"
 				/>
 			) : (
-				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-dark text-ctp-text sm:h-14 sm:w-14">
+				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-dark text-on-primary sm:h-14 sm:w-14">
 					<SpotifyIcon className="h-6 w-6" />
 				</div>
 			)}
@@ -154,9 +154,9 @@ export default function SpotifyNowPlayingCard({
 						Currently Playing
 					</span>
 				</div>
-				<p className="mt-1 truncate text-sm font-semibold text-ctp-text">{data.title}</p>
-				<p className="truncate text-xs text-ctp-subtext0">
-					{data.artist} — <span className="text-ctp-overlay1">{data.album}</span>
+				<p className="mt-1 truncate text-sm font-semibold text-on-surface">{data.title}</p>
+				<p className="truncate text-xs text-on-surface-variant">
+					{data.artist} — <span className="text-on-surface-variant">{data.album}</span>
 				</p>
 			</div>
 		</a>
