@@ -113,7 +113,7 @@ export default function SiteNav() {
 
 			<nav
 				aria-label="Main navigation"
-				className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 md:hidden"
+				className="fixed bottom-16 left-1/2 z-50 -translate-x-1/2 md:hidden"
 			>
 				<div className="flex gap-0.5 rounded-xl p-1.5" style={containerStyle}>
 					{items.map((item) => (
