@@ -16,15 +16,7 @@ import {
 	type LastFmUserInfo,
 	type LastFmUserInfoResponse,
 } from '@/lib/integrations';
-
-interface LastFmWidgetProps {
-	endpoint?: string;
-	trackCount?: number;
-	/** Refresh interval for the Recent view (live sync). */
-	recentRefreshMs?: number;
-	/** Refresh interval for Top Tracks / Top Artists / Stats. */
-	refreshIntervalMs?: number;
-}
+import { useLive } from '@/components/LiveProvider';
 
 type LastFmView = 'recent' | 'toptracks' | 'topartists' | 'info';
 
@@ -34,8 +26,6 @@ const VIEWS: { id: LastFmView; label: string }[] = [
 	{ id: 'recent', label: 'Recent' },
 	{ id: 'info', label: 'Stats' },
 ];
-
-const ALL_VIEWS = VIEWS.map((v) => v.id);
 
 type ViewData = {
 	recent: LastFmRecentTracksResponse;
@@ -183,75 +173,12 @@ function StatsView({ user }: { user: LastFmUserInfo }) {
 	);
 }
 
-export default function LastFmWidget({
-	endpoint = '/api/lastfm',
-	trackCount = 10,
-	recentRefreshMs = 5_000,
-	refreshIntervalMs = 5_000,
-}: LastFmWidgetProps) {
+export default function LastFmWidget() {
 	const [view, setView] = useState<LastFmView>('toptracks');
-	const [data, setData] = useState<Partial<ViewData>>({});
-	const [errors, setErrors] = useState<Partial<Record<LastFmView, string>>>({});
+	const { lastfm, lastfmError } = useLive();
 
-	useEffect(() => {
-		let cancelled = false;
-
-		async function loadViews(views: LastFmView[]) {
-			if (document.hidden) return;
-
-			await Promise.all(
-				views.map(async (v) => {
-					try {
-						const response = await fetch(`${endpoint}?view=${v}&limit=${trackCount}`);
-						if (!response.ok) {
-							const body = (await response.json().catch(() => null)) as { error?: string } | null;
-							throw new Error(body?.error ?? `Request failed with ${response.status}`);
-						}
-						const json = (await response.json()) as ViewData[LastFmView] & {
-							error?: number | string;
-							message?: string;
-						};
-						if (cancelled) return;
-
-						if (json.error) {
-							throw new Error(json.message ?? String(json.error));
-						}
-
-						setData((current) => ({ ...current, [v]: json }));
-						setErrors((current) => (current[v] ? { ...current, [v]: undefined } : current));
-					} catch (err) {
-						if (cancelled) return;
-						setErrors((current) => ({
-							...current,
-							[v]: err instanceof Error ? err.message : `Failed to load ${v}`,
-						}));
-					}
-				}),
-			);
-		}
-
-		const otherViews = (['toptracks', 'topartists', 'info'] as const).filter(
-			(v): v is Exclude<LastFmView, 'recent'> => v !== view,
-		);
-
-		void loadViews(ALL_VIEWS);
-		const fastTimer = setInterval(() => void loadViews(['recent']), recentRefreshMs);
-		const slowTimer = setInterval(() => void loadViews(otherViews), refreshIntervalMs);
-		const onVisible = () => {
-			if (!document.hidden) void loadViews(ALL_VIEWS);
-		};
-		document.addEventListener('visibilitychange', onVisible);
-
-		return () => {
-			cancelled = true;
-			clearInterval(fastTimer);
-			clearInterval(slowTimer);
-			document.removeEventListener('visibilitychange', onVisible);
-		};
-	}, [endpoint, trackCount, recentRefreshMs, refreshIntervalMs, view]);
-
-	const viewData = data[view];
-	const viewError = errors[view];
+	const viewData = lastfm[view];
+	const viewError = lastfmError[view];
 
 	const recentData = view === 'recent' ? (viewData as ViewData['recent'] | undefined) : undefined;
 	const topTracksData = view === 'toptracks' ? (viewData as ViewData['toptracks'] | undefined) : undefined;
