@@ -29,9 +29,9 @@ interface LastFmWidgetProps {
 type LastFmView = 'recent' | 'toptracks' | 'topartists' | 'info';
 
 const VIEWS: { id: LastFmView; label: string }[] = [
-	{ id: 'recent', label: 'Recent' },
 	{ id: 'toptracks', label: 'Top Tracks' },
 	{ id: 'topartists', label: 'Top Artists' },
+	{ id: 'recent', label: 'Recent' },
 	{ id: 'info', label: 'Stats' },
 ];
 
@@ -46,7 +46,7 @@ type ViewData = {
 
 function Rank({ rank }: { rank?: string }) {
 	return (
-		<span className="w-5 shrink-0 text-center text-[11px] font-semibold tabular-nums text-ctp-overlay0">
+		<span className="w-5 shrink-0 text-center text-[11px] font-semibold tabular-nums text-outline">
 			{rank ?? ''}
 		</span>
 	);
@@ -62,7 +62,7 @@ function TrackImage({ image, art, alt }: { image: LastFmImage; art?: string; alt
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
 		return (
-			<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-ctp-surface1 text-[10px] font-bold text-ctp-overlay1">
+			<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-surface-container-high text-[10px] font-bold text-on-surface-variant">
 				{alt.charAt(0)}
 			</div>
 		);
@@ -76,7 +76,7 @@ function TrackImage({ image, art, alt }: { image: LastFmImage; art?: string; alt
 			onError={() => setFailed(true)}
 			width={36}
 			height={36}
-			className="h-9 w-9 shrink-0 rounded bg-ctp-surface1 object-cover"
+			className="h-9 w-9 shrink-0 rounded bg-surface-container-high object-cover"
 		/>
 	);
 }
@@ -85,7 +85,7 @@ function PlayCount({ count }: { count: string }) {
 	return (
 		<span
 			title={`${count} plays`}
-			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-ctp-overlay1 sm:max-w-24 sm:text-[11px]"
+			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-on-surface-variant sm:max-w-24 sm:text-[11px]"
 		>
 			{count}<span className="hidden min-[23rem]:inline"> plays</span>
 		</span>
@@ -100,15 +100,15 @@ function TrackRow({ track }: { track: LastFmTrack }) {
 			href={track.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
+			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
 			<div className="min-w-0 flex-1">
-				<p className={`truncate text-xs font-semibold ${nowPlaying ? 'text-accent' : 'text-ctp-text'}`}>
+				<p className={`truncate text-xs font-semibold ${nowPlaying ? 'text-accent' : 'text-on-surface'}`}>
 					{nowPlaying ? '▶ ' : ''}
 					{track.name}
 				</p>
-				<p className="truncate text-[11px] text-ctp-overlay1">
+				<p className="truncate text-[11px] text-on-surface-variant">
 					{track.artist['#text']}
 					{track.album?.['#text'] ? ` — ${track.album['#text']}` : ''}
 				</p>
@@ -123,13 +123,13 @@ function TopTrackRow({ track }: { track: LastFmTopTrack }) {
 			href={track.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
+			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={track['@attr']?.rank} />
 			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
 			<div className="min-w-0 flex-1">
-				<p className="truncate text-xs font-semibold text-ctp-text">{track.name}</p>
-				<p className="truncate text-[11px] text-ctp-overlay1">{track.artist?.name}</p>
+				<p className="truncate text-xs font-semibold text-on-surface">{track.name}</p>
+				<p className="truncate text-[11px] text-on-surface-variant">{track.artist?.name}</p>
 			</div>
 			<PlayCount count={track.playcount} />
 		</a>
@@ -142,12 +142,12 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 			href={artist.url}
 			target="_blank"
 			rel="noreferrer"
-			className="flex min-h-11 min-w-0 items-center gap-2 py-2 text-ctp-text no-underline transition hover:bg-ctp-surface1/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
+			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={artist['@attr']?.rank} />
 			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} />
 			<div className="min-w-0 flex-1">
-				<p className="truncate text-xs font-semibold text-ctp-text">{artist.name}</p>
+				<p className="truncate text-xs font-semibold text-on-surface">{artist.name}</p>
 			</div>
 			<PlayCount count={artist.playcount} />
 		</a>
@@ -156,9 +156,9 @@ function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="min-w-0 rounded-lg bg-ctp-surface1/60 px-3 py-2.5">
-			<span className="block break-words text-base font-bold tabular-nums text-ctp-text sm:text-xl">{value}</span>
-			<span className="text-[11px] text-ctp-overlay1">{label}</span>
+		<div className="min-w-0 rounded-lg bg-surface-container-high/60 px-3 py-2.5">
+			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
+			<span className="text-[11px] text-on-surface-variant">{label}</span>
 		</div>
 	);
 }
@@ -177,7 +177,7 @@ function StatsView({ user }: { user: LastFmUserInfo }) {
 				<Stat label="Albums" value={user.album_count} />
 			</div>
 			{registeredYear && (
-				<p className="mt-3 text-[11px] text-ctp-overlay0">Last.fm member since {registeredYear}</p>
+				<p className="mt-3 text-[11px] text-outline">Last.fm member since {registeredYear}</p>
 			)}
 		</div>
 	);
@@ -189,7 +189,7 @@ export default function LastFmWidget({
 	recentRefreshMs = 5_000,
 	refreshIntervalMs = 5_000,
 }: LastFmWidgetProps) {
-	const [view, setView] = useState<LastFmView>('recent');
+	const [view, setView] = useState<LastFmView>('toptracks');
 	const [data, setData] = useState<Partial<ViewData>>({});
 	const [errors, setErrors] = useState<Partial<Record<LastFmView, string>>>({});
 
@@ -261,7 +261,7 @@ export default function LastFmWidget({
 
 	return (
 		<div className="flex h-full min-h-0 w-full min-w-0 flex-col">
-			<div className="-mx-1 shrink-0 bg-ctp-crust pb-2 pt-0.5">
+			<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
 				<div className="flex w-full min-w-0 flex-nowrap gap-1.5 overflow-x-auto overscroll-x-contain px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 					{VIEWS.map(({ id, label }) => (
 						<button
@@ -270,8 +270,8 @@ export default function LastFmWidget({
 							onClick={() => setView(id)}
 							className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 								view === id
-									? 'bg-accent text-ctp-base'
-									: 'bg-ctp-surface1/60 text-ctp-subtext0 hover:bg-ctp-surface1 hover:text-ctp-text'
+									? 'bg-primary-container text-on-primary-container'
+									: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
 							}`}
 						>
 							{label}
@@ -281,8 +281,8 @@ export default function LastFmWidget({
 			</div>
 			<div className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain">
 				{viewError && !viewData && (
-					<p key={view} className="animate-fade-in text-xs text-ctp-subtext0">
-						<span className="font-semibold text-ctp-overlay1">Unable to load:</span> {viewError}
+					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
+						<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
 					</p>
 				)}
 {!viewData && !viewError && (
@@ -298,7 +298,7 @@ export default function LastFmWidget({
 				</div>
 			)}
 				{viewData && (
-					<div key={view} className="min-w-0 animate-fade-in divide-y divide-ctp-surface1/70">
+					<div key={view} className="min-w-0 animate-fade-in">
 						{recentData &&
 							recentData.recenttracks.track.map((track, index) => (
 								<TrackRow key={track.url + track.date?.uts + index} track={track} />
