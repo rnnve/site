@@ -2,7 +2,8 @@ export default function SiteFooter() {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className="mt-auto flex min-w-0 flex-col gap-1 border-t border-outline-variant/70 pt-3 pb-2 text-xs text-outline">
+		<footer className="mt-auto flex min-w-0 flex-col items-center justify-between gap-1 border-t border-outline-variant/70 pt-3 pb-2 text-xs text-outline min-[28rem]:flex-row min-[28rem]:gap-4">
+			<p className="shrink-0 py-1">© {year} Rinne</p>
 			<nav aria-label="External links" className="flex min-w-0 flex-wrap items-center justify-end gap-x-1">
 				<a
 					href="https://github.com/rnnve"
@@ -21,7 +22,6 @@ export default function SiteFooter() {
 					Links
 				</a>
 			</nav>
-			<p className="shrink-0 pb-1 text-left">© {year} Rinne</p>
 		</footer>
 	);
 }
