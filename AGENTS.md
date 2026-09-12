@@ -4,9 +4,9 @@
 
 Next.js 16 app (App Router) deployed on Vercel (`rinnesite`). Source lives at the repo root under `app/`, `components/`, `lib/`, `styles/` — there is **no `src/`** directory. Path alias `@/` maps to the repo root.
 
-Styling is **Tailwind CSS v4** with the Catppuccin Mocha theme (`@catppuccin/tailwindcss`). The accent color is mauve. Surfaces are overridden in `.mocha` in `styles/global.css`.
+Styling is **Tailwind CSS v4** with a **Material 3 dark tonal palette** defined directly in `@theme` in `styles/global.css`. The accent color is the light neutral `primary` (`#e6e1e5`); `accent-dark` maps to `tertiary`. Rainbow text/footer use the `--color-rainbow-*` tokens.
 
-Docs: [Next.js App Router](https://nextjs.org/docs/app), [Tailwind CSS v4](https://tailwindcss.com/docs), [Catppuccin](https://github.com/catppuccin/tailwindcss).
+Docs: [Next.js App Router](https://nextjs.org/docs/app), [Tailwind CSS v4](https://tailwindcss.com/docs), [Material 3](https://m3.material.io/styles/color/the-color-system/color-roles).
 
 ## Commands
 
@@ -27,7 +27,7 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
   - `music/page.tsx` — music page with Last.fm history.
   - `api/` — server endpoints: `discord`, `spotify`, `lastfm` routes; `.well-known/api-catalog/`.
 - `components/` — client components, one per file:
-  - `SiteNav.tsx` — sticky navbar with logo, Home/Music page switcher (animated sliding indicator), navigation loading spinner, pending-state logic with a `MIN_PENDING_MS` minimum.
+  - `SiteNav.tsx` — nav with logo + Home/Music page switcher (animated sliding indicator). On `lg+` it becomes a fixed left sidebar with a vertical switcher; below `lg` it's a sticky top bar. Also handles the navigation loading spinner and pending-state logic with a `MIN_PENDING_MS` minimum.
   - `AboutSection.tsx` — i18n about paragraph rendered as markdown (see below).
   - `SpotifyNowPlaying.tsx`, `DiscordProfileCard.tsx`, `LastFmWidget.tsx` — live status widgets.
   - `SiteFooter.tsx` — footer (has a rainbow link, `.footer-rainbow-link`).
@@ -44,7 +44,7 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
 - Components that use state/hooks/events are `'use client'`.
 - Use the `@/` alias for imports (e.g. `@/lib/i18n`, `@/components/SiteNav`).
 - Match existing style: tabs for indentation, single quotes, no semicolons, trailing commas.
-- Use Catppuccin color utilities (`ctp-surface0`, `ctp-mauve`, …) or the `accent` token. Define new animations in `styles/global.css` with `@keyframes` and respect `prefers-reduced-motion`.
+- Use Material 3 color utilities (`bg-surface`, `text-on-surface`, `text-on-surface-variant`, `bg-surface-container-high`, `border-outline-variant`, `text-outline`, …) or the `accent` token. Define new animations in `styles/global.css` with `@keyframes` and respect `prefers-reduced-motion`.
 
 ## About section markdown
 
