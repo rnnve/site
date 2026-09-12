@@ -23,7 +23,7 @@ export default function AboutSection() {
 					{t.aboutHeading}
 				</h2>
 				<div
-					className="flex items-center gap-0.5 rounded-xl bg-surface-container-high/30 p-0.5"
+					className="flex items-center gap-0.5 rounded-xl border border-outline-variant/70 bg-surface-container-high/30 p-0.5"
 					role="group"
 					aria-label="Language"
 				>
