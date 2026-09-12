@@ -189,7 +189,7 @@ export default function LastFmWidget() {
 	return (
 		<div className="flex w-full min-w-0 flex-col">
 			<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
-				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
+				<div className="flex w-full min-w-0 flex-wrap gap-1.5 rounded-xl border border-outline-variant/70 p-1">
 					{VIEWS.map(({ id, label }) => (
 						<button
 							key={id}
