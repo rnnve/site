@@ -67,7 +67,7 @@ function NavButton({
 			aria-label={label}
 			title={label}
 			data-tooltip="off"
-			className="relative flex h-9 w-9 items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+			className="relative flex h-8 w-8 items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-white/40 md:h-9 md:w-9"
 		>
 			{active && (
 				<motion.span
@@ -87,7 +87,7 @@ function NavButton({
 					transition: 'color 0.22s ease-out, opacity 0.22s ease-out',
 				}}
 			>
-				<Icon className="h-4 w-4" />
+				<Icon className="h-3.5 w-3.5 md:h-4 md:w-4" />
 			</motion.span>
 		</Link>
 	);
@@ -115,7 +115,7 @@ export default function SiteNav() {
 				aria-label="Main navigation"
 				className="fixed bottom-16 left-1/2 z-50 -translate-x-1/2 md:hidden"
 			>
-				<div className="flex gap-0.5 rounded-xl p-1.5" style={containerStyle}>
+				<div className="flex gap-0.5 rounded-xl p-1 md:p-1.5" style={containerStyle}>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill-mobile" />
 					))}
