@@ -2,7 +2,7 @@ export default function SiteFooter() {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className="mt-auto flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-[calc(env(safe-area-inset-bottom)+3rem)] text-xs text-outline md:pb-2">
+		<footer className="mt-auto flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline">
 			<p className="shrink-0 py-1">© {year} Rinne</p>
 			<nav aria-label="External links" className="flex min-w-0 flex-wrap items-center justify-end gap-x-1">
 				<a
