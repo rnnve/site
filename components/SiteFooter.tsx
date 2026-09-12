@@ -18,17 +18,28 @@ export default async function SiteFooter() {
 
 	return (
 		<footer className="mt-auto flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline">
-			<div className="flex min-w-0 shrink-0 items-center gap-2">
-				<p className="py-1">© {year} Rinne</p>
-				<a
-					href="https://github.com/rnnve/site"
-					target="_blank"
-					rel="noreferrer"
-					className="text-blush py-1"
-				>
-					View source
-				</a>
-				{commits !== null && <p className="text-blush py-1">@ {commits} commits</p>}
+			<div className="flex min-w-0 shrink-0 flex-col items-start">
+				<div className="flex min-w-0 items-center gap-2">
+					<p className="py-1">© {year} Rinne</p>
+					<a
+						href="https://github.com/rnnve/site"
+						target="_blank"
+						rel="noreferrer"
+						className="text-blush py-1"
+					>
+						View source
+					</a>
+				</div>
+				{commits !== null && (
+					<a
+						href="https://github.com/rnnve/site"
+						target="_blank"
+						rel="noreferrer"
+						className="text-blush py-1"
+					>
+						@ {commits} commits
+					</a>
+				)}
 			</div>
 			<nav aria-label="External links" className="flex min-w-0 flex-wrap items-center justify-end gap-x-1">
 				<a
