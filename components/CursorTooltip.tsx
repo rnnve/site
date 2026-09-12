@@ -24,8 +24,9 @@ export default function CursorTooltip() {
 		}
 
 		function onMove(e: PointerEvent) {
-			const el = (e.target as Element | null)?.closest?.('a[href]');
-			const href = el?.getAttribute('href');
+			const hovered = e.target as Element | null;
+			const el = hovered?.closest?.('a[href]');
+			const href = el && !el.closest('[data-tooltip="off"]') ? el.getAttribute('href') : null;
 			setPos({ x: e.clientX, y: e.clientY });
 			if (href) {
 				setLabel(labelFor(href));
