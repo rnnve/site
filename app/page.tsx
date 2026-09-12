@@ -17,17 +17,14 @@ export default function HomePage() {
 					>
 						<div className="my-auto flex min-w-0 flex-col gap-4">
 							<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
-								<div className="min-w-0 animate-fade-up">
-									<DiscordProfileCard />
-								</div>
-								<AboutSection />
+<div className="min-w-0">
+								<DiscordProfileCard />
 							</div>
-							<div
-								className="min-w-0 animate-fade-up rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5"
-								style={{ animationDelay: '120ms' }}
-							>
-								<SpotifyNowPlaying />
-							</div>
+							<AboutSection />
+						</div>
+						<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+							<SpotifyNowPlaying />
+						</div>
 						</div>
 					</section>
 					<SiteFooter />
