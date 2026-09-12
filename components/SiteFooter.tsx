@@ -19,7 +19,7 @@ export default async function SiteFooter() {
 	return (
 		<footer className="mt-auto flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline">
 			<div className="flex min-w-0 shrink-0 flex-col items-start">
-				<p className="py-1">© {year} Rinne</p>
+				<p className="text-pastel py-1">© {year} Rinne</p>
 				{commits !== null && (
 					<a
 						href="https://github.com/rnnve/site"
