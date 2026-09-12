@@ -1,13 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { DiscordActivity, DiscordResponse, DiscordUserData } from '@/lib/integrations';
+import type { DiscordActivity } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
-
-interface DiscordProfileCardProps {
-	endpoint?: string;
-	refreshIntervalMs?: number;
-}
+import { useLive } from '@/components/LiveProvider';
 
 const MEDIA_EXTERNAL_PREFIX = 'mp:external/';
 
@@ -95,67 +91,19 @@ function ActivityLine({ activity }: { activity: DiscordActivity }) {
 	);
 }
 
-export default function DiscordProfileCard({
-	endpoint = '/api/discord',
-	refreshIntervalMs = 5_000,
-}: DiscordProfileCardProps) {
-	const [user, setUser] = useState<DiscordUserData | null>(null);
-	const [error, setError] = useState<string | null>(null);
+export default function DiscordProfileCard() {
+	const { discord, discordError } = useLive();
 
-	useEffect(() => {
-		let cancelled = false;
-
-		async function load() {
-			if (typeof document !== 'undefined' && document.hidden) return;
-			try {
-				const response = await fetch(endpoint);
-				if (!response.ok) {
-					const body = (await response.json().catch(() => null)) as { error?: string } | null;
-					throw new Error(body?.error ?? `Request failed with ${response.status}`);
-				}
-				const json = (await response.json()) as DiscordResponse | { error: string };
-				if (cancelled) return;
-
-				if ('error' in json) {
-					setError(json.error);
-					return;
-				}
-				if (!json.success) {
-					throw new Error('Discord API returned unsuccessful response');
-				}
-
-				setUser(json.data);
-				setError(null);
-			} catch (err) {
-				if (cancelled) return;
-				setError(err instanceof Error ? err.message : 'Failed to load Discord profile');
-			}
-		}
-
-		void load();
-		const timer = setInterval(() => void load(), refreshIntervalMs);
-		const onVisible = () => {
-			if (!document.hidden) void load();
-		};
-		document.addEventListener('visibilitychange', onVisible);
-
-		return () => {
-			cancelled = true;
-			clearInterval(timer);
-			document.removeEventListener('visibilitychange', onVisible);
-		};
-	}, [endpoint, refreshIntervalMs]);
-
-	if (error) {
+	if (discordError) {
 		return (
 			<div className="w-full min-w-0 text-sm text-on-surface-variant">
 				<span className="font-semibold text-on-surface-variant">Discord</span>
-				<p className="mt-1">Unable to load: {error}</p>
+				<p className="mt-1">Unable to load: {discordError}</p>
 			</div>
 		);
 	}
 
-	if (!user) {
+	if (!discord) {
 		return (
 			<div className="w-full min-w-0 animate-fade-in">
 				<div className="flex items-center gap-2">
@@ -177,6 +125,8 @@ export default function DiscordProfileCard({
 			</div>
 		);
 	}
+
+	const user = discord;
 
 	return (
 		<div className="w-full min-w-0">
