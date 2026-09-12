@@ -28,7 +28,7 @@ export default async function SiteFooter() {
 				>
 					View source
 				</a>
-				{commits !== null && <p className="py-1">@{commits} commits</p>}
+				{commits !== null && <p className="text-blush py-1">@ {commits} commits</p>}
 			</div>
 			<nav aria-label="External links" className="flex min-w-0 flex-wrap items-center justify-end gap-x-1">
 				<a
