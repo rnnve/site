@@ -23,7 +23,7 @@ function MusicIcon({ className }: { className?: string }) {
 }
 
 const iconLink =
-	'nav-icon-link inline-flex h-7 w-7 items-center justify-center rounded-lg text-on-surface-variant transition duration-200 ease-out hover:text-on-surface hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+	'nav-icon-link inline-flex h-7 w-7 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
 function PageSwitcher({
 	homeActive,
@@ -59,6 +59,7 @@ function PageSwitcher({
 				title="Home"
 				aria-label="Home"
 				aria-current={homeActive ? 'page' : undefined}
+				data-tooltip="off"
 				className={`${iconLink} relative ${homeActive ? 'text-on-primary-container' : ''}`}
 			>
 				<HomeIcon className="h-4 w-4" />
@@ -68,6 +69,7 @@ function PageSwitcher({
 				title="Music"
 				aria-label="Music"
 				aria-current={musicActive ? 'page' : undefined}
+				data-tooltip="off"
 				className={`${iconLink} relative ${musicActive ? 'text-on-primary-container' : ''}`}
 			>
 				<MusicIcon className="h-4 w-4" />
