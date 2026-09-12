@@ -3,6 +3,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import { motion } from 'framer-motion';
 
 import rehypeRainbow from '@/lib/rehype-rainbow';
 import { langs, useI18n } from '@/lib/i18n';
@@ -18,7 +19,12 @@ export default function AboutSection() {
 
 	return (
 		<section className="mt-4 border-t border-outline-variant/70 pt-4" aria-label={t.aboutHeading}>
-			<div key={lang} className="min-w-0 animate-fade-in">
+			<motion.div
+				layout
+				transition={{ layout: { duration: 0.35, ease: 'easeInOut' } }}
+				className="min-w-0"
+			>
+				<div key={lang} className="min-w-0 animate-fade-in">
 				<div className="flex items-center justify-between gap-3">
 					<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 						{t.aboutHeading}
@@ -73,9 +79,10 @@ export default function AboutSection() {
 					remarkPlugins={[remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypeRainbow]}
 				>
-					{discordify(t.about)}
-				</ReactMarkdown>
-			</div>
+{discordify(t.about)}
+			</ReactMarkdown>
+				</div>
+			</motion.div>
 		</section>
 	);
 }
