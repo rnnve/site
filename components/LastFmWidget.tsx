@@ -187,7 +187,7 @@ export default function LastFmWidget() {
 	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
-		<div className="flex h-full min-h-0 w-full min-w-0 flex-col">
+		<div className="flex w-full min-w-0 flex-col">
 			<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
 				<div className="flex w-full min-w-0 flex-nowrap gap-1.5 overflow-x-auto overscroll-x-contain px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
 					{VIEWS.map(({ id, label }) => (
@@ -206,43 +206,41 @@ export default function LastFmWidget() {
 					))}
 				</div>
 			</div>
-			<div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain">
-				<div className="m-auto w-full">
-					{viewError && !viewData && (
-						<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
-							<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
-						</p>
-					)}
-					{!viewData && !viewError && (
-						<div
-							key={view}
-							className="animate-fade-in space-y-3 p-2"
-							aria-busy="true"
-							aria-label="Loading"
-						>
-							{[...Array(5)].map((_, index) => (
-								<Skeleton key={index} className="h-12 w-full rounded-lg" />
+			<div className="min-w-0">
+				{viewError && !viewData && (
+					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
+						<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
+					</p>
+				)}
+				{!viewData && !viewError && (
+					<div
+						key={view}
+						className="animate-fade-in space-y-3 p-2"
+						aria-busy="true"
+						aria-label="Loading"
+					>
+						{[...Array(5)].map((_, index) => (
+							<Skeleton key={index} className="h-12 w-full rounded-lg" />
+						))}
+					</div>
+				)}
+				{viewData && (
+					<div key={view} className="min-w-0 animate-fade-in">
+						{recentData &&
+							recentData.recenttracks.track.map((track, index) => (
+								<TrackRow key={track.url + track.date?.uts + index} track={track} />
 							))}
-						</div>
-					)}
-					{viewData && (
-						<div key={view} className="min-w-0 animate-fade-in">
-							{recentData &&
-								recentData.recenttracks.track.map((track, index) => (
-									<TrackRow key={track.url + track.date?.uts + index} track={track} />
-								))}
-							{topTracksData &&
-								topTracksData.toptracks.track.map((track) => (
-									<TopTrackRow key={track.url} track={track} />
-								))}
-							{topArtistsData &&
-								topArtistsData.topartists.artist.map((artist) => (
-									<TopArtistRow key={artist.url} artist={artist} />
-								))}
-							{infoData?.user && <StatsView user={infoData.user} />}
-						</div>
-					)}
-				</div>
+						{topTracksData &&
+							topTracksData.toptracks.track.map((track) => (
+								<TopTrackRow key={track.url} track={track} />
+							))}
+						{topArtistsData &&
+							topArtistsData.topartists.artist.map((artist) => (
+								<TopArtistRow key={artist.url} artist={artist} />
+							))}
+						{infoData?.user && <StatsView user={infoData.user} />}
+					</div>
+				)}
 			</div>
 		</div>
 	);
