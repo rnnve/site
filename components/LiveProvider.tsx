@@ -29,8 +29,6 @@ const OTHER_INTERVAL_MS = 10_000;
 const TRACK_COUNT = 10;
 
 interface LiveContextValue {
-	/** True only until the very first pass over every source finishes. */
-	loading: boolean;
 	discord: DiscordUserData | null;
 	discordError: string | null;
 	spotify: SpotifyNowPlaying | null;
@@ -56,7 +54,6 @@ async function getJson(url: string): Promise<{ body: unknown; error: string | nu
 }
 
 export function LiveProvider({ children }: { children: React.ReactNode }) {
-	const [loading, setLoading] = useState(true);
 	const [discord, setDiscord] = useState<DiscordUserData | null>(null);
 	const [discordError, setDiscordError] = useState<string | null>(null);
 	const [spotify, setSpotify] = useState<SpotifyNowPlaying | null>(null);
@@ -133,10 +130,6 @@ export function LiveProvider({ children }: { children: React.ReactNode }) {
 			void Promise.all(LASTFM_VIEWS.map((view) => loadLastfmView(view)));
 		};
 
-		void Promise.allSettled([loadDiscord(), loadSpotify(), ...LASTFM_VIEWS.map((view) => loadLastfmView(view))]).then(
-			() => setLoading(false),
-		);
-
 		const onVisible = () => {
 			if (!document.hidden) loadAll();
 		};
@@ -158,23 +151,9 @@ export function LiveProvider({ children }: { children: React.ReactNode }) {
 
 	return (
 		<LiveContext.Provider
-			value={
-				loading
-					? { loading, discord: null, discordError: null, spotify: null, spotifyStopped: false, spotifyError: null, lastfm: {}, lastfmError: {} }
-					: { loading, discord, discordError, spotify, spotifyStopped, spotifyError, lastfm, lastfmError }
-			}
+			value={{ discord, discordError, spotify, spotifyStopped, spotifyError, lastfm, lastfmError }}
 		>
-			{loading ? (
-				<div className="flex min-h-0 flex-1 items-center justify-center">
-					<div
-						className="h-8 w-8 animate-spin rounded-full border-2 border-outline-variant border-t-primary"
-						aria-label="Loading"
-						role="status"
-					/>
-				</div>
-			) : (
-				children
-			)}
+			{children}
 		</LiveContext.Provider>
 	);
 }
