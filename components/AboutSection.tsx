@@ -35,7 +35,7 @@ export default function AboutSection() {
 							aria-pressed={lang === code}
 							className={`min-h-7 rounded-lg px-2.5 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${
 								lang === code
-									? 'bg-surface-container-high text-on-surface'
+									? 'bg-primary text-on-primary'
 									: 'text-on-surface-variant hover:text-on-surface'
 							}`}
 						>
