@@ -2,13 +2,58 @@
 @import "@fontsource/chakra-petch/600.css";
 @import "@fontsource/chakra-petch/700.css";
 @import "tailwindcss";
-@import "@catppuccin/tailwindcss/mocha.css";
 
 @theme {
 	--animate-fade-up: fade-up 0.6s ease-out both;
 	--animate-fade-in: fade-in 0.25s ease-out both;
 	--font-sans:
 		var(--font-geist-sans), 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+
+	/* Material 3 dark tonal palette, neutral (white) primary seed. */
+	--color-primary: #e6e1e5;
+	--color-on-primary: #2b2930;
+	--color-primary-container: #414046;
+	--color-on-primary-container: #f5f0f4;
+	--color-secondary: #cac4d0;
+	--color-on-secondary: #322f36;
+	--color-secondary-container: #4a4850;
+	--color-on-secondary-container: #e6e1e5;
+	--color-tertiary: #ccc9d6;
+	--color-on-tertiary: #33313b;
+	--color-tertiary-container: #4a4751;
+	--color-on-tertiary-container: #e8e4f0;
+	--color-error: #f2b8b5;
+	--color-on-error: #601410;
+	--color-error-container: #8c1d18;
+	--color-on-error-container: #f9dedc;
+	--color-background: #1c1b1f;
+	--color-on-background: #e6e1e5;
+	--color-surface: #1c1b1f;
+	--color-on-surface: #e6e1e5;
+	--color-surface-dim: #141318;
+	--color-surface-bright: #423f47;
+	--color-surface-variant: #49454f;
+	--color-on-surface-variant: #cac4d0;
+	--color-surface-container-lowest: #161519;
+	--color-surface-container-low: #242228;
+	--color-surface-container: #28272b;
+	--color-surface-container-high: #2b2930;
+	--color-surface-container-highest: #36343b;
+	--color-outline: #938f99;
+	--color-outline-variant: #49454f;
+	--color-scrim: #000000;
+	--color-inverse-surface: #e6e1e5;
+	--color-inverse-on-surface: #322f35;
+	--color-inverse-primary: #665c61;
+
+	/* Muted M3 tonal rainbow (all ~tone 80). */
+	--color-rainbow-1: #ffb4ab;
+	--color-rainbow-2: #ffb68c;
+	--color-rainbow-3: #e6d49a;
+	--color-rainbow-4: #9dd0a4;
+	--color-rainbow-5: #a6c7ff;
+	--color-rainbow-6: #c2bfff;
+	--color-rainbow-7: #ffb1c8;
 
 	@keyframes fade-up {
 		from {
@@ -34,24 +79,18 @@
 }
 
 @theme inline {
-	--color-accent: var(--catppuccin-color-mauve);
-	--color-accent-dark: var(--catppuccin-color-pink);
+	--color-accent: var(--color-primary);
+	--color-accent-dark: var(--color-tertiary);
 }
 
 :root {
 	color-scheme: dark;
 }
 
-.mocha {
-	--catppuccin-color-surface0: #191b26;
-	--catppuccin-color-surface1: #232635;
-	--catppuccin-color-surface2: #2c3043;
-}
-
 .skeleton {
 	position: relative;
 	overflow: hidden;
-	background-color: var(--catppuccin-color-surface1);
+	background-color: var(--color-surface-container-high);
 }
 
 .skeleton::after {
@@ -95,7 +134,7 @@ body {
 	max-height: 100dvh;
 	overflow: hidden;
 	overscroll-behavior: none;
-	background-color: var(--catppuccin-color-crust);
+	background-color: var(--color-surface);
 }
 
 img,
@@ -109,17 +148,18 @@ svg {
 	}
 }
 
+.text-rainbow,
 .footer-rainbow-link {
 	background-image: linear-gradient(
 		90deg,
-		var(--catppuccin-color-rosewater),
-		var(--catppuccin-color-peach),
-		var(--catppuccin-color-yellow),
-		var(--catppuccin-color-green),
-		var(--catppuccin-color-sky),
-		var(--catppuccin-color-lavender),
-		var(--catppuccin-color-mauve),
-		var(--catppuccin-color-rosewater)
+		var(--color-rainbow-1),
+		var(--color-rainbow-2),
+		var(--color-rainbow-3),
+		var(--color-rainbow-4),
+		var(--color-rainbow-5),
+		var(--color-rainbow-6),
+		var(--color-rainbow-7),
+		var(--color-rainbow-1)
 	);
 	background-size: 200% auto;
 	background-position: 0% center;
@@ -130,29 +170,14 @@ svg {
 	-webkit-text-fill-color: transparent;
 	font-weight: 600;
 	text-decoration: none;
-	transition: filter 160ms ease;
 }
 
 .text-rainbow {
-	background-image: linear-gradient(
-		90deg,
-		var(--catppuccin-color-rosewater),
-		var(--catppuccin-color-peach),
-		var(--catppuccin-color-yellow),
-		var(--catppuccin-color-green),
-		var(--catppuccin-color-sky),
-		var(--catppuccin-color-lavender),
-		var(--catppuccin-color-mauve),
-		var(--catppuccin-color-rosewater)
-	);
-	background-size: 200% auto;
-	background-position: 0% center;
-	animation: rainbow-shift 6s linear infinite;
-	background-clip: text;
-	-webkit-background-clip: text;
-	color: transparent;
-	-webkit-text-fill-color: transparent;
-	font-weight: 600;
+	transition: none;
+}
+
+.footer-rainbow-link {
+	transition: filter 160ms ease;
 }
 
 .footer-rainbow-link:hover {
@@ -160,7 +185,7 @@ svg {
 }
 
 .footer-rainbow-link:focus-visible {
-	outline: 2px solid var(--catppuccin-color-mauve);
+	outline: 2px solid var(--color-primary);
 	outline-offset: 2px;
 }
 
@@ -190,13 +215,8 @@ svg {
 		animation: none;
 	}
 
+	.text-rainbow,
 	.footer-rainbow-link {
-		animation: none;
-		background-position: 0% center;
-		transition: none;
-	}
-
-	.text-rainbow {
 		animation: none;
 		background-position: 0% center;
 		transition: none;
@@ -231,8 +251,4 @@ svg {
 		border-color: ButtonText;
 		border-top-color: ButtonText;
 	}
-}
-
-.nav-icon-link-active {
-	box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--catppuccin-color-mauve) 45%, transparent);
 }
