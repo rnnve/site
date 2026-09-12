@@ -248,15 +248,6 @@ u {
 		background-position: 0% center;
 		transition: none;
 	}
-
-	.nav-icon-link {
-		transition: none;
-	}
-
-	.nav-icon-link:hover,
-	.nav-icon-link:active {
-		transform: none;
-	}
 }
 
 @media (forced-colors: active) {
