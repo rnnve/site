@@ -7,6 +7,7 @@ out/
 
 # build output
 dist/
+tsconfig.tsbuildinfo
 
 # local env
 .env
