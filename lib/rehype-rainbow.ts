@@ -23,11 +23,13 @@ interface SplitMarker {
 const SINGLE_RULES: SingleRule[] = [
 	{ re: /==([^=]+)==/g, className: 'text-rainbow' },
 	{ re: /%%([^%]+)%%/g, className: 'text-graphite' },
+	{ re: /\$\$([^$]+)\$\$/g, className: 'text-blush' },
 ];
 
 const SPLIT_MARKERS: SplitMarker[] = [
 	{ open: '==', close: '==', className: 'text-rainbow' },
 	{ open: '%%', close: '%%', className: 'text-graphite' },
+	{ open: '$$', close: '$$', className: 'text-blush' },
 ];
 
 function text(value: string): Text {
