@@ -27,7 +27,7 @@ export default async function SiteFooter() {
 						rel="noreferrer"
 						className="text-blush py-1"
 					>
-						View source @ {commits} commits
+						@rnnve/site # {commits} commits
 					</a>
 				)}
 			</div>
