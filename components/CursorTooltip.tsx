@@ -11,6 +11,9 @@ export default function CursorTooltip() {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		if (typeof window === 'undefined') return;
+		if (!window.matchMedia('(min-width: 1024px)').matches) return;
+
 		function labelFor(href: string): string {
 			try {
 				const url = new URL(href, window.location.origin);
