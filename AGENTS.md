@@ -22,14 +22,15 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
 ## Structure
 
 - `app/` — route pages and API routes.
-  - `layout.tsx` — root layout, fonts, `<SiteNav />`, analytics scripts, sensors.
+  - `layout.tsx` — root layout, fonts, `<SiteNav />`, `<LiveProvider />`, analytics scripts, sensors.
   - `page.tsx` — home page: about section + live Discord/Spotify/Last.fm widgets.
   - `music/page.tsx` — music page with Last.fm history.
   - `api/` — server endpoints: `discord`, `spotify`, `lastfm` routes; `.well-known/api-catalog/`.
 - `components/` — client components, one per file:
-  - `SiteNav.tsx` — nav with logo + Home/Music page switcher (animated sliding indicator). On `lg+` it becomes a fixed left sidebar with a vertical switcher; below `lg` it's a sticky top bar. Also handles the navigation loading spinner and pending-state logic with a `MIN_PENDING_MS` minimum.
+  - `LiveProvider.tsx` — root-level client data store (context). On first visit it loads Discord, Spotify and every Last.fm view once, then polls in the background; `loading` gates the whole app behind a one-time splash so content appears already populated and never reloads during the session. Widgets read from it via `useLive()` instead of fetching.
+  - `SiteNav.tsx` — nav with logo + Home/Music page switcher (animated sliding indicator). On `lg+` it becomes a fixed left sidebar with a vertical switcher; below `lg` it's a sticky top bar.
   - `AboutSection.tsx` — i18n about paragraph rendered as markdown (see below).
-  - `SpotifyNowPlaying.tsx`, `DiscordProfileCard.tsx`, `LastFmWidget.tsx` — live status widgets.
+  - `SpotifyNowPlaying.tsx`, `DiscordProfileCard.tsx`, `LastFmWidget.tsx` — live status widgets rendered from `LiveProvider` context.
   - `SiteFooter.tsx` — footer (has a rainbow link, `.footer-rainbow-link`).
   - `Skeleton.tsx` — shimmer skeleton loader.
 - `lib/` — shared logic.
@@ -37,7 +38,7 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
   - `rehype-rainbow.ts` — rehype plugin; `==text==` in markdown renders as animated rainbow text (class `text-rainbow`).
   - `markdown.ts` — HTML-to-markdown converter used by API routes.
   - `env.ts`, `integrations.ts`, `lastfm-images.ts`, `spotify-search.ts` — env helpers, API shapes, Last.fm/Spotify helpers.
-- `styles/global.css` — Tailwind v4 entry, theme vars, custom animations (fade, skeleton, rainbow, loading spinner).
+- `styles/global.css` — Tailwind v4 entry, theme vars, custom animations (fade, skeleton, rainbow, graphite).
 
 ## Conventions
 
