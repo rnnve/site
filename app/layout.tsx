@@ -39,13 +39,13 @@ const preconnects = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`mocha ${GeistSans.variable} ${GeistMono.variable}`}>
+		<html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
 			<head>
 				{preconnects.map((href) => (
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-ctp-crust font-sans">
+			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<SiteNav />
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
