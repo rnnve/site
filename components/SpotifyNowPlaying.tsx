@@ -1,13 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import type { SpotifyNowPlaying } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
-
-interface SpotifyNowPlayingCardProps {
-	endpoint?: string;
-	refreshIntervalMs?: number;
-}
+import { useLive } from '@/components/LiveProvider';
 
 function SpotifyIcon({ className }: { className?: string }) {
 	return (
@@ -17,65 +12,10 @@ function SpotifyIcon({ className }: { className?: string }) {
 	);
 }
 
-export default function SpotifyNowPlayingCard({
-	endpoint = '/api/spotify',
-	refreshIntervalMs = 5_000,
-}: SpotifyNowPlayingCardProps) {
-	const [data, setData] = useState<SpotifyNowPlaying | null>(null);
-	const [stopped, setStopped] = useState(false);
-	const [error, setError] = useState<string | null>(null);
+export default function SpotifyNowPlayingCard() {
+	const { spotify, spotifyStopped, spotifyError } = useLive();
 
-	useEffect(() => {
-		let cancelled = false;
-
-		async function load() {
-			if (typeof document !== 'undefined' && document.hidden) return;
-			try {
-				const response = await fetch(endpoint);
-				if (!response.ok) {
-					const body = (await response.json().catch(() => null)) as { error?: string } | null;
-					throw new Error(body?.error ?? `Request failed with ${response.status}`);
-				}
-				const json = (await response.json()) as SpotifyNowPlaying | { error: string };
-				if (cancelled) return;
-
-				if ('error' in json) {
-					setError(json.error);
-					return;
-				}
-
-				if (!json.isPlaying) {
-					setStopped(true);
-					setData(null);
-					setError(null);
-					return;
-				}
-
-				setStopped(false);
-				setData(json);
-				setError(null);
-			} catch (err) {
-				if (cancelled) return;
-				setError(err instanceof Error ? err.message : 'Failed to load Spotify data');
-			}
-		}
-
-		void load();
-
-		const loadingTimer = setInterval(() => void load(), refreshIntervalMs);
-		const onVisible = () => {
-			if (!document.hidden) void load();
-		};
-		document.addEventListener('visibilitychange', onVisible);
-
-		return () => {
-			cancelled = true;
-			clearInterval(loadingTimer);
-			document.removeEventListener('visibilitychange', onVisible);
-		};
-	}, [endpoint, refreshIntervalMs]);
-
-	if (stopped) {
+	if (spotifyStopped) {
 		return (
 			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
 				<div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high/70 text-on-surface-variant sm:h-14 sm:w-14">
@@ -95,16 +35,16 @@ export default function SpotifyNowPlayingCard({
 		);
 	}
 
-	if (error) {
+	if (spotifyError) {
 		return (
 			<div className="w-full min-w-0 text-sm text-on-surface-variant">
 				<span className="font-semibold text-on-surface-variant">Spotify</span>
-				<p className="mt-1">Unable to load: {error}</p>
+				<p className="mt-1">Unable to load: {spotifyError}</p>
 			</div>
 		);
 	}
 
-	if (!data) {
+	if (!spotify) {
 		return (
 			<div className="flex w-full min-w-0 items-center gap-3 sm:gap-4">
 				<Skeleton className="h-12 w-12 shrink-0 rounded-lg sm:h-14 sm:w-14" />
@@ -120,6 +60,8 @@ export default function SpotifyNowPlayingCard({
 			</div>
 		);
 	}
+
+	const data = spotify as SpotifyNowPlaying;
 
 	return (
 		<a
