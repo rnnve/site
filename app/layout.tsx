@@ -5,6 +5,7 @@ import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import SiteNav from '@/components/SiteNav';
+import CursorTooltip from '@/components/CursorTooltip';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<SiteNav />
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
+				<CursorTooltip />
 				<Analytics />
 				<SpeedInsights />
 				<Script
