@@ -26,7 +26,62 @@ function MusicIcon({ className }: { className?: string }) {
 const MIN_PENDING_MS = 450;
 
 const iconLink =
-	'nav-icon-link inline-flex h-8 w-8 items-center justify-center rounded-lg text-ctp-subtext0 transition duration-200 ease-out hover:bg-ctp-surface1/70 hover:text-ctp-text hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+	'nav-icon-link inline-flex h-7 w-7 items-center justify-center rounded-lg text-on-surface-variant transition duration-200 ease-out hover:text-on-surface hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+
+function PageSwitcher({
+	homeActive,
+	musicActive,
+	onGo,
+	vertical = false,
+}: {
+	homeActive: boolean;
+	musicActive: boolean;
+	onGo: (href: string) => void;
+	vertical?: boolean;
+}) {
+	const indicatorPosition = musicActive
+		? vertical
+			? 'translate-y-[2rem]'
+			: 'translate-x-[2rem]'
+		: vertical
+			? 'translate-y-0'
+			: 'translate-x-0';
+
+	return (
+		<div
+			className={`relative bg-surface-container-high/30 p-0.5 ${
+				vertical ? 'flex flex-col items-center gap-1 rounded-xl' : 'flex items-center gap-1 rounded-lg'
+			}`}
+		>
+			<span
+				aria-hidden="true"
+				className={`absolute rounded-md bg-primary-container shadow-sm shadow-scrim/40 transition-transform duration-300 ease-out ${
+					vertical ? 'left-0.5 top-0.5 h-7 w-7' : 'inset-y-0.5 left-0.5 w-7'
+				} ${indicatorPosition}`}
+			/>
+			<Link
+				href="/"
+				title="Home"
+				aria-label="Home"
+				aria-current={homeActive ? 'page' : undefined}
+				onClick={() => onGo('/')}
+				className={`${iconLink} relative ${homeActive ? 'text-on-primary-container' : ''}`}
+			>
+				<HomeIcon className="h-4 w-4" />
+			</Link>
+			<Link
+				href="/music"
+				title="Music"
+				aria-label="Music"
+				aria-current={musicActive ? 'page' : undefined}
+				onClick={() => onGo('/music')}
+				className={`${iconLink} relative ${musicActive ? 'text-on-primary-container' : ''}`}
+			>
+				<MusicIcon className="h-4 w-4" />
+			</Link>
+		</div>
+	);
+}
 
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
@@ -51,60 +106,48 @@ export default function SiteNav() {
 	}
 
 	return (
-		<nav className="sticky top-0 z-50 mt-2 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))]">
-			<div
-				className={`relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between overflow-visible rounded-2xl border border-ctp-surface1 bg-ctp-surface0/80 px-3 py-1.5 shadow-lg shadow-ctp-mantle/40 backdrop-blur-md sm:px-4 sm:py-2 ${
-					pending ? 'nav-shell-pending' : ''
-				}`}
-			>
-				{pending && (
-					<div className="pointer-events-none absolute right-3 top-1/2 z-20 -translate-y-1/2 sm:right-5">
+		<>
+			<nav className="sticky top-0 z-50 mt-2 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] lg:hidden">
+				<div
+					className={`relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between overflow-visible rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-0.5 shadow-lg shadow-scrim/40 backdrop-blur-md sm:px-2.5 sm:py-1 ${
+						pending ? 'nav-shell-pending' : ''
+					}`}
+				>
+{pending && (
+					<div className="pointer-events-none fixed left-1/2 top-[max(0.5rem,env(safe-area-inset-top))] z-[60] -translate-x-1/2 lg:hidden">
 						<div className="nav-loading-spinner" aria-hidden="true" />
 					</div>
 				)}
-				<Link
-					href="/"
-					onClick={() => go('/')}
-					className="relative z-10 inline-flex h-8 items-center rounded-lg px-2 text-sm font-bold text-ctp-text transition hover:bg-ctp-surface1/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-				>
-					Rinne
-				</Link>
+					<Link
+						href="/"
+						onClick={() => go('/')}
+						className="relative z-10 inline-flex h-7 items-center rounded-lg px-1.5 text-sm font-bold text-on-surface transition hover:bg-surface-container-high/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+					>
+						Rinne
+					</Link>
 
-				<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
-					<div className="relative pointer-events-auto flex items-center gap-1 rounded-xl bg-ctp-surface1/30 p-0.5">
-						<span
-							aria-hidden="true"
-							className={`absolute inset-y-0.5 left-0.5 w-8 rounded-lg bg-ctp-surface1 transition-transform duration-300 ease-out ${
-								musicActive ? 'translate-x-[2.25rem]' : 'translate-x-0'
-							}`}
-						/>
-						<Link
-							href="/"
-							title="Home"
-							aria-label="Home"
-							aria-current={homeActive ? 'page' : undefined}
-							onClick={() => go('/')}
-							className={`${iconLink} relative ${homeActive ? 'nav-icon-link-active text-accent' : ''}`}
-						>
-							<HomeIcon className="h-4 w-4" />
-						</Link>
-						<Link
-							href="/music"
-							title="Music"
-							aria-label="Music"
-							aria-current={musicActive ? 'page' : undefined}
-							onClick={() => go('/music')}
-							className={`${iconLink} relative ${musicActive ? 'nav-icon-link-active text-accent' : ''}`}
-						>
-							<MusicIcon className="h-4 w-4" />
-						</Link>
+					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
+						<div className="pointer-events-auto">
+							<PageSwitcher homeActive={homeActive} musicActive={musicActive} onGo={go} />
+						</div>
 					</div>
-				</div>
 
-				<span className="invisible inline-flex h-8 items-center px-2 text-sm font-bold" aria-hidden="true">
-					Rinne
-				</span>
-			</div>
-		</nav>
+					<span className="invisible inline-flex h-7 items-center px-1.5 text-sm font-bold" aria-hidden="true">
+						Rinne
+					</span>
+				</div>
+			</nav>
+
+			<nav aria-label="Site" className="hidden lg:block">
+				<div className="fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
+					{pending && (
+						<div className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2">
+							<div className="nav-loading-spinner" aria-hidden="true" />
+						</div>
+					)}
+					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} onGo={go} />
+				</div>
+			</nav>
+		</>
 	);
 }
