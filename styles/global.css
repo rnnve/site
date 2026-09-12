@@ -146,6 +146,12 @@ svg {
 	}
 }
 
+@keyframes pastel-shift {
+	to {
+		background-position: 200% center;
+	}
+}
+
 .text-rainbow,
 .footer-rainbow-link {
 	background-image: linear-gradient(
@@ -202,6 +208,20 @@ svg {
 	transition: none;
 }
 
+.text-pastel {
+	background-image: linear-gradient(90deg, #fff, #ffc2d1, #cbb6ff, #9ce8ea, #a9e6a3, #fff);
+	background-size: 200% auto;
+	background-position: 0% center;
+	animation: pastel-shift 6s linear infinite;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	font-weight: 600;
+	text-decoration: none;
+	transition: none;
+}
+
 u {
 	text-decoration-color: color-mix(in oklab, var(--color-on-surface) 60%, transparent);
 	text-decoration-thickness: 1.5px;
@@ -249,7 +269,8 @@ u {
 	.text-rainbow,
 	.footer-rainbow-link,
 	.text-graphite,
-	.text-blush {
+	.text-blush,
+	.text-pastel {
 		animation: none;
 		background-position: 0% center;
 		transition: none;
