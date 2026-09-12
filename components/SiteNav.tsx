@@ -88,7 +88,7 @@ function PageSwitcher({
 				<MusicIcon className="h-4 w-4" />
 			</button>
 			{hovered && (
-				<div className="pointer-events-none absolute left-full top-1/2 z-10 ml-2 -translate-y-1/2">
+				<div className="pointer-events-none absolute left-full top-1/2 z-10 ml-2 hidden -translate-y-1/2 lg:block">
 					<span
 						key={hovered}
 						className="animate-fade-in inline-flex items-center whitespace-nowrap rounded-lg border border-outline-variant bg-surface-container-high/90 px-2.5 py-1 text-xs font-medium tracking-wide text-on-surface shadow-lg shadow-scrim/40 backdrop-blur-md"
