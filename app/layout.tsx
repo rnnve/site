@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			</head>
 			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<SiteNav />
-				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+				<div className="flex min-h-0 flex-1 flex-col overflow-hidden pt-[calc(env(safe-area-inset-top)+3.5rem)] md:pt-0">
 					<LiveProvider>{children}</LiveProvider>
 				</div>
 				<CursorTooltip />
