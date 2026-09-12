@@ -48,9 +48,10 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
 
 ## About section markdown
 
-The about paragraph in `AboutSection.tsx` is markdown rendered with `react-markdown`. i18n dictionaries hold the raw markdown (links, bold, italic, inline code). Custom syntax:
+The about paragraph in `AboutSection.tsx` is markdown rendered with `react-markdown`. i18n dictionaries hold the raw markdown (links, bold, italic, inline code). Custom syntax (via `lib/rehype-rainbow.ts`):
 
-- `==text==` → rainbow animated text (via `lib/rehype-rainbow.ts`).
+- `==text==` → rainbow animated text (class `text-rainbow`).
+- `%%text%%` → black→white gradient text (class `text-graphite`).
 
 If you change markdown rendering, run `bunx tsc --noEmit`.
 
