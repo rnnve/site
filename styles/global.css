@@ -235,26 +235,6 @@ u {
 	outline-offset: 2px;
 }
 
-/* Navbar loading spinner while navigating. */
-.nav-loading-spinner {
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	border: 2px solid color-mix(in oklab, var(--color-accent) 25%, transparent);
-	border-top-color: var(--color-accent);
-	animation: nav-loading-spin 0.7s linear infinite;
-}
-
-@keyframes nav-loading-spin {
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-.nav-shell-pending {
-	border-color: transparent;
-}
-
 @media (prefers-reduced-motion: reduce) {
 	.animate-fade-up,
 	.animate-fade-in {
@@ -267,11 +247,6 @@ u {
 		animation: none;
 		background-position: 0% center;
 		transition: none;
-	}
-
-	.nav-loading-spinner {
-		animation: none;
-		border-top-color: var(--color-accent);
 	}
 
 	.nav-icon-link {
@@ -291,11 +266,5 @@ u {
 		background: none;
 		color: LinkText;
 		-webkit-text-fill-color: currentColor;
-	}
-
-	.nav-loading-spinner {
-		animation: none;
-		border-color: ButtonText;
-		border-top-color: ButtonText;
 	}
 }
