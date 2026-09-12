@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, MotionConfig } from 'framer-motion';
+import type { CSSProperties, ComponentType } from 'react';
 
 function HomeIcon({ className }: { className?: string }) {
 	return (
@@ -23,105 +24,103 @@ function MusicIcon({ className }: { className?: string }) {
 	);
 }
 
-const iconLink =
-	'nav-icon-link inline-flex h-7 w-7 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+interface NavItem {
+	label: string
+	href: string
+	Icon: ComponentType<{ className?: string }>
+}
 
-function PageSwitcher({
-	homeActive,
-	musicActive,
-	vertical = false,
+const items: NavItem[] = [
+	{ label: 'Home', href: '/', Icon: HomeIcon },
+	{ label: 'Music', href: '/music', Icon: MusicIcon },
+];
+
+const containerStyle: CSSProperties = {
+	background: 'rgba(20,20,20,0.8)',
+	backdropFilter: 'blur(24px)',
+	WebkitBackdropFilter: 'blur(24px)',
+	border: '1px solid rgba(255,255,255,0.08)',
+	boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+};
+
+const pillTransition = {
+	type: 'spring' as const,
+	stiffness: 450,
+	damping: 32,
+	mass: 0.7,
+};
+
+function NavButton({
+	item,
+	active,
+	pillId,
 }: {
-	homeActive: boolean;
-	musicActive: boolean;
-	vertical?: boolean;
+	item: NavItem
+	active: boolean
+	pillId: string
 }) {
-	const [hovered, setHovered] = useState<'Home' | 'Music' | null>(null);
-
-	const indicatorPosition = musicActive
-		? vertical
-			? 'translate-y-[2rem]'
-			: 'translate-x-[2rem]'
-		: vertical
-			? 'translate-y-0'
-			: 'translate-x-0';
+	const { label, href, Icon } = item;
 
 	return (
-		<div
-			className={`relative bg-surface-container-high/30 p-0.5 ${
-				vertical ? 'flex flex-col items-center gap-1 rounded-xl' : 'flex items-center gap-1 rounded-lg'
-			}`}
+		<Link
+			href={href}
+			aria-label={label}
+			title={label}
+			data-tooltip="off"
+			className="relative flex h-9 w-9 items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 		>
-			<span
-				aria-hidden="true"
-				className={`absolute rounded-md bg-primary-container shadow-sm shadow-scrim/40 transition-transform duration-300 ease-out ${
-					vertical ? 'left-0.5 top-0.5 h-7 w-7' : 'inset-y-0.5 left-0.5 w-7'
-				} ${indicatorPosition}`}
-			/>
-			<Link
-				href="/"
-				title="Home"
-				aria-label="Home"
-				aria-current={homeActive ? 'page' : undefined}
-				data-tooltip="off"
-				onMouseEnter={() => setHovered('Home')}
-				onMouseLeave={() => setHovered(null)}
-				onFocus={() => setHovered('Home')}
-				onBlur={() => setHovered(null)}
-				className={`${iconLink} relative ${homeActive ? 'text-on-primary-container' : ''}`}
-			>
-				<HomeIcon className="h-4 w-4" />
-			</Link>
-			<Link
-				href="/music"
-				title="Music"
-				aria-label="Music"
-				aria-current={musicActive ? 'page' : undefined}
-				data-tooltip="off"
-				onMouseEnter={() => setHovered('Music')}
-				onMouseLeave={() => setHovered(null)}
-				onFocus={() => setHovered('Music')}
-				onBlur={() => setHovered(null)}
-				className={`${iconLink} relative ${musicActive ? 'text-on-primary-container' : ''}`}
-			>
-				<MusicIcon className="h-4 w-4" />
-			</Link>
-			{hovered && (
-				<div className="pointer-events-none absolute left-full top-1/2 z-10 ml-2 hidden -translate-y-1/2 lg:block">
-					<span
-						key={hovered}
-						className="animate-fade-in inline-flex items-center whitespace-nowrap rounded-lg border border-outline-variant bg-surface-container-high/90 px-2.5 py-1 text-xs font-medium tracking-wide text-on-surface shadow-lg shadow-scrim/40 backdrop-blur-md"
-					>
-						{hovered}
-					</span>
-				</div>
+			{active && (
+				<motion.span
+					layoutId={pillId}
+					className="absolute inset-0 rounded-lg border border-white/50"
+					transition={pillTransition}
+				/>
 			)}
-		</div>
+			<motion.span
+				className="relative z-10 flex h-full w-full items-center justify-center"
+				whileHover={{ scale: 1.08 }}
+				whileTap={{ scale: 0.95 }}
+				transition={{ duration: 0.22, ease: 'easeOut' }}
+				style={{
+					color: active ? '#ffffff' : '#8E8E93',
+					opacity: active ? 1 : 0.65,
+					transition: 'color 0.22s ease-out, opacity 0.22s ease-out',
+				}}
+			>
+				<Icon className="h-4 w-4" />
+			</motion.span>
+		</Link>
 	);
 }
 
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
-	const homeActive = pathname === '/';
-	const musicActive = pathname === '/music' || pathname.startsWith('/music/');
+	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
-		<>
-			<nav className="sticky top-0 z-50 mt-2 pt-[max(0.625rem,env(safe-area-inset-top))] pb-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:pt-[max(0.75rem,env(safe-area-inset-top))] sm:pb-3 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] lg:hidden">
-				<div className="relative mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between overflow-visible rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-0.5 shadow-lg shadow-scrim/40 backdrop-blur-md sm:px-2.5 sm:py-1">
-					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
-						<div className="pointer-events-auto">
-							<PageSwitcher homeActive={homeActive} musicActive={musicActive} />
-						</div>
-					</div>
+		<MotionConfig reducedMotion="user">
+			<nav
+				aria-label="Main navigation"
+				className="fixed top-1/2 left-5 z-50 hidden -translate-y-1/2 md:block"
+			>
+				<div className="flex flex-col gap-0.5 rounded-xl p-1.5" style={containerStyle}>
+					{items.map((item) => (
+						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
+					))}
 				</div>
 			</nav>
 
-			<nav aria-label="Site" className="hidden lg:block">
-				<div className="fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
-					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} />
+			<nav
+				aria-label="Main navigation"
+				className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 md:hidden"
+			>
+				<div className="flex gap-0.5 rounded-xl p-1.5" style={containerStyle}>
+					{items.map((item) => (
+						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill-mobile" />
+					))}
 				</div>
 			</nav>
-		</>
+		</MotionConfig>
 	);
 }
