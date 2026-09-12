@@ -28,7 +28,7 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
   - `api/` — server endpoints: `discord`, `spotify`, `lastfm` routes; `.well-known/api-catalog/`.
 - `components/` — client components, one per file:
   - `LiveProvider.tsx` — root-level client data store (context). On first visit it loads Discord, Spotify and every Last.fm view once, then polls in the background; `loading` gates the whole app behind a one-time splash so content appears already populated and never reloads during the session. Widgets read from it via `useLive()` instead of fetching.
-  - `SiteNav.tsx` — nav with logo + Home/Music page switcher (animated sliding indicator). On `lg+` it becomes a fixed left sidebar with a vertical switcher; below `lg` it's a sticky top bar.
+  - `SiteNav.tsx` — nav with Home/Music page switcher (next/link, animated sliding indicator). On `lg+` it becomes a fixed left sidebar with a vertical switcher; below `lg` it's a sticky top bar. Hovering the icons shows a page-name preview popup (desktop only).
   - `AboutSection.tsx` — i18n about paragraph rendered as markdown (see below).
   - `SpotifyNowPlaying.tsx`, `DiscordProfileCard.tsx`, `LastFmWidget.tsx` — live status widgets rendered from `LiveProvider` context.
   - `SiteFooter.tsx` — footer (has a rainbow link, `.footer-rainbow-link`).
