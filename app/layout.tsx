@@ -56,10 +56,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Analytics />
 				<SpeedInsights />
 				<Script
-					src="https://portus.sh/p.js"
-					strategy="afterInteractive"
-					data-site="prt_jjudtdtrznlr4buly6yo"
 					defer
+					src="https://maplenan.org/hub/p.js"
+					data-site="prt_jjudtdtrznlr4buly6yo"
+					data-api="https://maplenan.org/hub/e"
 				/>
 				<Script
 					src="https://static.cloudflareinsights.com/beacon.min.js"
