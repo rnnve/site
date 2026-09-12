@@ -206,41 +206,43 @@ export default function LastFmWidget() {
 					))}
 				</div>
 			</div>
-			<div className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain">
-				{viewError && !viewData && (
-					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
-						<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
-					</p>
-				)}
-{!viewData && !viewError && (
-				<div
-					key={view}
-					className="animate-fade-in space-y-3 p-2"
-					aria-busy="true"
-					aria-label="Loading"
-				>
-					{[...Array(5)].map((_, index) => (
-						<Skeleton key={index} className="h-12 w-full rounded-lg" />
-					))}
+			<div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain">
+				<div className="m-auto w-full">
+					{viewError && !viewData && (
+						<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
+							<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
+						</p>
+					)}
+					{!viewData && !viewError && (
+						<div
+							key={view}
+							className="animate-fade-in space-y-3 p-2"
+							aria-busy="true"
+							aria-label="Loading"
+						>
+							{[...Array(5)].map((_, index) => (
+								<Skeleton key={index} className="h-12 w-full rounded-lg" />
+							))}
+						</div>
+					)}
+					{viewData && (
+						<div key={view} className="min-w-0 animate-fade-in">
+							{recentData &&
+								recentData.recenttracks.track.map((track, index) => (
+									<TrackRow key={track.url + track.date?.uts + index} track={track} />
+								))}
+							{topTracksData &&
+								topTracksData.toptracks.track.map((track) => (
+									<TopTrackRow key={track.url} track={track} />
+								))}
+							{topArtistsData &&
+								topArtistsData.topartists.artist.map((artist) => (
+									<TopArtistRow key={artist.url} artist={artist} />
+								))}
+							{infoData?.user && <StatsView user={infoData.user} />}
+						</div>
+					)}
 				</div>
-			)}
-				{viewData && (
-					<div key={view} className="min-w-0 animate-fade-in">
-						{recentData &&
-							recentData.recenttracks.track.map((track, index) => (
-								<TrackRow key={track.url + track.date?.uts + index} track={track} />
-							))}
-						{topTracksData &&
-							topTracksData.toptracks.track.map((track) => (
-								<TopTrackRow key={track.url} track={track} />
-							))}
-						{topArtistsData &&
-							topArtistsData.topartists.artist.map((artist) => (
-								<TopArtistRow key={artist.url} artist={artist} />
-							))}
-						{infoData?.user && <StatsView user={infoData.user} />}
-					</div>
-				)}
 			</div>
 		</div>
 	);
