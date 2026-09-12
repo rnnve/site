@@ -148,6 +148,12 @@ svg {
 	}
 }
 
+@keyframes graphite-shift {
+	to {
+		background-position: 200% center;
+	}
+}
+
 .text-rainbow,
 .footer-rainbow-link {
 	background-image: linear-gradient(
@@ -174,6 +180,46 @@ svg {
 
 .text-rainbow {
 	transition: none;
+}
+
+.text-graphite {
+	background-image: linear-gradient(90deg, #000, #fff, #000);
+	background-size: 200% auto;
+	background-position: 0% center;
+	animation: graphite-shift 6s linear infinite;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	font-weight: 600;
+	text-decoration: none;
+	transition: none;
+}
+
+u {
+	text-decoration-color: color-mix(in oklab, var(--color-on-surface) 60%, transparent);
+	text-decoration-thickness: 1.5px;
+	text-underline-offset: 2px;
+}
+
+.spoiler {
+	background-color: var(--color-scrim);
+	border-radius: 0.25rem;
+	padding: 0 0.25rem;
+	color: transparent;
+	cursor: pointer;
+	user-select: none;
+	transition: color 160ms ease;
+}
+
+.spoiler:hover,
+.spoiler:focus-visible {
+	color: var(--color-on-surface);
+}
+
+.spoiler:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
 }
 
 .footer-rainbow-link {
@@ -216,7 +262,8 @@ svg {
 	}
 
 	.text-rainbow,
-	.footer-rainbow-link {
+	.footer-rainbow-link,
+	.text-graphite {
 		animation: none;
 		background-position: 0% center;
 		transition: none;
