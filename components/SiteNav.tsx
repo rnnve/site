@@ -26,9 +26,11 @@ function MusicIcon({ className }: { className?: string }) {
 const iconButton =
 	'nav-icon-link inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
-function PageName({ label }: { label: string }) {
+function PageName({ label, className = '' }: { label: string; className?: string }) {
 	return (
-		<span className="inline-flex max-w-24 min-w-0 items-center overflow-hidden whitespace-nowrap text-sm font-semibold tracking-wide text-on-surface-variant">
+		<span
+			className={`pointer-events-none inline-flex max-w-24 min-w-0 items-center overflow-hidden whitespace-nowrap text-sm font-semibold tracking-wide text-on-surface-variant opacity-0 transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100 ${className}`}
+		>
 			<span key={label} className="animate-fade-in truncate">
 				{label}
 			</span>
@@ -119,11 +121,11 @@ export default function SiteNav() {
 						Rinne
 					</Link>
 
-					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2.5">
-						<div className="pointer-events-auto">
+					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
+						<div className="group relative pointer-events-auto">
 							<PageSwitcher homeActive={homeActive} musicActive={musicActive} onGo={go} />
+							<PageName label={pageLabel} className="absolute left-full top-1/2 ml-2 -translate-y-1/2" />
 						</div>
-						<PageName label={pageLabel} />
 					</div>
 
 					<span className="invisible inline-flex h-7 items-center px-1.5 text-sm font-bold" aria-hidden="true">
@@ -133,11 +135,9 @@ export default function SiteNav() {
 			</nav>
 
 			<nav aria-label="Site" className="hidden lg:block">
-				<div className="fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
+				<div className="group fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
 					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} onGo={go} />
-				</div>
-				<div className="fixed left-14 top-1/2 z-40 -translate-y-1/2">
-					<PageName label={pageLabel} />
+					<PageName label={pageLabel} className="absolute left-full top-1/2 ml-2 -translate-y-1/2" />
 				</div>
 			</nav>
 		</>
