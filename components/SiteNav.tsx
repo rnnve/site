@@ -1,7 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 function HomeIcon({ className }: { className?: string }) {
 	return (
@@ -22,16 +23,18 @@ function MusicIcon({ className }: { className?: string }) {
 	);
 }
 
-const iconLink =
-	'nav-icon-link inline-flex h-7 w-7 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+const iconButton =
+	'nav-icon-link inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
 function PageSwitcher({
 	homeActive,
 	musicActive,
+	onGo,
 	vertical = false,
 }: {
 	homeActive: boolean;
 	musicActive: boolean;
+	onGo: (href: string) => void;
 	vertical?: boolean;
 }) {
 	const indicatorPosition = musicActive
@@ -54,35 +57,45 @@ function PageSwitcher({
 					vertical ? 'left-0.5 top-0.5 h-7 w-7' : 'inset-y-0.5 left-0.5 w-7'
 				} ${indicatorPosition}`}
 			/>
-			<Link
-				href="/"
+			<button
+				type="button"
 				title="Home"
 				aria-label="Home"
 				aria-current={homeActive ? 'page' : undefined}
-				data-tooltip="off"
-				className={`${iconLink} relative ${homeActive ? 'text-on-primary-container' : ''}`}
+				onClick={() => onGo('/')}
+				className={`${iconButton} relative ${homeActive ? 'text-on-primary-container' : ''}`}
 			>
 				<HomeIcon className="h-4 w-4" />
-			</Link>
-			<Link
-				href="/music"
+			</button>
+			<button
+				type="button"
 				title="Music"
 				aria-label="Music"
 				aria-current={musicActive ? 'page' : undefined}
-				data-tooltip="off"
-				className={`${iconLink} relative ${musicActive ? 'text-on-primary-container' : ''}`}
+				onClick={() => onGo('/music')}
+				className={`${iconButton} relative ${musicActive ? 'text-on-primary-container' : ''}`}
 			>
 				<MusicIcon className="h-4 w-4" />
-			</Link>
+			</button>
 		</div>
 	);
 }
 
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
+	const router = useRouter();
+
+	useEffect(() => {
+		router.prefetch('/');
+		router.prefetch('/music');
+	}, [router]);
 
 	const homeActive = pathname === '/';
 	const musicActive = pathname === '/music' || pathname.startsWith('/music/');
+
+	function go(href: string) {
+		if (href !== pathname) router.push(href);
+	}
 
 	return (
 		<>
@@ -97,7 +110,7 @@ export default function SiteNav() {
 
 					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
 						<div className="pointer-events-auto">
-							<PageSwitcher homeActive={homeActive} musicActive={musicActive} />
+							<PageSwitcher homeActive={homeActive} musicActive={musicActive} onGo={go} />
 						</div>
 					</div>
 
@@ -109,7 +122,7 @@ export default function SiteNav() {
 
 			<nav aria-label="Site" className="hidden lg:block">
 				<div className="fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
-					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} />
+					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} onGo={go} />
 				</div>
 			</nav>
 		</>
