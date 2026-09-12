@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -26,18 +26,6 @@ function MusicIcon({ className }: { className?: string }) {
 const iconButton =
 	'nav-icon-link inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
-function PageName({ label, className = '' }: { label: string; className?: string }) {
-	return (
-		<span
-			className={`pointer-events-none inline-flex max-w-24 min-w-0 items-center overflow-hidden whitespace-nowrap text-sm font-semibold tracking-wide text-on-surface-variant opacity-0 transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100 ${className}`}
-		>
-			<span key={label} className="animate-fade-in truncate">
-				{label}
-			</span>
-		</span>
-	);
-}
-
 function PageSwitcher({
 	homeActive,
 	musicActive,
@@ -49,6 +37,8 @@ function PageSwitcher({
 	onGo: (href: string) => void;
 	vertical?: boolean;
 }) {
+	const [hovered, setHovered] = useState<'Home' | 'Music' | null>(null);
+
 	const indicatorPosition = musicActive
 		? vertical
 			? 'translate-y-[2rem]'
@@ -75,6 +65,10 @@ function PageSwitcher({
 				aria-label="Home"
 				aria-current={homeActive ? 'page' : undefined}
 				onClick={() => onGo('/')}
+				onMouseEnter={() => setHovered('Home')}
+				onMouseLeave={() => setHovered(null)}
+				onFocus={() => setHovered('Home')}
+				onBlur={() => setHovered(null)}
 				className={`${iconButton} relative ${homeActive ? 'text-on-primary-container' : ''}`}
 			>
 				<HomeIcon className="h-4 w-4" />
@@ -85,10 +79,24 @@ function PageSwitcher({
 				aria-label="Music"
 				aria-current={musicActive ? 'page' : undefined}
 				onClick={() => onGo('/music')}
+				onMouseEnter={() => setHovered('Music')}
+				onMouseLeave={() => setHovered(null)}
+				onFocus={() => setHovered('Music')}
+				onBlur={() => setHovered(null)}
 				className={`${iconButton} relative ${musicActive ? 'text-on-primary-container' : ''}`}
 			>
 				<MusicIcon className="h-4 w-4" />
 			</button>
+			{hovered && (
+				<div className="pointer-events-none absolute left-full top-1/2 z-10 ml-2 -translate-y-1/2">
+					<span
+						key={hovered}
+						className="animate-fade-in inline-flex items-center whitespace-nowrap rounded-lg border border-outline-variant bg-surface-container-high/90 px-2.5 py-1 text-xs font-medium tracking-wide text-on-surface shadow-lg shadow-scrim/40 backdrop-blur-md"
+					>
+						{hovered}
+					</span>
+				</div>
+			)}
 		</div>
 	);
 }
@@ -104,7 +112,6 @@ export default function SiteNav() {
 
 	const homeActive = pathname === '/';
 	const musicActive = pathname === '/music' || pathname.startsWith('/music/');
-	const pageLabel = musicActive ? 'Music' : 'Home';
 
 	function go(href: string) {
 		if (href !== pathname) router.push(href);
@@ -122,9 +129,8 @@ export default function SiteNav() {
 					</Link>
 
 					<div className="pointer-events-none absolute inset-y-0 left-1/2 z-10 flex -translate-x-1/2 items-center">
-						<div className="group relative pointer-events-auto">
+						<div className="pointer-events-auto">
 							<PageSwitcher homeActive={homeActive} musicActive={musicActive} onGo={go} />
-							<PageName label={pageLabel} className="absolute left-full top-1/2 ml-2 -translate-y-1/2" />
 						</div>
 					</div>
 
@@ -135,9 +141,8 @@ export default function SiteNav() {
 			</nav>
 
 			<nav aria-label="Site" className="hidden lg:block">
-				<div className="group fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
+				<div className="fixed left-2 top-1/2 z-50 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl border border-outline-variant bg-surface-container-high/80 px-1.5 py-2 shadow-lg shadow-scrim/40 backdrop-blur-md">
 					<PageSwitcher vertical homeActive={homeActive} musicActive={musicActive} onGo={go} />
-					<PageName label={pageLabel} className="absolute left-full top-1/2 ml-2 -translate-y-1/2" />
 				</div>
 			</nav>
 		</>
