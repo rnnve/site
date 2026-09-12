@@ -26,19 +26,19 @@
 	--color-on-error: #601410;
 	--color-error-container: #8c1d18;
 	--color-on-error-container: #f9dedc;
-	--color-background: #1c1b1f;
+	--color-background: #000000;
 	--color-on-background: #e6e1e5;
-	--color-surface: #1c1b1f;
+	--color-surface: #000000;
 	--color-on-surface: #e6e1e5;
-	--color-surface-dim: #141318;
-	--color-surface-bright: #423f47;
-	--color-surface-variant: #49454f;
+	--color-surface-dim: #000000;
+	--color-surface-bright: #000000;
+	--color-surface-variant: #000000;
 	--color-on-surface-variant: #cac4d0;
-	--color-surface-container-lowest: #161519;
-	--color-surface-container-low: #242228;
-	--color-surface-container: #28272b;
-	--color-surface-container-high: #2b2930;
-	--color-surface-container-highest: #36343b;
+	--color-surface-container-lowest: #000000;
+	--color-surface-container-low: #000000;
+	--color-surface-container: #000000;
+	--color-surface-container-high: #000000;
+	--color-surface-container-highest: #000000;
 	--color-outline: #938f99;
 	--color-outline-variant: #49454f;
 	--color-scrim: #000000;
@@ -90,7 +90,7 @@
 .skeleton {
 	position: relative;
 	overflow: hidden;
-	background-color: var(--color-surface-container-high);
+	background-color: rgb(255 255 255 / 0.06);
 }
 
 .skeleton::after {
