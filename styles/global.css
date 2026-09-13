@@ -217,6 +217,7 @@ svg {
 	animation: berry-shift 4s linear infinite;
 	background-clip: text;
 	-webkit-background-clip: text;
+	color: transparent;
 .text-pastel {
 	background-image: linear-gradient(90deg, #fff, #ffc2d1, #cbb6ff, #9ce8ea, #a9e6a3, #fff);
 	background-size: 200% auto;
