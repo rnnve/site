@@ -13,7 +13,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/chakra-petch": "^5.3.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
