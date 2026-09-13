@@ -70,7 +70,7 @@ function activityRunTime(activity: DiscordActivity): string {
 }
 
 function ActivityLine({ activity }: { activity: DiscordActivity }) {
-	const [elapsed, setElapsed] = useState(activityRunTime(activity));
+	const [elapsed, setElapsed] = useState('');
 
 	useEffect(() => {
 		setElapsed(activityRunTime(activity));
@@ -142,7 +142,7 @@ export default function DiscordProfileCard() {
 							alt={user.displayName}
 							width={52}
 							height={52}
-							loading="lazy"
+							fetchPriority="high"
 							decoding="async"
 							className="h-13 w-13 shrink-0 rounded-full object-cover"
 						/>
