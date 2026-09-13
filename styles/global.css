@@ -286,7 +286,8 @@ u {
 	.footer-rainbow-link,
 	.text-graphite,
 	.text-blush,
-	.text-pastel {
+.text-pastel,
+	.text-berry {
 		animation: none;
 		background-position: 0% center;
 		transition: none;
