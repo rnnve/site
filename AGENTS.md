@@ -60,6 +60,6 @@ If you change markdown rendering, run `bunx tsc --noEmit`.
 
 ## Git workflow (IMPORTANT)
 
-- **One commit per file per change**: add and commit each changed file separately (`git add <file>` then `git commit`), with a commit message that identifies the file and the change (e.g. `fix(SiteNav): ...`).
+- **One commit per line per change**: commit each source line you add or remove as its own commit (`git add -p` for the line, then `git commit`), with a commit message that identifies the line and the change (e.g. `fix(SiteNav): ...`).
 - **Never push** unless the user explicitly says to.
 - Leave build artifacts out of commits (`tsconfig.tsbuildinfo` is gitignored).
