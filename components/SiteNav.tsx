@@ -84,7 +84,7 @@ function NavButton({
 				style={{
 					color: active ? '#ffffff' : '#8E8E93',
 					opacity: active ? 1 : 0.65,
-					transition: 'color 0.22s ease-out, opacity 0.22s ease-out',
+					transition: 'color 0.15s ease-out, opacity 0.15s ease-out',
 				}}
 			>
 				<Icon className="h-4 w-4 md:h-5 md:w-5" />
