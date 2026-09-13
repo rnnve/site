@@ -1,26 +1,16 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import {
-	type DiscordResponse,
-	type DiscordUserData,
-	type LastFmRecentTracksResponse,
-	type LastFmTopArtistsResponse,
-	type LastFmTopTracksResponse,
-	type LastFmUserInfoResponse,
-	type SpotifyNowPlaying,
+import type {
+	DiscordResponse,
+	DiscordUserData,
+	LiveInitialData,
+	LiveLastFmData,
+	LiveLastFmView,
+	SpotifyNowPlaying,
 } from '@/lib/integrations';
 
-export type LiveLastFmView = 'recent' | 'toptracks' | 'topartists' | 'info';
-
-export type LiveLastFmData =
-	| LastFmRecentTracksResponse
-	| LastFmTopTracksResponse
-	| LastFmTopArtistsResponse
-	| LastFmUserInfoResponse;
-
-const LASTFM_VIEWS: LiveLastFmView[] = ['recent', 'toptracks', 'topartists', 'info'];
-const OTHER_VIEWS: LiveLastFmView[] = ['toptracks', 'topartists', 'info'];
+const ALL_VIEWS: readonly LiveLastFmView[] = ['recent', 'toptracks', 'topartists', 'info'];
 
 const DISCORD_INTERVAL_MS = 5_000;
 const SPOTIFY_INTERVAL_MS = 5_000;
@@ -38,6 +28,14 @@ interface LiveContextValue {
 	lastfmError: Partial<Record<LiveLastFmView, string>>;
 }
 
+interface LiveProviderProps {
+	children: React.ReactNode;
+	/** Data fetched during SSR so the first paint shows real content. */
+	initialData?: LiveInitialData;
+	/** Last.fm views this page observes (filters which views are fetched/polled). */
+	views?: readonly LiveLastFmView[];
+}
+
 const LiveContext = createContext<LiveContextValue | null>(null);
 
 async function getJson(url: string): Promise<{ body: unknown; error: string | null }> {
@@ -53,14 +51,20 @@ async function getJson(url: string): Promise<{ body: unknown; error: string | nu
 	}
 }
 
-export function LiveProvider({ children }: { children: React.ReactNode }) {
-	const [discord, setDiscord] = useState<DiscordUserData | null>(null);
+export function LiveProvider({ children, initialData, views }: LiveProviderProps) {
+	const activeViews = views ?? ALL_VIEWS;
+
+	const [discord, setDiscord] = useState<DiscordUserData | null>(initialData?.discord ?? null);
 	const [discordError, setDiscordError] = useState<string | null>(null);
-	const [spotify, setSpotify] = useState<SpotifyNowPlaying | null>(null);
-	const [spotifyStopped, setSpotifyStopped] = useState(false);
+	const [spotify, setSpotify] = useState<SpotifyNowPlaying | null>(initialData?.spotify ?? null);
+	const [spotifyStopped, setSpotifyStopped] = useState(initialData?.spotifyStopped ?? false);
 	const [spotifyError, setSpotifyError] = useState<string | null>(null);
-	const [lastfm, setLastfm] = useState<Partial<Record<LiveLastFmView, LiveLastFmData>>>({});
-	const [lastfmError, setLastfmError] = useState<Partial<Record<LiveLastFmView, string>>>({});
+	const [lastfm, setLastfm] = useState<Partial<Record<LiveLastFmView, LiveLastFmData>>>(
+		initialData?.lastfm ?? {},
+	);
+	const [lastfmError, setLastfmError] = useState<Partial<Record<LiveLastFmView, string>>>(
+		initialData?.lastfmError ?? {},
+	);
 
 	useEffect(() => {
 		if (typeof document === 'undefined') return;
@@ -127,7 +131,7 @@ export function LiveProvider({ children }: { children: React.ReactNode }) {
 		const loadAll = () => {
 			void loadDiscord();
 			void loadSpotify();
-			void Promise.all(LASTFM_VIEWS.map((view) => loadLastfmView(view)));
+			void Promise.all(activeViews.map((view) => loadLastfmView(view)));
 		};
 
 		const onVisible = () => {
@@ -137,17 +141,25 @@ export function LiveProvider({ children }: { children: React.ReactNode }) {
 
 		const discordTimer = setInterval(loadDiscord, DISCORD_INTERVAL_MS);
 		const spotifyTimer = setInterval(loadSpotify, SPOTIFY_INTERVAL_MS);
-		const recentTimer = setInterval(() => void loadLastfmView('recent'), RECENT_INTERVAL_MS);
-		const otherTimer = setInterval(() => void Promise.all(OTHER_VIEWS.map((view) => loadLastfmView(view))), OTHER_INTERVAL_MS);
+		const recentTimer = activeViews.includes('recent')
+			? setInterval(() => void loadLastfmView('recent'), RECENT_INTERVAL_MS)
+			: undefined;
+		const otherViews = activeViews.filter((view) => view !== 'recent');
+		const otherTimer = otherViews.length
+			? setInterval(
+					() => void Promise.all(otherViews.map((view) => loadLastfmView(view))),
+					OTHER_INTERVAL_MS,
+				)
+			: undefined;
 
 		return () => {
 			document.removeEventListener('visibilitychange', onVisible);
 			clearInterval(discordTimer);
 			clearInterval(spotifyTimer);
-			clearInterval(recentTimer);
-			clearInterval(otherTimer);
+			if (recentTimer) clearInterval(recentTimer);
+			if (otherTimer) clearInterval(otherTimer);
 		};
-	}, []);
+	}, [activeViews]);
 
 	return (
 		<LiveContext.Provider
