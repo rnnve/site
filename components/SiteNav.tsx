@@ -46,7 +46,7 @@ const containerStyle: CSSProperties = {
 const pillTransition = {
 	type: 'spring' as const,
 	stiffness: 600,
-	damping: 32,
+	damping: 24,
 	mass: 0.7,
 };
 
