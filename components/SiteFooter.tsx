@@ -2,7 +2,11 @@ async function getCommitCount(): Promise<number | null> {
 	try {
 		const response = await fetch(
 			'https://api.github.com/repos/rnnve/site/commits?per_page=1',
-			{ headers: { Accept: 'application/vnd.github+json' }, next: { revalidate: 3600 } },
+			{
+				headers: { Accept: 'application/vnd.github+json' },
+				next: { revalidate: 3600 },
+				signal: AbortSignal.timeout(4000),
+			},
 		);
 		if (!response.ok) return null;
 		const last = response.headers.get('link')?.match(/page=(\d+)>; rel="last"/)?.[1];
