@@ -6,7 +6,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import SiteNav from '@/components/SiteNav';
 import CursorTooltip from '@/components/CursorTooltip';
-import { LiveProvider } from '@/components/LiveProvider';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
@@ -49,17 +48,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			</head>
 			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<SiteNav />
-				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-					<LiveProvider>{children}</LiveProvider>
-				</div>
+				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<CursorTooltip />
 				<Analytics />
 				<SpeedInsights />
 				<Script
 					defer
-					src="https://maplenan.org/hub/p.js"
+					src="/hub/p.js"
 					data-site="prt_jjudtdtrznlr4buly6yo"
-					data-api="https://maplenan.org/hub/e"
+					data-api="/hub/e"
 				/>
 				<Script
 					src="https://static.cloudflareinsights.com/beacon.min.js"
