@@ -146,6 +146,7 @@ svg {
 	to {
 		background-position: 100% center;
 	}
+}
 	@keyframes pastel-shift {
 	to {
 		background-position: 200% center;
