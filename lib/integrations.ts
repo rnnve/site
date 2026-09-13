@@ -192,6 +192,23 @@ export function lastfmImage(images: LastFmImage | undefined, size: string = 'lar
 	return match?.['#text'] ?? images[images.length - 1]?.['#text'] ?? '';
 }
 
+export type LiveLastFmView = 'recent' | 'toptracks' | 'topartists' | 'info';
+
+export type LiveLastFmData =
+	| LastFmRecentTracksResponse
+	| LastFmTopTracksResponse
+	| LastFmTopArtistsResponse
+	| LastFmUserInfoResponse;
+
+/** Initial data object rendered + hydrated for the first paint. */
+export interface LiveInitialData {
+	discord: DiscordUserData | null;
+	spotify: SpotifyNowPlaying | null;
+	spotifyStopped: boolean;
+	lastfm: Partial<Record<LiveLastFmView, LiveLastFmData>>;
+	lastfmError: Partial<Record<LiveLastFmView, string>>;
+}
+
 export function lastfmNowPlaying(track: LastFmTrack): boolean {
 	return track['@attr']?.nowplaying === 'true';
 }
