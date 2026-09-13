@@ -55,6 +55,7 @@ The about paragraph in `AboutSection.tsx` is markdown rendered with `react-markd
 - `==text==` → rainbow animated text (class `text-rainbow`).
 - `%%text%%` → black→white gradient text (class `text-graphite`).
 - `$$text$$` → light pink→white gradient text (class `text-blush`).
+- `&&text&&` → purple→red gradient text (class `text-berry`).
 
 If you change markdown rendering, run `bunx tsc --noEmit`.
 
