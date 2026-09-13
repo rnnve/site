@@ -22,18 +22,19 @@ Always run `bunx tsc --noEmit` (and `bun run build` when practical) after making
 ## Structure
 
 - `app/` — route pages and API routes.
-  - `layout.tsx` — root layout, fonts, `<SiteNav />`, `<LiveProvider />`, analytics scripts, sensors.
-  - `page.tsx` — home page: about section + live Discord/Spotify/Last.fm widgets.
-  - `music/page.tsx` — music page with Last.fm history.
+  - `layout.tsx` — root layout, fonts, `<SiteNav />`, analytics scripts, sensors (same-origin `/hub/…` scripts, proxied via `next.config.ts` rewrites to portus.sh).
+  - `page.tsx` — home page: about section + live Discord/Spotify/Last.fm widgets. Async server component; calls `getInitialLiveData(['recent'])` so the first HTML contains real content.
+  - `music/page.tsx` — music page with Last.fm history; `getInitialLiveData(ALL_VIEWS)`.
   - `api/` — server endpoints: `discord`, `spotify`, `lastfm` routes; `.well-known/api-catalog/`.
 - `components/` — client components, one per file:
-  - `LiveProvider.tsx` — root-level client data store (context). On first visit it loads Discord, Spotify and every Last.fm view once, then polls in the background; `loading` gates the whole app behind a one-time splash so content appears already populated and never reloads during the session. Widgets read from it via `useLive()` instead of fetching.
+  - `LiveProvider.tsx` — client data store (context). Lives inside each page, wrapped around the page content. Takes `initialData` (SSR snapshot, so widgets render real content on first paint instead of skeletons and hydrate without a flash) and `views` (only the Last.fm views that page needs are fetched + polled: home passes `['recent']`, music passes all four). Polls in the background; widgets read from it via `useLive()` instead of fetching.
   - `SiteNav.tsx` — nav ported from the `shadcn` branch design (next/link): glass pill container (`rgba(20,20,20,0.8)` + 24px blur + thin white border), spring `layoutId` active indicator, hover scale 1.08 / tap 0.95 icons via framer-motion. Fixed left sidebar on `md+`, centered floating bar at the bottom on mobile. `MotionConfig reducedMotion="user"`. Only Home/Music items.
   - `AboutSection.tsx` — i18n about paragraph rendered as markdown (see below).
   - `SpotifyNowPlaying.tsx`, `DiscordProfileCard.tsx`, `LastFmWidget.tsx` — live status widgets rendered from `LiveProvider` context.
   - `SiteFooter.tsx` — footer (has a rainbow link, `.footer-rainbow-link`).
   - `Skeleton.tsx` — shimmer skeleton loader.
 - `lib/` — shared logic.
+  - `initial-live.ts` — server-only loader for the SSR content snapshot (`getInitialLiveData`). Fetches the same upstream APIs as the route handlers in parallel with a short timeout (no image augmentation, so TTFB stays low); pages seed `LiveProvider` with its result.
   - `i18n.tsx` — `I18nProvider` / `useI18n`; EN + TH dictionaries and `Lang` type; content is authored directly in these dictionaries.
   - `rehype-rainbow.ts` — rehype plugin; `==text==` in markdown renders as animated rainbow text (class `text-rainbow`).
   - `markdown.ts` — HTML-to-markdown converter used by API routes.
