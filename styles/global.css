@@ -220,6 +220,7 @@ svg {
 	color: transparent;
 	-webkit-text-fill-color: transparent;
 	font-weight: 600;
+	text-decoration: none;
 .text-pastel {
 	background-image: linear-gradient(90deg, #fff, #ffc2d1, #cbb6ff, #9ce8ea, #a9e6a3, #fff);
 	background-size: 200% auto;
