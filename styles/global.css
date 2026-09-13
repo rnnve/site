@@ -214,6 +214,7 @@ svg {
 	background-image: linear-gradient(90deg, #a78bfa, #f43f5e, #a78bfa);
 	background-size: 200% auto;
 	background-position: 0% center;
+	animation: berry-shift 4s linear infinite;
 .text-pastel {
 	background-image: linear-gradient(90deg, #fff, #ffc2d1, #cbb6ff, #9ce8ea, #a9e6a3, #fff);
 	background-size: 200% auto;
