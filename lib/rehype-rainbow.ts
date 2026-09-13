@@ -24,6 +24,7 @@ const SINGLE_RULES: SingleRule[] = [
 	{ re: /==([^=]+)==/g, className: 'text-rainbow' },
 	{ re: /%%([^%]+)%%/g, className: 'text-graphite' },
 	{ re: /\$\$([^$]+)\$\$/g, className: 'text-blush' },
+	{ re: /&&([^&]+)&&/g, className: 'text-berry' },
 ];
 
 const SPLIT_MARKERS: SplitMarker[] = [
