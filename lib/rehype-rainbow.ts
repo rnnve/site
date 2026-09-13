@@ -31,6 +31,7 @@ const SPLIT_MARKERS: SplitMarker[] = [
 	{ open: '==', close: '==', className: 'text-rainbow' },
 	{ open: '%%', close: '%%', className: 'text-graphite' },
 	{ open: '$$', close: '$$', className: 'text-blush' },
+	{ open: '&&', close: '&&', className: 'text-berry' },
 ];
 
 function text(value: string): Text {
