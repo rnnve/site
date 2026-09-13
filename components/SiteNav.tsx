@@ -80,7 +80,7 @@ function NavButton({
 				className="relative z-10 flex h-full w-full items-center justify-center"
 				whileHover={{ scale: 1.08 }}
 				whileTap={{ scale: 0.95 }}
-				transition={{ duration: 0.22, ease: 'easeOut' }}
+				transition={{ duration: 0.15, ease: 'easeOut' }}
 				style={{
 					color: active ? '#ffffff' : '#8E8E93',
 					opacity: active ? 1 : 0.65,
