@@ -95,6 +95,7 @@ export async function GET(request: Request) {
 		const clientId = getEnv('SPOTIFY_CLIENT_ID') || '';
 		const clientSecret = getEnv('SPOTIFY_CLIENT_SECRET') || '';
 		if ('recenttracks' in data && Array.isArray(data.recenttracks.track)) {
+			await augmentFastCovers(data.recenttracks.track, 'track');
 			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.recenttracks.track, 'track', clientId, clientSecret);
 			}
