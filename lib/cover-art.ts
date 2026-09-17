@@ -73,3 +73,4 @@ export async function resolveFastCover(
 		foundUrl = result?.artworkUrl100 ?? result?.artworkUrl60 ?? null;
 	}
 
+	coverCache.set(cacheKey, {
