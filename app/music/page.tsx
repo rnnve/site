@@ -23,7 +23,7 @@ function MusicContent() {
 						<h1 className="text-lg font-semibold text-on-surface sm:text-xl">Music</h1>
 						<p className="mt-1 text-sm text-on-surface-variant">Last.fm listening history</p>
 					</header>
-							<LastFmWidget />
+					<LastFmWidget />
 						</div>
 					</section>
 					<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
