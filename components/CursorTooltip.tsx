@@ -29,4 +29,3 @@ export default function CursorTooltip() {
 		function onMove(e: PointerEvent) {
 			const hovered = e.target as Element | null;
 			const el = hovered?.closest?.('a[href]');
-			const href = el && !el.closest('[data-tooltip="off"]') ? el.getAttribute('href') : null;
