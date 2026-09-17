@@ -11,4 +11,3 @@ export default function CursorTooltip() {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (typeof window === 'undefined') return;
