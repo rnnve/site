@@ -33,4 +33,3 @@ export default function CursorTooltip() {
 			setPos({ x: e.clientX, y: e.clientY });
 			if (href) {
 				setLabel(labelFor(href));
-			} else {
