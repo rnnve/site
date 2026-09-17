@@ -7,3 +7,4 @@ interface LiveProviderWithDataProps {
 	views: readonly LiveLastFmView[];
 }
 
+export async function LiveProviderWithData({ children, views }: LiveProviderWithDataProps) {
