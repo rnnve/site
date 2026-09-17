@@ -55,4 +55,3 @@ export default function CursorTooltip() {
 			setClamped({ left: pos.x, top: pos.y });
 			return;
 		}
-		const { clientWidth: w, clientHeight: h } = ref.current;
