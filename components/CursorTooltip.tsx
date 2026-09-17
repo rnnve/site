@@ -19,4 +19,3 @@ export default function CursorTooltip() {
 				const url = new URL(href, window.location.origin);
 				if (url.origin === window.location.origin) {
 					return url.pathname + url.search;
-				}
