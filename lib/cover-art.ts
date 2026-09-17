@@ -69,3 +69,4 @@ export async function resolveFastCover(
 			`${name} ${artist}`.trim(),
 		)}&entity=song&limit=1`;
 		const data = await fetchJson<ITunesSearchResponse>(endpoint);
+		const result = data?.results?.[0];
