@@ -18,7 +18,7 @@ function MusicContent() {
 				className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden overscroll-contain"
 				aria-label="Last.fm"
 			>
-						<div className="m-auto flex w-full min-w-0 flex-col gap-4">
+				<div className="m-auto flex w-full min-w-0 flex-col gap-4">
 							<header className="min-w-0">
 								<h1 className="text-lg font-semibold text-on-surface sm:text-xl">Music</h1>
 								<p className="mt-1 text-sm text-on-surface-variant">Last.fm listening history</p>
