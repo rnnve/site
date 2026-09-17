@@ -70,3 +70,4 @@ export async function resolveFastCover(
 		)}&entity=song&limit=1`;
 		const data = await fetchJson<ITunesSearchResponse>(endpoint);
 		const result = data?.results?.[0];
+		foundUrl = result?.artworkUrl100 ?? result?.artworkUrl60 ?? null;
