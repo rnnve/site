@@ -88,3 +88,4 @@ type CoverArtItem = {
 
 /**
  * Attaches fast keyless covers to items that don't have a Spotify image yet.
+ * Only touches items missing covers so per-request latency stays minimal.
