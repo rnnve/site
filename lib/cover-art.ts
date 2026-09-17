@@ -78,3 +78,4 @@ export async function resolveFastCover(
 		expiresAt: Date.now() + (foundUrl ? POSITIVE_CACHE_TTL_MS : NEGATIVE_CACHE_TTL_MS),
 	});
 	return foundUrl;
+}
