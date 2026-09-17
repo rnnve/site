@@ -137,7 +137,7 @@ function TopTrackRow({ track, priority }: { track: LastFmTopTrack; priority?: bo
 	);
 }
 
-function TopArtistRow({ artist }: { artist: LastFmTopArtist }) {
+function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?: boolean }) {
 	return (
 		<a
 			href={artist.url}
