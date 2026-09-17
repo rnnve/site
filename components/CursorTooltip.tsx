@@ -10,4 +10,3 @@ export default function CursorTooltip() {
 	const [clamped, setClamped] = useState({ left: 0, top: 0 });
 	const ref = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
