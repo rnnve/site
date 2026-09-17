@@ -31,6 +31,5 @@ function MusicContent() {
 					</Suspense>
 				</div>
 			</main>
-		</LiveProvider>
 	);
 }
