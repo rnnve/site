@@ -3,8 +3,6 @@ import LastFmWidget from '@/components/LastFmWidget';
 import SiteFooter from '@/components/SiteFooter';
 import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
-export const dynamic = 'force-dynamic';
-
 export const metadata = {
 	title: 'Music · Rinne',
 	description: 'Last.fm recent tracks, top tracks, artists and stats.',
