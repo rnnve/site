@@ -51,3 +51,4 @@ export async function resolveFastCover(
 	let foundUrl: string | null = null;
 
 	const query = type === 'track' ? `${name} ${artist}`.trim() : artist.trim() || name.trim();
+	if (query) {
