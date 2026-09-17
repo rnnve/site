@@ -33,3 +33,4 @@ function MusicContent() {
 	</main>
 	);
 }
+export default function MusicPage() {
