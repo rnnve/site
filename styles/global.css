@@ -144,7 +144,7 @@ svg {
 
 @keyframes berry-shift {
 	to {
-		background-position: 100% center;
+		background-position: 200% center;
 	}
 }
 
