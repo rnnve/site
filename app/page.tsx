@@ -39,3 +39,4 @@ function HomeContent() {
 export default function HomePage() {
 	return (
 		<I18nProvider>
+			<Suspense
