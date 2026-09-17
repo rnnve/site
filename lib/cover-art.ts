@@ -22,3 +22,4 @@ type CacheEntry = { url: string | null; expiresAt: number };
 /** In-memory cover cache so repeated polls don't re-hit upstream APIs. */
 const coverCache = new Map<string, CacheEntry>();
 
+async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | null> {
