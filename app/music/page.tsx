@@ -25,7 +25,7 @@ function MusicContent() {
 					</header>
 					<LastFmWidget />
 				</div>
-					</section>
+			</section>
 					<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 						<SiteFooter />
 					</Suspense>
