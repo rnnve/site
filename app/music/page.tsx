@@ -24,7 +24,7 @@ function MusicContent() {
 						<p className="mt-1 text-sm text-on-surface-variant">Last.fm listening history</p>
 					</header>
 					<LastFmWidget />
-						</div>
+				</div>
 					</section>
 					<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 						<SiteFooter />
