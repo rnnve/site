@@ -59,3 +59,4 @@ export async function resolveFastCover(
 		const data = await fetchJson<DeezerSearchResponse>(endpoint);
 		const item = data?.data?.[0];
 		foundUrl =
+			type === 'track'
