@@ -33,6 +33,6 @@ function HomeContent() {
 							<SiteFooter />
 						</Suspense>
 					</div>
-				</main>
+		</main>
 	);
 }
