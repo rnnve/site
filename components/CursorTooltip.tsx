@@ -27,4 +27,3 @@ export default function CursorTooltip() {
 		}
 
 		function onMove(e: PointerEvent) {
-			const hovered = e.target as Element | null;
