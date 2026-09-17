@@ -38,3 +38,4 @@ export default function MusicPage() {
 		<Suspense
 			fallback={
 				<LiveProvider views={ALL_VIEWS}>
+					<MusicContent />
