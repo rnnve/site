@@ -10,7 +10,7 @@ export const metadata = {
 
 const ALL_VIEWS = ['recent', 'toptracks', 'topartists', 'info'] as const;
 
-export default async function MusicPage() {
+function MusicContent() {
 	const initialData = await getInitialLiveData(ALL_VIEWS);
 
 	return (
