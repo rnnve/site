@@ -74,3 +74,4 @@ export async function resolveFastCover(
 	}
 
 	coverCache.set(cacheKey, {
+		url: foundUrl,
