@@ -47,3 +47,4 @@ export async function resolveFastCover(
 	const cacheKey = `${type}:${artist.toLowerCase().trim()}:${name.toLowerCase().trim()}`;
 	const cached = coverCache.get(cacheKey);
 	if (cached && cached.expiresAt > Date.now()) return cached.url;
+
