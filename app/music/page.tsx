@@ -36,3 +36,4 @@ function MusicContent() {
 export default function MusicPage() {
 	return (
 		<Suspense
+			fallback={
