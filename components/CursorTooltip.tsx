@@ -17,4 +17,3 @@ export default function CursorTooltip() {
 		function labelFor(href: string): string {
 			try {
 				const url = new URL(href, window.location.origin);
-				if (url.origin === window.location.origin) {
