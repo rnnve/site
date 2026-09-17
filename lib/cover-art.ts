@@ -48,3 +48,4 @@ export async function resolveFastCover(
 	const cached = coverCache.get(cacheKey);
 	if (cached && cached.expiresAt > Date.now()) return cached.url;
 
+	let foundUrl: string | null = null;
