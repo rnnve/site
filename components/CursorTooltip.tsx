@@ -42,4 +42,3 @@ export default function CursorTooltip() {
 			setLabel(null);
 		}
 
-		document.addEventListener('pointermove', onMove, { passive: true });
