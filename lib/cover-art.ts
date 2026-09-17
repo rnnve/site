@@ -94,3 +94,4 @@ export async function augmentFastCovers(
 	items: CoverArtItem[],
 	type: 'track' | 'artist',
 ): Promise<void> {
+	await Promise.allSettled(
