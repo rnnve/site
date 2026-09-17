@@ -45,4 +45,3 @@ export default function CursorTooltip() {
 		document.addEventListener('pointermove', onMove, { passive: true });
 		document.addEventListener('mouseleave', onLeave);
 		return () => {
-			document.removeEventListener('pointermove', onMove);
