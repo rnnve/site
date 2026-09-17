@@ -100,6 +100,7 @@ export async function augmentSpotifyImages(
 ): Promise<void> {
 	await Promise.allSettled(
 		items.map(async (item) => {
+			if (item.spotifyImage) return;
 			const artist =
 				typeof item.artist === 'string' ? item.artist : (item.artist?.name ?? item.artist?.['#text'] ?? '');
 			const query = type === 'track' ? `${item.name} ${artist}`.trim() : item.name;
