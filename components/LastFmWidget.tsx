@@ -239,7 +239,11 @@ export default function LastFmWidget() {
 					<div key={view} className="min-w-0 animate-fade-in">
 						{recentData &&
 							recentData.recenttracks.track.map((track, index) => (
-								<TrackRow key={track.url + track.date?.uts + index} track={track} />
+								<TrackRow
+									key={track.url + track.date?.uts + index}
+									track={track}
+									priority={index < 5}
+								/>
 							))}
 						{topTracksData &&
 							topTracksData.toptracks.track.map((track) => (
