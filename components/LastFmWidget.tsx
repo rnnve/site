@@ -42,7 +42,17 @@ function Rank({ rank }: { rank?: string }) {
 	);
 }
 
-function TrackImage({ image, art, alt }: { image: LastFmImage; art?: string; alt: string }) {
+function TrackImage({
+	image,
+	art,
+	alt,
+	priority = false,
+}: {
+	image: LastFmImage;
+	art?: string;
+	alt: string;
+	priority?: boolean;
+}) {
 	const [failed, setFailed] = useState(false);
 	const src = art || lastfmImage(image, 'medium');
 
