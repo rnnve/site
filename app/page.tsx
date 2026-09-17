@@ -43,3 +43,4 @@ export default function HomePage() {
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
 						<HomeContent />
+					</LiveProvider>
