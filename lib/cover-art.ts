@@ -26,3 +26,4 @@ async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | nu
 	try {
 		const response = await fetch(url, {
 			headers: { 'User-Agent': userAgent },
+			signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
