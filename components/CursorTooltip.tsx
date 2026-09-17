@@ -21,4 +21,3 @@ export default function CursorTooltip() {
 					return url.pathname + url.search;
 				}
 				return href;
-			} catch {
