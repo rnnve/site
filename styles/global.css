@@ -69,6 +69,7 @@
 	color-scheme: dark;
 }
 .no-scrollbar {
+	scrollbar-width: none;
 
 .skeleton {
 	position: relative;
