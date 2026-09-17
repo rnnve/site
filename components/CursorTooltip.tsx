@@ -40,4 +40,3 @@ export default function CursorTooltip() {
 
 		function onLeave() {
 			setLabel(null);
-		}
