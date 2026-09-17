@@ -29,3 +29,4 @@ async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | nu
 			signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
 		});
 		if (!response.ok) return null;
+		return (await response.json()) as T;
