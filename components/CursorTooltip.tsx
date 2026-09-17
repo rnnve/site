@@ -56,4 +56,3 @@ export default function CursorTooltip() {
 			return;
 		}
 		const { clientWidth: w, clientHeight: h } = ref.current;
-		const left = pos.x + OFFSET;
