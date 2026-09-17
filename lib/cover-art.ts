@@ -102,3 +102,4 @@ export async function augmentFastCovers(
 			const url = await resolveFastCover(item.name, artist, type);
 			if (url) item.spotifyImage = url;
 		}),
+	);
