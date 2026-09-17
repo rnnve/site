@@ -72,3 +72,4 @@ export async function resolveFastCover(
 		const result = data?.results?.[0];
 		foundUrl = result?.artworkUrl100 ?? result?.artworkUrl60 ?? null;
 	}
+
