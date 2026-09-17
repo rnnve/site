@@ -99,3 +99,4 @@ export async function augmentFastCovers(
 			if (item.spotifyImage) return;
 			const artist =
 				typeof item.artist === 'string' ? item.artist : (item.artist?.name ?? item.artist?.['#text'] ?? '');
+			const url = await resolveFastCover(item.name, artist, type);
