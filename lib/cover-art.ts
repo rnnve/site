@@ -81,3 +81,4 @@ export async function resolveFastCover(
 }
 
 type CoverArtItem = {
+	name: string;
