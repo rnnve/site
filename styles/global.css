@@ -74,6 +74,7 @@
 }
 
 .no-scrollbar::-webkit-scrollbar {
+	display: none;
 
 .skeleton {
 	position: relative;
