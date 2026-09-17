@@ -5,3 +5,4 @@ interface DeezerSearchResponse {
 		picture?: string;
 	}>;
 }
+
