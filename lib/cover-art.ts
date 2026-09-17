@@ -62,3 +62,4 @@ export async function resolveFastCover(
 			type === 'track'
 				? (item?.album?.cover_medium ?? item?.album?.cover ?? null)
 				: (item?.picture_medium ?? item?.picture ?? null);
+	}
