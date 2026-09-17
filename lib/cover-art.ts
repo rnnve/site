@@ -49,3 +49,4 @@ export async function resolveFastCover(
 	if (cached && cached.expiresAt > Date.now()) return cached.url;
 
 	let foundUrl: string | null = null;
+
