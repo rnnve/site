@@ -53,4 +53,3 @@ export default function CursorTooltip() {
 	useLayoutEffect(() => {
 		if (!label || !ref.current) {
 			setClamped({ left: pos.x, top: pos.y });
-			return;
