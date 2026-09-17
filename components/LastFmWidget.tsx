@@ -246,8 +246,8 @@ export default function LastFmWidget() {
 								/>
 							))}
 						{topTracksData &&
-							topTracksData.toptracks.track.map((track) => (
-								<TopTrackRow key={track.url} track={track} />
+							topTracksData.toptracks.track.map((track, index) => (
+								<TopTrackRow key={track.url} track={track} priority={index < 5} />
 							))}
 						{topArtistsData &&
 							topArtistsData.topartists.artist.map((artist) => (
