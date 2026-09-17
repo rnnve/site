@@ -42,3 +42,4 @@ export default function MusicPage() {
 				</LiveProvider>
 			}
 		>
+			<LiveProviderWithData views={ALL_VIEWS}>
