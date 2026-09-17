@@ -22,7 +22,7 @@ function MusicContent() {
 					<header className="min-w-0">
 						<h1 className="text-lg font-semibold text-on-surface sm:text-xl">Music</h1>
 						<p className="mt-1 text-sm text-on-surface-variant">Last.fm listening history</p>
-							</header>
+					</header>
 							<LastFmWidget />
 						</div>
 					</section>
