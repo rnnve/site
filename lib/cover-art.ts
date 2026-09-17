@@ -68,3 +68,4 @@ export async function resolveFastCover(
 		const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
 			`${name} ${artist}`.trim(),
 		)}&entity=song&limit=1`;
+		const data = await fetchJson<ITunesSearchResponse>(endpoint);
