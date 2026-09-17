@@ -77,3 +77,4 @@ export async function resolveFastCover(
 		url: foundUrl,
 		expiresAt: Date.now() + (foundUrl ? POSITIVE_CACHE_TTL_MS : NEGATIVE_CACHE_TTL_MS),
 	});
+	return foundUrl;
