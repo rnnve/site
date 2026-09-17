@@ -69,4 +69,3 @@ export default function CursorTooltip() {
 			{label && (
 				<div
 					ref={ref}
-					role="tooltip"
