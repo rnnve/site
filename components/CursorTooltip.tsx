@@ -14,4 +14,3 @@ export default function CursorTooltip() {
 		if (typeof window === 'undefined') return;
 		if (!window.matchMedia('(min-width: 1024px)').matches) return;
 
-		function labelFor(href: string): string {
