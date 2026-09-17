@@ -26,4 +26,3 @@ export default function CursorTooltip() {
 			}
 		}
 
-		function onMove(e: PointerEvent) {
