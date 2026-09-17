@@ -60,4 +60,3 @@ export default function CursorTooltip() {
 		const top = pos.y + OFFSET;
 		setClamped({
 			left: left + w > window.innerWidth - 8 ? Math.max(8, pos.x - OFFSET - w) : left,
-			top: top + h > window.innerHeight - 8 ? Math.max(8, pos.y - OFFSET - h) : top,
