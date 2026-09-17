@@ -13,3 +13,4 @@ interface ITunesSearchResponse {
 	}>;
 }
 
+const FETCH_TIMEOUT_MS = 2_500;
