@@ -67,4 +67,3 @@ export default function CursorTooltip() {
 	return (
 		<>
 			{label && (
-				<div
