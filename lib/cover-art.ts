@@ -10,3 +10,4 @@ interface ITunesSearchResponse {
 	results?: Array<{
 		artworkUrl100?: string;
 		artworkUrl60?: string;
+	}>;
