@@ -10,3 +10,4 @@ interface LiveProviderWithDataProps {
 export async function LiveProviderWithData({ children, views }: LiveProviderWithDataProps) {
 	const initialData = await getInitialLiveData(views);
 	return (
+		<LiveProvider initialData={initialData} views={views}>
