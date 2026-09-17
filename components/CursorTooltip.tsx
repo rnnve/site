@@ -32,4 +32,3 @@ export default function CursorTooltip() {
 			const href = el && !el.closest('[data-tooltip="off"]') ? el.getAttribute('href') : null;
 			setPos({ x: e.clientX, y: e.clientY });
 			if (href) {
-				setLabel(labelFor(href));
