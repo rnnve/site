@@ -76,4 +76,3 @@ export default function CursorTooltip() {
 						top: clamped.top,
 					}}
 				>
-					{label}
