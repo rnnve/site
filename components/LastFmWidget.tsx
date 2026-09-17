@@ -93,7 +93,7 @@ function PlayCount({ count }: { count: string }) {
 	);
 }
 
-function TrackRow({ track }: { track: LastFmTrack }) {
+function TrackRow({ track, priority }: { track: LastFmTrack; priority?: boolean }) {
 	const nowPlaying = lastfmNowPlaying(track);
 
 	return (
