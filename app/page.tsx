@@ -40,3 +40,4 @@ export default function HomePage() {
 	return (
 		<I18nProvider>
 			<Suspense
+				fallback={
