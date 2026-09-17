@@ -33,6 +33,7 @@ const preconnects = [
 	'https://api.mapleji.xyz',
 	'https://ws.audioscrobbler.com',
 	'https://i.scdn.co',
+	'https://lastfm-img.freetls.fastly.net',
 	'https://is1-ssl.mzstatic.com',
 	'https://cdn-images.dzcdn.net',
 	'https://cdn.discordapp.com',
