@@ -85,3 +85,4 @@ type CoverArtItem = {
 	artist?: string | { name?: string; '#text'?: string };
 	spotifyImage?: string;
 };
+
