@@ -58,3 +58,4 @@ export async function resolveFastCover(
 				: `https://api.deezer.com/search/artist?q=${encodeURIComponent(query)}&limit=1`;
 		const data = await fetchJson<DeezerSearchResponse>(endpoint);
 		const item = data?.data?.[0];
+		foundUrl =
