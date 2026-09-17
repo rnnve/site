@@ -63,4 +63,3 @@ export default function CursorTooltip() {
 			top: top + h > window.innerHeight - 8 ? Math.max(8, pos.y - OFFSET - h) : top,
 		});
 	}, [label, pos]);
-
