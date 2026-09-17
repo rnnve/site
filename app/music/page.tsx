@@ -34,3 +34,4 @@ function MusicContent() {
 	);
 }
 export default function MusicPage() {
+	return (
