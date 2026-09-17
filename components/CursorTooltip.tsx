@@ -24,4 +24,3 @@ export default function CursorTooltip() {
 			} catch {
 				return href;
 			}
-		}
