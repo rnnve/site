@@ -68,6 +68,7 @@
 :root {
 	color-scheme: dark;
 }
+.no-scrollbar {
 
 .skeleton {
 	position: relative;
