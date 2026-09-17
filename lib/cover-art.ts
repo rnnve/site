@@ -8,3 +8,4 @@ interface DeezerSearchResponse {
 
 interface ITunesSearchResponse {
 	results?: Array<{
+		artworkUrl100?: string;
