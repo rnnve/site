@@ -48,4 +48,3 @@ export default function CursorTooltip() {
 			document.removeEventListener('pointermove', onMove);
 			document.removeEventListener('mouseleave', onLeave);
 		};
-	}, []);
