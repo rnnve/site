@@ -4,3 +4,4 @@ interface DeezerSearchResponse {
 		picture_medium?: string;
 		picture?: string;
 	}>;
+}
