@@ -30,3 +30,4 @@ async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | nu
 		});
 		if (!response.ok) return null;
 		return (await response.json()) as T;
+	} catch {
