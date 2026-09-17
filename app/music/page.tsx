@@ -11,8 +11,6 @@ export const metadata = {
 const ALL_VIEWS = ['recent', 'toptracks', 'topartists', 'info'] as const;
 
 function MusicContent() {
-	const initialData = await getInitialLiveData(ALL_VIEWS);
-
 	return (
 		<LiveProvider initialData={initialData} views={ALL_VIEWS}>
 			<main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-surface text-on-surface">
