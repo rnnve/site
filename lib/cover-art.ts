@@ -64,3 +64,4 @@ export async function resolveFastCover(
 				: (item?.picture_medium ?? item?.picture ?? null);
 	}
 
+	if (!foundUrl && type === 'track' && name.trim()) {
