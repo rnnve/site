@@ -92,3 +92,4 @@ type CoverArtItem = {
  */
 export async function augmentFastCovers(
 	items: CoverArtItem[],
+	type: 'track' | 'artist',
