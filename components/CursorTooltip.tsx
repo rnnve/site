@@ -71,4 +71,3 @@ export default function CursorTooltip() {
 					ref={ref}
 					role="tooltip"
 					className="pointer-events-none fixed z-[100] max-w-56 truncate rounded-lg border border-outline-variant bg-surface-container-high/95 px-2.5 py-1 text-xs text-on-surface shadow-lg shadow-scrim/50 backdrop-blur-md"
-					style={{
