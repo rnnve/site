@@ -45,3 +45,4 @@ export async function resolveFastCover(
 	type: 'track' | 'artist',
 ): Promise<string | null> {
 	const cacheKey = `${type}:${artist.toLowerCase().trim()}:${name.toLowerCase().trim()}`;
+	const cached = coverCache.get(cacheKey);
