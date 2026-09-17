@@ -51,4 +51,3 @@ export default function CursorTooltip() {
 	}, []);
 
 	useLayoutEffect(() => {
-		if (!label || !ref.current) {
