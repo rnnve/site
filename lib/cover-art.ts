@@ -7,3 +7,4 @@ interface DeezerSearchResponse {
 }
 
 interface ITunesSearchResponse {
+	results?: Array<{
