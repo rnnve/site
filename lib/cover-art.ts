@@ -65,3 +65,4 @@ export async function resolveFastCover(
 	}
 
 	if (!foundUrl && type === 'track' && name.trim()) {
+		const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
