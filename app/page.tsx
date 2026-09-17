@@ -36,3 +36,4 @@ function HomeContent() {
 		</main>
 	);
 }
+export default function HomePage() {
