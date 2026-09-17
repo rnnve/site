@@ -14,3 +14,4 @@ export async function LiveProviderWithData({ children, views }: LiveProviderWith
 			{children}
 		</LiveProvider>
 	);
+}
