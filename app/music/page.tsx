@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import LastFmWidget from '@/components/LastFmWidget';
 import SiteFooter from '@/components/SiteFooter';
 import { LiveProvider } from '@/components/LiveProvider';
-import { getInitialLiveData } from '@/lib/initial-live';
 
 export const dynamic = 'force-dynamic';
 
