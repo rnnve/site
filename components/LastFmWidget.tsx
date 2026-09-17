@@ -103,7 +103,7 @@ function TrackRow({ track, priority }: { track: LastFmTrack; priority?: boolean 
 			rel="noreferrer"
 			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
-			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
+			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} priority={priority} />
 			<div className="min-w-0 flex-1">
 				<p className={`truncate text-xs font-semibold ${nowPlaying ? 'text-accent' : 'text-on-surface'}`}>
 					{nowPlaying ? '▶ ' : ''}
@@ -127,7 +127,7 @@ function TopTrackRow({ track }: { track: LastFmTopTrack }) {
 			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={track['@attr']?.rank} />
-			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} />
+			<TrackImage image={track.image} art={track.spotifyImage} alt={track.name} priority={priority} />
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{track.name}</p>
 				<p className="truncate text-[11px] text-on-surface-variant">{track.artist?.name}</p>
