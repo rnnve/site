@@ -51,3 +51,4 @@ export default function HomePage() {
 				</LiveProviderWithData>
 			</Suspense>
 		</I18nProvider>
+	);
