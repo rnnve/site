@@ -11,3 +11,4 @@ export async function LiveProviderWithData({ children, views }: LiveProviderWith
 	const initialData = await getInitialLiveData(views);
 	return (
 		<LiveProvider initialData={initialData} views={views}>
+			{children}
