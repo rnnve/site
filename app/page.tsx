@@ -44,3 +44,4 @@ export default function HomePage() {
 					<LiveProvider views={HOME_VIEWS}>
 						<HomeContent />
 					</LiveProvider>
+				}
