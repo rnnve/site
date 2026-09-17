@@ -28,7 +28,7 @@ function MusicContent() {
 			</section>
 			<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 				<SiteFooter />
-					</Suspense>
+			</Suspense>
 				</div>
 			</main>
 	);
