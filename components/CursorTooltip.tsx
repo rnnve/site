@@ -12,4 +12,3 @@ export default function CursorTooltip() {
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
-		if (!window.matchMedia('(min-width: 1024px)').matches) return;
