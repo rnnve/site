@@ -30,4 +30,3 @@ export default function CursorTooltip() {
 			const hovered = e.target as Element | null;
 			const el = hovered?.closest?.('a[href]');
 			const href = el && !el.closest('[data-tooltip="off"]') ? el.getAttribute('href') : null;
-			setPos({ x: e.clientX, y: e.clientY });
