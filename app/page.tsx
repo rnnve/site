@@ -6,7 +6,6 @@ import SpotifyNowPlaying from '@/components/SpotifyNowPlaying';
 import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
 import { I18nProvider } from '@/lib/i18n';
-export const dynamic = 'force-dynamic';
 
 const HOME_VIEWS = ['recent'] as const;
 
