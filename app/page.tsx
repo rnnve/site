@@ -10,7 +10,6 @@ import { I18nProvider } from '@/lib/i18n';
 const HOME_VIEWS = ['recent'] as const;
 
 function HomeContent() {
-	const initialData = await getInitialLiveData(HOME_VIEWS);
 
 	return (
 		<I18nProvider>
