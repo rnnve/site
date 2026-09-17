@@ -34,6 +34,5 @@ function HomeContent() {
 						</Suspense>
 					</div>
 				</main>
-		</I18nProvider>
 	);
 }
