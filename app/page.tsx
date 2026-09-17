@@ -10,7 +10,6 @@ import { I18nProvider } from '@/lib/i18n';
 const HOME_VIEWS = ['recent'] as const;
 
 function HomeContent() {
-
 	return (
 		<I18nProvider>
 			<LiveProvider initialData={initialData} views={HOME_VIEWS}>
