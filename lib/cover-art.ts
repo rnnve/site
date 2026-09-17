@@ -41,3 +41,4 @@ async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | nu
  */
 export async function resolveFastCover(
 	name: string,
+	artist: string,
