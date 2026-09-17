@@ -21,3 +21,4 @@ type CacheEntry = { url: string | null; expiresAt: number };
 
 /** In-memory cover cache so repeated polls don't re-hit upstream APIs. */
 const coverCache = new Map<string, CacheEntry>();
+
