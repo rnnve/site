@@ -17,3 +17,4 @@ const FETCH_TIMEOUT_MS = 2_500;
 const POSITIVE_CACHE_TTL_MS = 24 * 60 * 60 * 1_000;
 const NEGATIVE_CACHE_TTL_MS = 60 * 60 * 1_000;
 
+type CacheEntry = { url: string | null; expiresAt: number };
