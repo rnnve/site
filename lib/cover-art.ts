@@ -98,3 +98,4 @@ export async function augmentFastCovers(
 		items.map(async (item) => {
 			if (item.spotifyImage) return;
 			const artist =
+				typeof item.artist === 'string' ? item.artist : (item.artist?.name ?? item.artist?.['#text'] ?? '');
