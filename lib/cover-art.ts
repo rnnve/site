@@ -12,3 +12,4 @@ interface ITunesSearchResponse {
 		artworkUrl60?: string;
 	}>;
 }
+
