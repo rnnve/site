@@ -103,3 +103,4 @@ export async function augmentFastCovers(
 			if (url) item.spotifyImage = url;
 		}),
 	);
+}
