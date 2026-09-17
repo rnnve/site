@@ -46,3 +46,4 @@ export default function HomePage() {
 					</LiveProvider>
 				}
 			>
+				<LiveProviderWithData views={HOME_VIEWS}>
