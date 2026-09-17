@@ -37,4 +37,3 @@ export default function CursorTooltip() {
 				setLabel(null);
 			}
 		}
-
