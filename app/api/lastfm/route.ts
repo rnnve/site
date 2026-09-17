@@ -106,6 +106,7 @@ export async function GET(request: Request) {
 			}
 			await resolveLastFmImages(data.toptracks.track, 'track', apiKey);
 		} else if ('topartists' in data && Array.isArray(data.topartists.artist)) {
+			await augmentFastCovers(data.topartists.artist, 'artist');
 			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.topartists.artist, 'artist', clientId, clientSecret);
 			}
