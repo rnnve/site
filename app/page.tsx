@@ -42,3 +42,4 @@ export default function HomePage() {
 			<Suspense
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
+						<HomeContent />
