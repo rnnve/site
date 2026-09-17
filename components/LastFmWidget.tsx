@@ -118,7 +118,7 @@ function TrackRow({ track, priority }: { track: LastFmTrack; priority?: boolean 
 	);
 }
 
-function TopTrackRow({ track }: { track: LastFmTopTrack }) {
+function TopTrackRow({ track, priority }: { track: LastFmTopTrack; priority?: boolean }) {
 	return (
 		<a
 			href={track.url}
