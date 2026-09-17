@@ -43,3 +43,4 @@ export async function resolveFastCover(
 	name: string,
 	artist: string,
 	type: 'track' | 'artist',
+): Promise<string | null> {
