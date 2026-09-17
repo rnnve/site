@@ -73,6 +73,7 @@
 	-ms-overflow-style: none;
 }
 
+.no-scrollbar::-webkit-scrollbar {
 
 .skeleton {
 	position: relative;
