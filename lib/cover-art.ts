@@ -97,3 +97,4 @@ export async function augmentFastCovers(
 	await Promise.allSettled(
 		items.map(async (item) => {
 			if (item.spotifyImage) return;
+			const artist =
