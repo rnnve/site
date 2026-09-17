@@ -4,3 +4,4 @@ import type { LiveLastFmView } from '@/lib/integrations';
 
 interface LiveProviderWithDataProps {
 	children: React.ReactNode;
+	views: readonly LiveLastFmView[];
