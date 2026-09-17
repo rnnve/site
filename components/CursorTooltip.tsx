@@ -74,4 +74,3 @@ export default function CursorTooltip() {
 					style={{
 						left: clamped.left,
 						top: clamped.top,
-					}}
