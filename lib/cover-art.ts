@@ -60,3 +60,4 @@ export async function resolveFastCover(
 		const item = data?.data?.[0];
 		foundUrl =
 			type === 'track'
+				? (item?.album?.cover_medium ?? item?.album?.cover ?? null)
