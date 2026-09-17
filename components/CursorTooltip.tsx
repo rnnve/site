@@ -64,4 +64,3 @@ export default function CursorTooltip() {
 		});
 	}, [label, pos]);
 
-	return (
