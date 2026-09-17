@@ -67,3 +67,4 @@ export async function resolveFastCover(
 	if (!foundUrl && type === 'track' && name.trim()) {
 		const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
 			`${name} ${artist}`.trim(),
+		)}&entity=song&limit=1`;
