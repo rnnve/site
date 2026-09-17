@@ -75,4 +75,3 @@ export default function CursorTooltip() {
 						left: clamped.left,
 						top: clamped.top,
 					}}
-				>
