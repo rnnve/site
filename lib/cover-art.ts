@@ -91,3 +91,4 @@ type CoverArtItem = {
  * Only touches items missing covers so per-request latency stays minimal.
  */
 export async function augmentFastCovers(
+	items: CoverArtItem[],
