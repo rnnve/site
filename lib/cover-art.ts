@@ -80,3 +80,4 @@ export async function resolveFastCover(
 	return foundUrl;
 }
 
+type CoverArtItem = {
