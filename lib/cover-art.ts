@@ -76,3 +76,4 @@ export async function resolveFastCover(
 	coverCache.set(cacheKey, {
 		url: foundUrl,
 		expiresAt: Date.now() + (foundUrl ? POSITIVE_CACHE_TTL_MS : NEGATIVE_CACHE_TTL_MS),
+	});
