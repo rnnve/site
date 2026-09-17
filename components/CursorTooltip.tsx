@@ -58,4 +58,3 @@ export default function CursorTooltip() {
 		const { clientWidth: w, clientHeight: h } = ref.current;
 		const left = pos.x + OFFSET;
 		const top = pos.y + OFFSET;
-		setClamped({
