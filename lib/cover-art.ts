@@ -86,3 +86,4 @@ type CoverArtItem = {
 	spotifyImage?: string;
 };
 
+/**
