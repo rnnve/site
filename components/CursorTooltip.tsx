@@ -54,4 +54,3 @@ export default function CursorTooltip() {
 		if (!label || !ref.current) {
 			setClamped({ left: pos.x, top: pos.y });
 			return;
-		}
