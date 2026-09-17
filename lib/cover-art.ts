@@ -25,3 +25,4 @@ const coverCache = new Map<string, CacheEntry>();
 async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | null> {
 	try {
 		const response = await fetch(url, {
+			headers: { 'User-Agent': userAgent },
