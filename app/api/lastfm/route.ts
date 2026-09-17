@@ -100,6 +100,7 @@ export async function GET(request: Request) {
 				await augmentSpotifyImages(data.recenttracks.track, 'track', clientId, clientSecret);
 			}
 		} else if ('toptracks' in data && Array.isArray(data.toptracks.track)) {
+			await augmentFastCovers(data.toptracks.track, 'track');
 			if (clientId && clientSecret) {
 				await augmentSpotifyImages(data.toptracks.track, 'track', clientId, clientSecret);
 			}
