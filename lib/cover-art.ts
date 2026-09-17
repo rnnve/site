@@ -96,3 +96,4 @@ export async function augmentFastCovers(
 ): Promise<void> {
 	await Promise.allSettled(
 		items.map(async (item) => {
+			if (item.spotifyImage) return;
