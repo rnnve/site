@@ -28,7 +28,7 @@ function HomeContent() {
 								<SpotifyNowPlaying />
 							</div>
 							</div>
-						</section>
+				</section>
 						<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 							<SiteFooter />
 						</Suspense>
