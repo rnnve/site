@@ -30,6 +30,6 @@ function MusicContent() {
 				<SiteFooter />
 			</Suspense>
 		</div>
-			</main>
+	</main>
 	);
 }
