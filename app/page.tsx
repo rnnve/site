@@ -34,7 +34,6 @@ function HomeContent() {
 						</Suspense>
 					</div>
 				</main>
-			</LiveProvider>
 		</I18nProvider>
 	);
 }
