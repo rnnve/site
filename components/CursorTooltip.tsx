@@ -34,4 +34,3 @@ export default function CursorTooltip() {
 			if (href) {
 				setLabel(labelFor(href));
 			} else {
-				setLabel(null);
