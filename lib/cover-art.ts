@@ -23,3 +23,4 @@ type CacheEntry = { url: string | null; expiresAt: number };
 const coverCache = new Map<string, CacheEntry>();
 
 async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | null> {
+	try {
