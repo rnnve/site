@@ -4,6 +4,7 @@ import DiscordProfileCard from '@/components/DiscordProfileCard';
 import SiteFooter from '@/components/SiteFooter';
 import SpotifyNowPlaying from '@/components/SpotifyNowPlaying';
 import { LiveProvider } from '@/components/LiveProvider';
+import { LiveProviderWithData } from '@/components/LiveProviderWithData';
 import { I18nProvider } from '@/lib/i18n';
 import { getInitialLiveData } from '@/lib/initial-live';
 
