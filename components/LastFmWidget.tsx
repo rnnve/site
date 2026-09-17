@@ -146,7 +146,7 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 			className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg py-2 text-on-surface no-underline transition hover:bg-surface-container-high/50 focus-visible:outline-2 focus-visible:outline-accent sm:gap-3"
 		>
 			<Rank rank={artist['@attr']?.rank} />
-			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} />
+			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} priority={priority} />
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{artist.name}</p>
 			</div>
