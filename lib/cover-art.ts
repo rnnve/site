@@ -1,1 +1,2 @@
 interface DeezerSearchResponse {
+	data?: Array<{
