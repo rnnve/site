@@ -53,3 +53,4 @@ export async function resolveFastCover(
 	const query = type === 'track' ? `${name} ${artist}`.trim() : artist.trim() || name.trim();
 	if (query) {
 		const endpoint =
+			type === 'track'
