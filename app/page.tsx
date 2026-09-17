@@ -41,3 +41,4 @@ export default function HomePage() {
 		<I18nProvider>
 			<Suspense
 				fallback={
+					<LiveProvider views={HOME_VIEWS}>
