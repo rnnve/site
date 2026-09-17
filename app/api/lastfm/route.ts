@@ -1,4 +1,5 @@
 import { getEnv } from '@/lib/env';
+import { augmentFastCovers } from '@/lib/cover-art';
 import { augmentSpotifyImages } from '@/lib/spotify-search';
 import { resolveLastFmImages } from '@/lib/lastfm-images';
 import type {
