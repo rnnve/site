@@ -39,3 +39,4 @@ export default function MusicPage() {
 			fallback={
 				<LiveProvider views={ALL_VIEWS}>
 					<MusicContent />
+				</LiveProvider>
