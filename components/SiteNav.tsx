@@ -66,7 +66,6 @@ function NavButton({
 			href={href}
 			aria-label={label}
 			title={label}
-			data-tooltip="off"
 			className="relative flex h-8 w-8 items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-white/40 md:h-9 md:w-9"
 		>
 			{active && (
