@@ -71,7 +71,8 @@ function TrackImage({
 		<img
 			src={src}
 			alt=""
-			loading="lazy"
+			loading={priority ? 'eager' : 'lazy'}
+			fetchPriority={priority ? 'high' : 'auto'}
 			decoding="async"
 			onError={() => setFailed(true)}
 			width={36}
