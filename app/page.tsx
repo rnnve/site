@@ -17,17 +17,17 @@ function HomeContent() {
 					className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain"
 					aria-label="Live status"
 				>
-							<div className="my-auto flex min-w-0 flex-col gap-4">
-								<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
-<div className="min-w-0">
-									<DiscordProfileCard />
-								</div>
-								<AboutSection />
+					<div className="my-auto flex min-w-0 flex-col gap-4">
+						<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+							<div className="min-w-0">
+								<DiscordProfileCard />
 							</div>
-							<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
-								<SpotifyNowPlaying />
-							</div>
-							</div>
+							<AboutSection />
+						</div>
+						<div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+							<SpotifyNowPlaying />
+						</div>
+					</div>
 				</section>
 				<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 					<SiteFooter />
