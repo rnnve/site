@@ -55,3 +55,4 @@ export async function resolveFastCover(
 		const endpoint =
 			type === 'track'
 				? `https://api.deezer.com/search?q=${encodeURIComponent(query)}&limit=1`
+				: `https://api.deezer.com/search/artist?q=${encodeURIComponent(query)}&limit=1`;
