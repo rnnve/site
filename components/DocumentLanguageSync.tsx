@@ -12,3 +12,4 @@ export function DocumentLanguageSync() {
 			document.documentElement.classList.add('lang-th');
 		} else {
 			document.documentElement.classList.remove('lang-th');
+		}
