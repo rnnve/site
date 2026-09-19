@@ -65,6 +65,7 @@ function TrackImage({
 	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
+		if (primarySrc && !isLastFmPlaceholder(primarySrc)) {
 		setFailed(false);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
