@@ -6,6 +6,7 @@ import { Chakra_Petch } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import SiteNav from '@/components/SiteNav';
+import { DocumentLanguageSync } from '@/components/DocumentLanguageSync';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
