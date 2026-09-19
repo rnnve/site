@@ -18,7 +18,6 @@
 		</div>
 	</main>
 	);
-}
 export default function MusicPage() {
 		<Suspense
 				<LiveProvider views={ALL_VIEWS}>
