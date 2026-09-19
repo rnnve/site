@@ -47,6 +47,7 @@ export const dictionaries = {
 			topartists: 'Top Artists',
 			info: 'Stats',
 		},
+		lastfmError: 'Unable to load: {error}',
 		aboutHeading: 'About',
 	},
 	th: {
