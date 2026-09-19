@@ -97,6 +97,7 @@ export const dictionaries = {
 			recent: 'ล่าสุด',
 			toptracks: 'เพลงยอดนิยม',
 			topartists: 'ศิลปินยอดนิยม',
+			info: 'สถิติ',
 	},
 } as const;
 
