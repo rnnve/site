@@ -262,7 +262,6 @@ export default function LastFmWidget() {
 			<div className="min-w-0">
 				{viewError && !viewData && (
 					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
-						<span className="font-semibold text-on-surface-variant">Unable to load:</span> {viewError}
 					</p>
 				)}
 				{!viewData && !viewError && (
