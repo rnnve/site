@@ -56,6 +56,7 @@ function NavButton({
 	collapsed,
 	active: boolean
 	pillId: string
+	const { t } = useI18n();
 }) {
 
 	return (
