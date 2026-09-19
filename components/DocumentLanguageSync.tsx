@@ -8,3 +8,4 @@ export function DocumentLanguageSync() {
 
 	useEffect(() => {
 		document.documentElement.lang = lang;
+		if (lang === 'th') {
