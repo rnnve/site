@@ -243,6 +243,7 @@ export default function SiteNav() {
 							<LanguageSwitcherBar />
 						</motion.div>
 					)}
+					{scrolled && mobileMenuOpen && (
 
 	return (
 		<MotionConfig reducedMotion="user">
