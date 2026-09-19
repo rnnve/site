@@ -26,3 +26,4 @@ export default function LanguageSwitcher() {
 						key={code}
 						type="button"
 						onClick={() => setLang(code)}
+						aria-pressed={lang === code}
