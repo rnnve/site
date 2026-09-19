@@ -178,6 +178,7 @@ export default function SiteNav() {
 			setScrolled(currentY > 15);
 		};
 
+		if (!isMobile) {
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
