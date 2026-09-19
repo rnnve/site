@@ -58,7 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 			</head>
-			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
 				<SpeedInsights />
