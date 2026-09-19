@@ -57,6 +57,7 @@ export const dictionaries = {
 			albums: 'Albums',
 		},
 
+		// Common
 		aboutHeading: 'About',
 	},
 	th: {
