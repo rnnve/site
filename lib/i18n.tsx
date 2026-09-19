@@ -44,6 +44,7 @@ export const dictionaries = {
 		lastfmViews: {
 			recent: 'Recent',
 			toptracks: 'Top Tracks',
+			topartists: 'Top Artists',
 		aboutHeading: 'About',
 	},
 	th: {
