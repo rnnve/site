@@ -93,6 +93,7 @@ export const dictionaries = {
 		// Last.fm
 		lastfmLabel: 'ลาสต์เอฟเอ็ม',
 		lastfmListeningHistory: 'ประวัติการฟังเพลง Last.fm',
+		lastfmViews: {
 	},
 } as const;
 
