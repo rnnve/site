@@ -152,7 +152,6 @@ export default function DiscordProfileCard() {
 							<h3 className="truncate text-base font-bold text-on-surface">{user.displayName}</h3>
 							<span className="block text-sm text-on-surface-variant">@{user.username}</span>
 							{user.customStatus && (
-								<p className="mt-0.5 truncate text-sm text-on-surface-variant">“{user.customStatus}”</p>
 							)}
 							{user.boostBadge && (
 								<p className="mt-0.5 text-xs text-on-surface-variant">Boosting {user.guildName}</p>
