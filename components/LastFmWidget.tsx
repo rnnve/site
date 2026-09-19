@@ -185,6 +185,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 		<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
 			<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 				{VIEWS.map(({ id, label }) => (
+					<button
 
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
