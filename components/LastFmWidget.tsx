@@ -184,6 +184,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 	];
 		<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
 			<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
+export default function LastFmWidget({ initialView = 'toptracks', onViewChange, onUserInfo }: LastFmWidgetProps) {
 				{VIEWS.map(({ id, label }) => (
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
