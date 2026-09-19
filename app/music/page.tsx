@@ -28,7 +28,6 @@ export default function MusicPage() {
 				</LiveProvider>
 			}
 		>
-			<LiveProviderWithData views={ALL_VIEWS}>
 				<MusicContent />
 		</Suspense>
 import MusicContent from './MusicContent';
