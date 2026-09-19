@@ -222,6 +222,7 @@ export default function SiteNav() {
 										pillId="nav-pill"
 										collapsed={false}
 										isMobile={true}
+									/>
 
 	return (
 		<MotionConfig reducedMotion="user">
