@@ -11,6 +11,7 @@ import {
 	type LastFmTopArtistsResponse,
 	type LastFmTopTrack,
 	type LastFmTopTracksResponse,
+type LastFmView = 'recent' | 'toptracks' | 'topartists';
 	type LastFmRecentTracksResponse,
 
 const VIEWS: { id: LastFmView; label: string }[] = [
