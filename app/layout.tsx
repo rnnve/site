@@ -52,7 +52,6 @@ const preconnects = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
 			<head>
 				{preconnects.map((href) => (
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
