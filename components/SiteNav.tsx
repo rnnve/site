@@ -130,6 +130,7 @@ function BurgerButton({ onClick, expanded }: { onClick: () => void; expanded: bo
 			aria-label={expanded ? 'Close menu' : 'Open menu'}
 			className="relative flex items-center justify-center rounded-xl p-2 text-zinc-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent"
 		>
+			<MenuIcon className="h-5 w-5" />
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
