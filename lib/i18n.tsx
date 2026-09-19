@@ -30,6 +30,7 @@ export const dictionaries = {
 		discordBoosting: 'Boosting {guild}',
 		discordCustomStatus: '\"{status}\"',
 
+		// Spotify
 		aboutHeading: 'About',
 	},
 	th: {
