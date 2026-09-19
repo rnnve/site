@@ -30,6 +30,7 @@ function HomeContent() {
 				</section>
 		<Suspense
 			fallback={
+				<LiveProvider views={HOME_VIEWS}>
 				<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 			<Suspense
 				fallback={
