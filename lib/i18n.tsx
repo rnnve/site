@@ -46,6 +46,7 @@ export const dictionaries = {
 			toptracks: 'Top Tracks',
 			topartists: 'Top Artists',
 			info: 'Stats',
+		},
 		aboutHeading: 'About',
 	},
 	th: {
