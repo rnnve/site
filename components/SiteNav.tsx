@@ -107,6 +107,7 @@ function NavButton({
 
 function LanguageSwitcherBar() {
 	const { lang, setLang } = useI18n();
+	const currentLabel = lang === 'en' ? 'EN' : 'TH';
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
