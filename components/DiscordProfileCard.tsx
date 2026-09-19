@@ -155,7 +155,6 @@ export default function DiscordProfileCard() {
 							{user.customStatus && (
 							)}
 							{user.boostBadge && (
-								<p className="mt-0.5 text-xs text-on-surface-variant">Boosting {user.guildName}</p>
 							)}
 						</div>
 					</div>
