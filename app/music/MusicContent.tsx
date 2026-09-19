@@ -101,3 +101,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 			<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 				<SiteFooter />
 			</Suspense>
+		</div>
