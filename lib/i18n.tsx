@@ -104,6 +104,7 @@ export const dictionaries = {
 		lastfmMemberSince: 'สมาชิก Last.fm ตั้งแต่ {year}',
 		lastfmStats: {
 			scrobbles: 'สครอบเบิล',
+			tracks: 'เพลง',
 	},
 } as const;
 
