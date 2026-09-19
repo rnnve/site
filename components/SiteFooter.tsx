@@ -35,7 +35,6 @@ export default async function SiteFooter({ className }: { className?: string }) 
 					</a>
 				)}
 			</div>
-			<nav aria-label="External links" className="flex min-w-0 flex-wrap items-center justify-end gap-x-1">
 					target="_blank"
 					rel="noreferrer"
 					className="footer-rainbow-link inline-flex min-h-11 items-center rounded-md px-2"
