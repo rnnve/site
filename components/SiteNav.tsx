@@ -146,6 +146,7 @@ const containerStyle: CSSProperties = {
 const springTransition = {
 	type: 'spring' as const,
 	stiffness: 500,
+	damping: 30,
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
