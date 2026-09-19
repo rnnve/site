@@ -22,6 +22,7 @@ export const dictionaries = {
 
 		// Navigation
 		navHome: 'Home',
+		navMusic: 'Music',
 		aboutHeading: 'About',
 	},
 	th: {
