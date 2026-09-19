@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<I18nProvider>
 					<DocumentLanguageSync />
 					<SiteNav />
+					<div className="flex min-h-0 flex-1 flex-col overflow-hidden pt-14">{children}</div>
 			</head>
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
