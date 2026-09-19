@@ -181,6 +181,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 		{ id: 'toptracks', label: t.lastfmViews.toptracks },
 		{ id: 'topartists', label: t.lastfmViews.topartists },
 		{ id: 'recent', label: t.lastfmViews.recent },
+	];
 
 	return (
 		<div className="min-w-0 rounded-lg bg-surface-container-high/60 px-3 py-2.5">
