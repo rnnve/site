@@ -245,6 +245,7 @@ export default function SiteNav() {
 					)}
 					{scrolled && mobileMenuOpen && (
 						<motion.div
+							initial={{ opacity: 0, height: 0 }}
 
 	return (
 		<MotionConfig reducedMotion="user">
