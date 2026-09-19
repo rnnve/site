@@ -252,7 +252,6 @@ export default function LastFmWidget() {
 
 	const handleSetView = (newView: LastFmView) => {
 		setView(newView);
-		onViewChange?.(newView);
 				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 					{VIEWS.map(({ id, label }) => (
 						<button
