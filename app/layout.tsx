@@ -10,6 +10,7 @@ import { DocumentLanguageSync } from '@/components/DocumentLanguageSync';
 import { I18nProvider } from '@/lib/i18n';
 import '@/styles/global.css';
 
+
 export const metadata: Metadata = {
 	title: 'Rinne',
 	description: 'Rinne — live Spotify, Discord and Last.fm status.',
