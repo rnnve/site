@@ -40,7 +40,6 @@ export default function SpotifyNowPlayingCard() {
 	if (spotifyError) {
 		return (
 			<div className="w-full min-w-0 text-sm text-on-surface-variant">
-				<span className="font-semibold text-on-surface-variant">Spotify</span>
 				<p className="mt-1">Unable to load: {spotifyError}</p>
 			</div>
 		);
