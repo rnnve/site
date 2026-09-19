@@ -90,6 +90,7 @@ export const dictionaries = {
 		spotifyError: 'โหลดไม่ได้: {error}',
 		spotifyBy: '{artist} — {album}',
 
+		// Last.fm
 	},
 } as const;
 
