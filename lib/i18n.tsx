@@ -82,6 +82,7 @@ export const dictionaries = {
 		discordBoosting: 'กำลังบูสต์ {guild}',
 		discordCustomStatus: '\"{status}\"',
 
+		// Spotify
 	},
 } as const;
 
