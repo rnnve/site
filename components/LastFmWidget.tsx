@@ -11,15 +11,15 @@ import {
 	type LastFmTopArtistsResponse,
 	type LastFmTopTrack,
 	type LastFmTopTracksResponse,
-type LastFmView = 'recent' | 'toptracks' | 'topartists';
 	type LastFmRecentTracksResponse,
+	type LastFmTrack,
+	type LastFmUserInfo,
+	type LastFmUserInfoResponse,
+} from '@/lib/integrations';
+import { useLive } from '@/components/LiveProvider';
+import { useI18n } from '@/lib/i18n';
 
-const VIEWS: { id: LastFmView; label: string }[] = [
-	{ id: 'toptracks', label: 'Top Tracks' },
-	{ id: 'topartists', label: 'Top Artists' },
-	{ id: 'recent', label: 'Recent' },
-	{ id: 'info', label: 'Stats' },
-];
+type LastFmView = 'recent' | 'toptracks' | 'topartists';
 
 type ViewData = {
 	recent: LastFmRecentTracksResponse;
@@ -53,6 +53,7 @@ function TrackImage({
 	alt: string;
 	priority?: boolean;
 }) {
+	const [failed, setFailed] = useState(false);
 	const [currentSrc, setCurrentSrc] = useState<string | null>(null);
 	
 	// Use Spotify CDN when available (fastest), fallback to Last.fm small
@@ -62,9 +63,9 @@ function TrackImage({
 	
 	const primarySrc = spotifySrc || lastfmSmall;
 	const upgradeSrc = spotifySrc || lastfmMedium;
-	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
+		setFailed(false);
 		if (primarySrc && !isLastFmPlaceholder(primarySrc)) {
 			setCurrentSrc(primarySrc);
 			// Upgrade to higher quality in background
@@ -75,9 +76,8 @@ function TrackImage({
 			}
 		}
 	}, [primarySrc, upgradeSrc]);
-		setFailed(false);
-	if (!currentSrc || isLastFmPlaceholder(currentSrc) || failed) {
 
+	if (!currentSrc || isLastFmPlaceholder(currentSrc) || failed) {
 		return (
 			<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-surface-container-high text-[10px] font-bold text-on-surface-variant">
 				{alt.charAt(0)}
@@ -85,32 +85,32 @@ function TrackImage({
 		);
 	}
 	return (
+		<img
 			src={currentSrc}
 			srcSet={upgradeSrc && upgradeSrc !== primarySrc && !isLastFmPlaceholder(upgradeSrc) 
 				? `${primarySrc} 32w, ${upgradeSrc} 64w` 
 				: undefined}
 			sizes="36px"
-		<img
 			alt=""
 			loading={priority ? 'eager' : 'lazy'}
 			fetchPriority={priority ? 'high' : 'auto'}
 			decoding="async"
 			onError={() => setFailed(true)}
 			width={36}
+			height={36}
 			className="h-9 w-9 shrink-0 rounded bg-surface-container-high object-cover transition-opacity duration-150"
 			style={{ opacity: currentSrc === primarySrc && upgradeSrc !== primarySrc ? 0.8 : 1 }}
-			height={36}
 		/>
 	);
 }
-function PlayCount({ count, t }: { count: string; t: ReturnType<typeof useI18n>['t'] }) {
 
+function PlayCount({ count, t }: { count: string; t: ReturnType<typeof useI18n>['t'] }) {
 	return (
-			title={t.lastfmPlays.replace('{count}', count)}
 		<span
+			title={t.lastfmPlays.replace('{count}', count)}
 			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-on-surface-variant sm:max-w-24 sm:text-[11px]"
-			{count}<span className="hidden min-[23rem]:inline"> {t.lastfmPlays.replace('{count}', '')}</span>
 		>
+			{count}<span className="hidden min-[23rem]:inline"> {t.lastfmPlays.replace('{count}', '')}</span>
 		</span>
 	);
 }
@@ -153,8 +153,8 @@ function TopTrackRow({ track, priority }: { track: LastFmTopTrack; priority?: bo
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{track.name}</p>
 				<p className="truncate text-[11px] text-on-surface-variant">{track.artist?.name}</p>
-			<PlayCount count={track.playcount} t={useI18n().t} />
 			</div>
+			<PlayCount count={track.playcount} t={useI18n().t} />
 		</a>
 	);
 }
@@ -171,44 +171,44 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} priority={priority} />
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{artist.name}</p>
-			<PlayCount count={artist.playcount} t={useI18n().t} />
 			</div>
+			<PlayCount count={artist.playcount} t={useI18n().t} />
 		</a>
 	);
 }
+
 function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmView) => void; t: ReturnType<typeof useI18n>['t'] }) {
 	const VIEWS: { id: LastFmView; label: string }[] = [
 		{ id: 'toptracks', label: t.lastfmViews.toptracks },
 		{ id: 'topartists', label: t.lastfmViews.topartists },
 		{ id: 'recent', label: t.lastfmViews.recent },
 	];
-		<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
-			<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
-export default function LastFmWidget({ initialView = 'toptracks', onViewChange, onUserInfo }: LastFmWidgetProps) {
-	const { t } = useI18n();
-	const [view, setView] = useState<LastFmView>(initialView);
-				{VIEWS.map(({ id, label }) => (
-	const registeredYear = user.registered?.unixtime
-		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
-		: null;
 
 	return (
-		<div className="min-w-0 py-3">
-			<div className="grid min-w-0 grid-cols-2 gap-2">
-				<Stat label="Scrobbles" value={user.playcount} />
-				<Stat label="Tracks" value={user.track_count} />
-				<Stat label="Artists" value={user.artist_count} />
-				<Stat label="Albums" value={user.album_count} />
+		<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
+			<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
+				{VIEWS.map(({ id, label }) => (
+					<button
+						key={id}
+						type="button"
+						onClick={() => setView(id)}
+						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+							view === id
+								? 'bg-primary-container text-on-primary-container'
+								: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+						}`}
+					>
+						{label}
+					</button>
+				))}
 			</div>
-			{registeredYear && (
-				<p className="mt-3 text-[11px] text-outline">Last.fm member since {registeredYear}</p>
-			)}
 		</div>
 	);
 }
 
-export default function LastFmWidget() {
-	const [view, setView] = useState<LastFmView>('toptracks');
+export default function LastFmWidget({ initialView = 'toptracks', onViewChange, onUserInfo }: LastFmWidgetProps) {
+	const { t } = useI18n();
+	const [view, setView] = useState<LastFmView>(initialView);
 	const { lastfm, lastfmError } = useLive();
 
 	const viewData = lastfm[view];
@@ -217,6 +217,7 @@ export default function LastFmWidget() {
 	const recentData = view === 'recent' ? (viewData as ViewData['recent'] | undefined) : undefined;
 	const topTracksData = view === 'toptracks' ? (viewData as ViewData['toptracks'] | undefined) : undefined;
 	const topArtistsData =
+		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 	// Keep fetching info view for user stats (shown in header)
 	const infoData = (lastfm as Record<string, unknown>)['info'] as ViewData['info'] | undefined;
 
@@ -240,37 +241,36 @@ export default function LastFmWidget() {
 			const spotifySrc = item.spotifyImage;
 			const smallSrc = spotifySrc || (item.image ? lastfmImage(item.image, 'small') : null);
 			if (smallSrc && !isLastFmPlaceholder(smallSrc)) {
-			<ViewTabs view={view} setView={handleSetView} t={t} />
 				const link = document.createElement('link');
-				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
-					{VIEWS.map(({ id, label }) => (
-						<button
-							key={id}
-							type="button"
-							onClick={() => setView(id)}
-							className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-								view === id
-									? 'bg-primary-container text-on-primary-container'
-									: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
-							}`}
-						>
-							{label}
-						</button>
-					))}
-				</div>
-			</div>
+				link.rel = 'preload';
+				link.as = 'image';
+				link.href = smallSrc;
+				link.fetchPriority = 'high';
+				document.head.appendChild(link);
+			}
+		});
+	}, [viewData, view]);
+
+	const handleSetView = (newView: LastFmView) => {
+		setView(newView);
+		onViewChange?.(newView);
+	};
+
+	return (
+		<div className="flex w-full min-w-0 flex-col">
+			<ViewTabs view={view} setView={handleSetView} t={t} />
 			<div className="min-w-0">
 				{viewError && !viewData && (
-						<span className="font-semibold text-on-surface-variant">{t.lastfmError.replace('{error}', viewError)}</span>
 					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
+						<span className="font-semibold text-on-surface-variant">{t.lastfmError.replace('{error}', viewError)}</span>
 					</p>
 				)}
 				{!viewData && !viewError && (
 					<div
 						key={view}
 						className="animate-fade-in space-y-3 p-2"
-						aria-label={t.loading}
 						aria-busy="true"
+						aria-label={t.loading}
 					>
 						{[...Array(5)].map((_, index) => (
 							<Skeleton key={index} className="h-12 w-full rounded-lg" />
@@ -299,4 +299,5 @@ export default function LastFmWidget() {
 				)}
 			</div>
 		</div>
-}	);
+	);
+}
