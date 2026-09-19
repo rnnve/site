@@ -197,6 +197,7 @@ export default function SiteNav() {
 
 	if (isMobile) {
 		return (
+			<MotionConfig reducedMotion="user">
 
 	return (
 		<MotionConfig reducedMotion="user">
