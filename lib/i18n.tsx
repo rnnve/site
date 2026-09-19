@@ -66,6 +66,7 @@ export const dictionaries = {
 		aboutHeading: 'เกี่ยวกับ',
 		about: 'เรารินเนะหรือเมเปิ้ล (Rinne, Maple) เป็นนักพัฒนาที่ชอบสร้างสรรค์สิ่งต่างๆ และฟังเพลงไปด้วย เราช้เวลาส่วนใหญ่ไปกับการเขียนโค้ด (ที่ให้ AI ช่วยเขียน เพราะไม่มีเวลาในการเขียนเอง) ฟังเพลงบน Spotify และคุยใน Discord กับเพื่อนๆ และผลงานของเราอยู่บน %%[GitHub](https://github.com/rnnve)%%',
 
+		// Site metadata
 	},
 } as const;
 
