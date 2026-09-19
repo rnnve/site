@@ -8,7 +8,6 @@ import rehypeRainbow from '@/lib/rehype-rainbow';
 import { dictionaries, langs, useI18n } from '@/lib/i18n';
 
 function discordify(markdown: string): string {
-	return markdown
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
