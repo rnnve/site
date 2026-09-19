@@ -18,7 +18,6 @@ export default function AboutSection() {
 
 	return (
 		<section className="mt-4 border-t border-outline-variant/70 pt-4" aria-label={t.aboutHeading}>
-			<div className="flex items-center justify-between gap-3">
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
