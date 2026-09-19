@@ -89,7 +89,6 @@ function NavButton({
 					transition: 'color 0.15s ease-out, opacity 0.15s ease-out',
 				}}
 			>
-				<Icon className="h-4 w-4 md:h-5 md:w-5" />
 			</motion.span>
 		</Link>
 	);
