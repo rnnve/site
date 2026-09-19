@@ -10,7 +10,6 @@ import { dictionaries, langs, useI18n } from '@/lib/i18n';
 function discordify(markdown: string): string {
 	return markdown
 		.replace(/__([^_]+)__/g, '<u>$1</u>')
-		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
