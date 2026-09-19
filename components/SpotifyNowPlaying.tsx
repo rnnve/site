@@ -38,6 +38,7 @@ export default function SpotifyNowPlayingCard() {
 	}
 
 	if (spotifyError) {
+				<span className="font-semibold text-on-surface-variant">{t.spotifyLabel}</span>
 		return (
 				<p className="mt-1">Unable to load: {spotifyError}</p>
 			</div>
