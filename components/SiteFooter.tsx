@@ -15,6 +15,7 @@ async function getCommitCount(): Promise<number | null> {
 		return null;
 	}
 }
+export default async function SiteFooter({ className }: { className?: string }) {
 
 	const year = new Date().getFullYear();
 	const commits = await getCommitCount();
