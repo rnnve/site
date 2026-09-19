@@ -70,7 +70,6 @@ function NavButton({
 		>
 			{active && (
 				<motion.span
-					layoutId={pillId}
 					transition={pillTransition}
 				/>
 			)}
