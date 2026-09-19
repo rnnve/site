@@ -245,6 +245,7 @@ export default function LastFmWidget() {
 				link.as = 'image';
 				link.href = smallSrc;
 				link.fetchPriority = 'high';
+				document.head.appendChild(link);
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
