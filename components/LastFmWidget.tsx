@@ -243,6 +243,7 @@ export default function LastFmWidget() {
 				const link = document.createElement('link');
 				link.rel = 'preload';
 				link.as = 'image';
+				link.href = smallSrc;
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
