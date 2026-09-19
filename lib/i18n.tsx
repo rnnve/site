@@ -36,6 +36,7 @@ export const dictionaries = {
 		spotifyNoSong: 'No song playing',
 		spotifyNothingScrobbling: 'Nothing scrobbling right now',
 		spotifyError: 'Unable to load: {error}',
+		spotifyBy: '{artist} — {album}',
 		aboutHeading: 'About',
 	},
 	th: {
