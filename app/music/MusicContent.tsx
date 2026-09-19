@@ -45,3 +45,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 	const formatted = displayValue.toLocaleString();
 
 	return (
+		<div className="min-w-0 flex-1 rounded-lg bg-surface-container-high/60 px-4 py-3 flex flex-col items-center">
