@@ -72,6 +72,7 @@ export const dictionaries = {
 		pageTitleHome: 'รินเน',
 		pageTitleMusic: 'เพลง · รินเน',
 
+		// Navigation
 	},
 } as const;
 
