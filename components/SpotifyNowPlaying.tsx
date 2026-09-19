@@ -14,6 +14,7 @@ function SpotifyIcon({ className }: { className?: string }) {
 }
 
 export default function SpotifyNowPlayingCard() {
+	const { t } = useI18n();
 	const { spotify, spotifyStopped, spotifyError } = useLive();
 
 	if (spotifyStopped) {
