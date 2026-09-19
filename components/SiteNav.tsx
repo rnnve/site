@@ -51,6 +51,7 @@ function NavButton({
 	item: NavItem;
 	active: boolean;
 	pillId: string;
+	collapsed: boolean;
 	collapsed,
 	active: boolean
 	pillId: string
