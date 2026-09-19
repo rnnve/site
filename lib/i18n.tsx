@@ -17,6 +17,7 @@ export const dictionaries = {
 		// Site metadata
 		siteTitle: 'Rinne',
 		siteDescription: 'Rinne — live Spotify, Discord and Last.fm status.',
+		pageTitleHome: 'Rinne',
 		aboutHeading: 'About',
 	},
 	th: {
