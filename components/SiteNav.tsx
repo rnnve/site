@@ -220,6 +220,7 @@ export default function SiteNav() {
 										item={item}
 										active={isActive(item.href)}
 										pillId="nav-pill"
+										collapsed={false}
 
 	return (
 		<MotionConfig reducedMotion="user">
