@@ -19,6 +19,7 @@ export const dictionaries = {
 		siteDescription: 'Rinne — live Spotify, Discord and Last.fm status.',
 		pageTitleHome: 'Rinne',
 		pageTitleMusic: 'Music · Rinne',
+
 		aboutHeading: 'About',
 	},
 	th: {
