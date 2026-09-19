@@ -133,6 +133,7 @@ function BurgerButton({ onClick, expanded }: { onClick: () => void; expanded: bo
 			<MenuIcon className="h-5 w-5" />
 		</button>
 	);
+}
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
