@@ -55,6 +55,7 @@ export const dictionaries = {
 			tracks: 'Tracks',
 			artists: 'Artists',
 			albums: 'Albums',
+		},
 		aboutHeading: 'About',
 	},
 	th: {
