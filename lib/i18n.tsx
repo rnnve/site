@@ -40,6 +40,7 @@ export const dictionaries = {
 
 		// Last.fm
 		lastfmLabel: 'Last.fm',
+		lastfmListeningHistory: 'Last.fm listening history',
 		aboutHeading: 'About',
 	},
 	th: {
