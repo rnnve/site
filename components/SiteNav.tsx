@@ -110,6 +110,7 @@ function LanguageSwitcherBar() {
 	const currentLabel = lang === 'en' ? 'EN' : 'TH';
 
 	return (
+		<button
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
