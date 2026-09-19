@@ -61,6 +61,7 @@ function TrackImage({
 	const lastfmMedium = lastfmImage(image, 'medium');
 	
 	const primarySrc = spotifySrc || lastfmSmall;
+	const upgradeSrc = spotifySrc || lastfmMedium;
 	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
