@@ -32,7 +32,6 @@ function MenuIcon({ className }: { className?: string }) {
 		</svg>
 	);
 }
-
 	href: string
 	Icon: ComponentType<{ className?: string }>
 }
