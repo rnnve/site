@@ -99,6 +99,7 @@ export const dictionaries = {
 			topartists: 'ศิลปินยอดนิยม',
 			info: 'สถิติ',
 		},
+		lastfmError: 'โหลดไม่ได้: {error}',
 	},
 } as const;
 
