@@ -101,6 +101,7 @@ export const dictionaries = {
 		},
 		lastfmError: 'โหลดไม่ได้: {error}',
 		lastfmPlays: '{count} ครั้ง',
+		lastfmMemberSince: 'สมาชิก Last.fm ตั้งแต่ {year}',
 	},
 } as const;
 
