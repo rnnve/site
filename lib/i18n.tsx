@@ -20,6 +20,7 @@ export const dictionaries = {
 		pageTitleHome: 'Rinne',
 		pageTitleMusic: 'Music · Rinne',
 
+		// Navigation
 		aboutHeading: 'About',
 	},
 	th: {
