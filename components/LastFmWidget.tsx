@@ -54,7 +54,6 @@ function TrackImage({
 	priority?: boolean;
 }) {
 	const [failed, setFailed] = useState(false);
-	const src = art || lastfmImage(image, 'medium');
 
 	useEffect(() => {
 		setFailed(false);
