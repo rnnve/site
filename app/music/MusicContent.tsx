@@ -75,3 +75,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 	const [userInfo, setUserInfo] = useState<LastFmUserInfo | null>(initialUserInfo);
 
 	return (
+	<main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-surface text-on-surface">
