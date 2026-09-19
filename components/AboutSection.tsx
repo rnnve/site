@@ -14,7 +14,6 @@ function discordify(markdown: string): string {
 }
 
 export default function AboutSection() {
-	const { lang, setLang, t } = useI18n();
 
 	return (
 		<section className="mt-4 border-t border-outline-variant/70 pt-4" aria-label={t.aboutHeading}>
