@@ -58,6 +58,7 @@ export const dictionaries = {
 		},
 
 		// Common
+		loading: 'Loading...',
 		aboutHeading: 'About',
 	},
 	th: {
