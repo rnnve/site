@@ -204,6 +204,7 @@ export default function SiteNav() {
 				>
 					{!scrolled ? (
 						<motion.div
+							layout
 
 	return (
 		<MotionConfig reducedMotion="user">
