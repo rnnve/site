@@ -24,6 +24,7 @@ export const dictionaries = {
 		navHome: 'Home',
 		navMusic: 'Music',
 
+		// Discord
 		aboutHeading: 'About',
 	},
 	th: {
