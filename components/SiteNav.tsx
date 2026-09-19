@@ -34,7 +34,6 @@ function MenuIcon({ className }: { className?: string }) {
 	key: string;
 	href: string;
 	Icon: ComponentType<{ className?: string }>;
-}
 const containerStyle: CSSProperties = {
 	background: 'rgba(0,0,0,0.8)',
 	backdropFilter: 'blur(24px)',
