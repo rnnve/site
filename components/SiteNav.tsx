@@ -57,7 +57,6 @@ function NavButton({
 	active: boolean
 	pillId: string
 }) {
-	const { label, href, Icon } = item;
 
 	return (
 		<Link
