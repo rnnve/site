@@ -10,6 +10,7 @@ import { DocumentLanguageSync } from '@/components/DocumentLanguageSync';
 import { I18nProvider } from '@/lib/i18n';
 import '@/styles/global.css';
 
+const chakraPetch = Chakra_Petch({
 
 export const metadata: Metadata = {
 	title: 'Rinne',
