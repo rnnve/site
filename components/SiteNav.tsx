@@ -73,6 +73,7 @@ function NavButton({
 					transition={springTransition}
 				<motion.span
 					transition={pillTransition}
+				className="relative z-10 flex items-center justify-center gap-2"
 				/>
 				whileHover={{ scale: 1.08 }}
 				whileTap={{ scale: 0.95 }}
