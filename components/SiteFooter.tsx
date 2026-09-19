@@ -20,6 +20,7 @@ export default async function SiteFooter({ className }: { className?: string }) 
 	const year = new Date().getFullYear();
 	const commits = await getCommitCount();
 
+		<footer className={`flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline ${className || 'mt-auto'}`}>
 	return (
 			<div className="flex min-w-0 shrink-0 flex-col items-start">
 				<p className="text-berry py-1">© {year} Rinne</p>
