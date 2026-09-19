@@ -94,6 +94,7 @@ function NavButton({
 						initial={false}
 						animate={{ opacity: 1, width: 'auto' }}
 						transition={{ duration: 0.2, ease: 'easeInOut' }}
+						className="overflow-hidden whitespace-nowrap text-sm font-medium"
 			>
 			</motion.span>
 		</Link>
