@@ -16,7 +16,6 @@ import {
 	type LastFmUserInfo,
 	type LastFmUserInfoResponse,
 } from '@/lib/integrations';
-import { useLive } from '@/components/LiveProvider';
 
 const VIEWS: { id: LastFmView; label: string }[] = [
 	{ id: 'toptracks', label: 'Top Tracks' },
