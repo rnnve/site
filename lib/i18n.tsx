@@ -76,6 +76,7 @@ export const dictionaries = {
 		navHome: 'หน้าหลัก',
 		navMusic: 'เพลง',
 
+		// Discord
 	},
 } as const;
 
