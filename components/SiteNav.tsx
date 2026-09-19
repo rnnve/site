@@ -265,6 +265,7 @@ export default function SiteNav() {
 								}}
 							>
 								{items.map((item) => (
+									<NavButton
 
 	return (
 		<MotionConfig reducedMotion="user">
