@@ -200,7 +200,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 				))}
 			</div>
 
-			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
