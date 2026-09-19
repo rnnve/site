@@ -269,6 +269,7 @@ export default function LastFmWidget() {
 					<div
 						key={view}
 						className="animate-fade-in space-y-3 p-2"
+						aria-label={t.loading}
 						aria-busy="true"
 					>
 						{[...Array(5)].map((_, index) => (
