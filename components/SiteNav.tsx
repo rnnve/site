@@ -196,6 +196,7 @@ export default function SiteNav() {
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	if (isMobile) {
+		return (
 
 	return (
 		<MotionConfig reducedMotion="user">
