@@ -28,4 +28,4 @@ export default function MusicPage() {
 				</LiveProvider>
 		>
 				<MusicContent />
-		</Suspense>
+}		</Suspense>
