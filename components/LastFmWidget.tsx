@@ -154,7 +154,6 @@ function TopTrackRow({ track, priority }: { track: LastFmTopTrack; priority?: bo
 				<p className="truncate text-xs font-semibold text-on-surface">{track.name}</p>
 				<p className="truncate text-[11px] text-on-surface-variant">{track.artist?.name}</p>
 			</div>
-			<PlayCount count={track.playcount} />
 		</a>
 	);
 }
