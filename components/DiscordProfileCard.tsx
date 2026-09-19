@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import type { DiscordActivity } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
 import { useLive } from '@/components/LiveProvider';
+import { useI18n } from '@/lib/i18n';
 
 const MEDIA_EXTERNAL_PREFIX = 'mp:external/';
 
