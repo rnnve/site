@@ -5,3 +5,4 @@ import type { CSSProperties } from 'react';
 
 const containerStyle: CSSProperties = {
 	background: 'rgba(10, 10, 10, 0.82)',
+	backdropFilter: 'blur(24px)',
