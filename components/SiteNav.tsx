@@ -34,7 +34,6 @@ function MenuIcon({ className }: { className?: string }) {
 }
 
 interface NavItem {
-	label: string
 	href: string
 	Icon: ComponentType<{ className?: string }>
 }
