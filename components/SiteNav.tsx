@@ -229,6 +229,7 @@ export default function SiteNav() {
 						</motion.div>
 					) : (
 						<motion.div
+							layout
 
 	return (
 		<MotionConfig reducedMotion="user">
