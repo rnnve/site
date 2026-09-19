@@ -36,7 +36,6 @@ function HomeContent() {
 	);
 }
 export default function HomePage() {
-	return (
 			<Suspense
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
