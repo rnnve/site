@@ -275,6 +275,7 @@ export default function SiteNav() {
 				<motion.div
 					layout
 					transition={springTransition}
+					className="flex items-center justify-between"
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
