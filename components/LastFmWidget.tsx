@@ -255,7 +255,6 @@ export default function LastFmWidget() {
 		onViewChange?.(newView);
 	};
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
-
 				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 					{VIEWS.map(({ id, label }) => (
 						<button
