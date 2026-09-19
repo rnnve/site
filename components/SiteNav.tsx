@@ -113,6 +113,7 @@ function LanguageSwitcherBar() {
 		<button
 			type="button"
 			onClick={() => setLang(lang === 'en' ? 'th' : 'en')}
+			aria-label={lang === 'en' ? 'Switch to Thai' : 'Switch to English'}
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
