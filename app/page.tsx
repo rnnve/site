@@ -39,6 +39,7 @@ function HomeContent() {
 					</LiveProvider>
 				}
 				</LiveProvider>
+			}
 			>
 			</Suspense>
 		</I18nProvider>
