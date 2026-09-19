@@ -60,6 +60,7 @@ function TrackImage({
 	const lastfmSmall = lastfmImage(image, 'small');
 	const lastfmMedium = lastfmImage(image, 'medium');
 	
+	const primarySrc = spotifySrc || lastfmSmall;
 	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
