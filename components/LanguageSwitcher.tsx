@@ -7,3 +7,4 @@ const containerStyle: CSSProperties = {
 	background: 'rgba(10, 10, 10, 0.82)',
 	backdropFilter: 'blur(24px)',
 	WebkitBackdropFilter: 'blur(24px)',
+	border: '1px solid rgba(255, 255, 255, 0.1)',
