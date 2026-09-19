@@ -274,6 +274,7 @@ export default function SiteNav() {
 										isMobile={true}
 									/>
 								))}
+							</motion.div>
 
 	return (
 		<MotionConfig reducedMotion="user">
