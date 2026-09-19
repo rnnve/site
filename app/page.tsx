@@ -28,16 +28,19 @@ function HomeContent() {
 						</div>
 					</div>
 				</section>
+				<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
+					<SiteFooter />
+				</Suspense>
+			</div>
+		</main>
+	);
+}
+export default function HomePage() {
+	return (
 		<Suspense
 			fallback={
 				<LiveProvider views={HOME_VIEWS}>
-				<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
-			<Suspense
-				fallback={
-					<LiveProvider views={HOME_VIEWS}>
-						<HomeContent />
-					</LiveProvider>
-				}
+					<HomeContent />
 				</LiveProvider>
 			}
 		>
@@ -45,8 +48,5 @@ function HomeContent() {
 				<HomeContent />
 			</LiveProviderWithData>
 		</Suspense>
-			>
-			</Suspense>
-		</I18nProvider>
 	);
 }
