@@ -214,6 +214,7 @@ export default function SiteNav() {
 							}}
 						>
 							<div className="flex items-center gap-1">
+								{items.map((item) => (
 
 	return (
 		<MotionConfig reducedMotion="user">
