@@ -67,6 +67,7 @@ function TrackImage({
 	useEffect(() => {
 		if (primarySrc && !isLastFmPlaceholder(primarySrc)) {
 			setCurrentSrc(primarySrc);
+			// Upgrade to higher quality in background
 		setFailed(false);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
