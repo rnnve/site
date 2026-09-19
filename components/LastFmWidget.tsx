@@ -179,6 +179,7 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmView) => void; t: ReturnType<typeof useI18n>['t'] }) {
 	const VIEWS: { id: LastFmView; label: string }[] = [
 		{ id: 'toptracks', label: t.lastfmViews.toptracks },
+		{ id: 'topartists', label: t.lastfmViews.topartists },
 
 	return (
 		<div className="min-w-0 rounded-lg bg-surface-container-high/60 px-3 py-2.5">
