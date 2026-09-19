@@ -54,3 +54,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 function StatsHeader({ user, t }: { user: LastFmUserInfo; t: ReturnType<typeof useI18n>['t'] }) {
 	return (
+		<div className="w-full -mx-1 px-1">
