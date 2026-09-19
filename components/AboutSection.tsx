@@ -12,7 +12,6 @@ function discordify(markdown: string): string {
 		.replace(/__([^_]+)__/g, '<u>$1</u>')
 		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
 }
-
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
