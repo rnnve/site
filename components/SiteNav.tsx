@@ -135,6 +135,7 @@ function BurgerButton({ onClick, expanded }: { onClick: () => void; expanded: bo
 	);
 }
 
+const containerStyle: CSSProperties = {
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
