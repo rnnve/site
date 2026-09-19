@@ -251,6 +251,7 @@ export default function SiteNav() {
 							transition={springTransition}
 							className="fixed top-16 left-0 right-0 z-40 px-4 pt-4"
 						>
+							<motion.div
 
 	return (
 		<MotionConfig reducedMotion="user">
