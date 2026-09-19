@@ -111,6 +111,7 @@ function LanguageSwitcherBar() {
 
 	return (
 		<button
+			type="button"
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
