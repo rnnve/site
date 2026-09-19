@@ -239,6 +239,7 @@ export default function LastFmWidget() {
 		tracks?.forEach((item) => {
 			const spotifySrc = item.spotifyImage;
 			const smallSrc = spotifySrc || (item.image ? lastfmImage(item.image, 'small') : null);
+			if (smallSrc && !isLastFmPlaceholder(smallSrc)) {
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
