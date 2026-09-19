@@ -32,7 +32,6 @@ function MenuIcon({ className }: { className?: string }) {
 		</svg>
 	);
 	key: string;
-	href: string;
 const containerStyle: CSSProperties = {
 	background: 'rgba(0,0,0,0.8)',
 	backdropFilter: 'blur(24px)',
