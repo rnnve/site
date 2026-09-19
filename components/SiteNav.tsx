@@ -39,7 +39,6 @@ function MenuIcon({ className }: { className?: string }) {
 	Icon: ComponentType<{ className?: string }>
 }
 
-const items: NavItem[] = [
 	{ label: 'Music', href: '/music', Icon: MusicIcon },
 ];
 
