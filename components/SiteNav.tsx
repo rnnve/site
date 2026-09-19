@@ -286,6 +286,7 @@ export default function SiteNav() {
 						{items.map((item) => (
 							<NavButton
 								key={item.href}
+								item={item}
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
