@@ -69,3 +69,4 @@ interface MusicContentProps {
 	initialUserInfo?: LastFmUserInfo | null;
 }
 
+export default function MusicContent({ initialUserInfo = null }: MusicContentProps) {
