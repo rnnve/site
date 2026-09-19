@@ -34,4 +34,3 @@ export default function MusicPage() {
 		</Suspense>
 	);
 import MusicContent from './MusicContent';
-}
