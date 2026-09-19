@@ -88,6 +88,7 @@ function TrackImage({
 			src={currentSrc}
 			srcSet={upgradeSrc && upgradeSrc !== primarySrc && !isLastFmPlaceholder(upgradeSrc) 
 				? `${primarySrc} 32w, ${upgradeSrc} 64w` 
+				: undefined}
 		<img
 			alt=""
 			loading={priority ? 'eager' : 'lazy'}
