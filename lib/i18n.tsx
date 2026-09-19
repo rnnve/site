@@ -51,6 +51,7 @@ export const dictionaries = {
 		lastfmPlays: '{count} plays',
 		lastfmMemberSince: 'Last.fm member since {year}',
 		lastfmStats: {
+			scrobbles: 'Scrobbles',
 		aboutHeading: 'About',
 	},
 	th: {
