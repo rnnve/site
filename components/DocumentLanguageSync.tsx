@@ -10,3 +10,4 @@ export function DocumentLanguageSync() {
 		document.documentElement.lang = lang;
 		if (lang === 'th') {
 			document.documentElement.classList.add('lang-th');
+		} else {
