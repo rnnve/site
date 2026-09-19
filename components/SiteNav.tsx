@@ -33,6 +33,7 @@ function MenuIcon({ className }: { className?: string }) {
 	);
 	key: string;
 	href: string;
+	Icon: ComponentType<{ className?: string }>;
 }
 	href: string
 	Icon: ComponentType<{ className?: string }>
