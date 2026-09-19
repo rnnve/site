@@ -229,6 +229,7 @@ export default function LastFmWidget() {
 	}, [infoData, onUserInfo]);
 
 	// Preload only first 5 images (small size for instant load)
+	useEffect(() => {
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
