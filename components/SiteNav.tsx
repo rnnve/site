@@ -177,6 +177,7 @@ export default function SiteNav() {
 			}
 			setScrolled(currentY > 15);
 		};
+
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
