@@ -15,6 +15,7 @@ const chakraPetch = Chakra_Petch({
 	variable: '--font-chakra-petch',
 	display: 'swap',
 	weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
 	title: 'Rinne',
