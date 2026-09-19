@@ -43,7 +43,6 @@ function MenuIcon({ className }: { className?: string }) {
 
 	{ label: 'Music', href: '/music', Icon: MusicIcon },
 ];
-
 const containerStyle: CSSProperties = {
 	background: 'rgba(0,0,0,0.8)',
 	backdropFilter: 'blur(24px)',
