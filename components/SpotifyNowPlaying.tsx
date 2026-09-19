@@ -3,6 +3,7 @@
 import type { SpotifyNowPlaying } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
 import { useLive } from '@/components/LiveProvider';
+import { useI18n } from '@/lib/i18n';
 
 function SpotifyIcon({ className }: { className?: string }) {
 	return (
