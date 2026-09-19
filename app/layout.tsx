@@ -11,6 +11,7 @@ import { I18nProvider } from '@/lib/i18n';
 import '@/styles/global.css';
 
 const chakraPetch = Chakra_Petch({
+	subsets: ['thai', 'latin'],
 
 export const metadata: Metadata = {
 	title: 'Rinne',
