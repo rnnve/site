@@ -98,6 +98,7 @@ function NavButton({
 					>
 						{label}
 					</motion.span>
+				)}
 			>
 			</motion.span>
 		</Link>
