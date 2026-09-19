@@ -37,7 +37,6 @@ function HomeContent() {
 }
 export default function HomePage() {
 	return (
-		<I18nProvider>
 			<Suspense
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
