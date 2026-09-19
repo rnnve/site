@@ -84,6 +84,7 @@ export const dictionaries = {
 
 		// Spotify
 		spotifyLabel: 'สปอติไฟ',
+		spotifyCurrentlyPlaying: 'กำลังเล่นอยู่',
 	},
 } as const;
 
