@@ -105,6 +105,7 @@ function NavButton({
 	);
 }
 
+function LanguageSwitcherBar() {
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
