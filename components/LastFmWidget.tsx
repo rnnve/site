@@ -234,6 +234,7 @@ export default function LastFmWidget() {
 		const tracks = view === 'recent'
 			? (viewData as ViewData['recent'])?.recenttracks?.track?.slice(0, 5)
 			: view === 'toptracks'
+				? (viewData as ViewData['toptracks'])?.toptracks?.track?.slice(0, 5)
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
