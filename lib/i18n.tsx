@@ -39,6 +39,7 @@ export const dictionaries = {
 		spotifyBy: '{artist} — {album}',
 
 		// Last.fm
+		lastfmLabel: 'Last.fm',
 		aboutHeading: 'About',
 	},
 	th: {
