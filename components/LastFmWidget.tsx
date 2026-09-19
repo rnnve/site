@@ -240,6 +240,7 @@ export default function LastFmWidget() {
 			const spotifySrc = item.spotifyImage;
 			const smallSrc = spotifySrc || (item.image ? lastfmImage(item.image, 'small') : null);
 			if (smallSrc && !isLastFmPlaceholder(smallSrc)) {
+				const link = document.createElement('link');
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
