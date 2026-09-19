@@ -71,6 +71,7 @@
 	font-size: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
 }
 
+@media (max-width: 640px) {
 .no-scrollbar {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
