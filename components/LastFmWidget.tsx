@@ -183,6 +183,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 		{ id: 'recent', label: t.lastfmViews.recent },
 	];
 
+
 	return (
 		<div className="min-w-0 rounded-lg bg-surface-container-high/60 px-3 py-2.5">
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
