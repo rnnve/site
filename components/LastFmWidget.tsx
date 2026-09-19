@@ -261,6 +261,7 @@ export default function LastFmWidget() {
 			</div>
 			<div className="min-w-0">
 				{viewError && !viewData && (
+						<span className="font-semibold text-on-surface-variant">{t.lastfmError.replace('{error}', viewError)}</span>
 					<p key={view} className="animate-fade-in text-xs text-on-surface-variant">
 					</p>
 				)}
