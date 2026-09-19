@@ -198,6 +198,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 						{label}
 					</button>
 				))}
+			</div>
 
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
