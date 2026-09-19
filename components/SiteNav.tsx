@@ -234,6 +234,7 @@ export default function SiteNav() {
 							className="flex items-center justify-between"
 							style={{
 								...containerStyle,
+								padding: '0.5rem 1rem',
 
 	return (
 		<MotionConfig reducedMotion="user">
