@@ -218,7 +218,6 @@ export default function LastFmWidget() {
 	const topTracksData = view === 'toptracks' ? (viewData as ViewData['toptracks'] | undefined) : undefined;
 	const topArtistsData =
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
-	const infoData = view === 'info' ? (viewData as ViewData['info'] | undefined) : undefined;
 
 	return (
 		<div className="flex w-full min-w-0 flex-col">
