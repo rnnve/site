@@ -96,6 +96,7 @@ function NavButton({
 						transition={{ duration: 0.2, ease: 'easeInOut' }}
 						className="overflow-hidden whitespace-nowrap text-sm font-medium"
 					>
+						{label}
 			>
 			</motion.span>
 		</Link>
