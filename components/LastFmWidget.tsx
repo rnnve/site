@@ -15,7 +15,6 @@ import {
 	type LastFmTrack,
 	type LastFmUserInfo,
 	type LastFmUserInfoResponse,
-} from '@/lib/integrations';
 
 const VIEWS: { id: LastFmView; label: string }[] = [
 	{ id: 'toptracks', label: 'Top Tracks' },
