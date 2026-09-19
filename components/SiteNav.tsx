@@ -70,6 +70,7 @@ function NavButton({
 		>
 			{active && (
 					className="absolute inset-0 rounded-lg bg-white/10 border border-white/20"
+					transition={springTransition}
 				<motion.span
 					transition={pillTransition}
 				/>
