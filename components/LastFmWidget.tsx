@@ -14,7 +14,6 @@ import {
 	type LastFmRecentTracksResponse,
 	type LastFmTrack,
 	type LastFmUserInfo,
-	type LastFmUserInfoResponse,
 
 const VIEWS: { id: LastFmView; label: string }[] = [
 	{ id: 'toptracks', label: 'Top Tracks' },
