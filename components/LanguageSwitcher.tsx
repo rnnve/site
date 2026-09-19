@@ -11,3 +11,4 @@ const containerStyle: CSSProperties = {
 	boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
 };
 
+export default function LanguageSwitcher() {
