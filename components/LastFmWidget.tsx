@@ -247,6 +247,7 @@ export default function LastFmWidget() {
 				link.fetchPriority = 'high';
 				document.head.appendChild(link);
 			}
+		});
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
