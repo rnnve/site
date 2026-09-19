@@ -153,6 +153,7 @@ const springTransition = {
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 	const [isMobile, setIsMobile] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
