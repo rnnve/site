@@ -73,6 +73,7 @@ export const dictionaries = {
 		pageTitleMusic: 'เพลง · รินเน',
 
 		// Navigation
+		navHome: 'หน้าหลัก',
 	},
 } as const;
 
