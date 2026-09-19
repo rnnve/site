@@ -70,6 +70,7 @@ function TrackImage({
 			// Upgrade to higher quality in background
 			if (upgradeSrc !== primarySrc && !isLastFmPlaceholder(upgradeSrc)) {
 				const img = new Image();
+				img.onload = () => setCurrentSrc(upgradeSrc);
 		setFailed(false);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
