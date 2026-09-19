@@ -91,6 +91,7 @@ export const dictionaries = {
 		spotifyBy: '{artist} — {album}',
 
 		// Last.fm
+		lastfmLabel: 'ลาสต์เอฟเอ็ม',
 	},
 } as const;
 
