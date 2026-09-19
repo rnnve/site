@@ -29,6 +29,7 @@ function HomeContent() {
 					</div>
 				</section>
 		<Suspense
+			fallback={
 				<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
 			<Suspense
 				fallback={
