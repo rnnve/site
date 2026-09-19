@@ -140,6 +140,7 @@ const containerStyle: CSSProperties = {
 	backdropFilter: 'blur(24px)',
 	WebkitBackdropFilter: 'blur(24px)',
 	borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+	boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3)',
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
