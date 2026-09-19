@@ -68,6 +68,7 @@ export const dictionaries = {
 
 		// Site metadata
 		siteTitle: 'รินเน',
+		siteDescription: 'รินเน — สถานะ Spotify, Discord และ Last.fm แบบเรียลไทม์',
 	},
 } as const;
 
