@@ -103,6 +103,7 @@ function TrackImage({
 		/>
 	);
 }
+function PlayCount({ count, t }: { count: string; t: ReturnType<typeof useI18n>['t'] }) {
 
 	return (
 		<span
