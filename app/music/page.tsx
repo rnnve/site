@@ -22,7 +22,6 @@
 export default function MusicPage() {
 	return (
 		<Suspense
-			fallback={
 				<LiveProvider views={ALL_VIEWS}>
 				</LiveProvider>
 		>
