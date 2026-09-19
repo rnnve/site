@@ -93,6 +93,7 @@ function ActivityLine({ activity }: { activity: DiscordActivity }) {
 }
 
 export default function DiscordProfileCard() {
+	const { t } = useI18n();
 	const { discord, discordError } = useLive();
 
 	if (discordError) {
