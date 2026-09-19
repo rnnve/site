@@ -75,6 +75,7 @@ export const dictionaries = {
 		// Navigation
 		navHome: 'หน้าหลัก',
 		navMusic: 'เพลง',
+
 	},
 } as const;
 
