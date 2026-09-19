@@ -14,3 +14,4 @@ export function DocumentLanguageSync() {
 			document.documentElement.classList.remove('lang-th');
 		}
 	}, [lang]);
+
