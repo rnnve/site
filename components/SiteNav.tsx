@@ -195,6 +195,7 @@ export default function SiteNav() {
 	const collapsed = !isMobile && scrolled;
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
+	if (isMobile) {
 
 	return (
 		<MotionConfig reducedMotion="user">
