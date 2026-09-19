@@ -25,6 +25,7 @@ function MusicIcon({ className }: { className?: string }) {
 	);
 }
 
+function MenuIcon({ className }: { className?: string }) {
 interface NavItem {
 	label: string
 	href: string
