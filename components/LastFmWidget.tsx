@@ -253,6 +253,7 @@ export default function LastFmWidget() {
 	const handleSetView = (newView: LastFmView) => {
 		setView(newView);
 		onViewChange?.(newView);
+	};
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
