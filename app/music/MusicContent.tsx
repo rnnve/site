@@ -7,3 +7,4 @@ import SiteFooter from '@/components/SiteFooter';
 import { useI18n } from '@/lib/i18n';
 import type { LastFmUserInfo } from '@/lib/integrations';
 
+function Stat({ label, value }: { label: string; value: string }) {
