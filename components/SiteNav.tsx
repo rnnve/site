@@ -33,7 +33,6 @@ function MenuIcon({ className }: { className?: string }) {
 	);
 }
 
-interface NavItem {
 	href: string
 	Icon: ComponentType<{ className?: string }>
 }
