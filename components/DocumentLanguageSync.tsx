@@ -15,3 +15,4 @@ export function DocumentLanguageSync() {
 		}
 	}, [lang]);
 
+	return null;
