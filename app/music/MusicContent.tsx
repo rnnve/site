@@ -20,3 +20,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		const duration = 1200;
 		const startTime = Date.now();
 		const startValue = 0;
+
