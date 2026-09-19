@@ -106,6 +106,7 @@ function NavButton({
 }
 
 function LanguageSwitcherBar() {
+	const { lang, setLang } = useI18n();
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
