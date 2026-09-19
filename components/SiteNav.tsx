@@ -239,6 +239,7 @@ export default function SiteNav() {
 							}}
 						>
 							<BurgerButton onClick={() => setMobileMenuOpen(true)} expanded={false} />
+							<div className="flex-1" />
 
 	return (
 		<MotionConfig reducedMotion="user">
