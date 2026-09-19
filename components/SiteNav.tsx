@@ -223,6 +223,7 @@ export default function SiteNav() {
 										collapsed={false}
 										isMobile={true}
 									/>
+								))}
 
 	return (
 		<MotionConfig reducedMotion="user">
