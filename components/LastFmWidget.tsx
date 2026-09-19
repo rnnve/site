@@ -295,7 +295,6 @@ export default function LastFmWidget() {
 							topArtistsData.topartists.artist.map((artist, index) => (
 								<TopArtistRow key={artist.url} artist={artist} priority={index < 5} />
 							))}
-						{infoData?.user && <StatsView user={infoData.user} />}
 					</div>
 				)}
 			</div>
