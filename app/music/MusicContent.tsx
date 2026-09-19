@@ -21,3 +21,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		const startTime = Date.now();
 		const startValue = 0;
 
+		const animate = () => {
