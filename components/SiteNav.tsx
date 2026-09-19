@@ -259,6 +259,7 @@ export default function SiteNav() {
 									...containerStyle,
 									padding: '1rem',
 									borderRadius: 16,
+									border: '1px solid rgba(255, 255, 255, 0.1)',
 
 	return (
 		<MotionConfig reducedMotion="user">
