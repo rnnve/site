@@ -72,3 +72,4 @@ interface MusicContentProps {
 export default function MusicContent({ initialUserInfo = null }: MusicContentProps) {
 	const { t } = useI18n();
 	const [view, setView] = useState<'recent' | 'toptracks' | 'topartists'>('toptracks');
+	const [userInfo, setUserInfo] = useState<LastFmUserInfo | null>(initialUserInfo);
