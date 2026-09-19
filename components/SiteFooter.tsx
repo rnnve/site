@@ -32,7 +32,6 @@ export default async function SiteFooter({ className }: { className?: string }) 
 						className="text-blush py-1"
 					>
 						@rnnve/site # {commits} commits
-					</a>
 					target="_blank"
 					rel="noreferrer"
 					className="footer-rainbow-link inline-flex min-h-11 items-center rounded-md px-2"
