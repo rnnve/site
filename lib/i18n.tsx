@@ -34,6 +34,7 @@ export const dictionaries = {
 		spotifyLabel: 'Spotify',
 		spotifyCurrentlyPlaying: 'Currently Playing',
 		spotifyNoSong: 'No song playing',
+		spotifyNothingScrobbling: 'Nothing scrobbling right now',
 		aboutHeading: 'About',
 	},
 	th: {
