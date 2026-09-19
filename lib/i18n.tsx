@@ -38,6 +38,7 @@ export const dictionaries = {
 		spotifyError: 'Unable to load: {error}',
 		spotifyBy: '{artist} — {album}',
 
+		// Last.fm
 		aboutHeading: 'About',
 	},
 	th: {
