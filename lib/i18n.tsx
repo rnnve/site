@@ -98,6 +98,7 @@ export const dictionaries = {
 			toptracks: 'เพลงยอดนิยม',
 			topartists: 'ศิลปินยอดนิยม',
 			info: 'สถิติ',
+		},
 	},
 } as const;
 
