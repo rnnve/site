@@ -22,7 +22,6 @@ export default async function MusicPage() {
 	);
 	const initialUserInfo = (initialData.lastfm.info as LastFmUserInfoResponse | undefined)?.user ?? null;
 export default function MusicPage() {
-
 				</LiveProvider>
 		>
 				<MusicContent />
