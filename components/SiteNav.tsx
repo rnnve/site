@@ -174,6 +174,7 @@ export default function SiteNav() {
 					'section[aria-label="Live status"], section[aria-label="Last.fm"], main section',
 				);
 				currentY = scroller ? scroller.scrollTop : window.scrollY;
+			}
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
