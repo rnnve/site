@@ -39,7 +39,6 @@ function MenuIcon({ className }: { className?: string }) {
 	Icon: ComponentType<{ className?: string }>
 }
 	{ key: 'home', href: '/', Icon: HomeIcon },
-	{ key: 'music', href: '/music', Icon: MusicIcon },
 const containerStyle: CSSProperties = {
 	background: 'rgba(0,0,0,0.8)',
 	backdropFilter: 'blur(24px)',
