@@ -74,6 +74,7 @@ function TrackImage({
 				img.src = upgradeSrc;
 			}
 		}
+	}, [primarySrc, upgradeSrc]);
 		setFailed(false);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
