@@ -30,3 +30,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 			const current = Math.floor(startValue + (targetValue - startValue) * eased);
 
 			setDisplayValue(current);
+
