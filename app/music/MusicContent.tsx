@@ -85,3 +85,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 					<header className="min-w-0">
 						<h1 className="text-lg font-semibold text-on-surface sm:text-xl">{t.navMusic}</h1>
 						<p className="mt-1 text-sm text-on-surface-variant">{t.lastfmListeningHistory}</p>
+						{userInfo && (
