@@ -187,7 +187,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 				{VIEWS.map(({ id, label }) => (
 					<button
 						key={id}
-						type="button"
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
