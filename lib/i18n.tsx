@@ -31,6 +31,7 @@ export const dictionaries = {
 		discordCustomStatus: '\"{status}\"',
 
 		// Spotify
+		spotifyLabel: 'Spotify',
 		aboutHeading: 'About',
 	},
 	th: {
