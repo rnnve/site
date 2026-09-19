@@ -70,6 +70,7 @@ export const dictionaries = {
 		siteTitle: 'รินเน',
 		siteDescription: 'รินเน — สถานะ Spotify, Discord และ Last.fm แบบเรียลไทม์',
 		pageTitleHome: 'รินเน',
+		pageTitleMusic: 'เพลง · รินเน',
 	},
 } as const;
 
