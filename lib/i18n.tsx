@@ -110,6 +110,7 @@ export const dictionaries = {
 		},
 
 		// Common
+		loading: 'กำลังโหลด...',
 	},
 } as const;
 
