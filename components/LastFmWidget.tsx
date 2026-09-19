@@ -244,6 +244,7 @@ export default function LastFmWidget() {
 				link.rel = 'preload';
 				link.as = 'image';
 				link.href = smallSrc;
+				link.fetchPriority = 'high';
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
