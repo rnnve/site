@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, MotionConfig } from 'framer-motion';
 import { useEffect, useState, type CSSProperties, type ComponentType } from 'react';
 import { useI18n } from '@/lib/i18n';
-import { motion, MotionConfig } from 'framer-motion';
 
 function HomeIcon({ className }: { className?: string }) {
 	return (
@@ -29,65 +29,66 @@ function MenuIcon({ className }: { className?: string }) {
 	return (
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className} aria-hidden="true">
 			<path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-const containerStyle: CSSProperties = {
-	background: 'rgba(0,0,0,0.8)',
-	backdropFilter: 'blur(24px)',
-	WebkitBackdropFilter: 'blur(24px)',
-	border: '1px solid rgba(255,255,255,0.08)',
-	boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
-};
+		</svg>
+	);
+}
 
-const pillTransition = {
-	type: 'spring' as const,
-	stiffness: 600,
-	damping: 24,
-	mass: 0.4,
-};
+interface NavItem {
+	key: string;
+	href: string;
+	Icon: ComponentType<{ className?: string }>;
+}
+
+const items: NavItem[] = [
+	{ key: 'home', href: '/', Icon: HomeIcon },
+	{ key: 'music', href: '/music', Icon: MusicIcon },
+];
 
 function NavButton({
 	item,
 	active,
 	pillId,
+	collapsed,
+	isMobile,
+}: {
 	item: NavItem;
 	active: boolean;
 	pillId: string;
 	collapsed: boolean;
 	isMobile: boolean;
-	collapsed,
-	active: boolean
-	pillId: string
+}) {
 	const { t } = useI18n();
 	const label = item.key === 'home' ? t.navHome : t.navMusic;
 	const { href, Icon } = item;
-}) {
 
 	return (
 		<Link
 			href={href}
 			aria-label={label}
-			className="relative flex items-center justify-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 			title={label}
+			className="relative flex items-center justify-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 		>
 			{active && (
+				<motion.span
+					layoutId={pillId}
 					className="absolute inset-0 rounded-lg bg-white/10 border border-white/20"
 					transition={springTransition}
-				<motion.span
-					transition={pillTransition}
+				/>
+			)}
+			<motion.span
 				className="relative z-10 flex items-center justify-center gap-2"
 				animate={{
 					padding: collapsed ? '0.25rem 0.35rem' : '0.375rem 0.5rem',
 				}}
 				whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.92 }}
-				/>
-				whileHover={{ scale: 1.08 }}
-				whileTap={{ scale: 0.95 }}
+				transition={{ duration: 0.15, ease: 'easeOut' }}
+				style={{
 					color: active ? '#ffffff' : '#a1a1aa',
 					opacity: active ? 1 : 0.7,
-				transition={{ duration: 0.15, ease: 'easeOut' }}
-					opacity: active ? 1 : 0.65,
 					transition: 'color 0.15s ease-out, opacity 0.15s ease-out',
 				}}
+			>
 				<Icon className={isMobile ? 'h-5 w-5 shrink-0' : (collapsed ? 'h-4 w-4 shrink-0' : 'h-4.5 w-4.5 shrink-0')} />
 				{!isMobile && !collapsed && (
 					<motion.span
@@ -99,7 +100,6 @@ function NavButton({
 						{label}
 					</motion.span>
 				)}
-			>
 			</motion.span>
 		</Link>
 	);
@@ -272,6 +272,22 @@ export default function SiteNav() {
 										pillId="nav-pill"
 										collapsed={false}
 										isMobile={true}
+									/>
+								))}
+							</motion.div>
+						</motion.div>
+					)}
+				</nav>
+			</MotionConfig>
+		);
+	}
+
+	return (
+		<MotionConfig reducedMotion="user">
+			<nav
+				aria-label="Main navigation"
+				className="fixed top-0 left-0 right-0 z-50"
+			>
 				<motion.div
 					layout
 					transition={springTransition}
@@ -296,22 +312,6 @@ export default function SiteNav() {
 					</div>
 					<LanguageSwitcherBar />
 				</motion.div>
-									/>
-					{items.map((item) => (
-						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
-					))}
-				</div>
-			</nav>
-
-			<nav
-				aria-label="Main navigation"
-				className="fixed bottom-16 left-1/2 z-50 -translate-x-1/2 md:hidden"
-			>
-				<div className="flex gap-0.5 rounded-xl p-1 md:p-1.5" style={containerStyle}>
-					{items.map((item) => (
-						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill-mobile" />
-					))}
-				</div>
 			</nav>
 		</MotionConfig>
 	);
