@@ -20,6 +20,7 @@ export default async function MusicPage() {
 	</main>
 	const initialData = await getInitialLiveData(ALL_VIEWS);
 	);
+	const initialUserInfo = (initialData.lastfm.info as LastFmUserInfoResponse | undefined)?.user ?? null;
 export default function MusicPage() {
 		<Suspense
 				<LiveProvider views={ALL_VIEWS}>
