@@ -32,6 +32,7 @@ function MenuIcon({ className }: { className?: string }) {
 		</svg>
 	);
 }
+
 interface NavItem {
 	label: string
 	href: string
