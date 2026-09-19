@@ -48,6 +48,7 @@ function NavButton({
 	item,
 	active,
 	pillId,
+	collapsed,
 }: {
 	item: NavItem
 	active: boolean
