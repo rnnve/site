@@ -109,6 +109,7 @@ export const dictionaries = {
 			albums: 'อัลบั้ม',
 		},
 
+		// Common
 	},
 } as const;
 
