@@ -70,6 +70,7 @@
 	color-scheme: dark;
 	font-size: clamp(0.9rem, 0.85rem + 0.3vw, 1rem);
 }
+
 .no-scrollbar {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
