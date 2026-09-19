@@ -90,6 +90,7 @@ function NavButton({
 				}}
 				<Icon className={isMobile ? 'h-5 w-5 shrink-0' : (collapsed ? 'h-4 w-4 shrink-0' : 'h-4.5 w-4.5 shrink-0')} />
 				{!isMobile && !collapsed && (
+					<motion.span
 			>
 			</motion.span>
 		</Link>
