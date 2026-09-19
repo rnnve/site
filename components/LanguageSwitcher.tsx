@@ -24,3 +24,4 @@ export default function LanguageSwitcher() {
 				{langs.map(({ code, label }) => (
 					<button
 						key={code}
+						type="button"
