@@ -263,6 +263,7 @@ export default function SiteNav() {
 									borderTop: 'none',
 									boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
 								}}
+							>
 
 	return (
 		<MotionConfig reducedMotion="user">
