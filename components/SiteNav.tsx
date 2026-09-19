@@ -38,6 +38,7 @@ function MenuIcon({ className }: { className?: string }) {
 	href: string
 	Icon: ComponentType<{ className?: string }>
 }
+	{ key: 'home', href: '/', Icon: HomeIcon },
 
 	{ label: 'Music', href: '/music', Icon: MusicIcon },
 ];
