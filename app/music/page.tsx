@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import LastFmWidget from '@/components/LastFmWidget';
 import SiteFooter from '@/components/SiteFooter';
 import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
