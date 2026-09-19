@@ -27,21 +27,21 @@ export default function SpotifyNowPlayingCard() {
 					<div className="flex items-center gap-2">
 						<span className="relative flex h-2 w-2">
 							<span className="relative inline-flex h-2 w-2 rounded-full bg-outline/60" />
+						</span>
 						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.spotifyLabel}</span>
+					</div>
 					<p className="mt-1 truncate text-sm font-semibold text-on-surface-variant">{t.spotifyNoSong}</p>
 					<p className="truncate text-xs text-on-surface-variant">{t.spotifyNothingScrobbling}</p>
-						</span>
-					<p className="truncate text-xs text-on-surface-variant">Nothing scrobbling right now</p>
 				</div>
 			</div>
 		);
 	}
 
 	if (spotifyError) {
+		return (
+			<div className="w-full min-w-0 text-sm text-on-surface-variant">
 				<span className="font-semibold text-on-surface-variant">{t.spotifyLabel}</span>
 				<p className="mt-1">{t.spotifyError.replace('{error}', spotifyError)}</p>
-		return (
-				<p className="mt-1">Unable to load: {spotifyError}</p>
 			</div>
 		);
 	}
@@ -94,13 +94,13 @@ export default function SpotifyNowPlayingCard() {
 						<span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
 					</span>
 					<SpotifyIcon className="h-4 w-4 text-accent" />
-						{t.spotifyCurrentlyPlaying}
 					<span className="text-xs font-medium uppercase tracking-wider text-accent">
+						{t.spotifyCurrentlyPlaying}
 					</span>
 				</div>
 				<p className="mt-1 truncate text-sm font-semibold text-on-surface">{data.title}</p>
-					{t.spotifyBy.replace('{artist}', data.artist).replace('{album}', data.album)}
 				<p className="truncate text-xs text-on-surface-variant">
+					{t.spotifyBy.replace('{artist}', data.artist).replace('{album}', data.album)}
 				</p>
 			</div>
 		</a>
