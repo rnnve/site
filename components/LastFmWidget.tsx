@@ -86,6 +86,7 @@ function TrackImage({
 	}
 	return (
 			src={currentSrc}
+			srcSet={upgradeSrc && upgradeSrc !== primarySrc && !isLastFmPlaceholder(upgradeSrc) 
 		<img
 			alt=""
 			loading={priority ? 'eager' : 'lazy'}
