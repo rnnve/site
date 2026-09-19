@@ -102,3 +102,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 				<SiteFooter />
 			</Suspense>
 		</div>
+	</main>
