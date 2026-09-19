@@ -42,3 +42,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 	}, [targetValue]);
 
 	// Format with commas
+	const formatted = displayValue.toLocaleString();
