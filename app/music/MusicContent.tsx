@@ -57,3 +57,4 @@ function StatsHeader({ user, t }: { user: LastFmUserInfo; t: ReturnType<typeof u
 		<div className="w-full -mx-1 px-1">
 			<div className="flex min-w-0 gap-2">
 				<Stat label={t.lastfmStats.scrobbles} value={user.playcount} />
+				<Stat label={t.lastfmStats.tracks} value={user.track_count} />
