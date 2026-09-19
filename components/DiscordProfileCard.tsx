@@ -136,7 +136,6 @@ export default function DiscordProfileCard() {
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
 						<DiscordIcon className="h-4 w-4 text-on-surface-variant" />
-						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">Discord</span>
 					</div>
 					<div className="mt-3 flex items-center gap-3">
 						<img
