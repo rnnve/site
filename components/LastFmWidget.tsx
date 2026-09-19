@@ -193,6 +193,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 							view === id
 								? 'bg-primary-container text-on-primary-container'
 								: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+						}`}
 
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
