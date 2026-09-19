@@ -139,6 +139,7 @@ const containerStyle: CSSProperties = {
 	background: 'rgba(10, 10, 10, 0.82)',
 	backdropFilter: 'blur(24px)',
 	WebkitBackdropFilter: 'blur(24px)',
+	borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
