@@ -281,6 +281,7 @@ export default function SiteNav() {
 						padding: '0.625rem 1.5rem',
 						borderRadius: 0,
 					}}
+				>
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
