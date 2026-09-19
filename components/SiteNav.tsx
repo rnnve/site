@@ -170,6 +170,7 @@ export default function SiteNav() {
 			if (e?.target && e.target instanceof HTMLElement) {
 				currentY = e.target.scrollTop;
 			} else {
+				const scroller = document.querySelector(
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
