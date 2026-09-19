@@ -286,7 +286,6 @@ export default function SiteNav() {
 		<MotionConfig reducedMotion="user">
 			<nav
 				aria-label="Main navigation"
-				className="fixed top-1/2 left-5 z-50 hidden -translate-y-1/2 md:block"
 			>
 				<div className="flex flex-col gap-0.5 rounded-xl p-1.5" style={containerStyle}>
 					{items.map((item) => (
