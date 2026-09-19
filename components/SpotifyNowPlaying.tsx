@@ -99,6 +99,7 @@ export default function SpotifyNowPlayingCard() {
 					</span>
 				</div>
 				<p className="mt-1 truncate text-sm font-semibold text-on-surface">{data.title}</p>
+					{t.spotifyBy.replace('{artist}', data.artist).replace('{album}', data.album)}
 				<p className="truncate text-xs text-on-surface-variant">
 				</p>
 			</div>
