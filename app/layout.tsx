@@ -51,6 +51,7 @@ const preconnects = [
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+		<html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${chakraPetch.variable}`}>
 	return (
 			<head>
 				{preconnects.map((href) => (
