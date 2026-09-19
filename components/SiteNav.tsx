@@ -216,6 +216,7 @@ export default function SiteNav() {
 							<div className="flex items-center gap-1">
 								{items.map((item) => (
 									<NavButton
+										key={item.href}
 
 	return (
 		<MotionConfig reducedMotion="user">
