@@ -85,6 +85,7 @@ function TrackImage({
 		);
 	}
 	return (
+			src={currentSrc}
 		<img
 			alt=""
 			loading={priority ? 'eager' : 'lazy'}
