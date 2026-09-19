@@ -61,7 +61,6 @@
 							}}
 							remarkPlugins={[remarkGfm]}
 							rehypePlugins={[rehypeRaw, rehypeRainbow]}
-						>
 							{discordify(dictionaries[code].about)}
 					</div>
 			</div>
