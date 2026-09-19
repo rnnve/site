@@ -77,6 +77,7 @@ export const dictionaries = {
 		navMusic: 'เพลง',
 
 		// Discord
+		discordLabel: 'ดิสคอร์ด',
 	},
 } as const;
 
