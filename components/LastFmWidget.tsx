@@ -241,6 +241,7 @@ export default function LastFmWidget() {
 			const smallSrc = spotifySrc || (item.image ? lastfmImage(item.image, 'small') : null);
 			if (smallSrc && !isLastFmPlaceholder(smallSrc)) {
 				const link = document.createElement('link');
+				link.rel = 'preload';
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
