@@ -31,7 +31,6 @@ function MenuIcon({ className }: { className?: string }) {
 			<path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
 		</svg>
 	);
-	key: string;
 const containerStyle: CSSProperties = {
 	background: 'rgba(0,0,0,0.8)',
 	backdropFilter: 'blur(24px)',
