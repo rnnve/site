@@ -225,6 +225,7 @@ export default function LastFmWidget() {
 	}, [view, onViewChange]);
 
 	useEffect(() => {
+		onUserInfo?.(infoData?.user ?? null);
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
