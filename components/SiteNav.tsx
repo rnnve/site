@@ -288,7 +288,6 @@ export default function SiteNav() {
 				className="fixed top-0 left-0 right-0 z-50"
 				aria-label="Main navigation"
 			>
-				<div className="flex flex-col gap-0.5 rounded-xl p-1.5" style={containerStyle}>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
 					))}
