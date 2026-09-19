@@ -277,6 +277,7 @@ export default function SiteNav() {
 					transition={springTransition}
 					className="flex items-center justify-between"
 					style={{
+						...containerStyle,
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
