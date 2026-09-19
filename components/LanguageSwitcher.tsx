@@ -21,3 +21,4 @@ export default function LanguageSwitcher() {
 			aria-label="Language"
 		>
 			<div style={containerStyle} className="flex items-center gap-0.5 rounded-xl p-0.5">
+				{langs.map(({ code, label }) => (
