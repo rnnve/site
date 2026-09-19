@@ -13,6 +13,7 @@ function discordify(markdown: string): string {
 		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
 }
 
+	const { lang, t } = useI18n();
 export default function AboutSection() {
 
 	return (
