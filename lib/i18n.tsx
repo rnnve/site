@@ -100,6 +100,7 @@ export const dictionaries = {
 			info: 'สถิติ',
 		},
 		lastfmError: 'โหลดไม่ได้: {error}',
+		lastfmPlays: '{count} ครั้ง',
 	},
 } as const;
 
