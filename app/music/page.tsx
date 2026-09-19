@@ -1,31 +1,32 @@
-	<main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-surface text-on-surface">
-		<div className="mx-auto flex min-h-0 w-full max-w-4xl min-w-0 flex-1 flex-col gap-4 overflow-hidden pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:gap-5 sm:px-6 sm:pt-5 sm:pb-[max(1.25rem,env(safe-area-inset-bottom))] lg:px-8 lg:pt-6">
-			<section
-				className="no-scrollbar flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden overscroll-contain"
-				aria-label="Last.fm"
-			>
-				<div className="m-auto flex w-full min-w-0 flex-col gap-4">
-					<header className="min-w-0">
-						<h1 className="text-lg font-semibold text-on-surface sm:text-xl">Music</h1>
-						<p className="mt-1 text-sm text-on-surface-variant">Last.fm listening history</p>
-					</header>
-					<LastFmWidget />
-				</div>
-			</section>
-			<Suspense fallback={<div className="mt-auto min-h-16" aria-hidden="true" />}>
-				<SiteFooter />
-			</Suspense>
-		</div>
+import { Suspense } from 'react';
+import MusicContent from './MusicContent';
+import { LiveProvider } from '@/components/LiveProvider';
+import { LiveProviderWithData } from '@/components/LiveProviderWithData';
+import type { LiveLastFmView, LastFmUserInfoResponse } from '@/lib/integrations';
+import { getInitialLiveData } from '@/lib/initial-live';
+
+export const metadata = {
+	title: 'Music · Rinne',
+	description: 'Last.fm recent tracks, top tracks, artists and stats.',
+};
+
+const ALL_VIEWS = ['recent', 'toptracks', 'topartists', 'info'] as const;
+
 export default async function MusicPage() {
-	</main>
 	const initialData = await getInitialLiveData(ALL_VIEWS);
-	);
 	const initialUserInfo = (initialData.lastfm.info as LastFmUserInfoResponse | undefined)?.user ?? null;
+
+	return (
+		<Suspense
+			fallback={
+				<LiveProvider views={ALL_VIEWS}>
+					<MusicContent />
+				</LiveProvider>
+			}
+		>
 			<LiveProvider initialData={initialData} views={ALL_VIEWS}>
 				<MusicContent initialUserInfo={initialUserInfo} />
 			</LiveProvider>
-export default function MusicPage() {
-				</LiveProvider>
-		>
-				<MusicContent />
-}		</Suspense>
+		</Suspense>
+	);
+}
