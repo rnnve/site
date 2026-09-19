@@ -81,6 +81,7 @@ export const dictionaries = {
 		discordError: 'โหลดไม่ได้: {error}',
 		discordBoosting: 'กำลังบูสต์ {guild}',
 		discordCustomStatus: '\"{status}\"',
+
 	},
 } as const;
 
