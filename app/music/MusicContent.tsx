@@ -93,3 +93,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 					</header>
 					<LastFmWidget
 						initialView={view}
+						onViewChange={setView}
