@@ -104,7 +104,6 @@ function TrackImage({
 	);
 }
 
-function PlayCount({ count }: { count: string }) {
 	return (
 		<span
 			title={`${count} plays`}
