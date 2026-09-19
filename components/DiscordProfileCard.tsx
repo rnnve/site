@@ -135,6 +135,7 @@ export default function DiscordProfileCard() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
+						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.discordLabel}</span>
 						<DiscordIcon className="h-4 w-4 text-on-surface-variant" />
 					</div>
 					<div className="mt-3 flex items-center gap-3">
