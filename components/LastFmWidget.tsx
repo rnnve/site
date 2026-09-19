@@ -204,7 +204,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
 		</div>
 	);
-}
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
