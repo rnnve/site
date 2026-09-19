@@ -271,6 +271,7 @@ export default function SiteNav() {
 										active={isActive(item.href)}
 										pillId="nav-pill"
 										collapsed={false}
+										isMobile={true}
 
 	return (
 		<MotionConfig reducedMotion="user">
