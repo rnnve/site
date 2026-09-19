@@ -76,6 +76,7 @@ function TrackImage({
 		}
 	}, [primarySrc, upgradeSrc]);
 		setFailed(false);
+	if (!currentSrc || isLastFmPlaceholder(currentSrc) || failed) {
 
 		return (
 			<div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-surface-container-high text-[10px] font-bold text-on-surface-variant">
