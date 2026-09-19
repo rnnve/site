@@ -13,3 +13,4 @@ const containerStyle: CSSProperties = {
 
 export default function LanguageSwitcher() {
 	const { lang, setLang } = useI18n();
+
