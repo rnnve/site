@@ -65,6 +65,7 @@ function NavButton({
 		<Link
 			href={href}
 			aria-label={label}
+			className="relative flex items-center justify-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 			title={label}
 		>
 			{active && (
