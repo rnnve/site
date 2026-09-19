@@ -191,6 +191,7 @@ export default function SiteNav() {
 		setScrolled(false);
 		setMobileMenuOpen(false);
 	}, [pathname]);
+
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
