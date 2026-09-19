@@ -249,6 +249,7 @@ export default function SiteNav() {
 							animate={{ opacity: 1, height: 'auto' }}
 							exit={{ opacity: 0, height: 0 }}
 							transition={springTransition}
+							className="fixed top-16 left-0 right-0 z-40 px-4 pt-4"
 
 	return (
 		<MotionConfig reducedMotion="user">
