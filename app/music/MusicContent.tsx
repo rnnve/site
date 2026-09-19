@@ -104,3 +104,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 		</div>
 	</main>
 	);
+}
