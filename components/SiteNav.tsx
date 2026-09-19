@@ -256,6 +256,7 @@ export default function SiteNav() {
 								transition={springTransition}
 								className="flex flex-col items-center gap-2"
 								style={{
+									...containerStyle,
 
 	return (
 		<MotionConfig reducedMotion="user">
