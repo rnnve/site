@@ -51,19 +51,19 @@ const preconnects = [
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-		<html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${chakraPetch.variable}`}>
 	return (
+		<html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${chakraPetch.variable}`}>
 			<head>
 				{preconnects.map((href) => (
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
+			</head>
+			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
 				<I18nProvider>
 					<DocumentLanguageSync />
 					<SiteNav />
 					<div className="flex min-h-0 flex-1 flex-col overflow-hidden pt-14">{children}</div>
 				</I18nProvider>
-			</head>
-				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
 				<SpeedInsights />
 				<Script
