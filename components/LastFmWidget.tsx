@@ -232,6 +232,7 @@ export default function LastFmWidget() {
 	useEffect(() => {
 		if (!viewData) return;
 		const tracks = view === 'recent'
+			? (viewData as ViewData['recent'])?.recenttracks?.track?.slice(0, 5)
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
