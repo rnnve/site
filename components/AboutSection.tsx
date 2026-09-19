@@ -63,7 +63,6 @@
 							rehypePlugins={[rehypeRaw, rehypeRainbow]}
 						>
 							{discordify(dictionaries[code].about)}
-						</ReactMarkdown>
 					</div>
 			</div>
 	);
