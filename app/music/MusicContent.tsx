@@ -9,3 +9,4 @@ import type { LastFmUserInfo } from '@/lib/integrations';
 
 function Stat({ label, value }: { label: string; value: string }) {
 	const [displayValue, setDisplayValue] = useState(0);
+	const targetValue = Number(value.replace(/,/g, ''));
