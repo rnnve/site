@@ -90,3 +90,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 								<StatsHeader user={userInfo} t={t} />
 							</div>
 						)}
+					</header>
