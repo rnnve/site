@@ -38,3 +38,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 			}
 		};
 
+		requestAnimationFrame(animate);
