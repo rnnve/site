@@ -32,3 +32,4 @@ export default function LanguageSwitcher() {
 								? 'bg-white/15 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.15)]'
 								: 'text-zinc-400 hover:text-white hover:bg-white/5'
 						}`}
+					>
