@@ -115,6 +115,7 @@ function LanguageSwitcherBar() {
 			onClick={() => setLang(lang === 'en' ? 'th' : 'en')}
 			aria-label={lang === 'en' ? 'Switch to Thai' : 'Switch to English'}
 			className="rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent bg-white/5 text-white hover:bg-white/10"
+		>
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
