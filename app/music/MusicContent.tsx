@@ -91,3 +91,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 							</div>
 						)}
 					</header>
+					<LastFmWidget
