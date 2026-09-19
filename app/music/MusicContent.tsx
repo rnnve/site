@@ -36,3 +36,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 			} else {
 				setDisplayValue(targetValue);
 			}
+		};
