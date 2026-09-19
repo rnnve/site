@@ -154,6 +154,7 @@ export default function DiscordProfileCard() {
 								<p className="mt-0.5 truncate text-sm text-on-surface-variant">{t.discordCustomStatus.replace('{status}', user.customStatus)}</p>
 							{user.customStatus && (
 							)}
+								<p className="mt-0.5 text-xs text-on-surface-variant">{t.discordBoosting.replace('{guild}', user.guildName ?? '')}</p>
 							{user.boostBadge && (
 							)}
 						</div>
