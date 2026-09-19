@@ -192,6 +192,7 @@ export default function SiteNav() {
 		setMobileMenuOpen(false);
 	}, [pathname]);
 
+	const collapsed = !isMobile && scrolled;
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
