@@ -279,7 +279,6 @@ export default function SiteNav() {
 					)}
 				</nav>
 			</MotionConfig>
-		);
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
 					))}
