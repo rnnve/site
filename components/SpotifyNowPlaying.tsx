@@ -100,7 +100,6 @@ export default function SpotifyNowPlayingCard() {
 				</div>
 				<p className="mt-1 truncate text-sm font-semibold text-on-surface">{data.title}</p>
 				<p className="truncate text-xs text-on-surface-variant">
-					{data.artist} — <span className="text-on-surface-variant">{data.album}</span>
 				</p>
 			</div>
 		</a>
