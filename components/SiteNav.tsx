@@ -244,6 +244,7 @@ export default function SiteNav() {
 						</motion.div>
 					)}
 					{scrolled && mobileMenuOpen && (
+						<motion.div
 
 	return (
 		<MotionConfig reducedMotion="user">
