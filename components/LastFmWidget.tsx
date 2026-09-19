@@ -28,6 +28,7 @@ type ViewData = {
 	info: LastFmUserInfoResponse;
 };
 
+
 function Rank({ rank }: { rank?: string }) {
 	return (
 		<span className="w-5 shrink-0 text-center text-[11px] font-semibold tabular-nums text-outline">
