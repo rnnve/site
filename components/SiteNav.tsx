@@ -257,6 +257,7 @@ export default function SiteNav() {
 								className="flex flex-col items-center gap-2"
 								style={{
 									...containerStyle,
+									padding: '1rem',
 
 	return (
 		<MotionConfig reducedMotion="user">
