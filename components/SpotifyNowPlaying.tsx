@@ -29,6 +29,7 @@ export default function SpotifyNowPlayingCard() {
 							<span className="relative inline-flex h-2 w-2 rounded-full bg-outline/60" />
 						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.spotifyLabel}</span>
 					<p className="mt-1 truncate text-sm font-semibold text-on-surface-variant">{t.spotifyNoSong}</p>
+					<p className="truncate text-xs text-on-surface-variant">{t.spotifyNothingScrobbling}</p>
 						</span>
 					<p className="truncate text-xs text-on-surface-variant">Nothing scrobbling right now</p>
 				</div>
