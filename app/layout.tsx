@@ -59,7 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				))}
 			</head>
 			<body className="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
-				<SiteNav />
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
 				<SpeedInsights />
