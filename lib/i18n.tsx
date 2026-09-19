@@ -56,6 +56,7 @@ export const dictionaries = {
 			artists: 'Artists',
 			albums: 'Albums',
 		},
+
 		aboutHeading: 'About',
 	},
 	th: {
