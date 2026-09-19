@@ -72,6 +72,7 @@ function TrackImage({
 				const img = new Image();
 				img.onload = () => setCurrentSrc(upgradeSrc);
 				img.src = upgradeSrc;
+			}
 		setFailed(false);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
