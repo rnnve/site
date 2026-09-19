@@ -1,28 +1,26 @@
-				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
-					{t.aboutHeading}
-				</h2>
-				<div
-					className="flex items-center gap-0.5 rounded-xl border border-outline-variant/70 bg-surface-container-high/30 p-0.5"
-					role="group"
-					aria-label="Language"
-				>
-					{langs.map(({ code, label }) => (
-						<button
-							key={code}
-							type="button"
-							onClick={() => setLang(code)}
-							aria-pressed={lang === code}
-							className={`min-h-7 rounded-lg px-2.5 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${
-								lang === code
-									? 'bg-primary text-on-primary'
-									: 'text-on-surface-variant hover:text-on-surface'
-							}`}
-						>
-							{label}
-						</button>
-					))}
-				</div>
-			</div>
+'use client';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+
+import rehypeRainbow from '@/lib/rehype-rainbow';
+import { dictionaries, langs, useI18n } from '@/lib/i18n';
+
+function discordify(markdown: string): string {
+	return markdown
+		.replace(/__([^_]+)__/g, '<u>$1</u>')
+		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
+}
+
+export default function AboutSection() {
+	const { lang, t } = useI18n();
+
+	return (
+		<section className="mt-4 border-t border-outline-variant/70 pt-4" aria-label={t.aboutHeading}>
+			<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
+				{t.aboutHeading}
+			</h2>
 			<div className="grid min-w-0">
 				{langs.map(({ code }) => (
 					<div
@@ -59,12 +57,14 @@
 									</code>
 								),
 							}}
-			<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 							remarkPlugins={[remarkGfm]}
-				{t.aboutHeading}
 							rehypePlugins={[rehypeRaw, rehypeRainbow]}
-			</h2>
+						>
 							{discordify(dictionaries[code].about)}
+						</ReactMarkdown>
 					</div>
+				))}
 			</div>
+		</section>
 	);
+}
