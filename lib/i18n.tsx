@@ -43,6 +43,7 @@ export const dictionaries = {
 		lastfmListeningHistory: 'Last.fm listening history',
 		lastfmViews: {
 			recent: 'Recent',
+			toptracks: 'Top Tracks',
 		aboutHeading: 'About',
 	},
 	th: {
