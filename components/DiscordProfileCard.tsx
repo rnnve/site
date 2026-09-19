@@ -98,6 +98,7 @@ export default function DiscordProfileCard() {
 
 	if (discordError) {
 				<span className="font-semibold text-on-surface-variant">{t.discordLabel}</span>
+				<p className="mt-1">{t.discordError.replace('{error}', discordError)}</p>
 		return (
 				<p className="mt-1">Unable to load: {discordError}</p>
 			</div>
