@@ -17,3 +17,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 			return;
 		}
 
+		const duration = 1200;
