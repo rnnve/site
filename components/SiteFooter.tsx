@@ -34,7 +34,6 @@ export default async function SiteFooter({ className }: { className?: string }) 
 						@rnnve/site # {commits} commits
 					</a>
 				)}
-			</div>
 					target="_blank"
 					rel="noreferrer"
 					className="footer-rainbow-link inline-flex min-h-11 items-center rounded-md px-2"
