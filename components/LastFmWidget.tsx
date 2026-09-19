@@ -54,6 +54,7 @@ function TrackImage({
 	priority?: boolean;
 }) {
 	const [currentSrc, setCurrentSrc] = useState<string | null>(null);
+	
 	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
