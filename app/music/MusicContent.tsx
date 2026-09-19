@@ -82,3 +82,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 				aria-label={t.lastfmLabel}
 			>
 				<div className="m-auto flex w-full min-w-0 flex-col gap-4">
+					<header className="min-w-0">
