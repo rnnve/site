@@ -31,3 +31,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 			setDisplayValue(current);
 
+			if (progress < 1) {
