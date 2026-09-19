@@ -199,6 +199,7 @@ export default function SiteNav() {
 		return (
 			<MotionConfig reducedMotion="user">
 				<nav
+					aria-label="Main navigation"
 
 	return (
 		<MotionConfig reducedMotion="user">
