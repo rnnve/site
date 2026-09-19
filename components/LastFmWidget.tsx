@@ -19,7 +19,6 @@ import {
 import { useLive } from '@/components/LiveProvider';
 import { useI18n } from '@/lib/i18n';
 
-type LastFmView = 'recent' | 'toptracks' | 'topartists' | 'info';
 
 const VIEWS: { id: LastFmView; label: string }[] = [
 	{ id: 'toptracks', label: 'Top Tracks' },
