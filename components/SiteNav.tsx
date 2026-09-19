@@ -231,6 +231,7 @@ export default function SiteNav() {
 						<motion.div
 							layout
 							transition={springTransition}
+							className="flex items-center justify-between"
 
 	return (
 		<MotionConfig reducedMotion="user">
