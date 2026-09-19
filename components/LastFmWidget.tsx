@@ -248,6 +248,7 @@ export default function LastFmWidget() {
 				document.head.appendChild(link);
 			}
 		});
+	}, [viewData, view]);
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
