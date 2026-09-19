@@ -97,6 +97,7 @@ function NavButton({
 						className="overflow-hidden whitespace-nowrap text-sm font-medium"
 					>
 						{label}
+					</motion.span>
 			>
 			</motion.span>
 		</Link>
