@@ -88,6 +88,7 @@ export const dictionaries = {
 		spotifyNoSong: 'ไม่มีเพลงเล่นอยู่',
 		spotifyNothingScrobbling: 'ไม่มีการสครอบเบิลขณะนี้',
 		spotifyError: 'โหลดไม่ได้: {error}',
+		spotifyBy: '{artist} — {album}',
 	},
 } as const;
 
