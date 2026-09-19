@@ -2,6 +2,7 @@ import SiteFooter from '@/components/SiteFooter';
 import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
 export const metadata = {
+import type { LiveLastFmView, LastFmUserInfoResponse } from '@/lib/integrations';
 	title: 'Music · Rinne',
 	description: 'Last.fm recent tracks, top tracks, artists and stats.',
 };
