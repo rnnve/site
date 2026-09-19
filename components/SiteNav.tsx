@@ -176,6 +176,7 @@ export default function SiteNav() {
 				currentY = scroller ? scroller.scrollTop : window.scrollY;
 			}
 			setScrolled(currentY > 15);
+		};
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
