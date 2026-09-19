@@ -32,6 +32,7 @@ interface LastFmWidgetProps {
 	initialView?: LastFmView;
 	onViewChange?: (view: LastFmView) => void;
 	onUserInfo?: (user: LastFmUserInfo | null) => void;
+}
 
 function Rank({ rank }: { rank?: string }) {
 	return (
