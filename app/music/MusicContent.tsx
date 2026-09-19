@@ -56,3 +56,4 @@ function StatsHeader({ user, t }: { user: LastFmUserInfo; t: ReturnType<typeof u
 	return (
 		<div className="w-full -mx-1 px-1">
 			<div className="flex min-w-0 gap-2">
+				<Stat label={t.lastfmStats.scrobbles} value={user.playcount} />
