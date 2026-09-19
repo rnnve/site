@@ -3,6 +3,7 @@ import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
 export const metadata = {
 import type { LiveLastFmView, LastFmUserInfoResponse } from '@/lib/integrations';
+import { getInitialLiveData } from '@/lib/initial-live';
 	title: 'Music · Rinne',
 	description: 'Last.fm recent tracks, top tracks, artists and stats.',
 };
