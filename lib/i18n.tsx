@@ -10,6 +10,7 @@ export const langs: readonly { code: Lang; label: string }[] = [
 ] as const;
 
 	en: {
+		// About
 export const dictionaries = {
 		aboutHeading: 'About',
 		about: 'I’m **Rinne** (or Maple), a developer who loves building ==silly things==. Most of my time goes into silly projects, listening to Spotify, hanging out in Discord. Also most of my projects are on my %%[GitHub](https://github.com/rnnve)%%.',
