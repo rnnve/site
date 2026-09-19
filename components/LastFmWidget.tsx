@@ -221,6 +221,7 @@ export default function LastFmWidget() {
 	const infoData = (lastfm as Record<string, unknown>)['info'] as ViewData['info'] | undefined;
 
 	useEffect(() => {
+		onViewChange?.(view);
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
