@@ -25,3 +25,4 @@ export default function LanguageSwitcher() {
 					<button
 						key={code}
 						type="button"
+						onClick={() => setLang(code)}
