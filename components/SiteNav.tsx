@@ -149,6 +149,7 @@ const springTransition = {
 	damping: 30,
 	mass: 0.5,
 };
+
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
