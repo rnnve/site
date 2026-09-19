@@ -107,7 +107,6 @@ function PlayCount({ count, t }: { count: string; t: ReturnType<typeof useI18n>[
 
 	return (
 		<span
-			title={`${count} plays`}
 			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-on-surface-variant sm:max-w-24 sm:text-[11px]"
 		>
 			{count}<span className="hidden min-[23rem]:inline"> plays</span>
