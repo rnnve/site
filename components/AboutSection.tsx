@@ -6,7 +6,6 @@ import rehypeRaw from 'rehype-raw';
 
 import rehypeRainbow from '@/lib/rehype-rainbow';
 import { dictionaries, langs, useI18n } from '@/lib/i18n';
-
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
