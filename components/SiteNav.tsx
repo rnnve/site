@@ -121,6 +121,7 @@ function LanguageSwitcherBar() {
 	);
 }
 
+function BurgerButton({ onClick, expanded }: { onClick: () => void; expanded: boolean }) {
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
