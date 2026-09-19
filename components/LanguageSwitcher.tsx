@@ -36,3 +36,4 @@ export default function LanguageSwitcher() {
 						{label}
 					</button>
 				))}
+			</div>
