@@ -95,6 +95,7 @@ export const dictionaries = {
 		lastfmListeningHistory: 'ประวัติการฟังเพลง Last.fm',
 		lastfmViews: {
 			recent: 'ล่าสุด',
+			toptracks: 'เพลงยอดนิยม',
 	},
 } as const;
 
