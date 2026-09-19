@@ -83,6 +83,7 @@ function NavButton({
 				whileHover={{ scale: 1.08 }}
 				whileTap={{ scale: 0.95 }}
 					color: active ? '#ffffff' : '#a1a1aa',
+					opacity: active ? 1 : 0.7,
 				transition={{ duration: 0.15, ease: 'easeOut' }}
 					opacity: active ? 1 : 0.65,
 					transition: 'color 0.15s ease-out, opacity 0.15s ease-out',
