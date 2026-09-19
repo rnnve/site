@@ -119,6 +119,7 @@ function LanguageSwitcherBar() {
 			{currentLabel}
 		</button>
 	);
+}
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
