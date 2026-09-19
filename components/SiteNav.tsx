@@ -213,6 +213,7 @@ export default function SiteNav() {
 								borderRadius: 0,
 							}}
 						>
+							<div className="flex items-center gap-1">
 
 	return (
 		<MotionConfig reducedMotion="user">
