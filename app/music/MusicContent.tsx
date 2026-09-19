@@ -24,3 +24,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		const animate = () => {
 			const elapsed = Date.now() - startTime;
 			const progress = Math.min(elapsed / duration, 1);
+
