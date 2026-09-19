@@ -15,3 +15,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		if (!targetValue) {
 			setDisplayValue(0);
 			return;
+		}
