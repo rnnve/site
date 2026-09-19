@@ -106,6 +106,7 @@ export const dictionaries = {
 			scrobbles: 'สครอบเบิล',
 			tracks: 'เพลง',
 			artists: 'ศิลปิน',
+			albums: 'อัลบั้ม',
 	},
 } as const;
 
