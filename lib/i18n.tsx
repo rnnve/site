@@ -53,6 +53,7 @@ export const dictionaries = {
 		lastfmStats: {
 			scrobbles: 'Scrobbles',
 			tracks: 'Tracks',
+			artists: 'Artists',
 		aboutHeading: 'About',
 	},
 	th: {
