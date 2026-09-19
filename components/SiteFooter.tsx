@@ -47,4 +47,3 @@ export default async function SiteFooter({ className }: { className?: string }) 
 			</nav>
 		</footer>
 	);
-}
