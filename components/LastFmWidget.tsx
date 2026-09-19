@@ -172,7 +172,6 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{artist.name}</p>
 			</div>
-			<PlayCount count={artist.playcount} />
 		</a>
 	);
 }
