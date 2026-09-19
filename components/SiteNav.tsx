@@ -183,6 +183,7 @@ export default function SiteNav() {
 			window.addEventListener('scroll', handleScroll, { capture: true, passive: true });
 		}
 		return () => {
+			window.removeEventListener('scroll', handleScroll, { capture: true });
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
