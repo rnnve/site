@@ -19,3 +19,4 @@ export default function LanguageSwitcher() {
 			className="fixed top-3.5 right-4 z-50 sm:top-5"
 			role="group"
 			aria-label="Language"
+		>
