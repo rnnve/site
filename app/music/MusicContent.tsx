@@ -96,3 +96,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 						onViewChange={setView}
 						onUserInfo={setUserInfo}
 					/>
+				</div>
