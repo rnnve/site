@@ -193,7 +193,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 							view === id
 								? 'bg-primary-container text-on-primary-container'
 								: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
-						}`}
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
