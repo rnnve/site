@@ -97,10 +97,10 @@ export default function DiscordProfileCard() {
 	const { discord, discordError } = useLive();
 
 	if (discordError) {
+		return (
+			<div className="w-full min-w-0 text-sm text-on-surface-variant">
 				<span className="font-semibold text-on-surface-variant">{t.discordLabel}</span>
 				<p className="mt-1">{t.discordError.replace('{error}', discordError)}</p>
-		return (
-				<p className="mt-1">Unable to load: {discordError}</p>
 			</div>
 		);
 	}
@@ -135,8 +135,8 @@ export default function DiscordProfileCard() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
 				<div className="min-w-0 flex-1">
 					<div className="flex items-center gap-2">
-						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.discordLabel}</span>
 						<DiscordIcon className="h-4 w-4 text-on-surface-variant" />
+						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.discordLabel}</span>
 					</div>
 					<div className="mt-3 flex items-center gap-3">
 						<img
@@ -151,11 +151,11 @@ export default function DiscordProfileCard() {
 						<div className="min-w-0">
 							<h3 className="truncate text-base font-bold text-on-surface">{user.displayName}</h3>
 							<span className="block text-sm text-on-surface-variant">@{user.username}</span>
-								<p className="mt-0.5 truncate text-sm text-on-surface-variant">{t.discordCustomStatus.replace('{status}', user.customStatus)}</p>
 							{user.customStatus && (
+								<p className="mt-0.5 truncate text-sm text-on-surface-variant">{t.discordCustomStatus.replace('{status}', user.customStatus)}</p>
 							)}
-								<p className="mt-0.5 text-xs text-on-surface-variant">{t.discordBoosting.replace('{guild}', user.guildName ?? '')}</p>
 							{user.boostBadge && (
+								<p className="mt-0.5 text-xs text-on-surface-variant">{t.discordBoosting.replace('{guild}', user.guildName ?? '')}</p>
 							)}
 						</div>
 					</div>
@@ -169,4 +169,5 @@ export default function DiscordProfileCard() {
 				)}
 			</div>
 		</div>
-}	);
+	);
+}
