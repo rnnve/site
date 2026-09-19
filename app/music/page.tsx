@@ -20,7 +20,6 @@
 	);
 }
 export default function MusicPage() {
-	return (
 		<Suspense
 				<LiveProvider views={ALL_VIEWS}>
 				</LiveProvider>
