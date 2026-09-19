@@ -107,6 +107,7 @@ export const dictionaries = {
 			tracks: 'เพลง',
 			artists: 'ศิลปิน',
 			albums: 'อัลบั้ม',
+		},
 	},
 } as const;
 
