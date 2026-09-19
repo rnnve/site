@@ -189,7 +189,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 						key={id}
 						type="button"
 						onClick={() => setView(id)}
-						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
