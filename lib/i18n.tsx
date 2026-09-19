@@ -37,6 +37,7 @@ export const dictionaries = {
 		spotifyNothingScrobbling: 'Nothing scrobbling right now',
 		spotifyError: 'Unable to load: {error}',
 		spotifyBy: '{artist} — {album}',
+
 		aboutHeading: 'About',
 	},
 	th: {
