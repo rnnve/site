@@ -240,6 +240,7 @@ export default function LastFmWidget() {
 			const spotifySrc = item.spotifyImage;
 			const smallSrc = spotifySrc || (item.image ? lastfmImage(item.image, 'small') : null);
 			if (smallSrc && !isLastFmPlaceholder(smallSrc)) {
+			<ViewTabs view={view} setView={handleSetView} t={t} />
 				const link = document.createElement('link');
 				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 					{VIEWS.map(({ id, label }) => (
