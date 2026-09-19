@@ -187,6 +187,7 @@ export default function SiteNav() {
 		};
 	}, [pathname, isMobile]);
 
+	useEffect(() => {
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
