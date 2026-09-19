@@ -171,6 +171,7 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 			<TrackImage image={artist.image} art={artist.spotifyImage} alt={artist.name} priority={priority} />
 			<div className="min-w-0 flex-1">
 				<p className="truncate text-xs font-semibold text-on-surface">{artist.name}</p>
+			<PlayCount count={artist.playcount} t={useI18n().t} />
 			</div>
 		</a>
 	);
