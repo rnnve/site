@@ -79,6 +79,7 @@ export const dictionaries = {
 		// Discord
 		discordLabel: 'ดิสคอร์ด',
 		discordError: 'โหลดไม่ได้: {error}',
+		discordBoosting: 'กำลังบูสต์ {guild}',
 	},
 } as const;
 
