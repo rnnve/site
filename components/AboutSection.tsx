@@ -65,6 +65,5 @@
 							{discordify(dictionaries[code].about)}
 						</ReactMarkdown>
 					</div>
-				))}
 			</div>
 	);
