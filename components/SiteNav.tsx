@@ -69,6 +69,7 @@ function NavButton({
 			title={label}
 		>
 			{active && (
+					className="absolute inset-0 rounded-lg bg-white/10 border border-white/20"
 				<motion.span
 					transition={pillTransition}
 				/>
