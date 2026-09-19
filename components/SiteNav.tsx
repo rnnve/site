@@ -228,6 +228,7 @@ export default function SiteNav() {
 							<LanguageSwitcherBar />
 						</motion.div>
 					) : (
+						<motion.div
 
 	return (
 		<MotionConfig reducedMotion="user">
