@@ -71,7 +71,6 @@ function NavButton({
 			{active && (
 				<motion.span
 					layoutId={pillId}
-					className="absolute inset-0 rounded-lg border border-white/50"
 					transition={pillTransition}
 				/>
 			)}
