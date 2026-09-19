@@ -24,7 +24,6 @@ export default async function MusicPage() {
 export default function MusicPage() {
 
 		<Suspense
-				<LiveProvider views={ALL_VIEWS}>
 				</LiveProvider>
 		>
 				<MusicContent />
