@@ -72,6 +72,7 @@
 }
 
 @media (max-width: 640px) {
+	:root {
 .no-scrollbar {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
