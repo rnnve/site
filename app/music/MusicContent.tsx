@@ -60,3 +60,4 @@ function StatsHeader({ user, t }: { user: LastFmUserInfo; t: ReturnType<typeof u
 				<Stat label={t.lastfmStats.tracks} value={user.track_count} />
 				<Stat label={t.lastfmStats.artists} value={user.artist_count} />
 				<Stat label={t.lastfmStats.albums} value={user.album_count} />
+			</div>
