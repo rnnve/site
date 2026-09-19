@@ -290,6 +290,7 @@ export default function SiteNav() {
 								active={isActive(item.href)}
 								pillId="nav-pill"
 								collapsed={collapsed}
+								isMobile={false}
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
