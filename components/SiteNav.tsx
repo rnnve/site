@@ -287,7 +287,6 @@ export default function SiteNav() {
 			<nav
 				className="fixed top-0 left-0 right-0 z-50"
 				aria-label="Main navigation"
-			>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
 					))}
