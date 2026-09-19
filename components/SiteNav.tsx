@@ -210,6 +210,7 @@ export default function SiteNav() {
 							style={{
 								...containerStyle,
 								padding: '0.5rem 1rem',
+								borderRadius: 0,
 
 	return (
 		<MotionConfig reducedMotion="user">
