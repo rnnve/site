@@ -27,3 +27,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 			// Ease-out cubic
 			const eased = 1 - Math.pow(1 - progress, 3);
+			const current = Math.floor(startValue + (targetValue - startValue) * eased);
