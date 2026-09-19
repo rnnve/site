@@ -13,6 +13,7 @@ import '@/styles/global.css';
 const chakraPetch = Chakra_Petch({
 	subsets: ['thai', 'latin'],
 	variable: '--font-chakra-petch',
+	display: 'swap',
 
 export const metadata: Metadata = {
 	title: 'Rinne',
