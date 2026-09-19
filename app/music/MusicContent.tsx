@@ -13,3 +13,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 	useEffect(() => {
 		if (!targetValue) {
+			setDisplayValue(0);
