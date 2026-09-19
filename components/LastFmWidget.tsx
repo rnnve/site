@@ -270,7 +270,6 @@ export default function LastFmWidget() {
 						key={view}
 						className="animate-fade-in space-y-3 p-2"
 						aria-busy="true"
-						aria-label="Loading"
 					>
 						{[...Array(5)].map((_, index) => (
 							<Skeleton key={index} className="h-12 w-full rounded-lg" />
