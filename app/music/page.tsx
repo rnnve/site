@@ -45,4 +45,5 @@ export default function MusicPage() {
 			</LiveProviderWithData>
 		</Suspense>
 	);
+import MusicContent from './MusicContent';
 }
