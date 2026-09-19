@@ -12,3 +12,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 	const targetValue = Number(value.replace(/,/g, ''));
 
 	useEffect(() => {
+		if (!targetValue) {
