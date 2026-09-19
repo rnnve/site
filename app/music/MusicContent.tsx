@@ -97,3 +97,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 						onUserInfo={setUserInfo}
 					/>
 				</div>
+			</section>
