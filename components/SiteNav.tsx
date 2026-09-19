@@ -40,7 +40,6 @@ function MenuIcon({ className }: { className?: string }) {
 }
 
 const items: NavItem[] = [
-	{ label: 'Home', href: '/', Icon: HomeIcon },
 	{ label: 'Music', href: '/music', Icon: MusicIcon },
 ];
 
