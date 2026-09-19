@@ -284,6 +284,7 @@ export default function SiteNav() {
 				>
 					<div className="flex items-center gap-2">
 						{items.map((item) => (
+							<NavButton
 									/>
 					{items.map((item) => (
 						<NavButton key={item.href} item={item} active={isActive(item.href)} pillId="nav-pill" />
