@@ -50,3 +50,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
 		</div>
 	);
+}
