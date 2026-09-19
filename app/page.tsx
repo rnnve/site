@@ -44,6 +44,7 @@ function HomeContent() {
 			<LiveProviderWithData views={HOME_VIEWS}>
 				<HomeContent />
 			</LiveProviderWithData>
+		</Suspense>
 			>
 			</Suspense>
 		</I18nProvider>
