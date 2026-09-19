@@ -48,3 +48,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		<div className="min-w-0 flex-1 rounded-lg bg-surface-container-high/60 px-4 py-3 flex flex-col items-center">
 			<span className="text-base font-bold tabular-nums text-on-surface sm:text-xl">{formatted}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
+		</div>
