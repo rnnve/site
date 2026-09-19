@@ -228,6 +228,7 @@ export default function LastFmWidget() {
 		onUserInfo?.(infoData?.user ?? null);
 	}, [infoData, onUserInfo]);
 
+	// Preload only first 5 images (small size for instant load)
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
