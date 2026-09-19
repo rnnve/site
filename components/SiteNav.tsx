@@ -92,6 +92,7 @@ function NavButton({
 				{!isMobile && !collapsed && (
 					<motion.span
 						initial={false}
+						animate={{ opacity: 1, width: 'auto' }}
 			>
 			</motion.span>
 		</Link>
