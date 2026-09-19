@@ -29,3 +29,4 @@ export default function LanguageSwitcher() {
 						aria-pressed={lang === code}
 						className={`min-h-7 rounded-lg px-2.5 text-xs font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${
 							lang === code
+								? 'bg-white/15 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.15)]'
