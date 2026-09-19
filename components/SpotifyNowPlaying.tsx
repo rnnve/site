@@ -27,6 +27,7 @@ export default function SpotifyNowPlayingCard() {
 					<div className="flex items-center gap-2">
 						<span className="relative flex h-2 w-2">
 							<span className="relative inline-flex h-2 w-2 rounded-full bg-outline/60" />
+						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.spotifyLabel}</span>
 						</span>
 					</div>
 					<p className="mt-1 truncate text-sm font-semibold text-on-surface-variant">No song playing</p>
