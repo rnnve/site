@@ -99,7 +99,6 @@ export default function DiscordProfileCard() {
 	if (discordError) {
 		return (
 			<div className="w-full min-w-0 text-sm text-on-surface-variant">
-				<span className="font-semibold text-on-surface-variant">Discord</span>
 				<p className="mt-1">Unable to load: {discordError}</p>
 			</div>
 		);
