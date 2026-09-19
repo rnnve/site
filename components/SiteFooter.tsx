@@ -30,7 +30,6 @@ export default async function SiteFooter({ className }: { className?: string }) 
 						target="_blank"
 						rel="noreferrer"
 						className="text-blush py-1"
-					>
 					target="_blank"
 					rel="noreferrer"
 					className="footer-rainbow-link inline-flex min-h-11 items-center rounded-md px-2"
