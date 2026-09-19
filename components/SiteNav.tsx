@@ -159,6 +159,7 @@ export default function SiteNav() {
 	useEffect(() => {
 		const checkMobile = () => setIsMobile(window.innerWidth < 768);
 		checkMobile();
+		window.addEventListener('resize', checkMobile);
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
