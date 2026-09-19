@@ -219,6 +219,7 @@ export default function SiteNav() {
 										key={item.href}
 										item={item}
 										active={isActive(item.href)}
+										pillId="nav-pill"
 
 	return (
 		<MotionConfig reducedMotion="user">
