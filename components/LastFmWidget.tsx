@@ -189,6 +189,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 						key={id}
 						type="button"
 						onClick={() => setView(id)}
+						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
