@@ -61,6 +61,7 @@
 							}}
 			<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 							remarkPlugins={[remarkGfm]}
+				{t.aboutHeading}
 							rehypePlugins={[rehypeRaw, rehypeRainbow]}
 							{discordify(dictionaries[code].about)}
 					</div>
