@@ -68,3 +68,4 @@ function StatsHeader({ user, t }: { user: LastFmUserInfo; t: ReturnType<typeof u
 interface MusicContentProps {
 	initialUserInfo?: LastFmUserInfo | null;
 }
+
