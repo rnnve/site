@@ -180,6 +180,7 @@ export default function SiteNav() {
 
 		if (!isMobile) {
 			handleScroll();
+			window.addEventListener('scroll', handleScroll, { capture: true, passive: true });
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
