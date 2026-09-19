@@ -58,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<link key={href} rel="preconnect" href={href} crossOrigin="anonymous" />
 				))}
 				<I18nProvider>
+					<DocumentLanguageSync />
 			</head>
 				<div className="flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
 				<Analytics />
