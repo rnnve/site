@@ -171,6 +171,7 @@ export default function SiteNav() {
 				currentY = e.target.scrollTop;
 			} else {
 				const scroller = document.querySelector(
+					'section[aria-label="Live status"], section[aria-label="Last.fm"], main section',
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
