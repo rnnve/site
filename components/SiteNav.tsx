@@ -252,6 +252,7 @@ export default function SiteNav() {
 							className="fixed top-16 left-0 right-0 z-40 px-4 pt-4"
 						>
 							<motion.div
+								layout
 
 	return (
 		<MotionConfig reducedMotion="user">
