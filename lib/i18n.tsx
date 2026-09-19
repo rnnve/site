@@ -50,6 +50,7 @@ export const dictionaries = {
 		lastfmError: 'Unable to load: {error}',
 		lastfmPlays: '{count} plays',
 		lastfmMemberSince: 'Last.fm member since {year}',
+		lastfmStats: {
 		aboutHeading: 'About',
 	},
 	th: {
