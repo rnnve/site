@@ -95,7 +95,6 @@ export default function SpotifyNowPlayingCard() {
 					</span>
 					<SpotifyIcon className="h-4 w-4 text-accent" />
 					<span className="text-xs font-medium uppercase tracking-wider text-accent">
-						Currently Playing
 					</span>
 				</div>
 				<p className="mt-1 truncate text-sm font-semibold text-on-surface">{data.title}</p>
