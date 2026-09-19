@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState, type CSSProperties, type ComponentType } from 'react';
 import { motion, MotionConfig } from 'framer-motion';
 
 function HomeIcon({ className }: { className?: string }) {
