@@ -267,6 +267,7 @@ export default function SiteNav() {
 								{items.map((item) => (
 									<NavButton
 										key={item.href}
+										item={item}
 
 	return (
 		<MotionConfig reducedMotion="user">
