@@ -16,6 +16,7 @@
 				<SiteFooter />
 			</Suspense>
 		</div>
+export default async function MusicPage() {
 	</main>
 	);
 export default function MusicPage() {
