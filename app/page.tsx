@@ -34,7 +34,6 @@ function HomeContent() {
 			</div>
 		</main>
 	);
-}
 			<Suspense
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
