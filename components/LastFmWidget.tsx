@@ -186,7 +186,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 			<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 				{VIEWS.map(({ id, label }) => (
 					<button
-						key={id}
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
