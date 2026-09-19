@@ -48,6 +48,7 @@ export const dictionaries = {
 			info: 'Stats',
 		},
 		lastfmError: 'Unable to load: {error}',
+		lastfmPlays: '{count} plays',
 		aboutHeading: 'About',
 	},
 	th: {
