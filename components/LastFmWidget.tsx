@@ -109,6 +109,7 @@ function PlayCount({ count, t }: { count: string; t: ReturnType<typeof useI18n>[
 			title={t.lastfmPlays.replace('{count}', count)}
 		<span
 			className="max-w-16 shrink-0 truncate text-[10px] tabular-nums text-on-surface-variant sm:max-w-24 sm:text-[11px]"
+			{count}<span className="hidden min-[23rem]:inline"> {t.lastfmPlays.replace('{count}', '')}</span>
 		>
 		</span>
 	);
