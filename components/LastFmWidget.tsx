@@ -244,7 +244,6 @@ export default function LastFmWidget() {
 				link.rel = 'preload';
 				link.as = 'image';
 				link.href = smallSrc;
-				link.fetchPriority = 'high';
 				<div className="flex w-full min-w-0 flex-wrap gap-1.5 px-1">
 					{VIEWS.map(({ id, label }) => (
 						<button
