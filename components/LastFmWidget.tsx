@@ -177,7 +177,6 @@ function TopArtistRow({ artist, priority }: { artist: LastFmTopArtist; priority?
 	);
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
 	return (
 		<div className="min-w-0 rounded-lg bg-surface-container-high/60 px-3 py-2.5">
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
