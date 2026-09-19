@@ -66,7 +66,6 @@ function TrackImage({
 
 	useEffect(() => {
 		setFailed(false);
-	}, [src]);
 
 	if (!src || isLastFmPlaceholder(src) || failed) {
 		return (
