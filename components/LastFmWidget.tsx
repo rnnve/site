@@ -56,6 +56,7 @@ function TrackImage({
 	const [currentSrc, setCurrentSrc] = useState<string | null>(null);
 	
 	// Use Spotify CDN when available (fastest), fallback to Last.fm small
+	const spotifySrc = art;
 	const [failed, setFailed] = useState(false);
 
 	useEffect(() => {
