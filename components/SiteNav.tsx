@@ -200,6 +200,7 @@ export default function SiteNav() {
 			<MotionConfig reducedMotion="user">
 				<nav
 					aria-label="Main navigation"
+					className="fixed top-0 left-0 right-0 z-50"
 
 	return (
 		<MotionConfig reducedMotion="user">
