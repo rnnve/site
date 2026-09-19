@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import SiteFooter from '@/components/SiteFooter';
 import { LiveProvider } from '@/components/LiveProvider';
 import { LiveProviderWithData } from '@/components/LiveProviderWithData';
