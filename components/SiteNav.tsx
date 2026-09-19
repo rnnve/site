@@ -165,6 +165,7 @@ export default function SiteNav() {
 
 	useEffect(() => {
 		const handleScroll = (e?: Event) => {
+			if (isMobile) return;
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
