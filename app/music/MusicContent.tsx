@@ -22,3 +22,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 		const startValue = 0;
 
 		const animate = () => {
+			const elapsed = Date.now() - startTime;
