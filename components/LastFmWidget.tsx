@@ -249,6 +249,7 @@ export default function LastFmWidget() {
 			}
 		});
 	}, [viewData, view]);
+
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
