@@ -77,6 +77,7 @@ function NavButton({
 				animate={{
 					padding: collapsed ? '0.25rem 0.35rem' : '0.375rem 0.5rem',
 				}}
+				whileHover={{ scale: 1.1 }}
 				/>
 				whileHover={{ scale: 1.08 }}
 				whileTap={{ scale: 0.95 }}
