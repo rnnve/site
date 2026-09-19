@@ -202,6 +202,7 @@ export default function SiteNav() {
 					aria-label="Main navigation"
 					className="fixed top-0 left-0 right-0 z-50"
 				>
+					{!scrolled ? (
 
 	return (
 		<MotionConfig reducedMotion="user">
