@@ -105,6 +105,7 @@ export const dictionaries = {
 		lastfmStats: {
 			scrobbles: 'สครอบเบิล',
 			tracks: 'เพลง',
+			artists: 'ศิลปิน',
 	},
 } as const;
 
