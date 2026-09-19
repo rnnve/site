@@ -28,6 +28,7 @@ type ViewData = {
 	info: LastFmUserInfoResponse;
 };
 
+interface LastFmWidgetProps {
 
 function Rank({ rank }: { rank?: string }) {
 	return (
