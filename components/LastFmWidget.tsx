@@ -182,6 +182,7 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 		{ id: 'topartists', label: t.lastfmViews.topartists },
 		{ id: 'recent', label: t.lastfmViews.recent },
 	];
+		<div className="-mx-1 shrink-0 bg-surface pb-2 pt-0.5">
 
 			<span className="block break-words text-base font-bold tabular-nums text-on-surface sm:text-xl">{value}</span>
 			<span className="text-[11px] text-on-surface-variant">{label}</span>
