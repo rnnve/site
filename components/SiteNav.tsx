@@ -212,6 +212,7 @@ export default function SiteNav() {
 								padding: '0.5rem 1rem',
 								borderRadius: 0,
 							}}
+						>
 
 	return (
 		<MotionConfig reducedMotion="user">
