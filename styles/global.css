@@ -78,6 +78,7 @@
 }
 
 html.lang-th {
+	font-family: var(--font-thai);
 .no-scrollbar {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
