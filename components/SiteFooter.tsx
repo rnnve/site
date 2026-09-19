@@ -21,7 +21,6 @@ export default async function SiteFooter({ className }: { className?: string }) 
 	const commits = await getCommitCount();
 
 	return (
-		<footer className="mt-auto flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline">
 			<div className="flex min-w-0 shrink-0 flex-col items-start">
 				<p className="text-berry py-1">© {year} Rinne</p>
 				{commits !== null && (
