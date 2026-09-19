@@ -192,7 +192,6 @@ function ViewTabs({ view, setView, t }: { view: LastFmView; setView: (v: LastFmV
 						className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
 							view === id
 								? 'bg-primary-container text-on-primary-container'
-								: 'bg-surface-container-high/60 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
 	const registeredYear = user.registered?.unixtime
 		? new Date(Number(user.registered.unixtime) * 1000).getUTCFullYear()
 		: null;
