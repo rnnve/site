@@ -18,6 +18,7 @@
 		</div>
 export default async function MusicPage() {
 	</main>
+	const initialData = await getInitialLiveData(ALL_VIEWS);
 	);
 export default function MusicPage() {
 		<Suspense
