@@ -112,6 +112,7 @@ function LanguageSwitcherBar() {
 	return (
 		<button
 			type="button"
+			onClick={() => setLang(lang === 'en' ? 'th' : 'en')}
 export default function SiteNav() {
 	const pathname = usePathname() || '/';
 
