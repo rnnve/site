@@ -218,6 +218,7 @@ export default function LastFmWidget() {
 	const topTracksData = view === 'toptracks' ? (viewData as ViewData['toptracks'] | undefined) : undefined;
 	const topArtistsData =
 	// Keep fetching info view for user stats (shown in header)
+	const infoData = (lastfm as Record<string, unknown>)['info'] as ViewData['info'] | undefined;
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
