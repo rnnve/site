@@ -88,3 +88,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 						{userInfo && (
 							<div className="mt-4 animate-fade-in">
 								<StatsHeader user={userInfo} t={t} />
+							</div>
