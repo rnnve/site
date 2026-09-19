@@ -13,7 +13,6 @@ function discordify(markdown: string): string {
 		.replace(/\|\|([^|]+)\|\|/g, '<span class="spoiler">$1</span>');
 }
 
-	const { lang, t } = useI18n();
 				<h2 className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">
 					{t.aboutHeading}
 				</h2>
