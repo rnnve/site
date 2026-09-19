@@ -32,7 +32,6 @@ function HomeContent() {
 					<SiteFooter />
 				</Suspense>
 			</div>
-		</main>
 			<Suspense
 				fallback={
 					<LiveProvider views={HOME_VIEWS}>
