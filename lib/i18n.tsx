@@ -86,6 +86,7 @@ export const dictionaries = {
 		spotifyLabel: 'สปอติไฟ',
 		spotifyCurrentlyPlaying: 'กำลังเล่นอยู่',
 		spotifyNoSong: 'ไม่มีเพลงเล่นอยู่',
+		spotifyNothingScrobbling: 'ไม่มีการสครอบเบิลขณะนี้',
 	},
 } as const;
 
