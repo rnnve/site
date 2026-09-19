@@ -33,3 +33,4 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 			if (progress < 1) {
 				requestAnimationFrame(animate);
+			} else {
