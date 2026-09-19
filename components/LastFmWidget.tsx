@@ -220,6 +220,7 @@ export default function LastFmWidget() {
 	// Keep fetching info view for user stats (shown in header)
 	const infoData = (lastfm as Record<string, unknown>)['info'] as ViewData['info'] | undefined;
 
+	useEffect(() => {
 		view === 'topartists' ? (viewData as ViewData['topartists'] | undefined) : undefined;
 
 	return (
