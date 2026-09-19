@@ -27,6 +27,7 @@ export const dictionaries = {
 		// Discord
 		discordLabel: 'Discord',
 		discordError: 'Unable to load: {error}',
+		discordBoosting: 'Boosting {guild}',
 		aboutHeading: 'About',
 	},
 	th: {
