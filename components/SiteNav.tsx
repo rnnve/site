@@ -57,6 +57,7 @@ function NavButton({
 	active: boolean
 	pillId: string
 	const { t } = useI18n();
+	const label = item.key === 'home' ? t.navHome : t.navMusic;
 }) {
 
 	return (
