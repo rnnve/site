@@ -96,6 +96,7 @@ export const dictionaries = {
 		lastfmViews: {
 			recent: 'ล่าสุด',
 			toptracks: 'เพลงยอดนิยม',
+			topartists: 'ศิลปินยอดนิยม',
 	},
 } as const;
 
