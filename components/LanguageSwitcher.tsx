@@ -17,3 +17,4 @@ export default function LanguageSwitcher() {
 	return (
 		<div
 			className="fixed top-3.5 right-4 z-50 sm:top-5"
+			role="group"
