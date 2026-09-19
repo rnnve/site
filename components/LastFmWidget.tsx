@@ -29,6 +29,7 @@ type ViewData = {
 };
 
 interface LastFmWidgetProps {
+	initialView?: LastFmView;
 
 function Rank({ rank }: { rank?: string }) {
 	return (
