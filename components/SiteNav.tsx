@@ -268,6 +268,7 @@ export default function SiteNav() {
 									<NavButton
 										key={item.href}
 										item={item}
+										active={isActive(item.href)}
 
 	return (
 		<MotionConfig reducedMotion="user">
