@@ -81,3 +81,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 				className="no-scrollbar flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden overscroll-contain"
 				aria-label={t.lastfmLabel}
 			>
+				<div className="m-auto flex w-full min-w-0 flex-col gap-4">
