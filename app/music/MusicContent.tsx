@@ -87,3 +87,4 @@ export default function MusicContent({ initialUserInfo = null }: MusicContentPro
 						<p className="mt-1 text-sm text-on-surface-variant">{t.lastfmListeningHistory}</p>
 						{userInfo && (
 							<div className="mt-4 animate-fade-in">
+								<StatsHeader user={userInfo} t={t} />
