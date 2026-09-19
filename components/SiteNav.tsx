@@ -160,6 +160,7 @@ export default function SiteNav() {
 		const checkMobile = () => setIsMobile(window.innerWidth < 768);
 		checkMobile();
 		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
 	const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 	return (
