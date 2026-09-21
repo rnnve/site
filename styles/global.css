@@ -9,7 +9,6 @@
 
 @theme {
   --animate-fade-in: fade-in 0.25s ease-out both;
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-thai: var(--font-chakra-petch), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
   /* Material 3 dark tonal palette, neutral (white) primary seed. */
