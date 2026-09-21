@@ -29,3 +29,4 @@ export function getLangSnapshot(): Lang {
 		applyToDocument(current);
 	}
 	return current;
+}
