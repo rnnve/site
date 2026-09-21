@@ -120,7 +120,6 @@ export const dictionaries = {
 
 export type Dictionary = (typeof dictionaries)[Lang];
 
-
 interface I18nContextValue {
   lang: Lang;
   setLang: (lang: Lang) => void;
