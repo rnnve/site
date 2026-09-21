@@ -9,3 +9,4 @@ import SiteFooter from './SiteFooter';
 import type { LiveInitialData, LiveLastFmView } from '@/lib/integrations';
 import { DocumentLanguageSync } from './DocumentLanguageSync';
 
+interface HomeContentProps {
