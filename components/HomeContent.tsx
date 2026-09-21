@@ -27,3 +27,4 @@ function HomeInner() {
               <div className="min-w-0">
                 <DiscordProfileCard />
               </div>
+              <AboutSection />
