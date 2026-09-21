@@ -5,6 +5,7 @@ import {
 	getLangSnapshot,
 	getLangServerSnapshot,
 	setSiteLang,
+	subscribeLangChange,
 
 export type Lang = 'en' | 'th';
 
