@@ -1,0 +1,21 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getInitialLiveData } from '@/lib/initial-live';
+import MusicContent from '@/components/MusicContent.tsx';
+import { LiveProvider } from '@/components/LiveProvider.tsx';
+import type { LiveLastFmView } from '@/lib/integrations';
+
+const ALL_VIEWS: readonly LiveLastFmView[] = ['recent', 'toptracks', 'topartists', 'info'];
+
+const initialData = await getInitialLiveData(ALL_VIEWS);
+---
+
+<MainLayout
+  title="Music · Rinne"
+  description="Last.fm recent tracks, top tracks, artists and stats."
+  lang="en"
+>
+  <LiveProvider initialData={initialData} views={ALL_VIEWS} client:load>
+    <MusicContent client:load />
+  </LiveProvider>
+</MainLayout>

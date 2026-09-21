@@ -1,7 +1,7 @@
 /**
- * Runtime env for Node / Vercel (Next.js).
+ * Runtime env for Astro (Node/Bun).
  */
 export function getEnv(key: string): string | undefined {
-	if (typeof process === 'undefined') return undefined;
-	return process.env[key];
+  if (typeof process === 'undefined') return undefined;
+  return process.env[key];
 }

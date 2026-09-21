@@ -1,16 +1,16 @@
 interface DeezerSearchResponse {
-	data?: Array<{
-		album?: { cover_medium?: string; cover?: string };
-		picture_medium?: string;
-		picture?: string;
-	}>;
+  data?: Array<{
+    album?: { cover_medium?: string; cover?: string };
+    picture_medium?: string;
+    picture?: string;
+  }>;
 }
 
 interface ITunesSearchResponse {
-	results?: Array<{
-		artworkUrl100?: string;
-		artworkUrl60?: string;
-	}>;
+  results?: Array<{
+    artworkUrl100?: string;
+    artworkUrl60?: string;
+  }>;
 }
 
 const FETCH_TIMEOUT_MS = 2_500;
@@ -23,16 +23,16 @@ type CacheEntry = { url: string | null; expiresAt: number };
 const coverCache = new Map<string, CacheEntry>();
 
 async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | null> {
-	try {
-		const response = await fetch(url, {
-			headers: { 'User-Agent': userAgent },
-			signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-		});
-		if (!response.ok) return null;
-		return (await response.json()) as T;
-	} catch {
-		return null;
-	}
+  try {
+    const response = await fetch(url, {
+      headers: { 'User-Agent': userAgent },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    });
+    if (!response.ok) return null;
+    return (await response.json()) as T;
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -40,50 +40,50 @@ async function fetchJson<T>(url: string, userAgent = 'site/1.0'): Promise<T | nu
  * primary source, iTunes is the track fallback.
  */
 export async function resolveFastCover(
-	name: string,
-	artist: string,
-	type: 'track' | 'artist',
+  name: string,
+  artist: string,
+  type: 'track' | 'artist',
 ): Promise<string | null> {
-	const cacheKey = `${type}:${artist.toLowerCase().trim()}:${name.toLowerCase().trim()}`;
-	const cached = coverCache.get(cacheKey);
-	if (cached && cached.expiresAt > Date.now()) return cached.url;
+  const cacheKey = `${type}:${artist.toLowerCase().trim()}:${name.toLowerCase().trim()}`;
+  const cached = coverCache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) return cached.url;
 
-	let foundUrl: string | null = null;
+  let foundUrl: string | null = null;
 
-	const query = type === 'track' ? `${name} ${artist}`.trim() : artist.trim() || name.trim();
-	if (query) {
-		const endpoint =
-			type === 'track'
-				? `https://api.deezer.com/search?q=${encodeURIComponent(query)}&limit=1`
-				: `https://api.deezer.com/search/artist?q=${encodeURIComponent(query)}&limit=1`;
-		const data = await fetchJson<DeezerSearchResponse>(endpoint);
-		const item = data?.data?.[0];
-		foundUrl =
-			type === 'track'
-				? (item?.album?.cover_medium ?? item?.album?.cover ?? null)
-				: (item?.picture_medium ?? item?.picture ?? null);
-	}
+  const query = type === 'track' ? `${name} ${artist}`.trim() : artist.trim() || name.trim();
+  if (query) {
+    const endpoint =
+      type === 'track'
+        ? `https://api.deezer.com/search?q=${encodeURIComponent(query)}&limit=1`
+        : `https://api.deezer.com/search/artist?q=${encodeURIComponent(query)}&limit=1`;
+    const data = await fetchJson<DeezerSearchResponse>(endpoint);
+    const item = data?.data?.[0];
+    foundUrl =
+      type === 'track'
+        ? (item?.album?.cover_medium ?? item?.album?.cover ?? null)
+        : (item?.picture_medium ?? item?.picture ?? null);
+  }
 
-	if (!foundUrl && type === 'track' && name.trim()) {
-		const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
-			`${name} ${artist}`.trim(),
-		)}&entity=song&limit=1`;
-		const data = await fetchJson<ITunesSearchResponse>(endpoint);
-		const result = data?.results?.[0];
-		foundUrl = result?.artworkUrl100 ?? result?.artworkUrl60 ?? null;
-	}
+  if (!foundUrl && type === 'track' && name.trim()) {
+    const endpoint = `https://itunes.apple.com/search?term=${encodeURIComponent(
+      `${name} ${artist}`.trim(),
+    )}&entity=song&limit=1`;
+    const data = await fetchJson<ITunesSearchResponse>(endpoint);
+    const result = data?.results?.[0];
+    foundUrl = result?.artworkUrl100 ?? result?.artworkUrl60 ?? null;
+  }
 
-	coverCache.set(cacheKey, {
-		url: foundUrl,
-		expiresAt: Date.now() + (foundUrl ? POSITIVE_CACHE_TTL_MS : NEGATIVE_CACHE_TTL_MS),
-	});
-	return foundUrl;
+  coverCache.set(cacheKey, {
+    url: foundUrl,
+    expiresAt: Date.now() + (foundUrl ? POSITIVE_CACHE_TTL_MS : NEGATIVE_CACHE_TTL_MS),
+  });
+  return foundUrl;
 }
 
 type CoverArtItem = {
-	name: string;
-	artist?: string | { name?: string; '#text'?: string };
-	spotifyImage?: string;
+  name: string;
+  artist?: string | { name?: string; '#text'?: string };
+  spotifyImage?: string;
 };
 
 /**
@@ -91,16 +91,16 @@ type CoverArtItem = {
  * Only touches items missing covers so per-request latency stays minimal.
  */
 export async function augmentFastCovers(
-	items: CoverArtItem[],
-	type: 'track' | 'artist',
+  items: CoverArtItem[],
+  type: 'track' | 'artist',
 ): Promise<void> {
-	await Promise.allSettled(
-		items.map(async (item) => {
-			if (item.spotifyImage) return;
-			const artist =
-				typeof item.artist === 'string' ? item.artist : (item.artist?.name ?? item.artist?.['#text'] ?? '');
-			const url = await resolveFastCover(item.name, artist, type);
-			if (url) item.spotifyImage = url;
-		}),
-	);
+  await Promise.allSettled(
+    items.map(async (item) => {
+      if (item.spotifyImage) return;
+      const artist =
+        typeof item.artist === 'string' ? item.artist : (item.artist?.name ?? item.artist?.['#text'] ?? '');
+      const url = await resolveFastCover(item.name, artist, type);
+      if (url) item.spotifyImage = url;
+    }),
+  );
 }

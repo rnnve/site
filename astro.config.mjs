@@ -1,0 +1,42 @@
+import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
+import vercel from '@astrojs/vercel';
+
+const site = 'https://maplenan.org';
+
+export default defineConfig({
+  site,
+  output: 'server',
+  adapter: vercel(),
+  integrations: [
+    react(),
+    sitemap({
+      serialize(item) {
+        return {
+          ...item,
+          lastmod: new Date(),
+        };
+      },
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/noop',
+    },
+  },
+  compressHTML: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
+  rewrites: [
+    { source: '/hub/p.js', destination: 'https://portus.sh/p.js' },
+    { source: '/hub/e', destination: 'https://portus.sh/api/e' },
+  ],
+  srcDir: '.',
+});

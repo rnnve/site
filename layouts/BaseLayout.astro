@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang?: 'en' | 'th';
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  lang = 'en',
+  canonical,
+  ogImage,
+} = Astro.props;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://maplenan.org';
+const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
+
+const preconnects = [
+  'https://spotify.mapleji.xyz',
+  'https://api.mapleji.xyz',
+  'https://ws.audioscrobbler.com',
+  'https://i.scdn.co',
+  'https://lastfm-img.freetls.fastly.net',
+  'https://is1-ssl.mzstatic.com',
+  'https://cdn-images.dzcdn.net',
+  'https://cdn.discordapp.com',
+  'https://media.discordapp.net',
+  'https://fonts.googleapis.com',
+  'https://fonts.gstatic.com',
+];
+---
+
+<!DOCTYPE html>
+<html lang={lang} class:list={['lang-th', lang === 'th']}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    {preconnects.map((href) => (
+      <link rel="preconnect" href={href} crossorigin="anonymous" />
+    ))}
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+
+    <script
+      is:inline
+      data-domain="maplenan.org"
+      data-api="/hub/e"
+      src="/hub/p.js"
+      defer
+    ></script>
+    <script
+      is:inline
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "19e054ca2aae4e1d80634a3fb040be6a"}'
+    ></script>
+  </head>
+  <body class="flex h-dvh min-w-0 flex-col overflow-hidden bg-surface font-sans">
+    <slot />
+  </body>
+</html>

@@ -10,14 +10,14 @@ let fullLoadingPromise: Promise<LiveInitialData> | null = null;
 
 export async function getFastInitialData(): Promise<LiveInitialData | null> {
   if (cachedData) return cachedData;
-  
+
   if (!loadingPromise) {
     loadingPromise = getInitialLiveData(FAST_VIEWS).then((data) => {
       cachedData = data;
       return data;
     });
   }
-  
+
   return loadingPromise;
 }
 
@@ -25,14 +25,14 @@ export async function getFullInitialData(): Promise<LiveInitialData | null> {
   if (cachedData?.lastfm.toptracks && cachedData?.lastfm.topartists && cachedData?.lastfm.info) {
     return cachedData;
   }
-  
+
   if (!fullLoadingPromise) {
     fullLoadingPromise = getInitialLiveData(ALL_VIEWS).then((data) => {
       cachedData = { ...cachedData, ...data };
       return cachedData!;
     });
   }
-  
+
   return fullLoadingPromise;
 }
 

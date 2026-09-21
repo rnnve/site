@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteNav from '@/components/SiteNav.tsx';
+import { I18nProvider } from '@/components/I18nProvider.tsx';
+import { DocumentLanguageSync } from '@/components/DocumentLanguageSync.tsx';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: 'en' | 'th';
+  canonical?: string;
+  ogImage?: string;
+}
+
+const { title, description, lang = 'en', canonical, ogImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={canonical} ogImage={ogImage}>
+  <I18nProvider client:load>
+    <DocumentLanguageSync client:load />
+    <SiteNav client:load />
+    <div class="flex min-h-0 flex-1 flex-col overflow-hidden pt-14">
+      <slot />
+    </div>
+  </I18nProvider>
+</BaseLayout>

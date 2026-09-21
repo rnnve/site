@@ -1,0 +1,44 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getInitialLiveData } from '@/lib/initial-live';
+import DiscordProfileCard from '@/components/DiscordProfileCard.tsx';
+import AboutSection from '@/components/AboutSection.tsx';
+import SpotifyNowPlaying from '@/components/SpotifyNowPlaying.tsx';
+import SiteFooter from '@/components/SiteFooter.tsx';
+import { LiveProvider } from '@/components/LiveProvider.tsx';
+import type { LiveLastFmView } from '@/lib/integrations';
+
+const HOME_VIEWS: readonly LiveLastFmView[] = ['recent'];
+
+const initialData = await getInitialLiveData(HOME_VIEWS);
+---
+
+<MainLayout
+  title="Rinne"
+  description="Rinne — live Spotify, Discord and Last.fm status."
+  lang="en"
+>
+  <LiveProvider initialData={initialData} views={HOME_VIEWS} client:load>
+    <main class="flex min-h-0 flex-1 flex-col overflow-hidden bg-surface text-on-surface">
+      <div class="mx-auto flex min-h-0 w-full max-w-4xl min-w-0 flex-1 flex-col gap-4 overflow-hidden pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:gap-5 sm:px-6 sm:pt-5 sm:pb-[max(1.25rem,env(safe-area-inset-bottom))] lg:px-8 lg:pt-6">
+        <section
+          class="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain"
+          aria-label="Live status"
+        >
+          <div class="my-auto flex min-w-0 flex-col gap-4">
+            <div class="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+              <div class="min-w-0">
+                <DiscordProfileCard client:load />
+              </div>
+              <AboutSection client:load />
+            </div>
+            <div class="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+              <SpotifyNowPlaying client:load />
+            </div>
+          </div>
+        </section>
+        <SiteFooter client:visible />
+      </div>
+    </main>
+  </LiveProvider>
+</MainLayout>
