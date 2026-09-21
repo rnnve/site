@@ -9,6 +9,7 @@
 
 @theme {
   --animate-fade-in: fade-in 0.25s ease-out both;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
 
   /* Material 3 dark tonal palette, neutral (white) primary seed. */
   --color-primary: #e6e1e5;
