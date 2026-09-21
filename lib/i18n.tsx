@@ -137,7 +137,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 		getLangSnapshot();
 	}, []);
 
-	function setLang(next: Lang) {
 		setLangState(next);
 		if (typeof window !== 'undefined') {
 			window.localStorage.setItem(STORAGE_KEY, next);
