@@ -11,3 +11,4 @@ interface MusicIslandProps {
   views?: readonly LiveLastFmView[];
 }
 
+export default function MusicIsland({ initialData, views }: MusicIslandProps) {
