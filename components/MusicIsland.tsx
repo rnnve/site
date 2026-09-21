@@ -16,3 +16,4 @@ export default function MusicIsland({ initialData, views }: MusicIslandProps) {
     <I18nProvider>
       <LiveProvider initialData={initialData} views={views}>
         <DocumentLanguageSync />
+        <MusicContent />
