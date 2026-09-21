@@ -16,3 +16,4 @@ interface HomeContentProps {
 
 function HomeInner() {
   return (
+    <main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-surface text-on-surface">
