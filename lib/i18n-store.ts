@@ -44,3 +44,4 @@ export function setSiteLang(next: Lang) {
 		} catch {
 			// ignore
 		}
+		applyToDocument(next);
