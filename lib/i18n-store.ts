@@ -16,3 +16,4 @@ function readStored(): Lang {
 	}
 }
 
+function applyToDocument(lang: Lang) {
