@@ -41,3 +41,4 @@ export function setSiteLang(next: Lang) {
 	if (typeof window !== 'undefined') {
 		try {
 			window.localStorage.setItem(STORAGE_KEY, next);
+		} catch {
