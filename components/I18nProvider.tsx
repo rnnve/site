@@ -120,7 +120,6 @@ export const dictionaries = {
 
 export type Dictionary = (typeof dictionaries)[Lang];
 
-const STORAGE_KEY = 'site-lang';
 
 function readStoredLang(): Lang {
   if (typeof window === 'undefined') return 'en';
