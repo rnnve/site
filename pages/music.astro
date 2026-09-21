@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import { getInitialLiveData } from '@/lib/initial-live';
+import MusicIsland from '@/components/MusicIsland.tsx';
 import type { LiveLastFmView } from '@/lib/integrations';
 
 const ALL_VIEWS: readonly LiveLastFmView[] = ['recent', 'toptracks', 'topartists', 'info'];
