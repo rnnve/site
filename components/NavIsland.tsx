@@ -5,3 +5,4 @@ import SiteNav from './SiteNav';
 import { DocumentLanguageSync } from './DocumentLanguageSync';
 
 function NavContent() {
+  return (
