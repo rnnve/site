@@ -47,3 +47,4 @@ export function setSiteLang(next: Lang) {
 		applyToDocument(next);
 		window.dispatchEvent(new CustomEvent<Lang>(EVENT_NAME, { detail: next }));
 	}
+}
