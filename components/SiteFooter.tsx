@@ -1,24 +1,27 @@
-async function getCommitCount(): Promise<number | null> {
-	try {
-		const response = await fetch(
-			'https://api.github.com/repos/rnnve/site/commits?per_page=1',
-			{
-				headers: { Accept: 'application/vnd.github+json' },
-				next: { revalidate: 3600 },
-				signal: AbortSignal.timeout(4000),
-			},
-		);
-		if (!response.ok) return null;
-		const last = response.headers.get('link')?.match(/page=(\d+)>; rel="last"/)?.[1];
-		return last ? Number(last) : null;
-	} catch {
-		return null;
-	}
-}
+'use client';
 
-export default async function SiteFooter({ className }: { className?: string }) {
+import { useEffect, useState } from 'react';
+
+export default function SiteFooter({ className }: { className?: string }) {
 	const year = new Date().getFullYear();
-	const commits = await getCommitCount();
+	const [commits, setCommits] = useState<number | null>(null);
+
+	useEffect(() => {
+		async function fetchCommits() {
+			try {
+				const response = await fetch('https://api.github.com/repos/rnnve/site/commits?per_page=1', {
+					headers: { Accept: 'application/vnd.github+json' },
+					signal: AbortSignal.timeout(4000),
+				});
+				if (!response.ok) return;
+				const last = response.headers.get('link')?.match(/page=(\d+)>; rel="last"/)?.[1];
+				if (last) setCommits(Number(last));
+			} catch {
+				// ignore
+			}
+		}
+		fetchCommits();
+	}, []);
 
 	return (
 		<footer className={`flex min-w-0 flex-row flex-wrap items-center justify-between gap-1 pt-3 pb-2 text-xs text-outline ${className || 'mt-auto'}`}>
