@@ -49,3 +49,4 @@ export function setSiteLang(next: Lang) {
 	}
 }
 
+export function subscribeLangChange(callback: () => void): () => void {
