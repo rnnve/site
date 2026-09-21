@@ -21,3 +21,4 @@ function HomeInner() {
         <section
           className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain"
           aria-label="Live status"
+        >
