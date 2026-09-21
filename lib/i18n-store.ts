@@ -14,3 +14,4 @@ function readStored(): Lang {
 	} catch {
 		return 'en';
 	}
+}
