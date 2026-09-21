@@ -35,3 +35,4 @@ export function getLangServerSnapshot(): Lang {
 	return 'en';
 }
 
+export function setSiteLang(next: Lang) {
