@@ -6,3 +6,4 @@ import { DocumentLanguageSync } from './DocumentLanguageSync';
 
 function NavContent() {
   return (
+    <>
