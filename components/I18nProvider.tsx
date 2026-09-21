@@ -135,7 +135,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     getLangSnapshot();
   }, []);
 
-      window.localStorage.setItem(STORAGE_KEY, next);
     }
   }
 
