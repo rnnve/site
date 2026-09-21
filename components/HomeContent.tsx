@@ -14,3 +14,4 @@ interface HomeContentProps {
   views?: readonly LiveLastFmView[];
 }
 
+function HomeInner() {
