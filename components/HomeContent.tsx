@@ -12,3 +12,4 @@ import { DocumentLanguageSync } from './DocumentLanguageSync';
 interface HomeContentProps {
   initialData?: LiveInitialData;
   views?: readonly LiveLastFmView[];
+}
