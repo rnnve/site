@@ -29,3 +29,4 @@ function HomeInner() {
               </div>
               <AboutSection />
             </div>
+            <div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
