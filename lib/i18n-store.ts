@@ -18,3 +18,4 @@ function readStored(): Lang {
 
 function applyToDocument(lang: Lang) {
 	if (typeof document === 'undefined') return;
+	document.documentElement.lang = lang;
