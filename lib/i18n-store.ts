@@ -61,3 +61,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 		callback();
 	};
 	const onStorage = (event: StorageEvent) => {
+		if (event.key !== STORAGE_KEY) return;
