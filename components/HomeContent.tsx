@@ -28,3 +28,4 @@ function HomeInner() {
                 <DiscordProfileCard />
               </div>
               <AboutSection />
+            </div>
