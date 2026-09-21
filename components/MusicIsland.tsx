@@ -8,3 +8,4 @@ import { DocumentLanguageSync } from './DocumentLanguageSync';
 
 interface MusicIslandProps {
   initialData?: LiveInitialData;
+  views?: readonly LiveLastFmView[];
