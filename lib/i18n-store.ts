@@ -48,3 +48,4 @@ export function setSiteLang(next: Lang) {
 		window.dispatchEvent(new CustomEvent<Lang>(EVENT_NAME, { detail: next }));
 	}
 }
+
