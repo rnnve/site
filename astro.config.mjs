@@ -38,9 +38,5 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: 'viewport',
   },
-  rewrites: [
-    { source: '/hub/p.js', destination: 'https://portus.sh/p.js' },
-    { source: '/hub/e', destination: 'https://portus.sh/api/e' },
-  ],
   srcDir: '.',
 });
