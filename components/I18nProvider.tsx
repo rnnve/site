@@ -120,7 +120,6 @@ export const dictionaries = {
 
 export type Dictionary = (typeof dictionaries)[Lang];
 
-  if (typeof window === 'undefined') return 'en';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   return stored === 'en' || stored === 'th' ? stored : 'en';
 }
