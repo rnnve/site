@@ -38,3 +38,4 @@ export function getLangServerSnapshot(): Lang {
 export function setSiteLang(next: Lang) {
 	current = next;
 	initialized = true;
+	if (typeof window !== 'undefined') {
