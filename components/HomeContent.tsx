@@ -15,3 +15,4 @@ interface HomeContentProps {
 }
 
 function HomeInner() {
+  return (
