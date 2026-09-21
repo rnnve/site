@@ -6,6 +6,7 @@ import {
 	getLangServerSnapshot,
 	setSiteLang,
 	subscribeLangChange,
+} from './i18n-store';
 
 export type Lang = 'en' | 'th';
 
