@@ -8,3 +8,4 @@ let initialized = false;
 
 function readStored(): Lang {
 	if (typeof window === 'undefined') return 'en';
+	try {
