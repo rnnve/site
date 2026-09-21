@@ -6,3 +6,4 @@ const EVENT_NAME = 'site-lang-change';
 let current: Lang = 'en';
 let initialized = false;
 
+function readStored(): Lang {
