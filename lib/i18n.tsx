@@ -1,6 +1,5 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
 
 export type Lang = 'en' | 'th';
 
