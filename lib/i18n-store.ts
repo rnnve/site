@@ -20,3 +20,4 @@ function applyToDocument(lang: Lang) {
 	if (typeof document === 'undefined') return;
 	document.documentElement.lang = lang;
 	document.documentElement.classList.toggle('lang-th', lang === 'th');
+}
