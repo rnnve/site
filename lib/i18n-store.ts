@@ -45,3 +45,4 @@ export function setSiteLang(next: Lang) {
 			// ignore
 		}
 		applyToDocument(next);
+		window.dispatchEvent(new CustomEvent<Lang>(EVENT_NAME, { detail: next }));
