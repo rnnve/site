@@ -5,3 +5,4 @@ import { LiveProvider } from './LiveProvider';
 import MusicContent from './MusicContent';
 import type { LiveInitialData, LiveLastFmView } from '@/lib/integrations';
 import { DocumentLanguageSync } from './DocumentLanguageSync';
+
