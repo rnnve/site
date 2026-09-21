@@ -55,3 +55,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 		const detail = (event as CustomEvent<Lang>).detail;
 		if (detail === 'en' || detail === 'th') {
 			current = detail;
+			initialized = true;
