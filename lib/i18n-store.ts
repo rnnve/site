@@ -73,3 +73,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 		window.removeEventListener(EVENT_NAME, onEvent);
 		window.removeEventListener('storage', onStorage);
 	};
+}
