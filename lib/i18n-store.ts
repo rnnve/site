@@ -42,3 +42,4 @@ export function setSiteLang(next: Lang) {
 		try {
 			window.localStorage.setItem(STORAGE_KEY, next);
 		} catch {
+			// ignore
