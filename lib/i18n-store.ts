@@ -51,3 +51,4 @@ export function setSiteLang(next: Lang) {
 
 export function subscribeLangChange(callback: () => void): () => void {
 	if (typeof window === 'undefined') return () => {};
+	const onEvent = (event: Event) => {
