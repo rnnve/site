@@ -12,3 +12,4 @@ interface MusicIslandProps {
 }
 
 export default function MusicIsland({ initialData, views }: MusicIslandProps) {
+  return (
