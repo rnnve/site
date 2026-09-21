@@ -68,28 +68,16 @@ function NavButton({
 			title={label}
 			className="relative flex items-center justify-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 		>
-			{active && (
-				<motion.span
-					layoutId={pillId}
-					className="absolute inset-0 rounded-lg bg-white/10 border border-white/20"
-					transition={springTransition}
-				/>
-			)}
-			<motion.span
+			
+			<span
 				className="relative z-10 flex items-center justify-center gap-2"
-				animate={{
-					padding: collapsed ? '0.25rem 0.35rem' : '0.375rem 0.5rem',
-				}}
-				whileHover={{ scale: 1.1 }}
-				whileTap={{ scale: 0.92 }}
-				transition={{ duration: 0.15, ease: 'easeOut' }}
 				style={{
+					padding: collapsed ? '0.25rem 0.35rem' : '0.375rem 0.5rem',
 					color: active ? '#ffffff' : '#a1a1aa',
 					opacity: active ? 1 : 0.7,
-					transition: 'color 0.15s ease-out, opacity 0.15s ease-out',
+					transition: 'color 0.15s ease-out, opacity 0.15s ease-out, padding 0.15s ease-out',
 				}}
 			>
-				<Icon className={isMobile ? 'h-5 w-5 shrink-0' : (collapsed ? 'h-4 w-4 shrink-0' : 'h-4.5 w-4.5 shrink-0')} />
 				{!isMobile && !collapsed && (
 					<motion.span
 						initial={false}
