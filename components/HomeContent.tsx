@@ -24,3 +24,4 @@ function HomeInner() {
         >
           <div className="my-auto flex min-w-0 flex-col gap-4">
             <div className="min-w-0 rounded-2xl border border-outline-variant bg-surface-container/80 p-4 sm:p-5">
+              <div className="min-w-0">
