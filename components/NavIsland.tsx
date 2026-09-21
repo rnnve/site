@@ -9,3 +9,4 @@ function NavContent() {
     <>
       <DocumentLanguageSync />
       <SiteNav />
+    </>
