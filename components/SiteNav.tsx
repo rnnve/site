@@ -88,7 +88,7 @@ function NavButton({
 						{label}
 					</motion.span>
 				)}
-			</motion.span>
+			</span>
 		</Link>
 	);
 }
