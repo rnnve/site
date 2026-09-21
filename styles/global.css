@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @font-face {
+  font-family: 'Geist';
 
 @theme {
   --animate-fade-in: fade-in 0.25s ease-out both;
