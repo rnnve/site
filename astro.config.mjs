@@ -9,11 +9,7 @@ const site = 'https://maplenan.org';
 export default defineConfig({
   site,
   output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: false,
-    },
-  }),
+  adapter: vercel(),
   integrations: [
     react(),
     sitemap({

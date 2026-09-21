@@ -7,7 +7,18 @@ import type { LiveLastFmView } from '@/lib/integrations';
 
 const ALL_VIEWS: readonly LiveLastFmView[] = ['recent', 'toptracks', 'topartists', 'info'];
 
-const initialData = await getInitialLiveData(ALL_VIEWS);
+let initialData: Awaited<ReturnType<typeof getInitialLiveData>>;
+try {
+  initialData = await getInitialLiveData(ALL_VIEWS);
+} catch {
+  initialData = {
+    discord: null,
+    spotify: null,
+    spotifyStopped: false,
+    lastfm: {},
+    lastfmError: {},
+  };
+}
 ---
 
 <MainLayout
