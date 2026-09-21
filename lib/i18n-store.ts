@@ -30,3 +30,4 @@ export function getLangSnapshot(): Lang {
 	}
 	return current;
 }
+
