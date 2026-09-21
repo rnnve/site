@@ -10,3 +10,4 @@ interface MusicIslandProps {
   initialData?: LiveInitialData;
   views?: readonly LiveLastFmView[];
 }
+
