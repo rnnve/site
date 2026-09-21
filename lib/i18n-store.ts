@@ -64,3 +64,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 		if (event.key !== STORAGE_KEY) return;
 		current = event.newValue === 'th' ? 'th' : 'en';
 		initialized = true;
+		applyToDocument(current);
