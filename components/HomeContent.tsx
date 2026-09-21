@@ -34,3 +34,4 @@ function HomeInner() {
             </div>
           </div>
         </section>
+        <SiteFooter />
