@@ -123,13 +123,7 @@ function BurgerButton({ onClick, expanded }: { onClick: () => void; expanded: bo
 	);
 }
 
-const containerStyle: CSSProperties = {
-	background: 'rgba(10, 10, 10, 0.82)',
-	backdropFilter: 'blur(24px)',
-	WebkitBackdropFilter: 'blur(24px)',
-	borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-	boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3)',
-};
+const containerStyle: CSSProperties = {};
 
 const springTransition = {
 	type: 'spring' as const,
