@@ -57,3 +57,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 			current = detail;
 			initialized = true;
 			applyToDocument(current);
+		}
