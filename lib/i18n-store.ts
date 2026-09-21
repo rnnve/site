@@ -25,3 +25,4 @@ function applyToDocument(lang: Lang) {
 export function getLangSnapshot(): Lang {
 	if (!initialized && typeof window !== 'undefined') {
 		initialized = true;
+		current = readStored();
