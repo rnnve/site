@@ -8,3 +8,4 @@ import SpotifyNowPlaying from './SpotifyNowPlaying';
 import SiteFooter from './SiteFooter';
 import type { LiveInitialData, LiveLastFmView } from '@/lib/integrations';
 import { DocumentLanguageSync } from './DocumentLanguageSync';
+
