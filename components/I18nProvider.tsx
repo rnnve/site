@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useSyncExternalStore, type ReactNode } from 'react';
 import {
 	getLangSnapshot,
+	getLangServerSnapshot,
 
 export type Lang = 'en' | 'th';
 
