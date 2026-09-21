@@ -43,3 +43,4 @@ function HomeInner() {
 export default function HomeContent({ initialData, views }: HomeContentProps) {
   return (
     <I18nProvider>
+      <LiveProvider initialData={initialData} views={views}>
