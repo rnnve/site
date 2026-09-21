@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useSyncExternalStore, type ReactN
 import {
 	getLangSnapshot,
 	getLangServerSnapshot,
+	setSiteLang,
 
 export type Lang = 'en' | 'th';
 
