@@ -15,3 +15,4 @@ function readStored(): Lang {
 		return 'en';
 	}
 }
+
