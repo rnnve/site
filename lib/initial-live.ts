@@ -7,7 +7,7 @@ import type {
 	SpotifyNowPlaying,
 } from '@/lib/integrations';
 
-const INITIAL_TIMEOUT_MS = 4_000;
+const INITIAL_TIMEOUT_MS = 2_000;
 const LASTFM_URL = 'https://ws.audioscrobbler.com/2.0/';
 const TRACK_COUNT = 10;
 
