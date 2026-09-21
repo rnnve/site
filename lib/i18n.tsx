@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useSyncExternalStore } from 'reac
 import {
 	getLangSnapshot,
 	getLangServerSnapshot,
+	setSiteLang,
 
 export type Lang = 'en' | 'th';
 
