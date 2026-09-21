@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
 import {
+	getLangSnapshot,
 
 export type Lang = 'en' | 'th';
 
