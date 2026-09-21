@@ -48,3 +48,4 @@ export default function HomeContent({ initialData, views }: HomeContentProps) {
         <HomeInner />
       </LiveProvider>
     </I18nProvider>
+  );
