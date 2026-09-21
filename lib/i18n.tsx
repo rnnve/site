@@ -134,6 +134,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 	const lang = useSyncExternalStore(subscribeLangChange, getLangSnapshot, getLangServerSnapshot);
 
 	useEffect(() => {
+		getLangSnapshot();
 	}, []);
 
 	function setLang(next: Lang) {
