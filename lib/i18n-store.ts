@@ -69,3 +69,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 	};
 	window.addEventListener(EVENT_NAME, onEvent);
 	window.addEventListener('storage', onStorage);
+	return () => {
