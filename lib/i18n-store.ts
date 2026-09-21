@@ -13,3 +13,4 @@ function readStored(): Lang {
 		return stored === 'th' ? 'th' : 'en';
 	} catch {
 		return 'en';
+	}
