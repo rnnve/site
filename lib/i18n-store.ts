@@ -9,3 +9,4 @@ let initialized = false;
 function readStored(): Lang {
 	if (typeof window === 'undefined') return 'en';
 	try {
+		const stored = window.localStorage.getItem(STORAGE_KEY);
