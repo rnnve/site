@@ -20,3 +20,4 @@ export default function MusicIsland({ initialData, views }: MusicIslandProps) {
       </LiveProvider>
     </I18nProvider>
   );
+}
