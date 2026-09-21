@@ -18,3 +18,4 @@ export default function MusicIsland({ initialData, views }: MusicIslandProps) {
         <DocumentLanguageSync />
         <MusicContent />
       </LiveProvider>
+    </I18nProvider>
