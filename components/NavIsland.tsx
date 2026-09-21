@@ -17,3 +17,4 @@ export default function NavIsland() {
   return (
     <I18nProvider>
       <NavContent />
+    </I18nProvider>
