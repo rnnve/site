@@ -31,3 +31,4 @@ export function getLangSnapshot(): Lang {
 	return current;
 }
 
+export function getLangServerSnapshot(): Lang {
