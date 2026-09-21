@@ -38,3 +38,4 @@ function HomeInner() {
       </div>
     </main>
   );
+}
