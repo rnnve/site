@@ -13,3 +13,4 @@ interface HomeContentProps {
   initialData?: LiveInitialData;
   views?: readonly LiveLastFmView[];
 }
+
