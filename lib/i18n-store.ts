@@ -67,3 +67,4 @@ export function subscribeLangChange(callback: () => void): () => void {
 		applyToDocument(current);
 		callback();
 	};
+	window.addEventListener(EVENT_NAME, onEvent);
