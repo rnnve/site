@@ -10,3 +10,4 @@ import type { LiveInitialData, LiveLastFmView } from '@/lib/integrations';
 import { DocumentLanguageSync } from './DocumentLanguageSync';
 
 interface HomeContentProps {
+  initialData?: LiveInitialData;
