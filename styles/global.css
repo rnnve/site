@@ -4,6 +4,7 @@
   font-family: 'Geist';
   src: url('/fonts/Geist-Variable.woff2') format('woff2');
   font-weight: 100 900;
+  font-display: swap;
 
 @theme {
   --animate-fade-in: fade-in 0.25s ease-out both;
