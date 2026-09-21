@@ -11,3 +11,4 @@ function readStored(): Lang {
 	try {
 		const stored = window.localStorage.getItem(STORAGE_KEY);
 		return stored === 'th' ? 'th' : 'en';
+	} catch {
