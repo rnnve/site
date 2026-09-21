@@ -120,7 +120,6 @@ export const dictionaries = {
 
 export type Dictionary = (typeof dictionaries)[Lang];
 
-  return stored === 'en' || stored === 'th' ? stored : 'en';
 }
 
 interface I18nContextValue {
