@@ -5,3 +5,4 @@ import { LiveProvider } from './LiveProvider';
 import DiscordProfileCard from './DiscordProfileCard';
 import AboutSection from './AboutSection';
 import SpotifyNowPlaying from './SpotifyNowPlaying';
+import SiteFooter from './SiteFooter';
