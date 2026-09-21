@@ -13,3 +13,4 @@ function NavContent() {
   );
 }
 
+export default function NavIsland() {
