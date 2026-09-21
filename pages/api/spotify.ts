@@ -2,6 +2,7 @@ import { getEnv } from '@/lib/env';
 import type { SpotifyNowPlaying } from '@/lib/integrations';
 
 export const prerender = false;
+export const runtime = 'nodejs';
 
 export async function GET() {
   const endpoint = getEnv('SPOTIFY_API_URL') || 'https://spotify.mapleji.xyz/api/spotify';

@@ -10,6 +10,7 @@ import type {
 } from '@/lib/integrations';
 
 export const prerender = false;
+export const runtime = 'nodejs';
 
 const LASTFM_URL = 'https://ws.audioscrobbler.com/2.0/';
 

@@ -1,6 +1,7 @@
 import { getEnv } from '@/lib/env';
 
 export const prerender = false;
+export const runtime = 'nodejs';
 
 export async function GET() {
   const apiUrl = import.meta.env.PUBLIC_SITE_URL || 'https://maplenan.org';

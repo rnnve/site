@@ -2,6 +2,7 @@ import { getEnv } from '@/lib/env';
 import type { DiscordResponse } from '@/lib/integrations';
 
 export const prerender = false;
+export const runtime = 'nodejs';
 
 export async function GET() {
   const endpoint = getEnv('DISCORD_API_URL') || 'https://api.mapleji.xyz/v2/discord/user/1';
