@@ -137,7 +137,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 		getLangSnapshot();
 	}, []);
 
-
 	return (
 		<I18nContext.Provider value={{ lang, setLang, t: dictionaries[lang] }}>
 			{children}
