@@ -49,3 +49,4 @@ export default function HomeContent({ initialData, views }: HomeContentProps) {
       </LiveProvider>
     </I18nProvider>
   );
+}
