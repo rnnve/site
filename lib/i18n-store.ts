@@ -21,3 +21,4 @@ function applyToDocument(lang: Lang) {
 	document.documentElement.lang = lang;
 	document.documentElement.classList.toggle('lang-th', lang === 'th');
 }
+
