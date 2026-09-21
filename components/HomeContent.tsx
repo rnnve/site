@@ -47,3 +47,4 @@ export default function HomeContent({ initialData, views }: HomeContentProps) {
         <DocumentLanguageSync />
         <HomeInner />
       </LiveProvider>
+    </I18nProvider>
