@@ -34,3 +34,4 @@ export function getLangSnapshot(): Lang {
 export function getLangServerSnapshot(): Lang {
 	return 'en';
 }
+
