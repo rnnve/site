@@ -28,3 +28,4 @@ export function getLangSnapshot(): Lang {
 		current = readStored();
 		applyToDocument(current);
 	}
+	return current;
