@@ -35,3 +35,4 @@ function HomeInner() {
           </div>
         </section>
         <SiteFooter />
+      </div>
