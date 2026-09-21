@@ -131,7 +131,6 @@ interface I18nContextValue {
 const I18nContext = createContext<I18nContextValue | null>(null);
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-	const [lang, setLangState] = useState<Lang>('en');
 
 	useEffect(() => {
 		setLangState(readStoredLang());
