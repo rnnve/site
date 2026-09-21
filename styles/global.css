@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @theme {
   --animate-fade-in: fade-in 0.25s ease-out both;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
