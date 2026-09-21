@@ -27,3 +27,4 @@ export function getLangSnapshot(): Lang {
 		initialized = true;
 		current = readStored();
 		applyToDocument(current);
+	}
