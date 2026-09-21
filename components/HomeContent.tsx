@@ -33,3 +33,4 @@ function HomeInner() {
               <SpotifyNowPlaying />
             </div>
           </div>
+        </section>
