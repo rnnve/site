@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import type { SpotifyNowPlaying } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
 import { useLive } from '@/components/LiveProvider';
@@ -70,16 +71,15 @@ export default function SpotifyNowPlayingCard() {
 			href={data.trackUrl}
 			target="_blank"
 			rel="noreferrer"
-			className="flex w-full min-w-0 items-center gap-3 text-on-surface no-underline transition hover:opacity-90 sm:gap-4"
+			className="flex w-full min-w-0 items-center gap-3 text-on-surface no-underline transition-transform duration-200 hover:-translate-y-1 hover:opacity-90 sm:gap-4"
 		>
 			{data.albumImageUrl ? (
-				<img
+				<Image
 					src={data.albumImageUrl}
 					alt={`${data.album} cover`}
 					width={56}
 					height={56}
-					fetchPriority="high"
-					decoding="async"
+					priority
 					className="h-12 w-12 shrink-0 rounded-lg object-cover sm:h-14 sm:w-14"
 				/>
 			) : (

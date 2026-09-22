@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import type { DiscordActivity } from '@/lib/integrations';
 import Skeleton from '@/components/Skeleton';
 import { useLive } from '@/components/LiveProvider';
@@ -31,7 +32,7 @@ function ActivityIcon({ activity }: { activity: DiscordActivity }) {
 	const iconUrl = activityIconUrl(activity);
 	if (iconUrl) {
 		return (
-			<img
+			<Image
 				src={iconUrl}
 				alt=""
 				width={20}
@@ -139,13 +140,12 @@ export default function DiscordProfileCard() {
 						<span className="text-xs font-medium uppercase tracking-wider text-on-surface-variant">{t.discordLabel}</span>
 					</div>
 					<div className="mt-3 flex items-center gap-3">
-						<img
+						<Image
 							src={user.avatar}
 							alt={user.displayName}
 							width={52}
 							height={52}
-							fetchPriority="high"
-							decoding="async"
+							priority
 							className="h-13 w-13 shrink-0 rounded-full object-cover"
 						/>
 						<div className="min-w-0">

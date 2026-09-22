@@ -68,7 +68,7 @@ function NavButton({
 			title={label}
 			className="relative flex items-center justify-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/40"
 		>
-			
+
 			<span
 				className="relative z-10 flex items-center justify-center gap-2"
 				style={{
@@ -102,7 +102,7 @@ function LanguageSwitcherBar() {
 			type="button"
 			onClick={() => setLang(lang === 'en' ? 'th' : 'en')}
 			aria-label={lang === 'en' ? 'Switch to Thai' : 'Switch to English'}
-			className="rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent bg-white/5 text-white hover:bg-white/10"
+			className="rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 transform hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent bg-white/5 text-white hover:bg-white/10"
 		>
 			{currentLabel}
 		</button>
