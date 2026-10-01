@@ -1,0 +1,299 @@
+# Usage Guide
+
+This page documents all available Markdown elements and special custom tags you can use in your MDX files.
+
+<Line />
+
+## Headings
+
+### Heading 1 (`#`)
+
+# Heading 1
+
+### Heading 2 (`##`)
+
+## Heading 2
+
+### Heading 3 (`###`)
+
+### Heading 3
+
+### Heading 4 (`####`)
+
+#### Heading 4
+
+<Line />
+
+## Text Elements
+
+### Paragraphs
+
+Regular paragraph text with **bold**, *italic*, and `inline code` support.
+
+### Links
+
+[External link](https://example.com) and [internal link](/).
+
+### Blockquotes
+
+> This is a blockquote. It can span multiple lines and supports **markdown** formatting inside.
+
+### Horizontal Rule
+
+<Line />
+
+---
+
+<Line />
+
+## Lists
+
+### Unordered List
+
+- First item
+- Second item
+  - Nested item
+  - Another nested item
+- Third item
+
+### Ordered List
+
+1. First item
+2. Second item
+3. Third item
+
+### Task List
+
+- [x] Completed task
+- [ ] Incomplete task
+- [ ] Another task
+
+<Line />
+
+## Code
+
+### Inline Code
+
+Use `console.log("hello")` for inline code.
+
+### Code Blocks
+
+```typescript
+function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("World"));
+```
+
+```bash
+npm install
+npm run dev
+```
+
+<Line />
+
+## Tables
+
+| Feature | Supported | Notes |
+|---------|-----------|-------|
+| Headings | ✅ | h1-h4 |
+| Lists | ✅ | Ordered & unordered |
+| Code | ✅ | Inline & blocks |
+| Tables | ✅ | Full GFM support |
+| Custom Tags | ✅ | See below |
+
+<Line />
+
+## Special Custom Tags
+
+These are custom components available in all MDX files.
+
+### `<Rainbow>`
+
+Animated rainbow gradient text.
+
+<Rainbow>This text has a rainbow gradient animation</Rainbow>
+
+**Usage:**
+```mdx
+<Rainbow>Your text here</Rainbow>
+```
+
+### `<Neutral>`
+
+Animated neutral (grayscale) gradient text.
+
+<Neutral>This text has a neutral gradient animation</Neutral>
+
+**Usage:**
+```mdx
+<Neutral>Your text here</Neutral>
+```
+
+### `<Pink>`
+
+Pink colored text.
+
+<Pink>This text is pink</Pink>
+
+**Usage:**
+```mdx
+<Pink>Your text here</Pink>
+```
+
+### `<Underline>`
+
+Underlined text with custom styling.
+
+<Underline>This text is underlined</Underline>
+
+**Usage:**
+```mdx
+<Underline>Your text here</Underline>
+```
+
+### `<Line>`
+
+Horizontal rule / divider line.
+
+<Line />
+
+> **Note:** The component must be capitalized as `<Line>` because `<line>` (lowercase) is a native SVG element and will not work as a custom component in HTML.
+
+**Usage:**
+```mdx
+<Line />
+```
+
+### `<Time>`
+
+Displays the current time. Updates every second.
+
+**Visitor's local time (auto-detected timezone):**
+<Time />
+
+**With seconds:**
+<Time showSeconds={true} />
+
+**Specific timezone:**
+<Time zone="America/New_York" />
+
+**Specific timezone (Tokyo):**
+<Time zone="Asia/Tokyo" />
+
+**Short format:**
+<Time format="short" />
+
+**Time only format:**
+<Time format="time-only" />
+
+**UTC time:**
+<Time zone="UTC" />
+
+> **Note:** The component must be capitalized as `<Time>` because `<time>` (lowercase) is a native HTML element and will not work as a custom component.
+
+**Usage:**
+```mdx
+{/* Visitor's local time */}
+<Time />
+
+{/* With seconds */}
+<Time showSeconds={true} />
+
+{/* Specific IANA timezone */}
+<Time zone="America/New_York" />
+<Time zone="Asia/Tokyo" />
+<Time zone="Europe/London" />
+
+{/* Format options */}
+<Time format="full" />      {/* Default: "Mon, Jan 15, 2025, 14:30 (PST)" */}
+<Time format="short" />     {/* "Jan 15, 14:30 (PST)" */}
+<Time format="time-only" /> {/* "14:30 (PST)" */}
+
+{/* With seconds enabled */}
+<Time format="full" showSeconds={true} />      {/* "Mon, Jan 15, 2025, 14:30:45 (PST)" */}
+<Time format="time-only" showSeconds={true} /> {/* "14:30:45 (PST)" */}
+
+{/* Combined */}
+<Time zone="UTC" format="time-only" />
+```
+
+**Props:**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `zone` | string | Auto-detected | IANA timezone (e.g., "America/New_York") |
+| `format` | "full" \| "short" \| "time-only" | "full" | Display format |
+| `showSeconds` | boolean | false | Show seconds in time |
+
+**Common IANA Timezones:**
+- `America/New_York` (EST/EDT)
+- `America/Los_Angeles` (PST/PDT)
+- `America/Chicago` (CST/CDT)
+- `America/Denver` (MST/MDT)
+- `Europe/London` (GMT/BST)
+- `Europe/Paris` (CET/CEST)
+- `Asia/Tokyo` (JST)
+- `Asia/Shanghai` (CST)
+- `Asia/Dubai` (GST)
+- `Australia/Sydney` (AEST/AEDT)
+- `UTC` (Coordinated Universal Time)
+
+<Line />
+
+### `<HoverTooltip>`
+
+Displays a tooltip/popup on hover with additional information or a link.
+
+```mdx
+<HoverTooltip content="This is a tooltip with additional information">
+  Hover over this text
+</HoverTooltip>
+
+<HoverTooltip content="https://github.com" href="https://github.com">
+  Hover for GitHub link
+</HoverTooltip>
+```
+
+**Live examples:**
+
+**Basic tooltip:**
+<HoverTooltip content="This is a tooltip with additional information">Hover over this text</HoverTooltip>
+
+**Tooltip with link (inline):**
+Hover me for <HoverTooltip content="https://github.com" href="https://github.com">GitHub</HoverTooltip> link.
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `content` | string | Yes | Text to display in the tooltip |
+| `href` | string | No | Optional URL to make the tooltip a link |
+
+<Line />
+
+## Combining Elements
+
+You can combine custom tags with regular markdown:
+
+<Rainbow>**Bold rainbow text**</Rainbow>
+
+<Neutral>*Italic neutral text*</Neutral>
+
+<Pink>`Inline code in pink`</Pink>
+
+<Underline>~~Strikethrough with underline~~</Underline>
+
+<Line />
+
+## Escaping
+
+To display the literal tag names without rendering them, use backticks:
+
+- `` `<Rainbow>` `` renders as: <Rainbow>rainbow text</Rainbow>
+- `` ` \`<Rainbow>\` ` `` renders as: `` `<Rainbow>` ``
+
+<Line />
+
+---
+
+*This documentation is generated from the custom components defined in `mdx-components.tsx` and the styles in `app/globals.css`.*
