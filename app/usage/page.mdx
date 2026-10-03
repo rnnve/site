@@ -271,6 +271,46 @@ Hover me for <HoverTooltip content="https://github.com" href="https://github.com
 
 <Line />
 
+### `<CFlag>` / `<cflag>`
+
+Displays a country flag using a 2-letter country code (ISO 3166-1 alpha-2).
+
+```mdx
+<CFlag>TH</CFlag>
+<cflag>US</cflag>
+<cflag>JP</cflag>
+```
+
+**Live examples:**
+
+<CFlag>TH</CFlag> Thailand
+<cflag>US</cflag> United States
+<cflag>JP</cflag> Japan
+<cflag>DE</cflag> Germany
+<cflag>FR</cflag> France
+<cflag>BR</cflag> Brazil
+<cflag>AU</cflag> Australia
+<cflag>CA</cflag> Canada
+
+> **Note:** The component accepts both `<CFlag>` (capitalized) and `<cflag>` (lowercase) syntax. The country code must be a valid 2-letter ISO code.
+
+**Usage:**
+```mdx
+{/* Capitalized */}
+<CFlag>TH</CFlag>
+
+{/* Lowercase */}
+<cflag>US</cflag>
+```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `children` | string | Yes | 2-letter country code (e.g., "TH", "US", "JP") |
+| `className` | string | No | Additional CSS classes |
+
+<Line />
+
 ## Combining Elements
 
 You can combine custom tags with regular markdown:

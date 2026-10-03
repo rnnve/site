@@ -2,6 +2,7 @@ import type { MDXComponents } from "mdx/types";
 import type { ComponentPropsWithoutRef } from "react";
 import { Time } from "@/components/time";
 import { HoverTooltip } from "@/components/hover-tooltip";
+import { CFlag } from "@/components/country-flag";
 
 export function useMDXComponents(components: MDXComponents = {}): MDXComponents {
   return {
@@ -30,26 +31,32 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
       />
     ),
     p: (props: ComponentPropsWithoutRef<"p">) => (
-      <p className="my-4 leading-7 text-zinc-300" {...props} />
+      <p className="my-4 leading-7 text-zinc-50" {...props} />
     ),
-    a: (props: ComponentPropsWithoutRef<"a">) => (
-      <a
-        className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200"
-        {...props}
-      />
-    ),
+    a: (props: ComponentPropsWithoutRef<"a">) => {
+      const href = props.href as string | undefined;
+      const isExternal = href?.startsWith("http");
+      return (
+        <a
+          className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200"
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+          {...props}
+        />
+      );
+    },
     ul: (props: ComponentPropsWithoutRef<"ul">) => (
-      <ul className="my-4 ml-6 list-disc space-y-2 text-zinc-300" {...props} />
+      <ul className="my-4 ml-6 list-disc space-y-2 text-zinc-50" {...props} />
     ),
     ol: (props: ComponentPropsWithoutRef<"ol">) => (
-      <ol className="my-4 ml-6 list-decimal space-y-2 text-zinc-300" {...props} />
+      <ol className="my-4 ml-6 list-decimal space-y-2 text-zinc-50" {...props} />
     ),
     li: (props: ComponentPropsWithoutRef<"li">) => (
       <li className="leading-7" {...props} />
     ),
     blockquote: (props: ComponentPropsWithoutRef<"blockquote">) => (
       <blockquote
-        className="my-6 border-l-2 border-zinc-700 pl-6 italic text-zinc-400"
+        className="my-6 border-l-2 border-zinc-700 pl-6 italic text-zinc-300"
         {...props}
       />
     ),
@@ -130,6 +137,54 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
         {...props}
       />
     ),
+    pinkneutral: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-pinkneutral-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
+    PinkNeutral: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-pinkneutral-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
+    whitegreen: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-whitegreen-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
+    WhiteGreen: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-whitegreen-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
+    gray: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-gray font-medium ${className || ""}`}
+        {...props}
+      />
+    ),
+    Gray: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-gray font-medium ${className || ""}`}
+        {...props}
+      />
+    ),
+    purpleyellow: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-purpleyellow-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
+    PurpleYellow: ({ className, ...props }: ComponentPropsWithoutRef<"span">) => (
+      <span
+        className={`text-purpleyellow-gradient font-semibold ${className || ""}`}
+        {...props}
+      />
+    ),
     line: ({ className, ...props }: ComponentPropsWithoutRef<"hr">) => (
       <hr
         className={`my-8 border-white ${className || ""}`}
@@ -148,8 +203,14 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
     HoverTooltip: ({ content, href, className = "", children, ...props }: ComponentPropsWithoutRef<"span"> & { content: string; href?: string; children?: React.ReactNode }) => (
       <HoverTooltip content={content} href={href} className={className} {...props}>{children}</HoverTooltip>
     ),
+    CFlag: ({ children, className = "", ...props }: ComponentPropsWithoutRef<"span"> & { children?: React.ReactNode }) => (
+      <CFlag className={className} {...props}>{children}</CFlag>
+    ),
+    cflag: ({ children, className = "", ...props }: ComponentPropsWithoutRef<"span"> & { children?: React.ReactNode }) => (
+      <CFlag className={className} {...props}>{children}</CFlag>
+    ),
     wrapper: ({ children }: ComponentPropsWithoutRef<"div">) => (
-      <div className="flex flex-1 justify-start pt-10 pb-16 px-6 sm:px-8">
+      <div className="flex flex-1 justify-center pt-10 pb-16 px-6 sm:px-8">
         <main className="w-full max-w-3xl">{children}</main>
       </div>
     ),

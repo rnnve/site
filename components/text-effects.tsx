@@ -27,3 +27,35 @@ export function Pink({ children, className, ...props }: TextEffectProps) {
     </span>
   );
 }
+
+export function PinkNeutral({ children, className, ...props }: TextEffectProps) {
+  return (
+    <span className={`text-pinkneutral-gradient ${className || ""}`} {...props}>
+      {children}
+    </span>
+  );
+}
+
+export function WhiteGreen({ children, className, ...props }: TextEffectProps) {
+  return (
+    <span className={`text-whitegreen-gradient ${className || ""}`} {...props}>
+      {children}
+    </span>
+  );
+}
+
+export function Gray({ children, className, ...props }: TextEffectProps) {
+  return (
+    <span className={`text-gray ${className || ""}`} {...props}>
+      {children}
+    </span>
+  );
+}
+
+export function PurpleYellow({ children, className, ...props }: TextEffectProps) {
+  return (
+    <span className={`text-purpleyellow-gradient ${className || ""}`} {...props}>
+      {children}
+    </span>
+  );
+}

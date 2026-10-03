@@ -174,3 +174,91 @@ neutral,
   font-weight: 600;
   animation: text-neutral-loop 3s linear infinite;
 }
+
+pinkneutral,
+.text-pinkneutral-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #f37cb3,
+    #f7a8c9,
+    #ffffff,
+    #f7a8c9,
+    #f37cb3
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 600;
+  animation: text-pinkneutral-loop 4s linear infinite;
+}
+
+gray,
+.text-gray {
+  color: #71717a;
+  font-weight: 500;
+}
+
+@keyframes text-pinkneutral-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+whitegreen,
+.text-whitegreen-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #ffffff,
+    #a8e6cf,
+    #ffffff
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 600;
+  animation: text-whitegreen-loop 4s linear infinite;
+}
+
+@keyframes text-whitegreen-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+purpleyellow,
+.text-purpleyellow-gradient {
+  background-image: linear-gradient(
+    90deg,
+    #c4b5fd,
+    #e9d5ff,
+    #fef08a,
+    #e9d5ff,
+    #c4b5fd
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 600;
+  animation: text-purpleyellow-loop 4s linear infinite;
+}
+
+@keyframes text-purpleyellow-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}

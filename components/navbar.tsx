@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/usage", label: "Usage" },
 ];
 
 export function Navbar() {
@@ -20,9 +19,11 @@ export function Navbar() {
           href="/"
           className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-zinc-100 transition-colors hover:text-white"
         >
-          <span className="flex size-5 items-center justify-center rounded-md bg-zinc-900 font-mono text-xs text-zinc-200 sm:size-6 sm:text-sm">
-            R
-          </span>
+          <img
+            src="/favicon.ico"
+            alt="Rynne"
+            className="size-5 rounded-md sm:size-6"
+          />
         </Link>
 
         {/* Navigation Links - Center */}
