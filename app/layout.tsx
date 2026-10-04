@@ -40,6 +40,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${notoSansThai.variable} dark h-full antialiased`}
       style={{ colorScheme: "dark" }}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans relative bg-black">
         <div className="min-h-full flex flex-col">
