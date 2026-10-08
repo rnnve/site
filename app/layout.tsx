@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Thai } from "next/font/google";
+import Script from "next/script";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
@@ -42,6 +43,14 @@ export default function RootLayout({
       style={{ colorScheme: "dark" }}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          defer
+          src="https://maplenan.org/hub/p.js"
+          data-site="prt_jjudtdtrznlr4buly6yo"
+          data-api="https://maplenan.org/hub/e"
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans relative bg-black">
         <div className="min-h-full flex flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
