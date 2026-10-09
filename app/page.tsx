@@ -8,6 +8,8 @@ import {
   siTailwindcss,
   siBun,
   siVercel,
+  siTypescript,
+  siPython,
 } from "simple-icons";
 
 const stacks = [
