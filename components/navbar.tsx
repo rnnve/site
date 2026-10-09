@@ -55,6 +55,7 @@ export function Navbar() {
         </nav>
 
         <a href="https://haunt.gg/rnn" target="_blank" rel="noreferrer" aria-label="haunt.gg" className="shrink-0 transition-opacity hover:opacity-80">
+          <img src="/haunt.png" alt="haunt.gg" className="size-5 rounded-md sm:size-6" />
       </div>
     </header>
   );
