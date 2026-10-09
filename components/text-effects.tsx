@@ -59,3 +59,11 @@ export function PurpleYellow({ children, className, ...props }: TextEffectProps)
     </span>
   );
 }
+
+export function OrangeYellow({ children, className, ...props }: TextEffectProps) {
+  return (
+    <span className={`text-orangy-yellow-gradient ${className || ""}`} {...props}>
+      {children}
+    </span>
+  );
+}
