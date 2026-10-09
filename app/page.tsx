@@ -1,4 +1,4 @@
-import { PinkNeutral, Pink, WhiteGreen, PurpleYellow } from "@/components/text-effects";
+import { PinkNeutral, Pink, WhiteGreen, PurpleYellow, OrangeYellow } from "@/components/text-effects";
 import { DiscordProfile } from "@/components/DiscordProfile";
 import { Spotify } from "@/components/Spotify";
 import {
@@ -46,11 +46,11 @@ export default function Page() {
             </a>
           </PurpleYellow>{" "}
           or my{" "}
-          <PurpleYellow>
+          <OrangeYellow>
             <a href="https://git.maplenan.org/rinne" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200">
               Forgejo Instance
             </a>
-          </PurpleYellow>
+          </OrangeYellow>
         </p>
         <p className="text-zinc-50">for stacks i mostly use these</p>
         <div className="flex flex-wrap items-center gap-3 text-zinc-400">
