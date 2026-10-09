@@ -13,14 +13,14 @@ import {
 } from "simple-icons";
 
 const stacks = [
-  { name: "Next.js", icon: siNextdotjs },
-  { name: "Astro", icon: siAstro },
-  { name: "React", icon: siReact },
-  { name: "Tailwind CSS", icon: siTailwindcss },
-  { name: "Bun", icon: siBun },
-  { name: "Vercel", icon: siVercel },
-  { name: "TypeScript", icon: siTypescript },
-  { name: "Python", icon: siPython },
+  { name: "Next.js", icon: siNextdotjs, color: "#000000", url: "https://nextjs.org" },
+  { name: "Astro", icon: siAstro, color: "#BC52EE", url: "https://astro.build" },
+  { name: "React", icon: siReact, color: "#61DAFB", url: "https://react.dev" },
+  { name: "Tailwind CSS", icon: siTailwindcss, color: "#06B6D4", url: "https://tailwindcss.com" },
+  { name: "Bun", icon: siBun, color: "#FBE526", url: "https://bun.sh" },
+  { name: "Vercel", icon: siVercel, color: "#000000", url: "https://vercel.com" },
+  { name: "TypeScript", icon: siTypescript, color: "#3178C6", url: "https://typescriptlang.org" },
+  { name: "Python", icon: siPython, color: "#3776AB", url: "https://python.org" },
 ] as const;
 
 export default function Page() {
@@ -53,18 +53,22 @@ export default function Page() {
           </PurpleYellow>
         </p>
         <p className="text-zinc-50">for stacks i mostly use these</p>
-        <div className="flex flex-wrap items-center gap-3 text-zinc-400">
-          {stacks.map(({ name, icon }) => (
-            <span
+        <div className="flex flex-wrap items-center gap-3">
+          {stacks.map(({ name, icon, color, url }) => (
+            <a
               key={name}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-zinc-900/50 rounded-full border border-white/5"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-full border transition-colors hover:opacity-80"
+              style={{ borderColor: color, color }}
               title={name}
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d={icon.path} />
               </svg>
               {name}
-            </span>
+            </a>
           ))}
         </div>
         <hr className="my-8 border-white" />
