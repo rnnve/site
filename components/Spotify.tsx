@@ -106,14 +106,7 @@ export function Spotify({ className }: SpotifyProps) {
         {track.album && (
           <p className="truncate text-sm text-zinc-500">{track.album}</p>
         )}
-        {(track.progress !== undefined && track.duration !== undefined) && (
-          <div className="mt-2 h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-green-500 transition-all duration-10000 ease-linear"
-              style={{ width: `${(track.progress / track.duration) * 100}%` }}
-            />
-          </div>
-        )}
+
       </div>
       <svg className="h-6 w-6 text-zinc-500 group-hover:text-zinc-300 transition-colors" fill="currentColor" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z" />
