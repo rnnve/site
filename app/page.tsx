@@ -75,6 +75,14 @@ export default function Page() {
           <DiscordProfile userId="1" className="flex-1" />
           <Spotify className="flex-1" />
         </div>
+        <footer className="mt-12 pt-8 border-t border-white/10">
+          <p className="text-center text-sm text-zinc-500">
+            built with <span className="text-zinc-400">Next.js</span> · deployed on{" "}
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2">
+              Vercel
+            </a>
+          </p>
+        </footer>
       </main>
     </div>
   );
