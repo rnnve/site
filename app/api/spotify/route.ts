@@ -17,7 +17,17 @@ export async function GET(_request: NextRequest) {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
+    const track = data.result ?? data;
+    return NextResponse.json({
+      isPlaying: track.isPlaying ?? false,
+      name: track.title ?? track.name,
+      artist: track.artist,
+      album: track.album,
+      albumArt: track.albumImageUrl ?? track.albumArt,
+      progress: track.progressMs ?? track.progress,
+      duration: track.durationMs ?? track.duration,
+      trackUrl: track.trackUrl,
+    });
   } catch {
     return NextResponse.json(
       { success: false, error: "Failed to fetch from API" },
