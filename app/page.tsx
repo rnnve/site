@@ -25,65 +25,65 @@ const stacks = [
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col justify-center pt-10 pb-16 px-6 sm:px-8">
-      <main className="flex-1 w-full max-w-3xl mx-auto space-y-4 text-zinc-50 leading-7">
-        <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
+    <div className="flex min-h-screen flex-col px-6 sm:px-8">
+      <main className="flex-1 w-full max-w-3xl mx-auto flex flex-col justify-center py-8 space-y-3 text-zinc-50 leading-6">
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-50 sm:text-3xl">
           rinne
         </h1>
-        <p>
+        <p className="text-sm sm:text-base">
           i&apos;m <PinkNeutral>Rinne (or as Rynne, Rynni)</PinkNeutral> a{" "}
           <Pink>self-taught developer</Pink>, i mostly work on{" "}
           <WhiteGreen>Web and Discord Bots.</WhiteGreen>
         </p>
-        <p>
+        <p className="text-sm sm:text-base">
           i&apos;m also a <Pink>Server Manager</Pink> for my friend&apos;s server. Alongside running my own Homelab.
         </p>
-        <p>
+        <p className="text-sm sm:text-base">
           my projects are mostly on{" "}
           <PurpleYellow>
-            <a href="https://github.com/rnnve" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200">
+            <a href="https://github.com/rnnve" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-50 underline underline-offset-2 transition-colors hover:text-zinc-200">
               Github
             </a>
           </PurpleYellow>{" "}
           or my{" "}
           <OrangeYellow>
-            <a href="https://git.maplenan.org/rinne" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200">
+            <a href="https://git.maplenan.org/rinne" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-50 underline underline-offset-2 transition-colors hover:text-zinc-200">
               Forgejo Instance
             </a>
           </OrangeYellow>
         </p>
-        <p className="text-zinc-50">for stacks i mostly use these</p>
-        <div className="flex flex-wrap items-center gap-3 text-zinc-400">
+        <p className="text-sm text-zinc-400">for stacks i mostly use these</p>
+        <div className="flex flex-wrap items-center justify-center gap-2 text-zinc-400">
           {stacks.map(({ name, icon, url }) => (
             <a
               key={name}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-zinc-900/50 rounded-full border border-white/5 hover:bg-zinc-800/50 transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1 text-xs bg-zinc-900/50 rounded-full border border-white/5 hover:bg-zinc-800/50 transition-colors"
               title={name}
             >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d={icon.path} />
               </svg>
               {name}
             </a>
           ))}
         </div>
-        <hr className="my-8 border-white" />
-        <div className="flex flex-col sm:flex-row gap-4">
+        <hr className="my-4 border-white/10" />
+        <div className="flex flex-col sm:flex-row gap-3">
           <DiscordProfile userId="1" className="flex-1" />
           <Spotify className="flex-1" />
         </div>
-        <footer className="mt-12 pt-8 border-t border-white/10">
-          <p className="text-center text-sm text-zinc-500">
-            built with <span className="text-zinc-400">Next.js</span> · deployed on{" "}
-            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2">
-              Vercel
-            </a>
-          </p>
-        </footer>
       </main>
+      <footer className="py-4 border-t border-white/10">
+        <p className="text-center text-xs text-zinc-500">
+          built with <span className="text-zinc-400">Next.js</span> · deployed on{" "}
+          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-200 underline underline-offset-1">
+            Vercel
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
