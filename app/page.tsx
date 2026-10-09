@@ -25,8 +25,8 @@ const stacks = [
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col px-6 sm:px-8">
-      <main className="flex-1 w-full max-w-3xl mx-auto flex flex-col justify-center py-8 space-y-4 text-zinc-50 leading-7">
+    <div className="flex flex-1 justify-center pt-10 pb-16 px-6 sm:px-8">
+      <main className="w-full max-w-3xl space-y-4 text-zinc-50 leading-7">
         <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
           rinne
         </h1>

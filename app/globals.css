@@ -16,6 +16,14 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-outline: #938f99;
+  --color-rainbow-1: #ffb4ab;
+  --color-rainbow-2: #ffb68c;
+  --color-rainbow-3: #e6d49a;
+  --color-rainbow-4: #9dd0a4;
+  --color-rainbow-5: #a6c7ff;
+  --color-rainbow-6: #c2bfff;
+  --color-rainbow-7: #ffb1c8;
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -289,4 +297,106 @@ orangyyellow,
   display: inline-block;
   font-weight: 600;
   animation: text-orangy-yellow-loop 4s linear infinite;
+}
+
+@keyframes rainbow-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes blush-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes berry-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.text-rainbow,
+.footer-rainbow-link {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-rainbow-1),
+    var(--color-rainbow-2),
+    var(--color-rainbow-3),
+    var(--color-rainbow-4),
+    var(--color-rainbow-5),
+    var(--color-rainbow-6),
+    var(--color-rainbow-7),
+    var(--color-rainbow-1)
+  );
+  background-size: 200% auto;
+  background-position: 0% center;
+  animation: rainbow-shift 6s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-blush {
+  background-image: linear-gradient(90deg, #ffb3c6, #fff, #ffb3c6);
+  background-size: 200% auto;
+  background-position: 0% center;
+  animation: blush-shift 6s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-berry {
+  background-image: linear-gradient(90deg, #a78bfa, #f43f5e, #a78bfa);
+  background-size: 200% auto;
+  background-position: 0% center;
+  animation: berry-shift 4s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-rainbow-link {
+  transition: filter 160ms ease;
+}
+
+.footer-rainbow-link:hover {
+  filter: brightness(1.2) saturate(1.1);
+}
+
+.footer-rainbow-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-rainbow,
+  .footer-rainbow-link,
+  .text-blush,
+  .text-berry {
+    animation: none;
+    background-position: 0% center;
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .footer-rainbow-link,
+  .text-rainbow {
+    animation: none;
+    background: none;
+    color: LinkText;
+    -webkit-text-fill-color: currentColor;
+  }
 }

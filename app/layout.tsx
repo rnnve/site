@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Thai } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/navbar";
+import SiteFooter from "@/components/SiteFooter";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -52,12 +53,15 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans relative bg-black">
-        <div className="min-h-full flex flex-col">
+        <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
             {/* Pink gradient fade at top */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-[300px] sm:h-[600px] bg-gradient-to-b from-[#f37cb37d] to-[#000000] -z-10" aria-hidden="true" />
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex flex-1 flex-col">{children}</main>
+            <div className="mx-auto mt-auto mb-[5px] w-full max-w-3xl px-6 sm:px-8">
+              <SiteFooter />
+            </div>
           </ThemeProvider>
         </div>
       </body>
