@@ -99,7 +99,7 @@ export function Spotify({ className }: SpotifyProps) {
         />
       )}
       <div className="flex-1 min-w-0">
-        <h3 className="truncate font-medium text-zinc-100 group-hover:text-green-400 transition-colors">
+        <h3 className="truncate font-medium text-zinc-100">
           {track.name}
         </h3>
         <p className="truncate text-sm text-zinc-400">{track.artist}</p>
