@@ -52,7 +52,7 @@ export default function Page() {
             </a>
           </PurpleYellow>
         </p>
-        <hr className="my-8 border-white" />
+        <p className="text-zinc-50">for stacks i mostly use these</p>
         <div className="flex flex-wrap items-center gap-3 text-zinc-400">
           {stacks.map(({ name, icon }) => (
             <span
