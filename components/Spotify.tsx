@@ -108,9 +108,6 @@ export function Spotify({ className }: SpotifyProps) {
         )}
 
       </div>
-      <svg className="h-6 w-6 text-zinc-500 group-hover:text-zinc-300 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z" />
-      </svg>
     </a>
   );
 }
