@@ -89,7 +89,7 @@ export function Spotify({ className }: SpotifyProps) {
       href={track.trackUrl || "#"}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("flex items-center gap-4 p-4 bg-zinc-900/50 rounded-lg border border-white/5 hover:border-white/10 transition-colors group", className)}
+      className={cn("flex items-center gap-4 p-4 bg-zinc-900/50 rounded-lg", className)}
     >
       {track.albumArt && (
         <img
