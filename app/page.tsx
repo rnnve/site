@@ -19,6 +19,8 @@ const stacks = [
   { name: "Tailwind CSS", icon: siTailwindcss },
   { name: "Bun", icon: siBun },
   { name: "Vercel", icon: siVercel },
+  { name: "TypeScript", icon: siTypescript },
+  { name: "Python", icon: siPython },
 ] as const;
 
 export default function Page() {
