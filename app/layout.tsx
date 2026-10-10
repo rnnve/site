@@ -55,7 +55,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans relative bg-black">
         <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            {/* Pink gradient fade at top */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-[300px] sm:h-[600px] bg-gradient-to-b from-[#f37cb37d] to-[#000000] -z-10" aria-hidden="true" />
             <Navbar />
             <main className="flex flex-1 flex-col">{children}</main>
