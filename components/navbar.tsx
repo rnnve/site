@@ -13,7 +13,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-4 z-40 w-full px-4 sm:px-8">
-      <div className="mx-auto flex h-12 max-w-3xl items-center justify-between rounded-lg border border-white/10 bg-black/80 px-3 py-1.5 backdrop-blur-sm shadow-lg shadow-black/25 ring-1 ring-white/5 sm:h-14 sm:px-6 sm:py-2 sm:px-8">
+      <div className="mx-auto flex h-12 max-w-3xl items-center justify-between rounded-lg border border-pink-400 bg-black/80 px-3 py-1.5 backdrop-blur-sm shadow-lg shadow-black/25 ring-1 ring-white/5 sm:h-14 sm:px-6 sm:py-2 sm:px-8">
         {/* Brand / Logo - Left */}
         <Link
           href="/"
