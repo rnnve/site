@@ -25,7 +25,7 @@ const stacks = [
 
 export default function Page() {
   return (
-    <div className="flex flex-1 justify-center pt-10 pb-16 px-6 sm:px-8">
+    <div className="flex flex-1 justify-start pt-10 pb-16 px-6 sm:px-8">
       <main className="w-full max-w-3xl space-y-4 text-zinc-50 leading-7">
         <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
           rinne
@@ -70,10 +70,9 @@ export default function Page() {
             </a>
           ))}
         </div>
-        <hr className="my-8 border-white" />
-        <div className="flex flex-col sm:flex-row gap-4">
-          <DiscordProfile userId="1" className="flex-1" />
-          <Spotify className="flex-1" />
+        <div className="fixed left-6 right-12 top-4 z-30 flex flex-row items-center justify-between gap-2 sm:left-auto sm:static sm:justify-start sm:gap-4 xl:fixed xl:right-20 xl:top-4 xl:z-30 xl:w-72 xl:flex-col xl:gap-3">
+          <DiscordProfile userId="1" className="flex-1 max-sm:flex-none xl:flex-none xl:w-full" />
+          <Spotify className="flex-1 max-sm:flex-none xl:flex-none xl:w-full" />
         </div>
       </main>
     </div>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Thai } from "next/font/google";
 import Script from "next/script";
-import { Navbar } from "@/components/navbar";
 import SiteFooter from "@/components/SiteFooter";
+import { SocialLinks } from "@/components/SocialLinks";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -52,12 +52,12 @@ export default function RootLayout({
           data-api="https://maplenan.org/hub/e"
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans relative bg-black">
+      <body className="min-h-full flex flex-col font-sans relative bg-black pr-12 sm:pr-16 lg:pr-0">
         <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            <Navbar />
+            <SocialLinks />
             <main className="flex flex-1 flex-col">{children}</main>
-            <div className="mx-auto mt-auto mb-[5px] w-full max-w-3xl px-6 sm:px-8">
+            <div className="ml-auto mt-auto mb-[5px] w-full max-w-3xl px-6 sm:px-8">
               <SiteFooter />
             </div>
           </ThemeProvider>

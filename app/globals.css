@@ -400,3 +400,23 @@ orangyyellow,
     -webkit-text-fill-color: currentColor;
   }
 }
+
+@keyframes spotify-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.spotify-marquee {
+  animation: spotify-marquee linear infinite;
+  animation-duration: var(--marquee-duration, 12s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotify-marquee {
+    animation: none;
+  }
+}

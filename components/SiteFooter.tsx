@@ -35,9 +35,9 @@ export default function SiteFooter({ className }: { className?: string }) {
 
   return (
     <footer
-      className={`flex min-w-0 flex-row flex-wrap items-center justify-center gap-1 pt-3 pb-2 text-xs text-outline ${className || "mt-auto"}`}
+      className={`flex min-w-0 flex-row flex-wrap items-center justify-end gap-1 pt-3 pb-2 text-xs text-outline ${className || "mt-auto"}`}
     >
-      <div className="flex min-w-0 shrink-0 flex-col items-center">
+      <div className="flex min-w-0 shrink-0 flex-col items-end">
         <p className="py-1">
           <PinkNeutral>© {year} Rinne</PinkNeutral>
         </p>

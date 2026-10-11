@@ -210,7 +210,7 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
       <CFlag className={className} {...props}>{children}</CFlag>
     ),
     wrapper: ({ children }: ComponentPropsWithoutRef<"div">) => (
-      <div className="flex flex-1 justify-center pt-10 pb-16 px-6 sm:px-8">
+      <div className="flex flex-1 justify-start pt-10 pb-16 px-6 sm:px-8">
         <main className="w-full max-w-3xl">{children}</main>
       </div>
     ),
