@@ -8,9 +8,9 @@ const linkClass =
   "flex shrink-0 items-center justify-center rounded-md p-1 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring";
 
 const SOCIALS = [
-  { name: "Discord", href: "#", path: siDiscord.path, color: "#5865F2" },
-  { name: "Instagram", href: "#", path: siInstagram.path, color: "#E4405F" },
-  { name: "Last.fm", href: "#", path: siLastdotfm.path, color: "#E4141A" },
+  { name: "Discord", href: "https://discord.com/users/969088519161139270", path: siDiscord.path, color: "#5865F2" },
+  { name: "Instagram", href: "https://instagram.com/rynnesann", path: siInstagram.path, color: "#E4405F" },
+  { name: "Last.fm", href: "https://www.last.fm/user/iqrfumi", path: siLastdotfm.path, color: "#E4141A" },
 ];
 
 export function SocialLinks({ className }: { className?: string }) {
@@ -60,7 +60,7 @@ export function SocialLinks({ className }: { className?: string }) {
         ))}
 
         <a
-          href="mailto:"
+          href="mailto:helo@rynni.cc"
           aria-label="Email"
           title="Email"
           className={linkClass}
