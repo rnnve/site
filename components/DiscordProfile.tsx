@@ -58,9 +58,9 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
 
   if (loading) {
     return (
-      <div className={cn("flex items-center gap-2 p-1.5", compact && "p-1", className)}>
-        <div className={cn("animate-pulse h-8 w-8 rounded-full bg-zinc-800", compact && "h-8 w-8")} />
-        <div className={cn(compact && "hidden")}>
+      <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
+        <div className={cn("animate-pulse h-16 w-16 rounded-full bg-zinc-800", compact && "h-8 w-8")} />
+        <div className={cn("space-y-2", compact && "hidden")}>
           <div className="animate-pulse h-6 w-40 bg-zinc-800 rounded" />
           <div className="animate-pulse h-4 w-28 bg-zinc-700 rounded" />
         </div>
@@ -70,8 +70,8 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
 
   if (error || !user) {
     return (
-      <div className={cn("flex items-center gap-2 p-1.5 text-zinc-400", compact && "p-1", className)}>
-        <svg className={cn("h-8 w-8 text-zinc-600", compact && "h-8 w-8")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className={cn("flex items-center gap-4 p-4 text-zinc-400", compact && "gap-2 p-0", className)}>
+        <svg className={cn("h-16 w-16 text-zinc-600", compact && "h-8 w-8")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
         <div className={cn("", compact && "hidden")}>
@@ -90,25 +90,25 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
   };
 
   return (
-    <div className={cn("flex items-center gap-2 p-1.5", compact && "p-1", className)}>
+    <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
       <div className="relative">
         <img
           src={user.avatarUrl}
           alt={`${user.displayName}'s avatar`}
-          className={cn("h-8 w-8 rounded-full ring-2 ring-white/10", compact && "h-8 w-8")}
+          className={cn("h-16 w-16 rounded-full ring-2 ring-white/10", compact && "h-8 w-8")}
         />
         <span
           className={cn(
-            "absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-black",
+            "absolute bottom-0 right-0 h-4 w-4 rounded-full border-2 border-black",
             compact && "h-2.5 w-2.5",
             statusColors[user.status] || statusColors.offline
           )}
           title={user.status}
         />
       </div>
-      <div className={cn("min-w-0", compact && "hidden")}>
+      <div className="min-w-0">
         <h3 className={cn("truncate font-semibold text-zinc-100", compact && "hidden")}>{user.displayName}</h3>
-        <p className={cn("truncate text-sm text-zinc-400", compact && "hidden")}>@{user.username}</p>
+        <p className={cn("truncate text-sm text-zinc-400", compact && "text-xs")}>@{user.username}</p>
       </div>
     </div>
   );
