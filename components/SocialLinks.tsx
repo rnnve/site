@@ -17,7 +17,7 @@ export function SocialLinks({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-end gap-1.5 -mt-1 sm:mt-0 sm:gap-2",
+        "flex flex-col items-end gap-1.5 -mt-2 sm:mt-0 sm:gap-2",
         className,
       )}
     >
