@@ -99,7 +99,14 @@ export function Spotify({ className }: SpotifyProps) {
   }
 
   if (!track || !track.isPlaying) {
-    return null;
+    return (
+      <div className={cn("sm:hidden flex items-center gap-2 p-1.5 text-zinc-400 max-sm:p-1", className)}>
+        <svg className="h-8 w-8 shrink-0 text-zinc-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d={siSpotify.path} />
+        </svg>
+        <p className="whitespace-nowrap text-sm">Nothing playing</p>
+      </div>
+    );
   }
 
   return (
