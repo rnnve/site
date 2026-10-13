@@ -26,7 +26,7 @@ export default function Page() {
   return (
     <div className="flex flex-1 justify-start pt-10 pb-16 px-6 sm:px-8">
       <main className="w-full max-w-3xl space-y-4 text-zinc-50 leading-7">
-        <div className="flex flex-col gap-4 mb-4">
+        <div className="flex flex-col gap-4 mb-3">
           <DiscordProfile userId="1" compact />
         </div>
         <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
