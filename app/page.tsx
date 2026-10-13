@@ -29,7 +29,7 @@ export default function Page() {
         <div className="flex flex-col gap-4 mb-3">
           <DiscordProfile userId="1" compact />
         </div>
-        <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
+        <h1 className="mt-1 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
           rinne
         </h1>
         <p>
