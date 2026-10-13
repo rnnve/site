@@ -53,15 +53,15 @@ export default function RootLayout({
           data-api="https://maplenan.org/hub/e"
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans relative bg-black pr-12 sm:pr-16 lg:pr-0">
+      <body className="min-h-full flex flex-col font-sans relative bg-black">
         <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            <div className="fixed top-4 right-4 z-40 flex items-start gap-3 sm:right-8">
-              <Spotify />
+            <div className="fixed top-4 right-4 left-4 z-40 flex items-start justify-between gap-3 sm:right-8 sm:left-auto">
+              <Spotify className="min-w-0 max-w-[calc(100vw-6rem)] sm:max-w-xs" />
               <SocialLinks />
             </div>
             <main className="flex flex-1 flex-col">{children}</main>
-            <div className="ml-auto mt-auto mb-[5px] w-full max-w-3xl px-6 sm:px-8">
+            <div className="ml-auto mt-auto mb-[5px] w-full max-w-3xl px-4 sm:px-8">
               <SiteFooter />
             </div>
           </ThemeProvider>

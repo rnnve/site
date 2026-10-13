@@ -93,7 +93,7 @@ export function Spotify({ className }: SpotifyProps) {
     return (
       <div className={cn("flex items-center gap-2 p-1.5 max-sm:p-1", className)}>
         <div className="animate-pulse h-8 w-8 shrink-0 rounded bg-zinc-800" />
-        <div className="animate-pulse h-4 w-40 max-sm:w-24 rounded bg-zinc-800" />
+        <div className="animate-pulse h-4 w-32 max-sm:w-20 rounded bg-zinc-800" />
       </div>
     );
   }
@@ -107,7 +107,7 @@ export function Spotify({ className }: SpotifyProps) {
       href={track.trackUrl || "#"}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("flex items-center gap-2 p-1.5 max-sm:p-1", className)}
+      className={cn("flex items-center gap-2 p-1.5 max-sm:p-1 min-w-0", className)}
     >
       {track.albumArt && (
         <img
@@ -116,11 +116,11 @@ export function Spotify({ className }: SpotifyProps) {
           className="h-8 w-8 shrink-0 rounded object-cover"
         />
       )}
-      <div ref={marqueeRef} className="relative min-w-0 flex-1 overflow-hidden max-w-[60vw] sm:max-w-xs">
+      <div ref={marqueeRef} className="relative min-w-0 flex-1 overflow-hidden">
         <span
           ref={measureRef}
           aria-hidden="true"
-          className="invisible absolute left-0 top-0 whitespace-nowrap font-medium text-zinc-100 max-sm:text-xs"
+          className="invisible absolute left-0 top-0 whitespace-nowrap font-medium text-zinc-100 text-sm sm:text-base"
         >
           {track.name}
           <span className="font-normal text-zinc-400"> · {track.artist}</span>
@@ -134,7 +134,7 @@ export function Spotify({ className }: SpotifyProps) {
               <span
                 key={i}
                 aria-hidden={i === 1}
-                className="pr-8 font-medium text-zinc-100 max-sm:text-xs"
+                className="pr-8 font-medium text-zinc-100 text-sm sm:text-base"
               >
                 {track.name}
                 <span className="font-normal text-zinc-400"> · {track.artist}</span>
@@ -142,7 +142,7 @@ export function Spotify({ className }: SpotifyProps) {
             ))}
           </div>
         ) : (
-          <h3 className="truncate font-medium text-zinc-100 max-sm:text-xs">
+          <h3 className="truncate font-medium text-zinc-100 text-sm sm:text-base">
             {track.name}
             <span className="font-normal text-zinc-400"> · {track.artist}</span>
           </h3>
