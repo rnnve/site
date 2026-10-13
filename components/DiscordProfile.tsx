@@ -14,9 +14,10 @@ interface DiscordUser {
 interface DiscordProfileProps {
   userId?: string;
   className?: string;
+  compact?: boolean;
 }
 
-export function DiscordProfile({ userId, className }: DiscordProfileProps) {
+export function DiscordProfile({ userId, className, compact }: DiscordProfileProps) {
   const [user, setUser] = useState<DiscordUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -57,9 +58,9 @@ export function DiscordProfile({ userId, className }: DiscordProfileProps) {
 
   if (loading) {
     return (
-      <div className={cn("flex items-center gap-4 p-4 max-sm:gap-2 max-sm:p-0", className)}>
-        <div className="animate-pulse h-16 w-16 max-sm:h-8 max-sm:w-8 rounded-full bg-zinc-800" />
-        <div className="space-y-2 max-sm:hidden">
+      <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
+        <div className={cn("animate-pulse h-16 w-16 rounded-full bg-zinc-800", compact && "h-8 w-8")} />
+        <div className={cn("space-y-2", compact && "hidden")}>
           <div className="animate-pulse h-6 w-40 bg-zinc-800 rounded" />
           <div className="animate-pulse h-4 w-28 bg-zinc-700 rounded" />
         </div>
@@ -69,11 +70,11 @@ export function DiscordProfile({ userId, className }: DiscordProfileProps) {
 
   if (error || !user) {
     return (
-      <div className={cn("flex items-center gap-4 p-4 text-zinc-400 max-sm:gap-2 max-sm:p-0", className)}>
-        <svg className="h-16 w-16 max-sm:h-8 max-sm:w-8 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className={cn("flex items-center gap-4 p-4 text-zinc-400", compact && "gap-2 p-0", className)}>
+        <svg className={cn("h-16 w-16 text-zinc-600", compact && "h-8 w-8")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
-        <div className="max-sm:hidden">
+        <div className={cn("", compact && "hidden")}>
           <p className="font-medium">Failed to load profile</p>
           <p className="text-sm">{error || "Unknown error"}</p>
         </div>
@@ -89,24 +90,25 @@ export function DiscordProfile({ userId, className }: DiscordProfileProps) {
   };
 
   return (
-    <div className={cn("flex items-center gap-4 p-4 max-sm:gap-2 max-sm:p-0", className)}>
+    <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
       <div className="relative">
         <img
           src={user.avatarUrl}
           alt={`${user.displayName}'s avatar`}
-          className="h-16 w-16 max-sm:h-8 max-sm:w-8 rounded-full ring-2 ring-white/10"
+          className={cn("h-16 w-16 rounded-full ring-2 ring-white/10", compact && "h-8 w-8")}
         />
         <span
           className={cn(
-            "absolute bottom-0 right-0 h-4 w-4 max-sm:h-2.5 max-sm:w-2.5 rounded-full border-2 border-black",
+            "absolute bottom-0 right-0 h-4 w-4 rounded-full border-2 border-black",
+            compact && "h-2.5 w-2.5",
             statusColors[user.status] || statusColors.offline
           )}
           title={user.status}
         />
       </div>
       <div className="min-w-0">
-        <h3 className="truncate font-semibold text-zinc-100 max-sm:hidden">{user.displayName}</h3>
-        <p className="truncate text-sm text-zinc-400 max-sm:text-xs">@{user.username}</p>
+        <h3 className={cn("truncate font-semibold text-zinc-100", compact && "hidden")}>{user.displayName}</h3>
+        <p className={cn("truncate text-sm text-zinc-400", compact && "text-xs")}>@{user.username}</p>
       </div>
     </div>
   );

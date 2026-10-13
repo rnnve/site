@@ -1,6 +1,5 @@
 import { PinkNeutral, Pink, WhiteGreen, PurpleYellow, OrangeYellow } from "@/components/text-effects";
 import { DiscordProfile } from "@/components/DiscordProfile";
-import { Spotify } from "@/components/Spotify";
 import {
   siNextdotjs,
   siAstro,
@@ -27,6 +26,9 @@ export default function Page() {
   return (
     <div className="flex flex-1 justify-start pt-10 pb-16 px-6 sm:px-8">
       <main className="w-full max-w-3xl space-y-4 text-zinc-50 leading-7">
+        <div className="flex flex-col gap-4 mb-4">
+          <DiscordProfile userId="1" compact />
+        </div>
         <h1 className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
           rinne
         </h1>
@@ -55,25 +57,21 @@ export default function Page() {
         <p className="text-zinc-50">for stacks i mostly use these</p>
         <div className="flex flex-wrap items-center gap-3 text-zinc-400">
           {stacks.map(({ name, icon, url }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-zinc-900/50 rounded-full border border-white/5 hover:bg-zinc-800/50 transition-colors"
-              title={name}
-            >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d={icon.path} />
-              </svg>
-              {name}
-            </a>
-          ))}
-        </div>
-        <div className="fixed left-6 right-12 top-4 z-30 flex flex-row items-center justify-between gap-2 sm:left-auto sm:static sm:justify-start sm:gap-4 xl:fixed xl:right-20 xl:top-4 xl:z-30 xl:w-72 xl:flex-col xl:gap-3">
-          <DiscordProfile userId="1" className="flex-1 max-sm:flex-none xl:flex-none xl:w-full" />
-          <Spotify className="flex-1 max-sm:flex-none xl:flex-none xl:w-full" />
-        </div>
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-zinc-900/50 rounded-full border border-white/5 hover:bg-zinc-800/50 transition-colors"
+                title={name}
+              >
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d={icon.path} />
+                </svg>
+                {name}
+              </a>
+            ))}
+          </div>
       </main>
     </div>
   );

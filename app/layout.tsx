@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Thai } from "next/font/google";
 import Script from "next/script";
+import { Spotify } from "@/components/Spotify";
 import SiteFooter from "@/components/SiteFooter";
 import { SocialLinks } from "@/components/SocialLinks";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -55,7 +56,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans relative bg-black pr-12 sm:pr-16 lg:pr-0">
         <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            <SocialLinks />
+            <div className="fixed top-4 right-4 z-40 flex items-start gap-3 sm:right-8">
+              <Spotify />
+              <SocialLinks />
+            </div>
             <main className="flex flex-1 flex-col">{children}</main>
             <div className="ml-auto mt-auto mb-[5px] w-full max-w-3xl px-6 sm:px-8">
               <SiteFooter />

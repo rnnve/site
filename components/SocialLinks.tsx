@@ -17,11 +17,10 @@ export function SocialLinks({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed right-4 top-4 z-40 sm:right-8",
+        "flex flex-col items-end gap-1.5 sm:gap-2",
         className,
       )}
     >
-      <div className="flex flex-col items-end gap-1.5 sm:gap-2">
         <a
           href="https://haunt.gg/rnn"
           target="_blank"
@@ -69,6 +68,5 @@ export function SocialLinks({ className }: { className?: string }) {
           <Mail className={ICON_CLASS} />
         </a>
       </div>
-    </div>
   );
 }
