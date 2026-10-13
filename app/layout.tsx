@@ -56,7 +56,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans relative bg-black">
         <div className="flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            <div className="fixed top-2 right-4 left-4 z-40 flex flex-col items-end gap-1 sm:right-8 sm:left-auto sm:flex-row sm:items-start sm:gap-3 sm:top-4">
+            <div className="fixed top-0 right-4 left-4 z-40 flex flex-col items-end gap-0 sm:right-8 sm:left-auto sm:flex-row sm:items-start sm:gap-3 sm:top-4">
               <Spotify className="w-full min-w-0 max-w-[calc(100vw-2rem)] sm:w-auto sm:max-w-xs" />
               <SocialLinks />
             </div>
