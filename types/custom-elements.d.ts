@@ -13,6 +13,8 @@ declare global {
       Gray: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
       purpleyellow: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
       PurpleYellow: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
+      color: DetailedHTMLProps<HTMLAttributes<HTMLElement> & { color?: string; href?: string; target?: string; rel?: string }, HTMLElement>;
+      Color: DetailedHTMLProps<HTMLAttributes<HTMLElement> & { color?: string; href?: string; target?: string; rel?: string }, HTMLElement>;
       underline: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
       Underline: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
       pink: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;

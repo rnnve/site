@@ -3,12 +3,13 @@ import type { ComponentPropsWithoutRef } from "react";
 import { Time } from "@/components/time";
 import { HoverTooltip } from "@/components/hover-tooltip";
 import { CFlag } from "@/components/country-flag";
+import { Color, type TextColorProps } from "@/components/text-effects";
 
 export function useMDXComponents(components: MDXComponents = {}): MDXComponents {
   return {
     h1: (props: ComponentPropsWithoutRef<"h1">) => (
       <h1
-        className="mt-8 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl"
+        className="mt-0 mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl"
         {...props}
       />
     ),
@@ -38,7 +39,7 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
       const isExternal = href?.startsWith("http");
       return (
         <a
-          className="font-medium text-zinc-50 underline underline-offset-4 transition-colors hover:text-zinc-200"
+          className="font-medium text-zinc-50 transition-colors hover:text-zinc-200"
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
           {...props}
@@ -184,6 +185,12 @@ export function useMDXComponents(components: MDXComponents = {}): MDXComponents 
         className={`text-purpleyellow-gradient font-semibold ${className || ""}`}
         {...props}
       />
+    ),
+    Color: ({ color, className = "", ...props }: TextColorProps) => (
+      <Color color={color} className={className} {...props} />
+    ),
+    color: ({ color, className = "", ...props }: TextColorProps) => (
+      <Color color={color} className={className} {...props} />
     ),
     line: ({ className, ...props }: ComponentPropsWithoutRef<"hr">) => (
       <hr
