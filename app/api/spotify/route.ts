@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const UPSTREAM_URL = "https://spotify.maplenan.org/api/spotify";
+const UPSTREAM_URL = "https://sptf.rynni.cc/api/spotify";
 const MAX_ATTEMPTS = 3;
 
 async function fetchUpstream(): Promise<Response | null> {

@@ -7,7 +7,7 @@ export async function GET(
   const { id } = await params;
 
   try {
-    const response = await fetch(`https://api.mapleji.xyz/v2/discord/user/${id}`, {
+    const response = await fetch(`https://api.rynni.cc/v2/discord/user/${id}`, {
       headers: {
         "User-Agent": "Mozilla/5.0 (compatible; site-v2/1.0)",
       },
