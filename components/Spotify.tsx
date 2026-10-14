@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { siSpotify } from "simple-icons";
+import { placementClass, mobileVariant, type Placement } from "@/lib/placement";
 
 interface SpotifyTrack {
   isPlaying: boolean;
@@ -17,9 +17,12 @@ interface SpotifyTrack {
 
 interface SpotifyProps {
   className?: string;
+  placement?: Placement;
+  /** Same as `placement`, applied only on mobile (below the `lg` breakpoint). */
+  "mobile-placement"?: Placement;
 }
 
-export function Spotify({ className }: SpotifyProps) {
+export function Spotify({ className, placement, "mobile-placement": mobilePlacement }: SpotifyProps) {
   const [track, setTrack] = useState<SpotifyTrack | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -89,24 +92,14 @@ export function Spotify({ className }: SpotifyProps) {
     };
   }, []);
 
+  // Hide while we don't yet know what's playing, so nothing flashes on load.
   if (loading) {
-    return (
-      <div className={cn("flex items-center gap-2 p-1.5 max-sm:p-1", className)}>
-        <div className="animate-pulse h-8 w-8 shrink-0 rounded bg-zinc-800" />
-        <div className="animate-pulse h-4 w-32 max-sm:w-20 rounded bg-zinc-800" />
-      </div>
-    );
+    return null;
   }
 
+  // Nothing playing → render nothing at all.
   if (!track || !track.isPlaying) {
-    return (
-      <div className={cn("sm:hidden flex items-center gap-2 p-1.5 text-zinc-400 max-sm:p-1", className)}>
-        <svg className="h-8 w-8 shrink-0 text-zinc-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d={siSpotify.path} />
-        </svg>
-        <p className="whitespace-nowrap text-sm">Nothing playing</p>
-      </div>
-    );
+    return null;
   }
 
   return (
@@ -114,13 +107,13 @@ export function Spotify({ className }: SpotifyProps) {
       href={track.trackUrl || "#"}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("flex items-center gap-2 p-1.5 max-sm:p-1 min-w-0", className)}
+      className={cn("max-lg:mx-auto max-lg:max-w-[min(28rem,100%)] group flex items-center gap-2 p-1.5 max-sm:p-1 min-w-0 rounded-md transition-opacity duration-200 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink", placementClass(placement), mobileVariant(placementClass(mobilePlacement)), className)}
     >
       {track.albumArt && (
         <img
           src={track.albumArt}
           alt={`${track.name} album art`}
-          className="h-8 w-8 shrink-0 rounded object-cover"
+          className="h-8 w-8 shrink-0 rounded object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
       )}
       <div ref={marqueeRef} className="relative min-w-0 flex-1 overflow-hidden">
