@@ -142,6 +142,42 @@ Pink colored text.
 <Pink>Your text here</Pink>
 ```
 
+### `<Color>` / `<color>`
+
+Sets the text color. Accepts CSS color names (e.g. `Aqua`, `Purple`, `Green`) or hex codes — with or without the leading `#`.
+
+<Color color="Aqua">This text is aqua</Color>
+
+<color color="Purple">This text is purple</color>
+
+<Color color="Green">This text is green</Color>
+
+<Color color="#f58bcb">This text is #f58bcb</Color>
+
+<Color color="ff0066">This text is ff0066 (auto-prefixed with #)</Color>
+
+<Color color="#8ef0c0" href="https://github.com/rnnve">This colored text is a link</Color>
+
+**Usage:**
+```mdx
+<Color color="Aqua">Your text here</Color>
+<color color="#f58bcb">Hex codes work too</color>
+<Color color="ff0066"># is optional for hex</Color>
+
+{/* Renders as a link when `href` is set */}
+<Color color="Aqua" href="https://example.com">Colored link</Color>
+```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `color` | string | Yes | CSS color name or hex code (with or without `#`) |
+| `href` | string | No | When set, renders the colored text as a link |
+| `target` | string | No | Anchor target. Defaults to `_blank` for `http(s)` URLs |
+| `rel` | string | No | Anchor rel. Defaults to `noopener noreferrer` for `http(s)` URLs |
+
+> **Note:** Both `<Color>` (capitalized) and `<color>` (lowercase) are supported. When `href` is set the text renders as an `<a>` with the same color styling.
+
 ### `<Underline>`
 
 Underlined text with custom styling.
@@ -308,6 +344,90 @@ Displays a country flag using a 2-letter country code (ISO 3166-1 alpha-2).
 |------|------|----------|-------------|
 | `children` | string | Yes | 2-letter country code (e.g., "TH", "US", "JP") |
 | `className` | string | No | Additional CSS classes |
+
+<Line />
+
+## Widgets
+
+These components are imported from `@/components` in your MDX files. Each accepts an optional `placement` prop that pins it to a corner (or edge) of the viewport.
+
+```mdx
+import { DiscordProfile } from "@/components/DiscordProfile";
+import { Spotify } from "@/components/Spotify";
+import { SocialLinks } from "@/components/SocialLinks";
+
+<DiscordProfile userId="1" compact placement="top-right" />
+<Spotify placement="bottom-left" />
+<SocialLinks placement="bottom-right" />
+```
+
+**`placement` values:**
+
+| Value | Position |
+|-------|----------|
+| `top-left` | Top-left corner |
+| `top-center` | Top center |
+| `top-right` | Top-right corner |
+| `bottom-left` | Bottom-left corner |
+| `bottom-center` | Bottom center |
+| `bottom-right` | Bottom-right corner |
+
+> **Note:** Omit `placement` to keep the widget in the normal document flow (the default). For `SocialLinks`, the default behavior is a centered inline row on small screens that becomes a fixed vertical rail on `lg` and up; setting `placement` replaces that rail with the chosen position.
+>
+> `Spotify` renders nothing unless a track is actively playing, so its example above only appears while you're listening.
+
+### `<SocialLinks>` size & spacing
+
+`SocialLinks` also accepts `size` (icon + button diameter) and `spacing` (gap between icons) presets.
+
+```mdx
+<SocialLinks size="lg" spacing="sm" />
+<SocialLinks size="sm" spacing="xl" placement="top-right" />
+```
+
+**`size` values:**
+
+| Value | Icon | Button |
+|-------|------|--------|
+| `sm` | 16px | 36px |
+| `md` | 20px | 44px |
+| `lg` | 24px | 48px |
+| `xl` | 28px | 56px |
+
+**`spacing` values:**
+
+| Value | Gap |
+|-------|-----|
+| `none` | 0 |
+| `sm` | 4px |
+| `md` | 8px |
+| `lg` | 12px |
+| `xl` | 16px |
+
+> **Defaults:** `size` uses the responsive 44px button (40px on `lg`) with a 20px icon; `spacing` uses `6px`. Both `size` and `spacing` are independent of `placement` and can be combined.
+
+### `mobile-` overrides
+
+Any of the props above can be given a different value on mobile with a `mobile-` prefixed variant. These apply below the `lg` breakpoint (the site's mobile layout).
+
+```mdx
+{/* bottom-right on desktop, top-right on mobile */}
+<DiscordProfile userId="1" compact placement="bottom-right" mobile-placement="top-right" />
+
+<SocialLinks
+  placement="bottom-right" mobile-placement="top-left"
+  size="lg" mobile-size="sm"
+  spacing="lg" mobile-spacing="none"
+/>
+```
+
+| Prop | Mobile override | Applies to |
+|------|-----------------|------------|
+| `placement` | `mobile-placement` | `DiscordProfile`, `Spotify`, `SocialLinks` |
+| `size` | `mobile-size` | `SocialLinks` |
+| `spacing` | `mobile-spacing` | `SocialLinks` |
+
+> **Note:** The prefix uses a dash (`mobile-placement`), not a colon. JSX namespaced attributes like `mobile:placement` are rejected by the compiler because React does not support them.
 
 <Line />
 
