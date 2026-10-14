@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_Thai } from "next/font/google";
 import Script from "next/script";
-import { Spotify } from "@/components/Spotify";
 import SiteFooter from "@/components/SiteFooter";
-import { SocialLinks } from "@/components/SocialLinks";
+import { SiteNav } from "@/components/SiteNav";
+import { CursorGlow } from "@/components/CursorGlow";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -54,14 +54,19 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans relative bg-black">
-        <div className="flex flex-1 flex-col">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+        >
+          <div className="bg-dot-grid absolute inset-0" />
+          <div className="bg-cursor-glow absolute inset-0" />
+        </div>
+        <CursorGlow />
+        <div className="relative z-10 flex flex-1 flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark">
-            <div className="fixed top-5 right-4 left-4 z-40 flex flex-col items-end gap-0 sm:right-8 sm:left-auto sm:flex-row sm:items-start sm:gap-3 sm:top-4">
-              <Spotify className="w-full min-w-0 max-w-[calc(100vw-2rem)] sm:w-auto sm:max-w-xs" />
-              <SocialLinks />
-            </div>
+            <SiteNav />
             <main className="flex flex-1 flex-col">{children}</main>
-            <div className="ml-auto mt-auto mb-[5px] w-full max-w-3xl px-5 sm:px-8">
+            <div className="mt-auto w-full max-w-2xl px-6 sm:px-8">
               <SiteFooter />
             </div>
           </ThemeProvider>
