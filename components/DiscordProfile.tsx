@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { placementClass, mobileVariant, type Placement } from "@/lib/placement";
 
 interface DiscordUser {
   displayName: string;
@@ -15,9 +16,12 @@ interface DiscordProfileProps {
   userId?: string;
   className?: string;
   compact?: boolean;
+  placement?: Placement;
+  /** Same as `placement`, applied only on mobile (below the `lg` breakpoint). */
+  "mobile-placement"?: Placement;
 }
 
-export function DiscordProfile({ userId, className, compact }: DiscordProfileProps) {
+export function DiscordProfile({ userId, className, compact, placement, "mobile-placement": mobilePlacement }: DiscordProfileProps) {
   const [user, setUser] = useState<DiscordUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,7 +62,7 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
 
   if (loading) {
     return (
-      <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
+      <div className={cn("max-lg:mx-auto max-lg:max-w-full flex items-center gap-4 p-4", compact && "gap-2 p-0", placementClass(placement), mobileVariant(placementClass(mobilePlacement)), className)}>
         <div className={cn("animate-pulse h-16 w-16 rounded-full bg-zinc-800", compact && "h-8 w-8")} />
         <div className={cn("space-y-2", compact && "hidden")}>
           <div className="animate-pulse h-6 w-40 bg-zinc-800 rounded" />
@@ -70,7 +74,7 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
 
   if (error || !user) {
     return (
-      <div className={cn("flex items-center gap-4 p-4 text-zinc-400", compact && "gap-2 p-0", className)}>
+      <div className={cn("max-lg:mx-auto max-lg:max-w-full flex items-center gap-4 p-4 text-zinc-400", compact && "gap-2 p-0", placementClass(placement), mobileVariant(placementClass(mobilePlacement)), className)}>
         <svg className={cn("h-16 w-16 text-zinc-600", compact && "h-8 w-8")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
@@ -90,7 +94,7 @@ export function DiscordProfile({ userId, className, compact }: DiscordProfilePro
   };
 
   return (
-    <div className={cn("flex items-center gap-4 p-4", compact && "gap-2 p-0", className)}>
+    <div className={cn("max-lg:mx-auto max-lg:max-w-full flex items-center gap-4 p-4", compact && "gap-2 p-0", placementClass(placement), mobileVariant(placementClass(mobilePlacement)), className)}>
       <div className="relative">
         <img
           src={user.avatarUrl}
